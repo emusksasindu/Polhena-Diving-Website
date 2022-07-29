@@ -1,4 +1,4 @@
-
+@include('layouts.header')
 
 <!-- home section starts  -->
 
@@ -604,3 +604,4 @@
 
 </section>
 
+@include('layouts.footer')
