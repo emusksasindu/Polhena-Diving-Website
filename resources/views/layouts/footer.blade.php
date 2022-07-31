@@ -43,7 +43,7 @@
 
     </div>
 
-    <div class="credit">created by <span>mr. web designer</span> | all rights reserved!</div>
+    <div class="credit">created by <span>ICBT 96 Batch Group 9</span> | all rights reserved!</div>
 
 </section>
 

@@ -1,6 +1,6 @@
 @include('layouts.header')
 
-<!-- home section starts  -->
+<!-- HOME section starts  -->
 
 <section class="home" id="home">
 
@@ -50,74 +50,14 @@
 
 </section>
 
-<!-- home section ends -->
+<!-- HOME section ends -->
 
-<!-- category section starts  -->
-
-<section class="category">
-
-    <h1 class="heading">adventure idea!</h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="images/category-1.jpg" alt="">
-            <h3>bungee jump</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/category-2.jpg" alt="">
-            <h3>zip lines</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/category-3.jpg" alt="">
-            <h3>Canoeing</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/category-4.jpg" alt="">
-            <h3>kayaking</h3>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum, id.</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-    </div>
-
-</section>
-
-<!-- category section ends -->
-
-<!-- about section starts  -->
-
-<section class="about" id="about">
-
-    <div class="image">
-        <img src="images/about-img.jpg" alt="">
-    </div>
-
-    <div class="content">
-        <h3>memorable outdoor experiences</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque voluptates corrupti natus necessitatibus beatae voluptatibus, deserunt quo soluta minima libero laborum, corporis error esse vitae placeat blanditiis reiciendis vel? Minima.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident dicta doloremque placeat porro, ipsam quia at beatae atque odit iste?</p>
-        <a href="#" class="btn">read more</a>
-    </div>
-
-</section>
-
-<!-- about section ends -->
-
-<!-- shop section starts  -->
+<!-- LATEST PRODUCTS section starts  -->
 
 <section class="shop" id="shop">
 
-    <h1 class="heading">featured products</h1>
+    <h1 class="heading">LATEST PRODUCTS
+    </h1>
 
     <div class="swiper product-slider">
 
@@ -264,13 +204,14 @@
 
 </section>
 
-<!-- shop section ends -->
+<!-- LATEST PRODUCTS section ends -->
 
-<!-- packages section starts  -->
+<!-- LATEST SERVICES section starts  -->
 
 <section class="packages" id="packages">
 
-    <h1 class="heading">popular packages</h1>
+    <h1 class="heading">LATEST SERVICES/ WHAT WE OFFER??
+    </h1>
 
     <div class="box-container">
 
@@ -350,7 +291,30 @@
 
 </section>
 
-<!-- packages section ends -->
+<!-- LATEST SERVICES section ends -->
+
+<!-- GALLERY section starts -->
+
+
+<section class="gallery" id="gallery">
+
+    <h1 class="heading">GALLERY</h1>
+
+    <div class="swiper-container gallery-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="images/slide-1.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/slide-2.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/slide-3.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/slide-4.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/slide-5.jpg" alt=""></div>
+            <div class="swiper-slide"><img src="images/slide-6.jpg" alt=""></div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- GALLERY section ends -->
 
 <!-- reviews section starts  -->
 
@@ -436,61 +400,6 @@
 
 <!-- reviews section ends -->
 
-<!-- services section starts  -->
-
-<section class="services">
-
-    <h1 class="heading"> what we offer </h1>
-
-    <div class="box-container">
-
-        <div class="box">
-            <img src="images/serv-1.png" alt="">
-            <h3>complete guide</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/serv-2.png" alt="">
-            <h3>custom packages</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/serv-3.png" alt="">
-            <h3>family trips</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/serv-4.png" alt="">
-            <h3>train guides</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/serv-5.png" alt="">
-            <h3>adventure trail</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-
-        <div class="box">
-            <img src="images/serv-6.png" alt="">
-            <h3>various adventures</h3>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellendus, nihil?</p>
-            <a href="#" class="btn">read more</a>
-        </div>
-        
-    </div>
-
-</section>
-
-<!-- services section ends -->
 
 <!-- blogs section starts  -->
 
@@ -581,27 +490,19 @@
 <section class="newsletter">
 
     <div class="content">
-        <h1 class="heading">subscirbe now</h1>
+        <h1 class="heading">CONTACT US</h1>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam ipsam repellat nostrum esse officiis unde quisquam corporis doloremque adipisci similique!</p>
         <form action="">
+            <input type="text" name="" placeholder="enter your name" id="" class="email">
             <input type="email" name="" placeholder="enter your email" id="" class="email">
+            <input type="tel" name="" placeholder="enter your number" id="" class="email">
+            <input type="text" name="" placeholder="enter the subject" id="" class="email">
+            <textarea cols="40" rows="5" type="text" name="" placeholder="enter your message" id="" class="subject"></textarea>
             <input type="submit" value="subscirbe" class="btn">
         </form>
     </div>
 
 </section>
 
-<section class="clients">
-
-    <div class="swiper clients-slider">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide silde"><img src="images/client-logo-1.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="images/client-logo-2.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="images/client-logo-3.png" alt=""></div>
-            <div class="swiper-slide silde"><img src="images/client-logo-4.png" alt=""></div>
-        </div>
-    </div>
-
-</section>
 
 @include('layouts.footer')
