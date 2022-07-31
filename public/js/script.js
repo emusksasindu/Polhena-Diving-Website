@@ -36,6 +36,26 @@ window.onload = () =>{
     }
 };
 
+var swiper = new Swiper(".gallery-slider", {
+  effect: "coverflow",
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 2,
+    slideShadows: true,
+  },
+  loop:true,
+  autoplay:{
+    delay: 1000,
+    disableOnInteraction:false,
+  }
+});
+
+
 
 var swiper = new Swiper(".home-slider", {
     loop:true, 

@@ -25,11 +25,11 @@ html::-webkit-scrollbar {
 }
 
 html::-webkit-scrollbar-track {
-  background: #fff;
+  background: rgb(255, 255, 255);
 }
 
 html::-webkit-scrollbar-thumb {
-  background: #10221b;
+  background: #00b7ff;
 }
 
 section {
@@ -39,24 +39,25 @@ section {
 .btn {
   margin-top: 1rem;
   display: inline-block;
-  border: 0.2rem solid #10221b;
-  color: #10221b;
+  border: 0.2rem solid #f1f1f1;
+  color: #ffffff;
   cursor: pointer;
   background: none;
+  border-radius: 25rem;
   font-size: 1.7rem;
   padding: 1rem 3rem;
 }
 
 .btn:hover {
-  background: #10221b;
-  color: #fff;
+  background: #ffffff;
+  color: rgb(3, 55, 78);
 }
 
 .heading {
   text-align: center;
   margin-bottom: 2.5rem;
   font-size: 4rem;
-  color: #10221b;
+  color: #006492;
 }
 
 .header {
@@ -75,36 +76,37 @@ section {
 }
 
 .header.active {
-  background: #fff;
+  background: rgba(0, 172, 252, 0.884);
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+          color: rgb(180, 180, 180);
 }
 
 .header .logo {
   margin-right: auto;
   font-size: 2.5rem;
-  color: #10221b;
+  color: #3d3d3d;
   font-weight: bolder;
 }
 
 .header .logo i {
-  color: #219150;
+  color: #033247;
 }
 
 .header .navbar a {
   margin-left: 2rem;
   font-size: 1.7rem;
-  color: #10221b;
+  color: #01161f;
 }
 
 .header .navbar a:hover {
-  color: #219150;
+  color: #ffffff;
 }
 
 .header .navbar #nav-close {
   font-size: 5rem;
   cursor: pointer;
-  color: #10221b;
+  color: #00b7ff;
   display: none;
 }
 
@@ -113,12 +115,12 @@ section {
   font-size: 2.5rem;
   margin-left: 2rem;
   cursor: pointer;
-  color: #10221b;
+  color: #021b25;
 }
 
 .header .icons a:hover,
 .header .icons div:hover {
-  color: #219150;
+  color: #ffffff;
 }
 
 .header #menu-btn {
@@ -131,7 +133,7 @@ section {
   left: 0;
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(3, 61, 116, 0.8);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -161,7 +163,7 @@ section {
 }
 
 .search-form #close-search:hover {
-  color: #219150;
+  color: #00b7ff;
 }
 
 .search-form form {
@@ -209,7 +211,7 @@ section {
 }
 
 .search-form form label:hover {
-  color: #219150;
+  color: #00b7ff;
 }
 
 .home {
@@ -244,27 +246,45 @@ section {
 
 .home .box .content span {
   font-size: 4rem;
-  color: #10221b;
+  padding: 2rem;
+  color: #ffffff;
+
 }
 
 .home .box .content h3 {
   font-size: 6rem;
-  color: #219150;
+  color: #00b7ff;
   padding-top: .5rem;
   text-transform: uppercase;
 }
 
 .home .box .content p {
   line-height: 2;
-  color: #10221b;
+  color: #ffffff;
   font-size: 1.5rem;
-  padding: 1rem 0;
+  padding: 2rem;
 }
+
+.gallery .gallery-slider .swiper-slide{
+  overflow: hidden;
+  border-radius: .5rem;
+  height: 50rem;
+  width:35rem;
+}
+
+.gallery .gallery-slider .swiper-slide img{
+  height:100%;
+  width:100%;
+  object-fit: cover;
+}
+
+
+
 
 .swiper-button-next::after,
 .swiper-button-prev::after {
   font-size: 3rem;
-  color: #10221b;
+  color: #02255a;
 }
 
 .category .box-container {
@@ -294,7 +314,7 @@ section {
 
 .category .box-container .box p {
   font-size: 1.5rem;
-  color: #10221b;
+  color: #00b7ff;
   padding: 1rem 0;
   line-height: 2;
 }
@@ -339,13 +359,13 @@ section {
 
 .about .content p {
   font-size: 1.5rem;
-  color: #10221b;
+  color: #00b7ff;
   padding: 1rem 0;
   line-height: 2;
 }
 
 .shop .slide {
-  border: 0.2rem solid #10221b;
+  border: 0.2rem solid #00b7ff;
 }
 
 .shop .slide:hover .image .icons {
@@ -383,7 +403,7 @@ section {
   width: 4.5rem;
   line-height: 4.5rem;
   font-size: 1.7rem;
-  background: #10221b;
+  background: #00b7ff;
   color: #fff;
   margin: 0 .2rem;
 }
@@ -399,7 +419,7 @@ section {
 
 .shop .slide .content h3 {
   font-size: 2rem;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .shop .slide .content .price {
@@ -411,7 +431,7 @@ section {
 
 .shop .slide .content .stars i {
   font-size: 1.7rem;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .packages {
@@ -429,14 +449,14 @@ section {
 .packages .box-container .box {
   text-align: center;
   background: #fff;
-  border: 0.2rem solid #10221b;
+  border: 0.2rem solid #00b7ff;
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   border-radius: .5rem;
 }
 
 .packages .box-container .box:hover {
-  background: #10221b;
+  background: #00b7ff;
 }
 
 .packages .box-container .box:hover .content > * {
@@ -449,7 +469,7 @@ section {
 
 .packages .box-container .box:hover .btn:hover {
   background: #fff;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .packages .box-container .box .image {
@@ -474,12 +494,12 @@ section {
 
 .packages .box-container .box .content h3 {
   font-size: 2rem;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .packages .box-container .box .content p {
   font-size: 1.5rem;
-  color: #10221b;
+  color: #00b7ff;
   padding: 1rem 0;
   line-height: 2;
 }
@@ -504,13 +524,13 @@ section {
 .services .box-container .box {
   text-align: center;
   padding: 2rem;
-  border: 0.2rem solid #10221b;
+  border: 0.2rem solid #00b7ff;
   border-radius: .5rem;
   background: #fff;
 }
 
 .services .box-container .box:hover {
-  background: #10221b;
+  background: #00b7ff;
 }
 
 .services .box-container .box:hover img {
@@ -529,7 +549,7 @@ section {
 
 .services .box-container .box:hover .btn:hover {
   background: #fff;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .services .box-container .box img {
@@ -544,7 +564,7 @@ section {
 
 .services .box-container .box p {
   font-size: 1.5rem;
-  color: #10221b;
+  color: #00b7ff;
   padding: 1rem 0;
   line-height: 2;
 }
@@ -555,7 +575,7 @@ section {
   font-style: italic;
   background: #eee;
   border-radius: .5rem;
-  color: #10221b;
+  color: #00b7ff;
   line-height: 2;
   position: relative;
   z-index: 0;
@@ -592,7 +612,7 @@ section {
 
 .reviews .slide .user h3 {
   font-size: 2rem;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .reviews .slide .user span {
@@ -614,7 +634,7 @@ section {
 }
 
 .blogs .slide .icons {
-  background: #10221b;
+  background: #00b7ff;
   border-radius: .5rem;
   padding: 1rem;
   position: relative;
@@ -639,14 +659,14 @@ section {
 
 .blogs .slide h3 {
   font-size: 2rem;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .blogs .slide p {
   font-size: 1.4rem;
   padding: 1rem 0;
   line-height: 2;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .newsletter {
@@ -662,39 +682,53 @@ section {
 .newsletter .content p {
   font-size: 1.5rem;
   line-height: 2;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .newsletter .content form {
   margin-top: 2rem;
   background: #fff;
   border-radius: 5rem;
-  border: 0.2rem solid #10221b;
-  padding: .7rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  border: 0.2rem solid #00b7ff;
+  padding: 2.3rem;
+  align-items: center;
 }
 
 .newsletter .content form .email {
   width: 100%;
   background: none;
+  border-radius: 5rem;
+  border: 0.1rem solid #00b7ff;
   text-transform: none;
   font-size: 1.6rem;
-  color: #10221b;
-  padding: 0 1.3rem;
+  color: #00b7ff;
+  padding: 1rem 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.newsletter .content form .subject {
+  width: 100%;
+  background: none;
+  border-radius: 5rem;
+  border: 0.1rem solid #00b7ff;
+  text-transform: none;
+  font-size: 1.6rem;
+  color: #00b7ff;
+  padding: 4rem 1.3rem;
+  margin-bottom: 0.5rem;
+  resize: unset;
 }
 
 .newsletter .content form .btn {
   margin-top: 0;
   border-radius: 5rem;
-  background: #10221b;
+  background: #00b7ff;
   color: #fff;
 }
 
 .newsletter .content form .btn:hover {
   background: none;
-  color: #10221b;
+  color: #00b7ff;
 }
 
 .clients .silde {

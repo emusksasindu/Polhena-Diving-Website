@@ -21,14 +21,15 @@
 
 <header class="header">
 
-    <a href="#" class="logo"> <i class="fas fa-hiking"></i> travel. </a>
+    <a href="#" class="logo"> <i class="fas fa-swimmer"></i> POLHENA
+        DIVING CENTRE </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
         <a href="#home">home</a>
         <a href="#about">about</a>
-        <a href="#shop">shop</a>
-        <a href="#packages">packages</a>
+        <a href="#shop">products</a>
+        <a href="#packages">services</a>
         <a href="#reviews">reviews</a>
         <a href="#blogs">blogs</a>
     </nav>
