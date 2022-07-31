@@ -11,7 +11,6 @@
 
 namespace Symfony\Component\HttpKernel\Debug;
 
-use Symfony\Component\ErrorHandler\ErrorRenderer\ErrorRendererInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -25,19 +24,27 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
  */
 class FileLinkFormatter
 {
+    private const FORMATS = [
+        'textmate' => 'txmt://open?url=file://%f&line=%l',
+        'macvim' => 'mvim://open?url=file://%f&line=%l',
+        'emacs' => 'emacs://open?url=file://%f&line=%l',
+        'sublime' => 'subl://open?url=file://%f&line=%l',
+        'phpstorm' => 'phpstorm://open?file=%f&line=%l',
+        'atom' => 'atom://core/open/file?filename=%f&line=%l',
+        'vscode' => 'vscode://file/%f:%l',
+    ];
+
     private array|false $fileLinkFormat;
-    private ?RequestStack $requestStack = null;
+    private $requestStack = null;
     private ?string $baseDir = null;
     private \Closure|string|null $urlFormat;
 
     /**
      * @param string|\Closure $urlFormat the URL format, or a closure that returns it on-demand
      */
-    public function __construct(string $fileLinkFormat = null, RequestStack $requestStack = null, string $baseDir = null, string|\Closure $urlFormat = null)
+    public function __construct(string|array $fileLinkFormat = null, RequestStack $requestStack = null, string $baseDir = null, string|\Closure $urlFormat = null)
     {
-        $fileLinkFormat ??= $_SERVER['SYMFONY_IDE'] ?? null;
-        $fileLinkFormat = (ErrorRendererInterface::IDE_LINK_FORMATS[$fileLinkFormat] ?? $fileLinkFormat) ?: ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format') ?: false;
-        if ($fileLinkFormat && !\is_array($fileLinkFormat)) {
+        if (!\is_array($fileLinkFormat) && $fileLinkFormat = (self::FORMATS[$fileLinkFormat] ?? $fileLinkFormat) ?: \ini_get('xdebug.file_link_format') ?: get_cfg_var('xdebug.file_link_format') ?: false) {
             $i = strpos($f = $fileLinkFormat, '&', max(strrpos($f, '%f'), strrpos($f, '%l'))) ?: \strlen($f);
             $fileLinkFormat = [substr($f, 0, $i)] + preg_split('/&([^>]++)>/', substr($f, $i), -1, \PREG_SPLIT_DELIM_CAPTURE);
         }
@@ -81,7 +88,7 @@ class FileLinkFormatter
     {
         try {
             return $router->generate($routeName).$queryString;
-        } catch (\Throwable) {
+        } catch (\Throwable $e) {
             return null;
         }
     }
