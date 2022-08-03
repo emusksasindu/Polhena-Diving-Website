@@ -18,4 +18,14 @@ class order extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Get the payment associated with the order
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function payment(): HasOne
+    {
+        return $this->hasOne(payment::class);
+    }
 }
