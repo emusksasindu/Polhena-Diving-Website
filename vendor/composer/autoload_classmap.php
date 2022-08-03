@@ -6,6 +6,11 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Andyabih\\LaravelToUML\\Facades\\LaravelToUML' => $vendorDir . '/andyabih/laravel-to-uml/src/Facades/LaravelToUML.php',
+    'Andyabih\\LaravelToUML\\Http\\Controllers\\Controller' => $vendorDir . '/andyabih/laravel-to-uml/src/Http/Controllers/Controller.php',
+    'Andyabih\\LaravelToUML\\Http\\Controllers\\LaravelToUMLController' => $vendorDir . '/andyabih/laravel-to-uml/src/Http/Controllers/LaravelToUMLController.php',
+    'Andyabih\\LaravelToUML\\LaravelToUML' => $vendorDir . '/andyabih/laravel-to-uml/src/LaravelToUML.php',
+    'Andyabih\\LaravelToUML\\LaravelToUMLServiceProvider' => $vendorDir . '/andyabih/laravel-to-uml/src/LaravelToUMLServiceProvider.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
