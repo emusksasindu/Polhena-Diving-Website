@@ -32,6 +32,20 @@
         <a href="#packages">services</a>
         <a href="#reviews">reviews</a>
         <a href="#blogs">blogs</a>
+        @if (Auth::check())
+        <a href="#">{{ Auth::user()->name }}</a>
+        <a class="dropdown-item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                                          document.getElementById('logout-form').submit();">
+                             {{ __('Logout') }}
+                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                         </a>
+                         @else
+                         <a href="login">login</a>
+                         <a href="register">register</a>
+                         @endif
     </nav>
 
     <div class="icons">
