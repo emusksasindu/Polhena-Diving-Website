@@ -71,14 +71,14 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: rgb(2, 130, 250);
+  background: rgba(2, 130, 250, 0);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
 .header.active {
-  background: rgba(0, 172, 252, 0.774);
+  background: rgba(13, 140, 238, 0.774);
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
           color: rgb(180, 180, 180);
@@ -98,17 +98,17 @@ section {
 .header .navbar a {
   margin-left: 2rem;
   font-size: 1.7rem;
-  color: #ffffff;
+  color: #000000;
 }
 
 .header .navbar a:hover {
-  color: #005281;
+  color: #00528100;
 }
 
 .header .navbar #nav-close {
   font-size: 5rem;
   cursor: pointer;
-  color: #00b7ff;
+  color: #1f536800;
   display: none;
 }
 
@@ -122,7 +122,7 @@ section {
 
 .header .icons a:hover,
 .header .icons div:hover {
-  color: #005281;
+  color: #ffffff;
 }
 
 .header #menu-btn {
