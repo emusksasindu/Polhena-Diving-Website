@@ -31,20 +31,7 @@
         <a href="#packages">services</a>
         <a href="#reviews">reviews</a>
         <a href="#blogs">blogs</a>
-        @if (Auth::check())
-        <a href="#">{{ Auth::user()->name }}</a>
-        <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                          document.getElementById('logout-form').submit();">
-                             {{ __('Logout') }}
-                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                         </a>
-                         @else
-                         <a href="login">login</a>
-                         <a href="register">register</a>
-                         @endif
+        
     </nav>
 
     <div class="icons">
@@ -52,6 +39,47 @@
         <a href="#" class="fas fa-shopping-cart"></a>
         <div id="search-btn" class="fas fa-search"></div>
     </div>
+
+
+    
+    @if (Auth::check())
+    <ul >
+        <li class="dropdown">
+            <div class="icons">
+                <a id="account" href="javascript:void(0)">{{ Auth::user()->name }}</a>
+            </div>
+         
+          <div class="dropdown-content">
+            <a  href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+             {{ __('Logout') }}
+             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+            </form>
+         </a>
+          </div>
+        </li>
+      </ul>
+                         @else
+                         <ul>
+                            <li class="dropdown">
+                                <div class="icons">
+                                    <a href="javascript:void(0)" class="fas fa-user"></a>
+                                </div>
+                             
+                              <div class="dropdown-content">
+                                <a  href="login">login</a>
+                                <a  href="register">register</a>
+                              </div>
+                            </li>
+                          </ul>
+                        
+                         @endif
+
+   
+
+  
 
 </header>
 
