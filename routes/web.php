@@ -27,7 +27,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
     Route::get('/admin', function()
     {
-        // can only access this if type == A
+        return view('index');
     });
 
 });
