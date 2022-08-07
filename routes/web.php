@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('index');
 
 
+
+// this route group use for admin only sections
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
     Route::get('/admin', function()
