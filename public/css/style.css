@@ -37,11 +37,30 @@ section {
   padding: 5rem 9%;
 }
 
-.btn {
+.btnHome {
   margin-top: 1rem;
   display: inline-block;
   border: 0.2rem solid #f1f1f1;
   color: #ffffff;
+  cursor: pointer;
+  background: none;
+  border-radius: 25rem;
+  font-size: 1.7rem;
+  padding: 1rem 3rem;
+}
+
+.btnHome:hover {
+  background: #ffffff;
+  color: rgb(3, 55, 78);
+  font-size: 2rem;
+}
+
+
+.btn {
+  margin-top: 1rem;
+  display: inline-block;
+  border: 0.2rem solid #f1f1f1;
+  color: #00326b;
   cursor: pointer;
   background: none;
   border-radius: 25rem;
@@ -78,7 +97,7 @@ section {
 }
 
 .header.active {
-  background: rgba(0, 81, 173, 0.925);
+  background:  #000000a4;
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
           color: rgb(180, 180, 180);
@@ -100,11 +119,15 @@ section {
 .header .navbar a {
   margin-left: 2rem;
   font-size: 1.7rem;
-  color: #000000;
+  color: #ffffff;
 }
 
 .header .navbar a:hover {
-  color: #00d9ff;
+  color: rgb(0, 255, 191);
+  border: 0.2rem solid #f1f1f1;
+  border-radius: 4rem;
+  font-size: x-large;
+ 
 }
 
 .header .navbar #nav-close {
@@ -185,7 +208,7 @@ li.dropdown {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
+  text-align: center;
   font-size: 2rem;
  
   border-radius: 2.5rem;
@@ -940,7 +963,7 @@ li.dropdown {
     position: fixed;
     top: 0;
     left: -110%;
-    background: #fff;
+    background: rgba(49, 49, 49, 0.856);
     z-index: 10000;
     width: 35rem;
     height: 100%;

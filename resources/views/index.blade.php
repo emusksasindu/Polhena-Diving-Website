@@ -14,7 +14,7 @@
                         <span>never stop</span>
                         <h3>exploring</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn">get started</a>
+                        <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                         <span>make tour</span>
                         <h3>amazing</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn">get started</a>
+                        <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
             </div>
@@ -36,7 +36,7 @@
                         <span>explore the</span>
                         <h3>new world</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
-                        <a href="#" class="btn">get started</a>
+                        <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
             </div>
