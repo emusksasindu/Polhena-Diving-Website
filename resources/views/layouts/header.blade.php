@@ -22,7 +22,7 @@
 
 <header class="header">
 
-<a href="#"> <img src='images\PDC Logo.png' alt="Image" height="60" width="251.76"> </a>
+<a href="#" class ="logo"> <img src='images\PDC Logo.png' alt="Image" height="60" width="251.76"> </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
