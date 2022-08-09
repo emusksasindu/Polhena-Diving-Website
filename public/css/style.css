@@ -80,6 +80,11 @@ section {
   color: #02afff;
 }
 
+.heading #account {
+ padding-top: 6rem;
+ color: #02afff;
+}
+
 .header {
   position: fixed;
   top: 0;
@@ -90,7 +95,7 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background: rgba(2, 130, 250, 0);
+  background: rgba(0, 0, 0, 0.253);
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -225,10 +230,120 @@ li.dropdown {
   display: block;
 }
 
+.login-form form,
+.register-form form {
+  margin: 1rem auto;
+  max-width: 40rem;
+  border-radius: 2rem;
+  border: 0.2rem solid #333;
+  padding: 2rem;
+  text-align: center;
+  background: #008cff69;
+  
+}
+
+.login-form form h3,
+.register-form form h3 {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: #333;
+  margin-bottom: .7rem;
+}
+
+.login-form form .inputBox,
+.register-form form .inputBox {
+  margin: 1rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: .5rem;
+  background: #eee;
+  padding: .5rem 1rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.login-form form .inputBox span,
+.register-form form .inputBox span {
+  color: #666;
+  margin-left: 1rem;
+  font-size: 2rem;
+}
+
+.login-form form .inputBox input,
+.register-form form .inputBox input {
+  width: 100%;
+  padding: 1rem;
+  background: none;
+  font-size: 1.5rem;
+  color: #666;
+  text-transform: none;
+}
+
+.login-form form .flex,
+.register-form form .flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: .5rem;
+  padding: 1rem 0;
+  margin-top: 1rem;
+}
+
+.login-form form .flex label,
+.register-form form .flex label {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+}
+
+.login-form form .flex a,
+.register-form form .flex a {
+  font-size: 1.5rem;
+  color: #666;
+  margin-left: auto;
+}
+
+.login-form form .flex a:hover,
+.register-form form .flex a:hover {
+  color: #00c3ff;
+}
+
+.login-form form input[type="submit"],
+.register-form form input[type="submit"] {
+  background: #333;
+  color: #fff;
+}
+
+.login-form form input[type="submit"]:hover,
+.register-form form input[type="submit"]:hover {
+  background:#00c3ff;
+  
+}
+
+.login-form form .btn,
+.register-form form .btn {
+  width: 100%;
+  border: none;
+}
 
 
+.login-form form a,
+.register-form form a {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
 
-
+.login-form form a:hover,
+.register-form form a:hover {
+  background:#00c3ff;
+  
+}
 
 
 
