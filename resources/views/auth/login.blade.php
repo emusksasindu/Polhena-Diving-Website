@@ -3,7 +3,7 @@
 <div class="box" style="background: url(images/home-bg-2.jpg)">
    
     <section class="heading">
-        <h1 id="account">account</h1>
+        <h1 id="account"></h1>
        <!-- login form section starts -->
 
 <section class="login-form">

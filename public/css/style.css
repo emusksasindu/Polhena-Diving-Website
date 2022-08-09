@@ -131,6 +131,7 @@ section {
   color: rgb(0, 255, 191);
   border: 0.2rem solid #f1f1f1;
   border-radius: 4rem;
+  padding: 0.5rem;
   font-size: x-large;
  
 }
@@ -178,12 +179,10 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-
+  
 }
 
-li {
-  float: right;
-}
+
 
 li a, .dropbtn {
   display: inline-block;
@@ -239,7 +238,7 @@ li.dropdown {
   padding: 2rem;
   text-align: center;
   background: #000000a9;
-  
+ 
 }
 
 .login-form form h3,
@@ -408,10 +407,15 @@ li.dropdown {
           align-items: center;
 }
 
+.search-form form:focus-within{
+          -webkit-transform: translateY(-200%);
+          transform: translateY(-200%);
+}
+
 .search-form form input {
   width: 100%;
   font-size: 2rem;
-  color: #fff;
+  color: rgb(126, 126, 126);
   text-transform: none;
   background: none;
   padding-right: 2rem;
