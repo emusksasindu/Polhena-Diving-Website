@@ -1,5 +1,4 @@
 @include('layouts.header')
-
 <!-- header section  -->
 <div class="box" style="background: url(images/home-bg-2.jpg)">
    
@@ -60,8 +59,6 @@
     </section>
 
 <!-- header section -->
-
-
 
 
 

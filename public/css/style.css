@@ -238,7 +238,7 @@ li.dropdown {
   border: 0.2rem solid #333;
   padding: 2rem;
   text-align: center;
-  background: #008cff69;
+  background: #000000a9;
   
 }
 
@@ -246,7 +246,7 @@ li.dropdown {
 .register-form form h3 {
   font-size: 2.2rem;
   text-transform: uppercase;
-  color: #333;
+  color: rgb(255, 255, 255);
   margin-bottom: .7rem;
 }
 
@@ -345,6 +345,10 @@ li.dropdown {
   
 }
 
+.invalid-feedback {
+  color: #ca0606;
+  font-size: small;
+}
 
 
 
