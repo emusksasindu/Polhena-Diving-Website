@@ -1,0 +1,94 @@
+<?php
+
+namespace DummyNamespace;
+
+use DummyRootNamespaceHttp\Controllers\ApiController;
+
+use Illuminate\Http\Request;
+use DummyRootNamespace{{modelNamespace}}{{modelName}};
+
+class DummyClass extends ApiController
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return json response
+     */
+    public function index(Request $request)
+    {
+        $keyword = $request->get('search');
+        $perPage = {{pagination}};
+
+        ${{crudName}} = {{modelName}}::{{whereSnippet}}->paginate($perPage);
+
+        return $this->makeResponse(${{crudName}});
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return json response
+     */
+    public function store(Request $request)
+    {
+        {{validationRules}}
+        $requestData = $request->all();
+        {{fileSnippet}}
+        {{modelName}}::create($requestData);
+
+        return $this->respondCreated();
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     *
+     * @return json response
+     */
+    public function show($id)
+    {
+        ${{crudNameSingular}} = {{modelName}}::find($id);
+		return ${{crudNameSingular}} ? $this->makeResponse(${{crudNameSingular}}) : $this->respondNotFound();
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     *
+     * @return json response
+     */
+    public function update($id, Request $request)
+    {
+        {{validationRules}}
+        $requestData = $request->all();
+        {{fileSnippet}}
+        ${{crudNameSingular}} = {{modelName}}::find($id);
+
+        if(!${{crudNameSingular}}) return $this->respondNotFound();
+
+        ${{crudNameSingular}}->update($requestData);
+        return $this->makeResponse(null, 'data has been updated successfuly');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     *
+     * @return json response
+     */
+    public function destroy($id)
+    {
+        ${{crudNameSingular}} = {{modelName}}::find($id);
+        if(!${{crudNameSingular}}) return $this->respondNotFound();
+
+        ${{crudNameSingular}}->delete();
+        return $this->makeResponse(null, 'data has been deleted successfuly');
+    }
+}

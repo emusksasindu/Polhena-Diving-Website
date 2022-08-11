@@ -1,0 +1,36 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Edit %%modelName%% #{{ $%%crudNameSingular%%->%%primaryKey%% }}
+                        <div class="text-right">
+                            <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" class="btn btn-warning">
+                                Back
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        {!! Form::model($%%crudNameSingular%%, [
+                            'method' => 'PATCH',
+                            'url' => ['/%%routeGroup%%%%viewName%%', $%%crudNameSingular%%->%%primaryKey%%],
+                            'class' => 'form-horizontal',
+                            'files' => true,
+                            'onsubmit' => "submitButton.disabled = true"
+                        ]) !!}
+
+                        @include ('%%viewTemplateDir%%.form', ['submitButtonText' => 'Update'])
+
+                        {!! Form::close() !!}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

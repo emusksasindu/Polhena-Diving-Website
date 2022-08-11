@@ -1,0 +1,35 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        Create New %%modelName%%
+                        <div class="text-right">
+                            <a href="{{ url('/%%routeGroup%%%%viewName%%') }}" class="btn btn-warning">
+                                Back
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        {!! Form::open([
+                            'url' => '/%%routeGroup%%%%viewName%%',
+                            'class' => 'form-horizontal',
+                            'files' => true,
+                            'onsubmit' => "submitButton.disabled = true"
+                        ]) !!}
+
+                        @include ('%%viewTemplateDir%%.form')
+
+                        {!! Form::close() !!}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

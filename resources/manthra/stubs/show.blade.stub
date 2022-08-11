@@ -1,0 +1,37 @@
+@extends('layouts.app')
+
+@section('content')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive py-4">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <th>ID</th><td>{{ $%%crudNameSingular%%->%%primaryKey%% }}</td>
+                            </tr>
+                            %%formBodyHtmlForShowView%%
+                        </tbody>
+                    </table>
+                </div>
+
+                <a href="{{ url('/%%routeGroup%%%%viewName%%/' . $%%crudNameSingular%%->%%primaryKey%% . '/edit') }}" class="btn btn-secondary">
+                    Edit
+                </a>
+
+                {!! Form::open([
+                    'method' =>'DELETE',
+                    'url' => ['%%routeGroup%%%%crudName%%', $%%crudNameSingular%%->%%primaryKey%%],
+                    'style' => 'display:inline'
+                ]) !!}
+                    {!! Form::button('Delete', [
+                            'type' => 'submit',
+                            'class' => 'btn btn-danger',
+                            'title' => 'Delete %%modelName%%',
+                            'onclick'=>'return confirm("Confirm delete?")'
+                    ])!!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
+@endsection
