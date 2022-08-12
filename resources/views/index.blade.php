@@ -439,8 +439,8 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
+                <h3>Becoming a rescue diver</h3>
+                <p>Click here to read about why it is good to have your rescue certification.</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
@@ -450,8 +450,8 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
+                <h3>Get a life, Go Pro</h3>
+                <p>PADI Divemaster program is the first step to become a pro. Find out how.</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
@@ -461,8 +461,8 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
-                <h3>Become an Open Water Diver<h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
+                <h3>Did you know about the turtles in Madiha?<h3>
+                <p>Madiha and Polhena is home to many green turtles.Curious to read more?</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
@@ -472,8 +472,8 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
+                <h3>Whats great about night snorkeling?</h3>
+                <p>Night snorkeling is not something that you get to do everyday.Find out more.</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
