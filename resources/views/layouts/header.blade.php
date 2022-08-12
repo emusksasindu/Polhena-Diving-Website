@@ -28,7 +28,7 @@
         <div id="nav-close" class="fas fa-times"></div>
         <a href="home">home</a>
         <a href="#about">about</a>
-        <a href="#shop">products</a>
+        <a href="products">products</a>
         <a href="#packages">services</a>
         <a href="#reviews">reviews</a>
         <a href="#blogs">blogs</a>

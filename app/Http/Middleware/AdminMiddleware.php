@@ -16,10 +16,12 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->user()->type != 'A')
+        if ($request->user() == NULL )
 		{
 			return redirect('home');
-		}
+		}else if($request->user()->type != 'A'){
+            return redirect('home');
+        }
         return $next($request);
     }
 }

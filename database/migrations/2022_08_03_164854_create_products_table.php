@@ -15,6 +15,15 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->string('name',50);
+            $table->mediumText('description')->nullable();
+            $table->mediumInteger('qty');
+            $table->string('size',8);
+            $table->string('category',15);
+            $table->string('color',10);
+            $table->string('status',10);
+            $table->double('selling_price',10,2);
+            $table->double('buying_price',10,2);
             $table->timestamps();
         });
     }
