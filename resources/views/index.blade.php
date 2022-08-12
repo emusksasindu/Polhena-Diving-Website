@@ -13,7 +13,7 @@
                     <div class="content">
                         <span>never stop</span>
                         <h3>exploring</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                        <p>Sri Lanka has some of the best scuba diving spots in South Asia. Pristine beaches, warm water, going underwater is certainly a treat in here!</p>
                         <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
@@ -22,9 +22,9 @@
             <div class="swiper-slide">
                 <div class="box second" style="background: url(images/home-bg-2.jpg) no-repeat;">
                     <div class="content">
-                        <span>make tour</span>
+                        <span>make your dive trip</span>
                         <h3>amazing</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                        <p>The dive shop which remembers your name and know the size of your fins. A place to find friends, and a place to find your soul.</p>
                         <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
@@ -33,9 +33,9 @@
             <div class="swiper-slide">
                 <div class="box" style="background: url(images/home-bg-3.jpg) no-repeat;">
                     <div class="content">
-                        <span>explore the</span>
-                        <h3>new world</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit unde ex molestias soluta consequatur saepe aliquam, excepturi delectus consequuntur minus!</p>
+                        <span>explore a</span>
+                        <h3>new underwater world</h3>
+                        <p>Discover the depths of Southern Sea, From Weligama, Mirissa and all the way to Tangalle. Including the famous Moray Point minutes away from the polhena diving center.</p>
                         <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
@@ -73,8 +73,8 @@
                     </div>
                 </div>
                 <div class="content">
-                    <h3>survival kits</h3>
-                    <div class="price"> $5.00 - $25.00 </div>
+                    <h3>Scuba Masks</h3>
+                    <div class="price"> $15.00 - $85.00 </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -95,8 +95,8 @@
                     </div>
                 </div>
                 <div class="content">
-                    <h3>survival kits</h3>
-                    <div class="price"> $5.00 - $25.00 </div>
+                    <h3>Scuba Fins</h3>
+                    <div class="price"> $25.00 - $305.00 </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -117,8 +117,8 @@
                     </div>
                 </div>
                 <div class="content">
-                    <h3>survival kits</h3>
-                    <div class="price"> $5.00 - $25.00 </div>
+                    <h3>BCDs</h3>
+                    <div class="price"> $150.00 - $825.00 </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -139,8 +139,8 @@
                     </div>
                 </div>
                 <div class="content">
-                    <h3>survival kits</h3>
-                    <div class="price"> $5.00 - $25.00 </div>
+                    <h3>Scuba Regulators</h3>
+                    <div class="price"> $250.00 - $2250.00 </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -161,8 +161,8 @@
                     </div>
                 </div>
                 <div class="content">
-                    <h3>survival kits</h3>
-                    <div class="price"> $5.00 - $25.00 </div>
+                    <h3>Scuba Accessories</h3>
+                    <div class="price"> $15.00 - $400.00 </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -183,8 +183,8 @@
                     </div>
                 </div>
                 <div class="content">
-                    <h3>survival kits</h3>
-                    <div class="price"> $5.00 - $25.00 </div>
+                    <h3>Scuba Wetsuits</h3>
+                    <div class="price"> $50.00 - $500.00 </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -210,7 +210,7 @@
 
 <section class="packages" id="packages">
 
-    <h1 class="heading">LATEST SERVICES/ WHAT WE OFFER??
+    <h1 class="heading">LATEST SERVICES & PACKAGES
     </h1>
 
     <div class="box-container">
@@ -220,9 +220,9 @@
                 <img src="images/img-1.jpg" alt="">
             </div>
             <div class="content">
-                <h3>featured tour package</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
-                <div class="price">$250 - $450</div>
+                <h3>PADI Open Water Course</h3>
+                <p>Open Water Scuba Diver Course is the most famous entry level certification course out there.</p>
+                <div class="price">$375 - $460</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
@@ -232,9 +232,9 @@
                 <img src="images/img-2.jpg" alt="">
             </div>
             <div class="content">
-                <h3>featured tour package</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
-                <div class="price">$250 - $450</div>
+                <h3>PADI Advanced Open Water Course</h3>
+                <p>This course can be taken after completing the PADI Open Water Diver certification.</p>
+                <div class="price">$330 - $405</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
@@ -244,9 +244,9 @@
                 <img src="images/img-3.jpg" alt="">
             </div>
             <div class="content">
-                <h3>featured tour package</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
-                <div class="price">$250 - $450</div>
+                <h3>PADI Rescue Diver Course</h3>
+                <p>This is one of the most challenging yet rewarding courses in PADI recreational scuba diving certification lineup.</p>
+                <div class="price">$405 - $430</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
@@ -256,9 +256,9 @@
                 <img src="images/img-4.jpg" alt="">
             </div>
             <div class="content">
-                <h3>featured tour package</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
-                <div class="price">$250 - $450</div>
+                <h3>PADI Divemaster</h3>
+                <p>The PADI Divemaster course is your first level of professional training.</p>
+                <div class="price">$1395 - $4502500</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
@@ -268,9 +268,9 @@
                 <img src="images/img-5.jpg" alt="">
             </div>
             <div class="content">
-                <h3>featured tour package</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
-                <div class="price">$250 - $450</div>
+                <h3>Day Snorkeling Package</h3>
+                <p>Snorkeling in Polhena is a famous activity because of the turtles in the bay.</p>
+                <div class="price">$18 - $25</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
@@ -280,9 +280,9 @@
                 <img src="images/img-6.jpg" alt="">
             </div>
             <div class="content">
-                <h3>featured tour package</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam, eos.</p>
-                <div class="price">$250 - $450</div>
+                <h3>Night Snorkeling Package</h3>
+                <p>Night snorkeling can be a great experience as most of the marine life comes alive at night and it is full of surprises!</p>
+                <div class="price">$28 - $45</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
@@ -327,67 +327,67 @@
         <div class="swiper-wrapper">
 
             <div class="swiper-slide slide">
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <p class="text">I recommend the professional Polhena Diving Center. It is a great place if you want to do some diving at the South coast!</p>
                 <div class="user">
                     <img src="images/pic-1.png" alt="">
                     <div class="info">
-                        <h3>john deo</h3>
+                        <h3>John Deo</h3>
                         <span>designer</span>
                     </div>
                 </div>
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <p class="text">Perfect first diving experience in Sri Lanka! Lovely staff, with an amazing smile all the time even though there are tough times in Sri Lanka at the moment!</p>
                 <div class="user">
                     <img src="images/pic-2.png" alt="">
                     <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
+                        <h3>Jessica Fritz</h3>
+                        <span>Model</span>
                     </div>
                 </div>
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <p class="text">Very nice diving centre with a great team. Had a super time not only under water, but also on the surface, having fun and making jokes.</p>
                 <div class="user">
                     <img src="images/pic-3.png" alt="">
                     <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
+                        <h3>Jesse James</h3>
+                        <span>Divemaster</span>
                     </div>
                 </div>
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <p class="text">Had some amazing fundives. Really professional and family run team. Definitely recommend!</p>
                 <div class="user">
                     <img src="images/pic-4.png" alt="">
                     <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
+                        <h3>Allie Kent</h3>
+                        <span>Influencer</span>
                     </div>
                 </div>
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <p class="text">Great place if you want to do some diving at the South coast. Chamli, Randu, Keshan, Nandu and everyone else will give you a great diving experience and some nice tea afterwards. </p>
                 <div class="user">
                     <img src="images/pic-5.png" alt="">
                     <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
+                        <h3>Derek Anthony</h3>
+                        <span>Professional Skier</span>
                     </div>
                 </div>
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quia quidem laborum pariatur alias, culpa illum quaerat, aliquid laboriosam voluptatem nisi repellat obcaecati, adipisci esse ab delectus dolorum ut recusandae ipsam?</p>
+                <p class="text">The snorkelling with turtles was amazing! We found a baby turtle (we named it Toby) that kept swimming right up to us. </p>
                 <div class="user">
                     <img src="images/pic-6.png" alt="">
                     <div class="info">
-                        <h3>john deo</h3>
-                        <span>designer</span>
+                        <h3>Natalie Cabello</h3>
+                        <span>Racer</span>
                     </div>
                 </div>
             </div>
@@ -417,8 +417,8 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
+                <h3>Become an open water diver</h3>
+                <p>How to become a PADI open water scuba diver? Learn more here.</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
@@ -428,8 +428,8 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
-                <h3>blog title goes here.</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
+                <h3>upgrade your diver skills</h3>
+                <p>Upgrade your certification with PADI advanced open water course</p>
                 <a href="#" class="btn">read more</a>
             </div>
 
@@ -461,7 +461,7 @@
                     <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
-                <h3>blog title goes here.</h3>
+                <h3>Become an Open Water Diver<h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Reprehenderit, deserunt.</p>
                 <a href="#" class="btn">read more</a>
             </div>
@@ -491,7 +491,7 @@
 
     <div class="content">
         <h1 class="heading">CONTACT US</h1>
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laboriosam ipsam repellat nostrum esse officiis unde quisquam corporis doloremque adipisci similique!</p>
+        <p>We always reply unless someone threw our Admin team in the water.</p>
         <form action="">
             <input type="text" name="" placeholder="enter your name" id="" class="email">
             <input type="email" name="" placeholder="enter your email" id="" class="email">
@@ -502,8 +502,8 @@
         </form>
     </div>
     <div class="content">
-        <h1 class="heading">MAP</h1>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7921.343540662942!2d79.86574332841269!3d6.92977905658505!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo!5e0!3m2!1sen!2slk!4v1644135377307!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <h1 class="heading">FIND US HERE</h1>
+        <iframe src= "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15873.689475139015!2d80.5175042!3d5.9363725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71712a6aec5f4d6c!2sPolhena%20Diving%20Center!5e0!3m2!1sen!2slk!4v1660281737106!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
     
     </div>
    
