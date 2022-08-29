@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +17,6 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
 Auth::routes(['verify' => true]);
 
@@ -26,10 +24,21 @@ Route::get('/home', [HomeController::class, 'index'])->name('index');
 
 
 
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 // this route group use for admin only sections
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
-{
+{ 
+    Route::get('/admin', function () {
+    return view('admin.index');
+});
+
+Route::get('/admin/customer', function () {
+    return view('admin.customer');
+});
+
     Route::resource('/products',ProductController::class );
+   
 });
 
 Route::get('/products',[ProductController::class, 'index'] )->name('products.index');
