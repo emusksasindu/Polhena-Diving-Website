@@ -21,7 +21,7 @@ use App\Http\Controllers\AdminController;
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('index');
-
+Route::get('/', [HomeController::class, 'index'])->name('index');
 
 
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -37,9 +37,9 @@ Route::get('/admin/customer', function () {
     return view('admin.customer');
 });
 
-   
+Route::resource('/products',ProductController::class );
    
 });
-Route::resource('/products',ProductController::class );
 
-//Route::get('/products',[ProductController::class, 'index'] )->name('products.index');
+
+Route::get('/products',[ProductController::class, 'index'] )->name('products.index');
