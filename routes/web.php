@@ -37,8 +37,9 @@ Route::get('/admin/customer', function () {
     return view('admin.customer');
 });
 
-    Route::resource('/products',ProductController::class );
+   
    
 });
+Route::resource('/products',ProductController::class );
 
-Route::get('/products',[ProductController::class, 'index'] )->name('products.index');
+//Route::get('/products',[ProductController::class, 'index'] )->name('products.index');
