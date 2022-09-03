@@ -15,4 +15,9 @@ class guest extends Model
     {
         return $this->hasMany(chat::class);
     }
+
+    public function contacts(): HasMany
+    {
+        return $this->hasMany(contact::class);
+    }
 }
