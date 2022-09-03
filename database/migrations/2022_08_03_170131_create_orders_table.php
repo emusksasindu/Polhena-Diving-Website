@@ -15,6 +15,14 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('users_id');
+            $table->mediumText('shipping_address');
+            $table->string('receiver_name',20);
+            $table->string('number',15);
+            $table->double('sub_total',10,2);
+            $table->double('discount');
+            $table->double('total',10,2);
+            $table->string('status',10);
             $table->timestamps();
         });
     }

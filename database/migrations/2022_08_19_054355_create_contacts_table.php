@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
+            $table->string('name',50);
+            $table->string('email');
+            $table->string('number');
+            $table->string('subject');
+            $table->mediumText('body')->nullable();
+            $table->foreignId('guests_id');
             $table->timestamps();
         });
     }
