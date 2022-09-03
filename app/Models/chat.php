@@ -14,4 +14,9 @@ class chat extends Model
     {
         return $this->belongsTo(guest::class);
     }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(user::class);
+    }
 }
