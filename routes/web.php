@@ -33,7 +33,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     return view('admin.index');
 });
 
-Route::get('/admin-profile', function () {
+Route::get('/profile', function () {
     return view('admin.profile');
 });
 
