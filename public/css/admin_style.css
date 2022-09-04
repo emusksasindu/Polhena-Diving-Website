@@ -20,6 +20,7 @@
 body {
   min-height: 100vh;
   overflow-x: hidden;
+  
 }
 
 .container {
@@ -38,11 +39,11 @@ body {
   overflow: hidden;
 }
 .navigation.active {
-  width: 80px;
+  width: 100px;
 }
 
 .navigation ul {
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -141,10 +142,7 @@ body {
   background: var(--white);
   transition: 0.5s;
 }
-.main.active {
-  width: calc(100% - 80px);
-  left: 80px;
-}
+
 
 .topbar {
   width: 100%;
@@ -264,8 +262,12 @@ body {
   color: var(--white);
 }
 
+.gap{
+  padding-top: 2rem;
+}
 
-/* ======================= Cards of profile ====================== */
+
+/* ======================= Cards of panels ====================== */
 .cardProfile {
   position: relative;
   width: 100%;
@@ -305,14 +307,15 @@ body {
   color: var(--black2);
 }
 
-.cardProfile .card:hover {
+.cardProfile.card:hover {
   background: var(--blue);
 }
-.cardProfile .card:hover .numbers,
-.cardProfile .card:hover .cardName,
-.cardProfile .card:hover .iconBx {
+.cardProfile.card:hover .numbers,
+.cardProfile.card:hover .cardName,
+.cardProfile.card:hover .iconBx {
   color: var(--white);
 }
+
 
 
 /* ================== Order Details List ============== */
@@ -320,9 +323,8 @@ body {
   position: relative;
   width: 100%;
   padding: 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 30px;
+  display: block;
+ 
   /* margin-top: 10px; */
 }
 
@@ -354,6 +356,21 @@ body {
   border-radius: 6px;
 }
 
+.btn {
+  position: relative;
+  padding: 5px 10px;
+  background: var(--blue);
+  text-decoration: none;
+  color: var(--white);
+  border-radius: 6px;
+}
+
+
+.btn:hover{
+  color: var(--white);
+}
+
+
 .details table {
   width: 100%;
   border-collapse: collapse;
@@ -377,10 +394,10 @@ body {
   padding: 10px;
 }
 .details .recentOrders table tr td:last-child {
-  text-align: end;
+  text-align: center;
 }
 .details .recentOrders table tr td:nth-child(2) {
-  text-align: end;
+  text-align: eenter;
 }
 .details .recentOrders table tr td:nth-child(3) {
   text-align: center;

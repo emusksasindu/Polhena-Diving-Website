@@ -1,5 +1,6 @@
 
        @include('layouts.admin_navi')
+       
        <!-- ========================= Main ==================== -->
         <div class="main">
             <div class="topbar">
@@ -12,15 +13,28 @@
             <!-- ======================= Cards ================== -->
             <div class="cardProfile">
                 <div class="card">
-                    <div>
-                        <div class="cardName">Name</div>
-                        <div class="numbers">Sasindu</div>
-                        <div class="cardName">email</div>
-                        <div class="numbers">Sasindu</div>
-                        <div class="cardName">password</div>
-                        <div class="numbers">*********</div>
-                        <button type="button" class="btn btn-primary">edit</button>
-                    </div>
+                    <form role="form">
+                        <div class="form-group">
+                            <h2 class="numbers">Name</h2>
+                            <input type="text" name= "Name" class="form-control" id="name"
+                                   placeholder="Enter Name" value="{{ Auth::user()->name }}">
+                        </div>
+                        <div class="gap"></div>
+                        <div class="form-group">
+                            <h2 class="numbers" for="email">Email</h2>
+                            <input type="text" name="email" class="form-control" id="email"
+                                   placeholder="Enter email" value="{{ Auth::user()->email }}">
+                        </div>
+                        <div class="gap"></div>
+                        <div class="form-group">
+                            <h2 class="numbers" for="Password">Password</h2>
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="Enter Password" value="{{ Auth::user()->name }}">
+                        </div>
+                        <div class="gap"></div>
+                        <button type="submit" class="btn">Edit</button>
+
+                    </form>
 
                     
                 </div>

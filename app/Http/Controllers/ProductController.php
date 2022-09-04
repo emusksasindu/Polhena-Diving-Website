@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function index()
     {
         $data['products'] = product::orderBy('id', 'desc')->get();
-        return view('products.index', $data);
+        return view('admin.products', $data);
     }
     /**
      * Show the form for creating a new resource.
