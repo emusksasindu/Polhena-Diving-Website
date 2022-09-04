@@ -24,7 +24,7 @@
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
-                        <span class="title">Dashboard</span>
+                        <span class="title">{{ Auth::user()->name }}</span>
                     </a>
                 </li>
 
