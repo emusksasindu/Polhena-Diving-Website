@@ -42,45 +42,72 @@
                 <li>
                     <a href="/admin/customer">
                         <span class="icon">
+                            <ion-icon name="cube-outline"></ion-icon>
+                        </span>
+                        <span class="title">Products</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="diamond-outline"></ion-icon>
+                        </span>
+                        <span class="title">Services</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </span>
+                        <span class="title">Orders</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="mail-outline"></ion-icon>
+                        </span>
+                        <span class="title">Inbox</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
+                            <ion-icon name="newspaper-outline"></ion-icon>
+                        </span>
+                        <span class="title">Blogs and News</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
-                        <span class="title">Customers</span>
+                        <span class="title">Manage Users</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="chatbubble-outline"></ion-icon>
+                            <ion-icon name="cash-outline"></ion-icon>
                         </span>
-                        <span class="title">Messages</span>
+                        <span class="title">Financial Summary</span>
                     </a>
                 </li>
 
                 <li>
                     <a href="#">
                         <span class="icon">
-                            <ion-icon name="help-outline"></ion-icon>
+                            <ion-icon name="chatbox-outline"></ion-icon>
                         </span>
-                        <span class="title">Help</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="settings-outline"></ion-icon>
-                        </span>
-                        <span class="title">Settings</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="lock-closed-outline"></ion-icon>
-                        </span>
-                        <span class="title">Password</span>
+                        <span class="title">Chat</span>
                     </a>
                 </li>
 
