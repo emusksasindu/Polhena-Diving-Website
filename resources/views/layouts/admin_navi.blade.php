@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
+    <title>Admin Panel</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet" href="css/admin_style.css">
 </head>
@@ -20,7 +20,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/admin-profile">
                         <span class="icon">
                             <ion-icon name="person-circle-outline"></ion-icon>
                         </span>
@@ -31,7 +31,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/admin">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -40,7 +40,7 @@
                 </li>
 
                 <li>
-                    <a href="/admin/customer">
+                    <a href="/products">
                         <span class="icon">
                             <ion-icon name="cube-outline"></ion-icon>
                         </span>
@@ -49,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/services">
                         <span class="icon">
                             <ion-icon name="diamond-outline"></ion-icon>
                         </span>
@@ -58,7 +58,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/orders">
                         <span class="icon">
                             <ion-icon name="cart-outline"></ion-icon>
                         </span>
@@ -67,7 +67,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/inbox">
                         <span class="icon">
                             <ion-icon name="mail-outline"></ion-icon>
                         </span>
@@ -76,7 +76,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/posts">
                         <span class="icon">
                             <ion-icon name="newspaper-outline"></ion-icon>
                         </span>
@@ -85,7 +85,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/users">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -94,7 +94,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/finance">
                         <span class="icon">
                             <ion-icon name="cash-outline"></ion-icon>
                         </span>
@@ -103,7 +103,7 @@
                 </li>
 
                 <li>
-                    <a href="#">
+                    <a href="/chat">
                         <span class="icon">
                             <ion-icon name="chatbox-outline"></ion-icon>
                         </span>

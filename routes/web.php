@@ -33,8 +33,38 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     return view('admin.index');
 });
 
-Route::get('/admin/customer', function () {
-    return view('admin.customer');
+Route::get('/admin-profile', function () {
+    return view('admin.profile');
+});
+
+Route::get('/services', function () {
+    return view('admin.service');
+});
+
+Route::get('/orders', function () {
+    return view('admin.orders');
+});
+
+
+Route::get('/inbox', function () {
+    return view('admin.inbox');
+});
+
+Route::get('/posts', function () {
+    return view('admin.posts');
+});
+
+Route::get('/users', function () {
+    return view('admin.users');
+});
+
+
+Route::get('/finance', function () {
+    return view('admin.finance');
+});
+
+Route::get('/chat', function () {
+    return view('admin.chat');
 });
 
 Route::resource('/products',ProductController::class );
