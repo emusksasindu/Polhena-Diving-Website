@@ -10,7 +10,7 @@
                
             </div>
 
-            <div class="cardBox">
+            <div class="cardBox d-flex justify-content-center">
             <div class="card">
                 <div>
                     <span class="numbers">Add Product</span>
@@ -61,6 +61,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status delivered">Delivered</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
 
                             <tr>
@@ -72,6 +74,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status pending">Pending</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
 
                             <tr>
@@ -83,6 +87,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status return">Return</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
 
                             <tr>
@@ -94,6 +100,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status inProgress">In Progress</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
 
                             <tr>
@@ -105,6 +113,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status delivered">Delivered</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
 
                             <tr>
@@ -116,6 +126,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status pending">Pending</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
 
                             <tr>
@@ -127,6 +139,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status return">Return</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
 
                             <tr>
@@ -138,6 +152,8 @@
                                 <td>Rs:7500.00</td>
                                 <td>Rs:500.00</td>
                                 <td><span class="status inProgress">In Progress</span></td>
+                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
                             </tr>
                         </tbody>
                     </table>

@@ -10,17 +10,10 @@
                
             </div>
 
-            <div class="cardBox">
-            <div class="card">
-                <div>
-                    <span class="numbers">Add Services</span>
-                </div>
-
-            </div>
-            </div>
+        
 
            
-            <!-- ================ Services Details List ================= -->
+            <!-- ================ orders Details List ================= -->
            
             <div class="details">
                 <div class="recentOrders">

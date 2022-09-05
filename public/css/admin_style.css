@@ -235,6 +235,7 @@ body {
   justify-content: space-between;
   cursor: pointer;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
  
 }
 
@@ -243,6 +244,7 @@ body {
   font-weight: 500;
   font-size: 2.5rem;
   color: var(--blue);
+
 }
 
 .cardBox .card .cardName {
