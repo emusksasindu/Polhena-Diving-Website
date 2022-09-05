@@ -11,6 +11,7 @@
 
 :root {
   --blue: #2a2185;
+  --lightblue:#0270ca;
   --white: #fff;
   --gray: #f5f5f5;
   --black1: #222;
@@ -212,7 +213,65 @@ body {
   object-fit: cover;
 }
 
+.h2{
+  color: #2a2185;
+}
+/* ======================= Cards for Inbox====================== */
+.inboxCard {
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: list-item;
+}
 
+
+
+
+
+.inboxCard .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
+}
+
+.inboxCard .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+
+}
+
+.inboxCard .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.inboxCard .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+.inboxCard .card:hover {
+  background: var(--lightblue);
+}
+.inboxCard .card:hover .numbers,
+.inboxCard .card:hover .cardName,
+.inboxCard .card:hover .iconBx {
+  color: var(--white);
+}
+
+.gap{
+  padding-top: 2rem;
+}
 
 /* ======================= Cards ====================== */
 .cardBox {
@@ -224,6 +283,9 @@ body {
   grid-gap: 30px;
   
 }
+
+
+
 
 
 .cardBox .card {

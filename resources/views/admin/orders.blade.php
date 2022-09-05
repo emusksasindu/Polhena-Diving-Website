@@ -19,7 +19,7 @@
                 <div class="recentOrders">
                    
                     <div class="cardHeader">
-                        <h2>Latest Services</h2>
+                        <h2>Latest Orders</h2>
                         <a href="#" class="btn">View All</a>
                         
                     </div>
@@ -36,9 +36,13 @@
                                 
                                 <td>ID</td>
                                 <td>Name</td>
-                                <td>Description</td>
-                                <td>Price</td>
-                                <td>Cost</td>
+                                <td>Address</td>
+                                <td>Date</td>
+                                <td>Subtotal</td>
+                                <td>Discount</td>
+                                <td>Total</td>
+                                <td>Contact No</td>
+                                <td>Status</td>
 
                             </tr>
                         </thead>
@@ -46,82 +50,98 @@
                         <tbody>
                             <tr>
                                 <td>1</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             
                             </tr>
 
                             <tr>
                                 <td>2</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             </tr>
 
                             <tr>
                                 <td>3</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             </tr>
 
                             <tr>
                                 <td>4</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             </tr>
 
                             <tr>
                                 <td>5</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             </tr>
 
                             <tr>
                                 <td>6</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             </tr>
 
                             <tr>
                                 <td>7</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             </tr>
 
                             <tr>
-                                <td>8</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+                            <td>jane Doe</td>
+                                <td>Sri Lanka</td>
+                                <td>2022/09/05</td>
+                                <td>Rs.150000.00</td>
+                                <td>Rs.50000.00</td>
+                                <td>Rs.100000.00</td>
+                                <td>0112689456</td>
+                                <td><span class="status inProgress">In Progress</span></td>
                             </tr>
                         </tbody>
                     </table>
