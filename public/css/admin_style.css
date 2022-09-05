@@ -39,7 +39,7 @@ body {
   overflow: hidden;
 }
 .navigation.active {
-  width: 100px;
+  width: 110px;
 }
 
 .navigation ul {
@@ -141,6 +141,7 @@ body {
   min-height: 100vh;
   background: var(--white);
   transition: 0.5s;
+  
 }
 
 
@@ -221,6 +222,7 @@ body {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 30px;
+  
 }
 
 
@@ -233,6 +235,7 @@ body {
   justify-content: space-between;
   cursor: pointer;
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+ 
 }
 
 .cardBox .card .numbers {

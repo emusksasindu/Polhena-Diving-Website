@@ -1,7 +1,8 @@
 
        @include('layouts.admin_navi')
        <!-- ========================= Main ==================== -->
-        <div class="main">
+       
+       <div class="main">
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
@@ -17,19 +18,27 @@
 
             </div>
             </div>
-            <!-- ================ Order Details List ================= -->
+
+           
+            <!-- ================ Product Details List ================= -->
            
             <div class="details">
                 <div class="recentOrders">
                    
                     <div class="cardHeader">
-                        <h2>Latest Order</h2>
+                        <h2>Latest Products</h2>
                         <a href="#" class="btn">View All</a>
                         
                     </div>
 
                     <table>
                         <thead>
+                            <div class="input-group">
+                                <div class="form-outline">
+                                  <input type="search" id="form1" class="form-control" placeholder="Search"/>
+                                </div>
+                                
+                              </div>
                             <tr>
                                 <td>Image</td>
                                 <td>ID</td>
