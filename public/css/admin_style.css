@@ -216,6 +216,18 @@ body {
 .h2{
   color: #2a2185;
 }
+
+#labels {
+  position: relative;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--blue);
+
+}
+
+
+
+
 /* ======================= Cards for Inbox====================== */
 .inboxCard {
   position: relative;
@@ -333,6 +345,105 @@ body {
   padding-top: 2rem;
 }
 
+
+/* ======================= Cards for financial summary ====================== */
+.cardFinance{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  
+}
+
+.cardFinance2{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: list-item;
+  
+}
+
+
+
+
+
+.cardFinance2 .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
+}
+
+.cardFinance2 .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+
+}
+
+.cardFinance2 .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.cardFinance2 .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+
+
+
+.cardFinance .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
+}
+
+.cardFinance .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+
+}
+
+.cardFinance .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.cardFinance .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+.cardFinance .card:hover {
+  background: var(--blue);
+}
+.cardFinance .card:hover .numbers,
+.cardFinance .card:hover .cardName,
+.cardFinance .card:hover .iconBx {
+  color: var(--white);
+}
 
 /* ======================= Cards of panels ====================== */
 .cardProfile {
@@ -469,6 +580,8 @@ body {
 .details .recentOrders table tr td:nth-child(3) {
   text-align: center;
 }
+
+
 .status.delivered {
   padding: 2px 4px;
   background: #8de02c;
@@ -546,6 +659,9 @@ body {
   color: var(--white);
 }
 
+
+
+
 /* ====================== Responsive Design ========================== */
 @media (max-width: 991px) {
   .navigation {
@@ -565,6 +681,14 @@ body {
   .cardBox {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .cardFinance {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cardFinance2 {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -581,6 +705,14 @@ body {
 
 @media (max-width: 480px) {
   .cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .cardFinance {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .cardFinance2 {
     grid-template-columns: repeat(1, 1fr);
   }
   .cardHeader h2 {

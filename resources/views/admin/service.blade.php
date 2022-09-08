@@ -10,7 +10,7 @@
                
             </div>
 
-            <div class="cardBox">
+            <div class="cardBox d-flex justify-content-center">
             <div class="card">
                 <div>
                     <span class="numbers">Add Services</span>

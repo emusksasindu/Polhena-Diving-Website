@@ -67,6 +67,8 @@ Route::get('/chat', function () {
     return view('admin.chat');
 });
 
+
+
 Route::resource('/products',ProductController::class );
    
 });

@@ -31,7 +31,7 @@
                                   <input type="search" id="form1" class="form-control" placeholder="Search"/>
                                 </div>
                                 
-                              </div>
+                            </div>
                             <tr>
                                 
                                 <td>ID</td>
@@ -133,16 +133,7 @@
                                 <td><span class="status inProgress">In Progress</span></td>
                             </tr>
 
-                            <tr>
-                            <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                           
                         </tbody>
                     </table>
                 </div>
