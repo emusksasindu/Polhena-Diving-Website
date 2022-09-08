@@ -436,14 +436,49 @@ body {
   color: var(--black2);
 }
 
-.cardFinance .card:hover {
-  background: var(--blue);
+.chat{
+  position: relative;
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 30px;
+  
 }
-.cardFinance .card:hover .numbers,
-.cardFinance .card:hover .cardName,
-.cardFinance .card:hover .iconBx {
-  color: var(--white);
+
+.chat .card {
+  position: relative;
+  background: var(--white);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
 }
+
+.chat .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+
+}
+
+.chat .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.chat .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+
 
 /* ======================= Cards of panels ====================== */
 .cardProfile {
@@ -659,6 +694,34 @@ body {
   color: var(--white);
 }
 
+.my-custom-scrollbar {
+  position: relative;
+  height: 80%;
+  overflow: auto;
+  }
+  .table-wrapper-scroll-y {
+  display: block;
+  }
+
+.recentOrders table tr td {
+  padding: 12px 10px;
+}
+.recentOrders table tr td h4 {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2rem;
+}
+.recentOrders table tr td h4 span {
+  font-size: 14px;
+  color: var(--black2);
+}
+.recentOrders table tr:hover {
+  background: var(--blue);
+  color: var(--white);
+}
+.recentOrders table tr:hover td h4 span {
+  color: var(--white);
+}
 
 
 
@@ -683,7 +746,12 @@ body {
   }
 
   .cardFinance {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  
+  .chat {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .cardFinance2 {
@@ -709,6 +777,10 @@ body {
   }
 
   .cardFinance {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .chat {
     grid-template-columns: repeat(1, 1fr);
   }
 
