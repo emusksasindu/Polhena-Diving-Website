@@ -71,7 +71,7 @@
                         <div class="gap"></div>
                         <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar">
         
-                            <table>
+                            <table class="table table-bordered table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <td>Name</td>
@@ -159,7 +159,7 @@
                         <div class="gap"></div>
                         <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar">
         
-                            <table>
+                            <table class="table table-bordered table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <td>Name</td>

@@ -6,9 +6,7 @@
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                <div class="user">
-                    <img src="images/customer01.jpg" alt="">
-                </div>
+               
             </div>
 
             <!-- ======================= Cards ================== -->
