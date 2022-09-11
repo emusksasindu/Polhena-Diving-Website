@@ -12,10 +12,13 @@
 
             <div class="cardBox d-flex justify-content-center">
             <div class="card">
-                <div>
-                    <span class="numbers">Add Services</span>
+                <div class="iconBx">
+                    <div class="row">
+                    <a class="numbers col-sm" href="{{ route('services.create') }}">Add Service</a>
+                  
+                    <ion-icon name="people-circle-outline" role="img" class="md hydrated col-sm" aria-label="eye outline"></ion-icon>
+                    </div>
                 </div>
-
             </div>
             </div>
 

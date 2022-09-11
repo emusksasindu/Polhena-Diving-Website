@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\product;
+use App\Models\service;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function index()
     {
+        $data['services'] = service::orderBy('id', 'desc')->get();
         $data['products'] = product::orderBy('id', 'desc')->get();
-        return view('admin.products', $data);
+        return (Auth::user()->type == "U" ) ? view('products.index', $data) : view('admin.products', $data);
     }
     /**
      * Show the form for creating a new resource.
@@ -19,7 +22,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        return view('products.addproduct');
     }
     /**
      * Store a newly created resource in storage.

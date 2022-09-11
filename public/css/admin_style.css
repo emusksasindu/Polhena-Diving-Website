@@ -10,7 +10,7 @@
 }
 
 :root {
-  --blue: #2a2185;
+  --blue: #00617e;
   --lightblue:#0270ca;
   --white: #fff;
   --gray: #f5f5f5;
@@ -213,8 +213,8 @@ body {
   object-fit: cover;
 }
 
-.h2{
-  color: #2a2185;
+h2{
+  color: #004666;
 }
 
 #labels {
@@ -223,6 +223,11 @@ body {
   font-size: 1.5rem;
   color: var(--blue);
 
+
+}
+
+a{
+  text-decoration: none;
 }
 
 

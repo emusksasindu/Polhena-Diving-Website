@@ -12,8 +12,12 @@
             <!-- ======================= Cards ================== -->
             <div class="cardBox d-flex justify-content-center">
                 <div class="card">
-                    <div>
-                        <span class="numbers">Add User</span>
+                    <div class="iconBx">
+                        <div class="row">
+                        <span class="numbers col-sm">Add User</span>
+                      
+                        <ion-icon name="person-add-outline" role="img" class="md hydrated col-sm" aria-label="eye outline"></ion-icon>
+                        </div>
                     </div>
     
                 </div>

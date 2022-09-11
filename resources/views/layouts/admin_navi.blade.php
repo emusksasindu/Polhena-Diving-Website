@@ -8,7 +8,7 @@
     <title>Admin Panel</title>
     <!-- ======= Styles ====== -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/admin_style.css">
+    <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    
 </head>
@@ -19,7 +19,7 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#" class ="logo"> <img src='images\PDC Logo.png' alt="Image" height="60" width="251.76"> </a>
+                    <a href="#" class ="logo"> <img src="{{asset('images\PDC Logo.png')}}" alt="Image" height="60" width="251.76"> </a>
                 </li>
 
                 <li>

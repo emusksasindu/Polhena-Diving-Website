@@ -11,9 +11,13 @@
 
             <!-- ======================= Cards ================== -->
             <div class="cardBox d-flex justify-content-center">
-                <div class="card">
-                    <div>
-                        <span class="numbers">Add Post</span>
+                <div class="card bg-image hover-zoom">
+                    <div class="iconBx">
+                        <div class="row">
+                        <span class="numbers col-sm">Add Post</span>
+                      
+                        <ion-icon name="newspaper-outline" role="img" class="md hydrated col-sm" aria-label="eye outline"></ion-icon>
+                        </div>
                     </div>
     
                 </div>

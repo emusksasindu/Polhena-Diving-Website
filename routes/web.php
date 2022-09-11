@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,8 @@ Route::get('/chat', function () {
 
 
 Route::resource('/products',ProductController::class );
+
+Route::resource('/services',ServiceController::class );
    
 });
 
