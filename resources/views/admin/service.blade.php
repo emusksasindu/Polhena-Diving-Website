@@ -11,7 +11,7 @@
             </div>
 
             <div class="cardBox d-flex justify-content-end">
-            <div class="card">
+            <div class="card_button">
                 <div class="iconBx">
                     <div class="row">
                     <a class="numbers col-sm" href="{{ route('services.create') }}">Add Service</a>

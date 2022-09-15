@@ -32,15 +32,23 @@
         <a href="#packages">services</a>
         <a href="#reviews">reviews</a>
         <a href="#blogs">blogs</a>
+        <a class="icons">    
+            <a href="#" class="fas fa-shopping-cart"></a>
+        </a>
+        <a class="icons">    
+            <a id="search-btn" class="fas fa-search"></a>
+        </a>
+
         
+        
+    
     </nav>
-
     <div class="icons">
-        <div id="menu-btn" class="fas fa-bars"></div>
-        <a href="#" class="fas fa-shopping-cart"></a>
-        <div id="search-btn" class="fas fa-search"></div>
+        <div id="menu-btn" class="fas fa-bars"></div>   
     </div>
+   
 
+  
 
  
 

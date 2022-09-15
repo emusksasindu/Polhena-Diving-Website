@@ -11,7 +11,7 @@
 
             <!-- ======================= Cards ================== -->
             <div class="cardBox d-flex justify-content-end">
-                <div class="card">
+                <div class="card_button">
                     <div class="iconBx">
                         <div class="row">
                         <span class="numbers col-sm">Add User</span>

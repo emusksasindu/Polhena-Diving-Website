@@ -36,6 +36,21 @@ window.onload = () =>{
     }
 };
 
+$(document).ready(function() {
+
+  $('.color-choose input').on('click', function() {
+      var ProductColor = $(this).attr('data-image');
+
+      $('.active').removeClass('active');
+      $('.left-column img[data-image = ' + ProductColor + ']').addClass('active');
+      $(this).addClass('active');
+  });
+
+});
+
+
+
+
 var swiper = new Swiper(".gallery-slider", {
   effect: "coverflow",
   grabCursor: true,

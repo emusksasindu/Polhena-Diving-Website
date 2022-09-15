@@ -78,3 +78,7 @@ Route::resource('/services',ServiceController::class );
 
 
 Route::get('/products',[ProductController::class, 'index'] )->name('products.index');
+
+Route::get('/show', function () {
+    return view('products.show');
+});
