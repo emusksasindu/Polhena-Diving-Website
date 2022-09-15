@@ -38,7 +38,10 @@
         <a class="icons">    
             <a id="search-btn" class="fas fa-search"></a>
         </a>
+         <a>
 
+            
+         </a>
         
         
     
@@ -58,7 +61,7 @@
     <ul >
         <li class="dropdown">
             <div class="icons">
-                <a id="account" href="javascript:void(0)">{{ Auth::user()->name }}</a>
+                <a  href="javascript:void(0)" class="fas fa-user"></a>
             </div>
          
           <div class="dropdown-content">
