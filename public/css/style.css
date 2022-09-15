@@ -1078,6 +1078,13 @@ li.dropdown {
   .home .box .content h3 {
     font-size: 4rem;
   }
+
+ .loginList{
+
+  
+ }
+
+
 }
 
 @media (max-width: 768px) {
@@ -1125,6 +1132,8 @@ li.dropdown {
   .swiper-button-prev::after {
     display: none;
   }
+
+
 }
 
 @media (max-width: 450px) {

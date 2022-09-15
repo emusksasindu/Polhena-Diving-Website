@@ -10,7 +10,7 @@
             </div>
 
             <!-- ======================= Cards ================== -->
-            <div class="cardBox d-flex justify-content-center">
+            <div class="cardBox d-flex justify-content-end">
                 <div class="card bg-image hover-zoom">
                     <div class="iconBx">
                         <div class="row">

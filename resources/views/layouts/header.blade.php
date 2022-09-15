@@ -42,7 +42,10 @@
     </div>
 
 
-    
+ 
+
+
+      
     @if (Auth::check())
     <ul >
         <li class="dropdown">
@@ -63,14 +66,14 @@
         </li>
       </ul>
                          @else
-                         <ul>
-                            <li class="dropdown">
+                         <ul class="">
+                            <li  class="dropdown loginList" >
                                 <div class="icons">
                                     <a href="javascript:void(0)" class="fas fa-user"></a>
                                 </div>
                              
-                              <div class="dropdown-content">
-                                <a  href="login">login</a>
+                              <div  class="dropdown-content">
+                                <a  href="login ">login</a>
                                 <a  href="register">register</a>
                               </div>
                             </li>
@@ -79,6 +82,7 @@
                          @endif
 
    
+ 
 
   
 

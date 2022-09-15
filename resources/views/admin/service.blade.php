@@ -10,7 +10,7 @@
                
             </div>
 
-            <div class="cardBox d-flex justify-content-center">
+            <div class="cardBox d-flex justify-content-end">
             <div class="card">
                 <div class="iconBx">
                     <div class="row">
