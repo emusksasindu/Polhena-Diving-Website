@@ -1,4 +1,5 @@
 @include('layouts.header')
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
 <!-- HOME section starts  -->
 

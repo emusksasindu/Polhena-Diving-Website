@@ -1,4 +1,5 @@
 @include('layouts.header')
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <!-- header section  -->
 <div class="box" style="background: url(images/home-bg-2.jpg) ">
 <section class="heading">

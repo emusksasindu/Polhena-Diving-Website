@@ -82,3 +82,11 @@ Route::get('/products',[ProductController::class, 'index'] )->name('products.ind
 Route::get('/show', function () {
     return view('products.show');
 });
+
+Route::get('/detail', function () {
+    return view('products.detail');
+});
+
+Route::get('/cart', function () {
+    return view('cart.index');
+});

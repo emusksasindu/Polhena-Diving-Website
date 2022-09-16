@@ -1,0 +1,408 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;1,100;1,300&display=swap");
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: rgb(255, 255, 255);
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #00b7ff;
+  border-radius: 3rem;
+}
+
+section {
+  padding: 5rem 9%;
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-size: 4rem;
+    color: #02afff;
+  }
+  
+  .heading #account {
+   padding-top: 6rem;
+   color: #02afff;
+  }
+  
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 9%;
+    z-index: 1000;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: rgba(0, 0, 0, 0.253);
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+           
+  }
+  
+  .header.active {
+    background:  #000000a4;
+    -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+            color: rgb(180, 180, 180);
+  }
+  
+  
+  
+  .header .logo {
+    margin-right: auto;
+    font-size: 2.5rem;
+    color: #ffffff;
+    font-weight: bolder;
+  }
+  
+  .header .logo i {
+    color: #ffffff;
+  }
+  
+  .header .navbar a {
+    margin-left: 2rem;
+    font-size: 1.7rem;
+    color: #ffffff;
+  }
+  
+  .header .navbar a:hover {
+    color: rgb(0, 255, 191);
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 4rem;
+    padding: 0.5rem;
+    font-size: x-large;
+   
+  }
+  
+  .header .navbar #nav-close {
+    font-size: 5rem;
+    cursor: pointer;
+    color: #1f536800;
+    display: none;
+  }
+  
+  .header .icons a,
+  .header .icons div {
+    font-size: 2.5rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    color: #ffffff;
+    border: 0.2rem solid #f1f1f1;
+    padding: 1.5rem;
+    border-radius: 5rem;
+  }
+  
+  .header .icons #account {
+    border: 0.2rem solid #f1f1f1;
+    border-radius: 4rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  
+  .header .icons a:hover,
+  .header .icons div:hover {
+    color: #003842;
+  }
+  
+  .header #menu-btn {
+    display: none;
+  }
+  
+  
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    
+  }
+  
+  
+  
+  li a, .dropbtn {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 2.5rem;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+   
+    border-radius: 2.5rem;
+  }
+  
+  .dropdown-content a:hover {
+    border-radius: 2.5rem;
+    color: white;
+    font-size: 2.6rem;
+    background-color: #042b36;}
+  
+  .dropdown:hover .dropdown-content {
+    border-radius: 2.5rem;
+    display: block;
+  }
+
+
+  .search-form {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(1, 16, 31, 0.8);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    z-index: 10000;
+    -webkit-transform: translateY(-110%);
+            transform: translateY(-110%);
+  }
+  
+  .search-form.active {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+  
+  .search-form #close-search {
+    position: absolute;
+    top: 1.5rem;
+    right: 2.5rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 6rem;
+  }
+  
+  .search-form #close-search:hover {
+    color: #ff0000;
+  }
+  
+  .search-form form {
+    width: 70rem;
+    margin: 0 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 0.2rem solid #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .search-form form:focus-within{
+            -webkit-transform: translateY(-200%);
+            transform: translateY(-200%);
+  }
+  
+  .search-form form input {
+    width: 100%;
+    font-size: 2rem;
+    color: rgb(126, 126, 126);
+    text-transform: none;
+    background: none;
+    padding-right: 2rem;
+  }
+  
+  .search-form form input::-webkit-input-placeholder {
+    color: #aaa;
+  }
+  
+  .search-form form input:-ms-input-placeholder {
+    color: #aaa;
+  }
+  
+  .search-form form input::-ms-input-placeholder {
+    color: #aaa;
+  }
+  
+  .search-form form input::placeholder {
+    color: #aaa;
+  }
+  
+  .search-form form label {
+    font-size: 3rem;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .search-form form label:hover {
+    color: #00b7ff;
+  }
+
+
+
+
+
+.footer {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url(../images/footer-bg.jpg) no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/footer-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+  
+  .footer .box-container {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (minmax(25rem, 1fr))[auto-fit];
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .footer .box-container .box h3 {
+    font-size: 2rem;
+    padding: 1.5rem 0;
+    color: #fff;
+  }
+  
+  .footer .box-container .box a {
+    display: block;
+    font-size: 1.4rem;
+    color: #fff;
+    padding: 1rem 0;
+  }
+  
+  .footer .box-container .box a i {
+    color: #219150;
+    padding-right: .5rem;
+  }
+  
+  .footer .box-container .box a:hover {
+    color: #219150;
+  }
+  
+  .footer .box-container .box a:hover i {
+    padding-right: 2rem;
+  }
+  
+  .footer .credit {
+    text-align: center;
+    margin-top: 2.5rem;
+    padding: 1rem;
+    padding-top: 2.5rem;
+    font-size: 2rem;
+    color: #fff;
+  }
+  
+  .footer .credit span {
+    color: #219150;
+  }
+
+
+  @media (max-width: 1200px) {
+    .header {
+      padding: 2rem;
+    }
+
+  }
+
+
+  @media (max-width: 768px) {
+    .header #menu-btn {
+      display: inline-block;
+    }
+    .header .navbar {
+      position: fixed;
+      top: 0;
+      left: -110%;
+      background: rgba(49, 49, 49, 0.856);
+      z-index: 10000;
+      width: 35rem;
+      height: 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-flow: column;
+              flex-flow: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+    }
+    .header .navbar.active {
+      left: 0;
+      -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+              box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
+    }
+    .header .navbar a {
+      margin: 1rem 0;
+      font-size: 3rem;
+    }
+    .header .navbar #nav-close {
+      display: block;
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+    }
+   
+  
+  }
+
+
+  @media (max-width: 450px) {
+   
+    .heading {
+      font-size: 3rem;
+    }
+  }
