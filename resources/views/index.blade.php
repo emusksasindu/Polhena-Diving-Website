@@ -420,7 +420,7 @@
                 </div>
                 <h3>Become an open water diver</h3>
                 <p>How to become a PADI open water scuba diver? Learn more here.</p>
-                <a href="#" class="btn">read more</a>
+                <a href="/blog" class="btn">read more</a>
             </div>
 
             <div class="swiper-slide slide">

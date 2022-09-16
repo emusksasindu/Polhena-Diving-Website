@@ -70,23 +70,31 @@ Route::get('/chat', function () {
 
 
 
-Route::resource('/products',ProductController::class );
+Route::resource('/p',ProductController::class );
 
-Route::resource('/services',ServiceController::class );
+Route::resource('/s',ServiceController::class );
    
 });
 
 
-Route::get('/products',[ProductController::class, 'index'] )->name('products.index');
+Route::get('/p',[ProductController::class, 'index'] )->name('products.index');
 
-Route::get('/show', function () {
+Route::get('/products', function () {
     return view('products.show');
 });
 
-Route::get('/detail', function () {
+Route::get('/services', function () {
+    return view('services.show');
+});
+
+Route::get('/show', function () {
     return view('products.detail');
 });
 
 Route::get('/cart', function () {
     return view('cart.index');
+});
+
+Route::get('/blog', function () {
+    return view('blogs.index');
 });

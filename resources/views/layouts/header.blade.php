@@ -27,12 +27,12 @@
         <div id="nav-close" class="fas fa-times"></div>
         <a href="home">home</a>
         <a href="#about">about</a>
-        <a href="products">products</a>
-        <a href="#packages">services</a>
-        <a href="#reviews">reviews</a>
-        <a href="#blogs">blogs</a>
+        <a href="/products">products</a>
+        <a href="/services">services</a>
+        <a href="/home#reviews">reviews</a>
+        <a href="/home#blogs">blogs</a>
         <a class="icons">    
-            <a href="#" class="fas fa-shopping-cart"></a>
+            <a href="/cart" class="fas fa-shopping-cart"></a>
         </a>
         <a class="icons">    
             <a id="search-btn" class="fas fa-search"></a>
