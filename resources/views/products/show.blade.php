@@ -34,15 +34,11 @@
                                     <div class="card-body">
                                         <div class="shop__sidebar__categories">
                                             <ul class="nice-scroll">
-                                                <li><a href="#">Men (20)</a></li>
-                                                <li><a href="#">Women (20)</a></li>
-                                                <li><a href="#">Bags (20)</a></li>
-                                                <li><a href="#">Clothing (20)</a></li>
-                                                <li><a href="#">Shoes (20)</a></li>
-                                                <li><a href="#">Accessories (20)</a></li>
-                                                <li><a href="#">Kids (20)</a></li>
-                                                <li><a href="#">Kids (20)</a></li>
-                                                <li><a href="#">Kids (20)</a></li>
+                                                <li><a href="#">Fins</a></li>
+                                                <li><a href="#">BCDs</a></li>
+                                                <li><a href="#">Masks</a></li>
+                                                <li><a href="#">Wetsuits</a></li>
+                                                <li><a href="#">Regulators</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -50,16 +46,16 @@
                             </div>
                             <div class="card">
                                 <div class="card-heading">
-                                    <a data-toggle="collapse" data-target="#collapseTwo">Branding</a>
+                                    <a data-toggle="collapse" data-target="#collapseTwo">Brands</a>
                                 </div>
                                 <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="shop__sidebar__brand">
                                             <ul>
-                                                <li><a href="#">Louis Vuitton</a></li>
-                                                <li><a href="#">Chanel</a></li>
-                                                <li><a href="#">Hermes</a></li>
-                                                <li><a href="#">Gucci</a></li>
+                                                <li><a href="#">Cressi</a></li>
+                                                <li><a href="#">ScubaPro</a></li>
+                                                <li><a href="#">Mares</a></li>
+                                                <li><a href="#">AquaLung</a></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -157,7 +153,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <!-- div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
                                 </div>
@@ -174,7 +170,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                         </div>
                     </div>
                 </div>
@@ -184,7 +180,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__left">
-                                <p>Showing 1–12 of 126 results</p>
+                                <p>Showing 1–12 of 30 results</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -202,16 +198,16 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-2.jpg')}}">
-                                <ul class="product__hover">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-1.jpg')}}">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
+                                <h6>ScubaPro Seawing Nova Fins</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -221,7 +217,7 @@
                                     <i class="fa fa-star-o"></i>
                                 </div>
                                 <h5>$67.24</h5>
-                                <div class="product__color__select">
+                                <!--div class="product__color__select">
                                     <label for="pc-4">
                                         <input type="radio" id="pc-4">
                                     </label>
@@ -231,7 +227,7 @@
                                     <label class="grey" for="pc-6">
                                         <input type="radio" id="pc-6">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -239,15 +235,15 @@
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-3.jpg')}}">
                                 <span class="label">Sale</span>
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
+                                <h6>Cressi Start Diving BCD</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -256,8 +252,8 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$43.48</h5>
-                                <div class="product__color__select">
+                                <h5>$243.48</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-7">
                                         <input type="radio" id="pc-7">
                                     </label>
@@ -267,22 +263,22 @@
                                     <label class="grey" for="pc-9">
                                         <input type="radio" id="pc-9">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-4.jpg')}}">
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Diagonal Textured Cap</h6>
+                                <h6>Mares Dive mask</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -291,8 +287,8 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$60.9</h5>
-                                <div class="product__color__select">
+                                <h5>$60.90</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-10">
                                         <input type="radio" id="pc-10">
                                     </label>
@@ -302,7 +298,7 @@
                                     <label class="grey" for="pc-12">
                                         <input type="radio" id="pc-12">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -310,15 +306,15 @@
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-6.jpg')}}">
                                 <span class="label">Sale</span>
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Ankle Boots</h6>
+                                <h6>Mares Wetsuit</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -328,7 +324,7 @@
                                     <i class="fa fa-star-o"></i>
                                 </div>
                                 <h5>$98.49</h5>
-                                <div class="product__color__select">
+                                <!--div class="product__color__select">
                                     <label for="pc-16">
                                         <input type="radio" id="pc-16">
                                     </label>
@@ -338,22 +334,22 @@
                                     <label class="grey" for="pc-18">
                                         <input type="radio" id="pc-18">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-7.jpg')}}">
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>T-shirt Contrast Pocket</h6>
+                                <h6>ScubaPro Supreme Regulator</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -362,8 +358,8 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$49.66</h5>
-                                <div class="product__color__select">
+                                <h5>$1249.66</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-19">
                                         <input type="radio" id="pc-19">
                                     </label>
@@ -373,22 +369,22 @@
                                     <label class="grey" for="pc-21">
                                         <input type="radio" id="pc-21">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-8.jpg')}}">
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Basic Flowing Scarf</h6>
+                                <h6>ScubaPro EverFlex Woman's Wetsuit</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -397,8 +393,8 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$26.28</h5>
-                                <div class="product__color__select">
+                                <h5>$126.28</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-22">
                                         <input type="radio" id="pc-22">
                                     </label>
@@ -408,22 +404,22 @@
                                     <label class="grey" for="pc-24">
                                         <input type="radio" id="pc-24">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-9.jpg')}}">
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Piqué Biker Jacket</h6>
+                                <h6>Cressi Frog+ Fins</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -432,8 +428,8 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$67.24</h5>
-                                <div class="product__color__select">
+                                <h5>$167.24</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-25">
                                         <input type="radio" id="pc-25">
                                     </label>
@@ -443,7 +439,7 @@
                                     <label class="grey" for="pc-27">
                                         <input type="radio" id="pc-27">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -451,15 +447,15 @@
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-10.jpg')}}">
                                 <span class="label">Sale</span>
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Multi-pocket Chest Bag</h6>
+                                <h6>Cressi Yamatekudasai Fins</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -469,7 +465,7 @@
                                     <i class="fa fa-star-o"></i>
                                 </div>
                                 <h5>$43.48</h5>
-                                <div class="product__color__select">
+                                <!--div class="product__color__select">
                                     <label for="pc-28">
                                         <input type="radio" id="pc-28">
                                     </label>
@@ -479,22 +475,22 @@
                                     <label class="grey" for="pc-30">
                                         <input type="radio" id="pc-30">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-11.jpg')}}">
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Diagonal Textured Cap</h6>
+                                <h6>Cressi Axiom BCD</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -503,8 +499,8 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$60.9</h5>
-                                <div class="product__color__select">
+                                <h5>$260.90</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-31">
                                         <input type="radio" id="pc-31">
                                     </label>
@@ -514,7 +510,7 @@
                                     <label class="grey" for="pc-33">
                                         <input type="radio" id="pc-33">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -522,15 +518,15 @@
                         <div class="product__item sale">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-12.jpg')}}">
                                 <span class="label">Sale</span>
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Ankle Boots</h6>
+                                <h6>ScubaPro WTF Fullface Mask</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -540,7 +536,7 @@
                                     <i class="fa fa-star-o"></i>
                                 </div>
                                 <h5>$98.49</h5>
-                                <div class="product__color__select">
+                                <!--div class="product__color__select">
                                     <label for="pc-34">
                                         <input type="radio" id="pc-34">
                                     </label>
@@ -550,22 +546,22 @@
                                     <label class="grey" for="pc-36">
                                         <input type="radio" id="pc-36">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-13.jpg')}}">
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>T-shirt Contrast Pocket</h6>
+                                <h6>AquaLung Women Wetsuit</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -574,8 +570,8 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$49.66</h5>
-                                <div class="product__color__select">
+                                <h5>$349.66</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-37">
                                         <input type="radio" id="pc-37">
                                     </label>
@@ -585,22 +581,22 @@
                                     <label class="grey" for="pc-39">
                                         <input type="radio" id="pc-39">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
                             <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-14.jpg')}}">
-                                <ul class="product__hover">
+                                <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
                                     </li>
                                     <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul>
+                                </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Basic Flowing Scarf</h6>
+                                <h6>Mares Rover Reg Set</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -609,8 +605,8 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$26.28</h5>
-                                <div class="product__color__select">
+                                <h5>$2226.28</h5>
+                                <!--div class="product__color__select">
                                     <label for="pc-40">
                                         <input type="radio" id="pc-40">
                                     </label>
@@ -620,7 +616,7 @@
                                     <label class="grey" for="pc-42">
                                         <input type="radio" id="pc-42">
                                     </label>
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -632,7 +628,7 @@
                             <a href="#">2</a>
                             <a href="#">3</a>
                             <span>...</span>
-                            <a href="#">21</a>
+                            <a href="#">9</a>
                         </div>
                     </div>
                 </div>
