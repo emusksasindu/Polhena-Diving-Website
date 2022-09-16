@@ -1,12 +1,10 @@
 @include('layouts.header')
-  
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap"
-  rel="stylesheet">
+
 
   <!-- Css Styles -->
   <link rel="stylesheet" href="{{ asset('css/product/bootstrap.min.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('css/product/elegant-icons.css') }}" type="text/css">
+  <link rel="stylesheet" href="{{ asset('css/product/font-awesome.min.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('css/product/magnific-popup.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('css/product/nice-select.css') }}" type="text/css">
   <link rel="stylesheet" href="{{ asset('css/product/owl.carousel.min.css') }}" type="text/css">
