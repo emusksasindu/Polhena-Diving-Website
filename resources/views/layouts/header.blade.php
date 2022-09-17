@@ -58,12 +58,14 @@
       
     @if (Auth::check())
     <ul >
-        <li class="dropdown">
+        <li class="dropdown-login">
             <div class="icons">
                 <a  href="javascript:void(0)" class="fas fa-user"></a>
             </div>
          
-          <div class="dropdown-content">
+          <div class="dropdown-content-login">
+            <a href="/profile">Profile</a>
+            <a href="/profile">Order History</a>
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -76,13 +78,13 @@
         </li>
       </ul>
                          @else
-                         <ul class="">
-                            <li  class="dropdown loginList" >
+                         <ul>
+                            <li  class="dropdown-login" >
                                 <div class="icons">
                                     <a href="javascript:void(0)" class="fas fa-user"></a>
                                 </div>
                              
-                              <div  class="dropdown-content">
+                              <div  class="dropdown-content-login">
                                 <a  href="login ">login</a>
                                 <a  href="register">register</a>
                               </div>
