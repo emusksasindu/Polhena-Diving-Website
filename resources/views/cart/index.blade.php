@@ -119,12 +119,13 @@
                     <div class="col-lg-6 col-md-6 col-sm-6">
                         <div class="continue__btn update__btn">
                             <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                            <p><br><br></p>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--div class="col-lg-4">
-                <div class="cart__discount">
+            <div class="col-lg-4">
+                <!--div class="cart__discount">
                     <h6>Discount codes</h6>
                     <form action="#">
                         <input type="text" placeholder="Coupon code">

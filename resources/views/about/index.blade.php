@@ -26,22 +26,25 @@
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="about__item">
                     <h4>Who We Are ?</h4>
-                    <p>Contextual advertising programs sometimes have strict policies that need to be adhered too.
-                    Let’s take Google as an example.</p>
+                    <p>We are Dive Professionals, Digital creators, Fishermen, Chefs, Travelers and Conservationists. 
+
+We are a group of rebels who got together doing what we love, to have a good time, meet new people and protect our oceans.
+
+We are the light bringers, the magic makers, the world shifters, the game shakers.
+
+We are your people. We Are Your Tribe..</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="about__item">
-                    <h4>Who We Do ?</h4>
-                    <p>In this digital generation where information can be easily obtained within seconds, business
-                    cards still have retained their importance.</p>
+                    <h4>what's there to do in South coast?</h4>
+                    <p>Discover the depths of Southern Sea, From Weligama, Mirissa and all the way to Tangalle. Including the famous Moray Point minutes away from the polhena diving center.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6">
                 <div class="about__item">
                     <h4>Why Choose Us</h4>
-                    <p>A two or three storey house is the ideal way to maximise the piece of earth on which our home
-                    sits, but for older or infirm people.</p>
+                    <p>Polhena Diving Center is PADI certified dive resort  (S-26840) located in a small village called Madiha, in southern coast of Sri Lanka.</p>
                 </div>
             </div>
         </div>
@@ -56,8 +59,7 @@
             <div class="col-lg-6 p-0">
                 <div class="testimonial__text">
                     <span class="icon_quotations"></span>
-                    <p>“Going out after work? Take your butane curling iron with you to the office, heat it up,
-                        style your hair before you leave the office and you won’t have to make a trip back home.”
+                    <p>“The crew at Polhena diving center are awesome. They are such a fond memory and a trip highlight in my visit to Sri Lanka. I will come back for more!”
                     </p>
                     <div class="testimonial__author">
                         <div class="testimonial__author__pic">
@@ -65,7 +67,7 @@
                         </div>
                         <div class="testimonial__author__text">
                             <h5>Augusta Schultz</h5>
-                            <p>Fashion Design</p>
+                            <p>Scuba Diver Client</p>
                         </div>
                     </div>
                 </div>
@@ -85,9 +87,17 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counter__item">
                     <div class="counter__item__number">
-                        <h2 class="cn_num">102</h2>
+                        <h2 class="cn_num">1500</h2>
                     </div>
-                    <span>Our <br />Clients</span>
+                    <span>dive <br />Clients</span>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="counter__item">
+                    <div class="counter__item__number">
+                        <h2 class="cn_num">300</h2>
+                    </div>
+                    <span>Total <br />Certifications</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
@@ -95,24 +105,16 @@
                     <div class="counter__item__number">
                         <h2 class="cn_num">30</h2>
                     </div>
-                    <span>Total <br />Categories</span>
+                    <span>Countires <br />Served</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="counter__item">
                     <div class="counter__item__number">
-                        <h2 class="cn_num">102</h2>
-                    </div>
-                    <span>In <br />Country</span>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="counter__item">
-                    <div class="counter__item__number">
-                        <h2 class="cn_num">98</h2>
+                        <h2 class="cn_num">100</h2>
                         <strong>%</strong>
                     </div>
-                    <span>Happy <br />Customer</span>
+                    <span>Happiness <br />guaranteed</span>
                 </div>
             </div>
         </div>
@@ -135,29 +137,29 @@
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="images/about/team-1.jpg" alt="">
-                    <h4>John Smith</h4>
-                    <span>Fashion Design</span>
+                    <h4>Randunu Dimeshan</h4>
+                    <span>manager</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="images/about/team-2.jpg" alt="">
-                    <h4>Christine Wise</h4>
-                    <span>C.E.O</span>
+                    <h4>Chamlie De Silva</h4>
+                    <span>Owner</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="images/about/team-3.jpg" alt="">
-                    <h4>Sean Robbins</h4>
-                    <span>Manager</span>
+                    <h4>Srinath Jayasooriya</h4>
+                    <span>Boat Skipper</span>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="team__item">
                     <img src="images/about/team-4.jpg" alt="">
-                    <h4>Lucy Myers</h4>
-                    <span>Delivery</span>
+                    <h4>Kasun Sanjaya</h4>
+                    <span>Divemaster</span>
                 </div>
             </div>
         </div>
@@ -166,7 +168,7 @@
 <!-- Team Section End -->
 
 <!-- Client Section Begin -->
-<section class="clients spad">
+<!--section class="clients spad">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -203,7 +205,7 @@
             </div>
         </div>
     </div>
-</section>
+</section-->
 <!-- Client Section End -->
 
 
