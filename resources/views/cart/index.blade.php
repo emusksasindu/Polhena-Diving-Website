@@ -33,8 +33,8 @@
                                         <img src="images/shopping-cart/cart-1.jpg" alt="">
                                     </div>
                                     <div class="product__cart__item__text">
-                                        <h6>T-shirt Contrast Pocket</h6>
-                                        <h5>$98.49</h5>
+                                        <h6>scubaPro Fins Blue</h6>
+                                        <h5>$100.00</h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
@@ -44,7 +44,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">$ 30.00</td>
+                                <td class="cart__price">$ 100.00</td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>
                             <tr>
@@ -53,18 +53,18 @@
                                         <img src="images/shopping-cart/cart-2.jpg" alt="">
                                     </div>
                                     <div class="product__cart__item__text">
-                                        <h6>Diagonal Textured Cap</h6>
-                                        <h5>$98.49</h5>
+                                        <h6>Yamathekudasai BCD</h6>
+                                        <h5>$200.00</h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
                                     <div class="quantity">
                                         <div class="pro-qty-2">
-                                            <input type="text" value="1">
+                                            <input type="text" value="2">
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">$ 32.50</td>
+                                <td class="cart__price">$ 400.00</td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>
                             <tr>
@@ -73,8 +73,8 @@
                                         <img src="images/shopping-cart/cart-3.jpg" alt="">
                                     </div>
                                     <div class="product__cart__item__text">
-                                        <h6>Basic Flowing Scarf</h6>
-                                        <h5>$98.49</h5>
+                                        <h6>Open Water Diver Course</h6>
+                                        <h5>$375.00</h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
@@ -84,7 +84,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">$ 47.00</td>
+                                <td class="cart__price">$ 375.00</td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>
                             <tr>
@@ -93,8 +93,8 @@
                                         <img src="images/shopping-cart/cart-4.jpg" alt="">
                                     </div>
                                     <div class="product__cart__item__text">
-                                        <h6>Basic Flowing Scarf</h6>
-                                        <h5>$98.49</h5>
+                                        <h6>ScubaPro Regulator</h6>
+                                        <h5>$69.69</h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
@@ -104,7 +104,7 @@
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">$ 30.00</td>
+                                <td class="cart__price">$ 69.69</td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>
                         </tbody>
@@ -123,19 +123,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <!--div class="col-lg-4">
                 <div class="cart__discount">
                     <h6>Discount codes</h6>
                     <form action="#">
                         <input type="text" placeholder="Coupon code">
                         <button type="submit">Apply</button>
                     </form>
-                </div>
+                </div-->
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>$ 169.50</span></li>
-                        <li>Total <span>$ 169.50</span></li>
+                        <li>Subtotal <span>$ 6969.69</span></li>
+                        <li>Total <span>$ 6969.69</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Proceed to checkout</a>
                 </div>

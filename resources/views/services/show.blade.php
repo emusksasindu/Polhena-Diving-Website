@@ -34,17 +34,15 @@
                                     <div class="card-body">
                                         <div class="shop__sidebar__categories">
                                             <ul class="nice-scroll">
-                                                <li><a href="#">Fins</a></li>
-                                                <li><a href="#">BCDs</a></li>
-                                                <li><a href="#">Masks</a></li>
-                                                <li><a href="#">Wetsuits</a></li>
-                                                <li><a href="#">Regulators</a></li>
+                                                <li><a href="#">Dive Courses</a></li>
+                                                <li><a href="#">Snorkeling</a></li>
+
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <!--div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseTwo">Brands</a>
                                 </div>
@@ -60,7 +58,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             <div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
@@ -80,7 +78,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <!--div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseFour">Size</a>
                                 </div>
@@ -114,8 +112,8 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card">
+                            </div-->
+                            <!--div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
                                 </div>
@@ -152,7 +150,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             <!-- div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
@@ -180,7 +178,7 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="shop__product__option__left">
-                                <p>Showing 1–12 of 30 results</p>
+                                <p>Showing 1–6 of 6 results</p>
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6">
@@ -198,7 +196,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-1.jpg')}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/service-1.jpg')}}">
                                 <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
@@ -207,7 +205,7 @@
                                 </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>ScubaPro Seawing Nova Fins</h6>
+                                <h6>PADI Open Water Course</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -216,7 +214,7 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$67.24</h5>
+                                <h5>$375.00</h5>
                                 <!--div class="product__color__select">
                                     <label for="pc-4">
                                         <input type="radio" id="pc-4">
@@ -233,7 +231,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item sale">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-3.jpg')}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/service-2.jpg')}}">
                                 <span class="label">Sale</span>
                                 <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
@@ -243,7 +241,7 @@
                                 </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Cressi Start Diving BCD</h6>
+                                <h6>Padi Advanced Open Water Copurse</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -252,7 +250,7 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$243.48</h5>
+                                <h5>$350.00</h5>
                                 <!--div class="product__color__select">
                                     <label for="pc-7">
                                         <input type="radio" id="pc-7">
@@ -269,7 +267,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-4.jpg')}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/service-3.jpg')}}">
                                 <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
@@ -278,7 +276,7 @@
                                 </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Mares Dive mask</h6>
+                                <h6>PADI Rescue Diver Course</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -287,7 +285,7 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$60.90</h5>
+                                <h5>$450.00</h5>
                                 <!--div class="product__color__select">
                                     <label for="pc-10">
                                         <input type="radio" id="pc-10">
@@ -304,7 +302,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item sale">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-6.jpg')}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/service-4.jpg')}}">
                                 <span class="label">Sale</span>
                                 <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
@@ -314,7 +312,7 @@
                                 </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>Mares Wetsuit</h6>
+                                <h6>PADI Divemaster Course</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star"></i>
@@ -323,7 +321,7 @@
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$98.49</h5>
+                                <h5>$1800.00</h5>
                                 <!--div class="product__color__select">
                                     <label for="pc-16">
                                         <input type="radio" id="pc-16">
@@ -340,7 +338,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-7.jpg')}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/service-5.jpg')}}">
                                 <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
@@ -349,7 +347,7 @@
                                 </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>ScubaPro Supreme Regulator</h6>
+                                <h6>Day Snorkeling Package</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -358,7 +356,7 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$1249.66</h5>
+                                <h5>$18.00</h5>
                                 <!--div class="product__color__select">
                                     <label for="pc-19">
                                         <input type="radio" id="pc-19">
@@ -375,7 +373,7 @@
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6">
                         <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-8.jpg')}}">
+                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/service-6.jpg')}}">
                                 <!--ul class="product__hover">
                                     <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
                                     <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
@@ -384,7 +382,7 @@
                                 </ul-->
                             </div>
                             <div class="product__item__text">
-                                <h6>ScubaPro EverFlex Woman's Wetsuit</h6>
+                                <h6>night Snorkeling</h6>
                                 <a href="#" class="add-cart">+ Add To Cart</a>
                                 <div class="rating">
                                     <i class="fa fa-star-o"></i>
@@ -393,7 +391,7 @@
                                     <i class="fa fa-star-o"></i>
                                     <i class="fa fa-star-o"></i>
                                 </div>
-                                <h5>$126.28</h5>
+                                <h5>$25.00</h5>
                                 <!--div class="product__color__select">
                                     <label for="pc-22">
                                         <input type="radio" id="pc-22">
@@ -408,230 +406,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-9.jpg')}}">
-                                <!--ul class="product__hover">
-                                    <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
-                                    </li>
-                                    <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul-->
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Cressi Frog+ Fins</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-                                <div class="rating">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>$167.24</h5>
-                                <!--div class="product__color__select">
-                                    <label for="pc-25">
-                                        <input type="radio" id="pc-25">
-                                    </label>
-                                    <label class="active black" for="pc-26">
-                                        <input type="radio" id="pc-26">
-                                    </label>
-                                    <label class="grey" for="pc-27">
-                                        <input type="radio" id="pc-27">
-                                    </label>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item sale">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-10.jpg')}}">
-                                <span class="label">Sale</span>
-                                <!--ul class="product__hover">
-                                    <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
-                                    </li>
-                                    <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul-->
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Cressi Yamatekudasai Fins</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>$43.48</h5>
-                                <!--div class="product__color__select">
-                                    <label for="pc-28">
-                                        <input type="radio" id="pc-28">
-                                    </label>
-                                    <label class="active black" for="pc-29">
-                                        <input type="radio" id="pc-29">
-                                    </label>
-                                    <label class="grey" for="pc-30">
-                                        <input type="radio" id="pc-30">
-                                    </label>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-11.jpg')}}">
-                                <!--ul class="product__hover">
-                                    <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
-                                    </li>
-                                    <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul-->
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Cressi Axiom BCD</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-                                <div class="rating">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>$260.90</h5>
-                                <!--div class="product__color__select">
-                                    <label for="pc-31">
-                                        <input type="radio" id="pc-31">
-                                    </label>
-                                    <label class="active black" for="pc-32">
-                                        <input type="radio" id="pc-32">
-                                    </label>
-                                    <label class="grey" for="pc-33">
-                                        <input type="radio" id="pc-33">
-                                    </label>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item sale">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-12.jpg')}}">
-                                <span class="label">Sale</span>
-                                <!--ul class="product__hover">
-                                    <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
-                                    </li>
-                                    <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul-->
-                            </div>
-                            <div class="product__item__text">
-                                <h6>ScubaPro WTF Fullface Mask</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-                                <div class="rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>$98.49</h5>
-                                <!--div class="product__color__select">
-                                    <label for="pc-34">
-                                        <input type="radio" id="pc-34">
-                                    </label>
-                                    <label class="active black" for="pc-35">
-                                        <input type="radio" id="pc-35">
-                                    </label>
-                                    <label class="grey" for="pc-36">
-                                        <input type="radio" id="pc-36">
-                                    </label>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-13.jpg')}}">
-                                <!--ul class="product__hover">
-                                    <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
-                                    </li>
-                                    <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul-->
-                            </div>
-                            <div class="product__item__text">
-                                <h6>AquaLung Women Wetsuit</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-                                <div class="rating">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>$349.66</h5>
-                                <!--div class="product__color__select">
-                                    <label for="pc-37">
-                                        <input type="radio" id="pc-37">
-                                    </label>
-                                    <label class="active black" for="pc-38">
-                                        <input type="radio" id="pc-38">
-                                    </label>
-                                    <label class="grey" for="pc-39">
-                                        <input type="radio" id="pc-39">
-                                    </label>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="product__item">
-                            <div class="product__item__pic set-bg" data-setbg="{{asset('images/product/product-14.jpg')}}">
-                                <!--ul class="product__hover">
-                                    <li><a href="#"><img src="{{asset('images/icon/heart.png')}}" alt=""></a></li>
-                                    <li><a href="#"><img src="{{asset('images/icon/compare.png')}}" alt=""> <span>Compare</span></a>
-                                    </li>
-                                    <li><a href="#"><img src="{{asset('images/icon/search.png')}}" alt=""></a></li>
-                                </ul-->
-                            </div>
-                            <div class="product__item__text">
-                                <h6>Mares Rover Reg Set</h6>
-                                <a href="#" class="add-cart">+ Add To Cart</a>
-                                <div class="rating">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
-                                <h5>$2226.28</h5>
-                                <!--div class="product__color__select">
-                                    <label for="pc-40">
-                                        <input type="radio" id="pc-40">
-                                    </label>
-                                    <label class="active black" for="pc-41">
-                                        <input type="radio" id="pc-41">
-                                    </label>
-                                    <label class="grey" for="pc-42">
-                                        <input type="radio" id="pc-42">
-                                    </label>
-                                </div-->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="product__pagination">
-                            <a class="active" href="#">1</a>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <span>...</span>
-                            <a href="#">9</a>
-                        </div>
-                    </div>
-                </div>
+                   
+                
             </div>
         </div>
     </div>
