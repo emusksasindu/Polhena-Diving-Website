@@ -57,7 +57,7 @@
 
       
     @if (Auth::check())
-    <ul >
+    <ul class="ul-login">
         <li class="dropdown-login">
             <div class="icons">
                 <a  href="javascript:void(0)" class="fas fa-user"></a>
@@ -78,7 +78,7 @@
         </li>
       </ul>
                          @else
-                         <ul>
+                         <ul class="ul-login">
                             <li  class="dropdown-login" >
                                 <div class="icons">
                                     <a href="javascript:void(0)" class="fas fa-user"></a>
