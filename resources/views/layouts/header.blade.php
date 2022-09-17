@@ -26,7 +26,7 @@
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
         <a href="home">home</a>
-        <a href="#about">about</a>
+        <a href="/about">about</a>
         <a href="/products">products</a>
         <a href="/services">services</a>
         <a href="/home#reviews">reviews</a>

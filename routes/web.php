@@ -98,3 +98,11 @@ Route::get('/cart', function () {
 Route::get('/blog', function () {
     return view('blogs.index');
 });
+
+Route::get('/checkout', function () {
+    return view('checkout.index');
+});
+
+Route::get('/about', function () {
+    return view('about.index');
+});
