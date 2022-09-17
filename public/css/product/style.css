@@ -1135,6 +1135,7 @@ ol {
 
 .shop__sidebar__search {
 	margin-bottom: 45px;
+	padding-top: 10px;
 }
 
 .shop__sidebar__search form {
@@ -1399,6 +1400,7 @@ ol {
 
 .shop__product__option {
 	margin-bottom: 45px;
+	padding-top: 10px;
 }
 
 .shop__product__option p {
@@ -3298,7 +3300,7 @@ ol {
 	}
 	.shop__sidebar {
 		padding-right: 0;
-		padding-top: 40px;
+		padding-top: 50px;
 	}
 	.cart__discount {
 		margin-top: 40px;
