@@ -259,7 +259,7 @@
             <div class="content">
                 <h3>PADI Divemaster</h3>
                 <p>The PADI Divemaster course is your first level of professional training.</p>
-                <div class="price">$1395 - $4502500</div>
+                <div class="price">$1395 - $2500</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
