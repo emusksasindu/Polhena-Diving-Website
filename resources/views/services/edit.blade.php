@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Edit Product Form - Laravel 9 CRUD Tutorial</title>
+<title>Edit Service Form - Laravel 9 CRUD Tutorial</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
 </head>
 <body>
@@ -10,7 +10,7 @@
 <div class="row">
 <div class="col-lg-12 margin-tb">
 <div class="pull-left">
-<h2>Edit Product</h2>
+<h2>Edit Service</h2>
 </div>
 <div class="pull-right">
 <a class="btn btn-primary" href="{{ route('products.index') }}" enctype="multipart/form-data"> Back</a>
@@ -58,7 +58,7 @@
         </div>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <!--div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
             <strong>Size:</strong>
             <input type="text" name="size" value="{{ $product->size }}" class="form-control" placeholder="product size">
@@ -76,7 +76,7 @@
                 <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                 @enderror
                 </div>
-                </div>
+                </div-->
 
                 <div class="col-xs-12 col-sm-12 col-md-12">
                     <div class="form-group">
