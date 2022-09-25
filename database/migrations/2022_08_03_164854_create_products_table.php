@@ -19,8 +19,10 @@ return new class extends Migration
             $table->mediumText('description')->nullable();
             $table->mediumInteger('qty');
             $table->string('size',8);
-            $table->string('imageUrl');
-            $table->string('color',10);
+            $table->string('imageUrl_1');
+            $table->string('imageUrl_2');
+            $table->string('imageUrl_3');
+            $table->string('colors');
             $table->string('status',10);
             $table->double('selling_price',10,2);
             $table->double('cost',10,2);

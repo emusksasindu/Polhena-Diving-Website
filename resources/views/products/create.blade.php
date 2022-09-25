@@ -1,161 +1,110 @@
+@include('layouts.admin_navi')
+       
+<!-- ========================= Main ==================== -->
+ <div class="main">
+     <div class="topbar">
+         <div class="toggle">
+             <ion-icon name="menu-outline"></ion-icon>
+         </div>
+        
+     </div>
+     
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Add Product Form - Laravel 9 CRUD</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
-</head>
-<body>
-<div class="container mt-2">
-<div class="row">
-<div class="col-lg-12 margin-tb">
-<div class="pull-left mb-2">
-<h2>Add Product</h2>
-</div>
-@if(session('status'))
-<div class="alert alert-success mb-1 mt-1">
-{{ session('status') }}
-</div>
-@endif
-<div class="pull-right">
-<a class="btn btn-primary" href="{{ route('products.index') }}"> Back</a>
-</div>
-</div>
-</div>
+     <!-- ======================= Cards ================== -->
+    
+     <div class="cardProfile">
+         <div class="card">
+             <form role="form">
 
-<form action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
-@csrf
-<div class="row">
+               
 
+                 <div class="form-group">
+                     <h2>Add New Product</h2>
+                     <div class="gap"></div>
+                     <div class="cardBox d-flex justify-content-center">
+                        <div class="card ">
+                            <a class="numbers d-flex justify-content-center" >add image 1</a>
+                        </div>
+                        <div class="card ">
+                            <a class="numbers d-flex justify-content-center" >add image 2</a>
+                        </div>
+                        <div class="card ">
+                            <a class="numbers d-flex justify-content-center" >add image 3</a>
+                        </div>
+                     </div>
+                    
+                     <h2 class="numbers">Product Name</h2>
+                     <input type="text" name= "ProductName" class="form-control" id="ProductName"
+                            placeholder="enter product name" >
+                 </div>
 
-<div class="col-xs-12 col-sm-12 col-md-12">
-<div class="form-group">
-<strong>Name:</strong>
-<input type="text" name="name" class="form-control" placeholder="Product Name">
-@error('name')
-<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-@enderror
-</div>
-</div>
+                 <div class="gap"></div>
+                 <div class="form-group">
+                     <h2 class="numbers">Product description</h2>
+                     <input type="text" name="ProductDescription" class="form-control" id="ProductDescription"
+                            placeholder="enter product description" >
+                 </div>
 
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-<div class="dropdown">
-    <strong>Category :</strong>
-        <select  class="btn btn-secondary" name="category">
-            <option value="Men">Men</option>
-            <option value="Women">Women</option>
-            <option value="Kids">Kids</option>
-        </select>
-    @error('category')
-    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-    @enderror
-</div>
-</div>
-</div>
+                 <div class="gap"></div>
+                 <div class="form-group">
+                     <h2 class="numbers">Quantity</h2>
+                     <input type="text" name="Quantity" class="form-control" id="Quantity"
+                            placeholder="enter quantity">
+                 </div>
 
+                 <div class="gap"></div>
+                 <div class="form-group">
+                    <h2 class="numbers" >Cost</h2>
+                    <input type="text" name="Cost" class="form-control" id="Cost"
+                           placeholder="enter cost">
+                </div>
 
-<div class="col-xs-12 col-sm-12 col-md-12">
-<div class="form-group">
-<strong>Description:</strong>
-<input type="text" name="description" class="form-control" placeholder="Product description">
-@error('description')
-<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-@enderror
-</div>
-</div>
-
-<div class="col-xs-12 col-sm-12 col-md-12">
-<div class="form-group">
-<strong>qty:</strong>
-<input type="number" name="qty" class="form-control" placeholder="Product qty">
-@error('qty')
-<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-@enderror
-</div>
-</div>
-
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-<div class="dropdown">
-    <strong>Size :</strong>
-        <select  class="btn btn-secondary" name="size">
-            <option value="Small">Small</option>
-            <option value="Medium">Medium</option>
-            <option value="Large">Large</option>
-        </select>
-    @error('size')
-    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-    @enderror
-</div>
-</div>
-</div>
-
-
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-<div class="dropdown">
-    <strong>Color : </strong>
-        <select  class="btn btn-secondary" name="color">
-            <option value="black">black</option>
-            <option value="white">white</option>
-            <option value="red">red</option>
-            <option value="green">green</option>
-            <option value="yellow">yellow</option>
-            <option value="blue">blue</option>
-            <option value="pink">pink</option>
-            <option value="gray">gray</option>
-            <option value="brown">brown</option>
-            <option value="orange">orange</option>
-            <option value="purple">purple</option>
-        </select>
-    @error('color')
-    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-    @enderror
-</div>
-</div>
-</div>
-
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-<div class="dropdown">
-    <strong>Status :</strong>
-        <select  class="btn btn-secondary" name="status">
-            <option value="In Stock">In Stock</option>
-            <option value="Out of Stock">Out of Stock</option>
-        </select>
-    @error('status')
-    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-    @enderror
-</div>
-</div>
-</div>
-
-            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="gap"></div>
                 <div class="form-group">
-                <strong>Buying price:</strong>
-                <input type="number" name="buying_price" class="form-control" step="0.01" placeholder="Product buying price">
-                @error('buying_price')
-                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                @enderror
-                </div>
-                </div>
+                   <h2 class="numbers">Selling Price</h2>
+                   <input type="text" name="SellingPrice" class="form-control" id="SellingPrice"
+                          placeholder="enter selling price">
+               </div>
+
+               <div class="gap"></div>
+               <div class="form-group">
+                  <h2 class="numbers">Discount</h2>
+                  <input type="text" name="Discount" class="form-control" id="Discount"
+                         placeholder="enter discount">
+              </div>
+
+              <div class="gap"></div>
+               <div class="form-group">
+                  <h2 class="numbers">Colour</h2>
+                  <input type="text" name="Discount" class="form-control" id="Discount"
+                         placeholder="enter discount">
+              </div>
+
+              <div class="gap"></div>
+              <div class="form-group">
+                 <h2 class="numbers">Status</h2>
+                 <input type="text" name="Discount" class="form-control" id="Discount"
+                        placeholder="enter discount">
+             </div>
+
+               <div class="gap"></div>
+                 <button type="submit" class="btn">Save</button>
+
+             </form>
+
+             
+         </div>
+
+      
+     </div>
 
 
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-    <strong>Selling price:</strong>
-    <input type="number" name="selling_price" class="form-control" step="0.01" placeholder="Product selling price">
-    @error('selling_price')
-    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-    @enderror
-    </div>
-    </div>
-<button type="submit" class="btn btn-primary ml-3">Submit</button>
+<!-- =========== Scripts =========  -->
+<script src='{{asset("js/admin_script.js")}}'></script>
 
-</div>
-
-</form>
+<!-- ====== ionicons ======= -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

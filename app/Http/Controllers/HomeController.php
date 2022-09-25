@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\AdminMiddleware;
 use Illuminate\Http\Request;
+use App\Models\product;
+use App\Models\service;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,8 @@ class HomeController extends Controller
     { if($request->user() != null && $request->user()->type == 'A'){
        return redirect('/admin');
     }
-        return view('index');
+        $data['products'] = product::orderBy('id', 'desc')->get();
+        $data['services'] = service::orderBy('id', 'desc')->get();
+        return view('index',$data);
     }
 }

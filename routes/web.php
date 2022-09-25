@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +38,6 @@ Route::get('/profile', function () {
     return view('admin.profile');
 });
 
-Route::get('/services', function () {
-    return view('admin.service');
-});
 
 Route::get('/orders', function () {
     return view('admin.orders');
@@ -55,9 +52,6 @@ Route::get('/posts', function () {
     return view('admin.posts');
 });
 
-Route::get('/users', function () {
-    return view('admin.users');
-});
 
 
 Route::get('/finance', function () {
@@ -68,24 +62,17 @@ Route::get('/chat', function () {
     return view('admin.chat');
 });
 
+Route::resource('admin/users',UserController::class );
 
+Route::resource('admin/products',ProductController::class );
 
-Route::resource('/p',ProductController::class );
-
-Route::resource('/s',ServiceController::class );
+Route::resource('admin/services',ServiceController::class );
    
 });
 
 
-Route::get('/p',[ProductController::class, 'index'] )->name('products.index');
-
-Route::get('/products', function () {
-    return view('products.show');
-});
-
-Route::get('/services', function () {
-    return view('services.show');
-});
+Route::get('/products',[ProductController::class, 'user_index'] )->name('products.index');
+Route::get('/services',[ProductController::class, 'user_index'] )->name('services.index');
 
 Route::get('/show', function () {
     return view('products.detail');

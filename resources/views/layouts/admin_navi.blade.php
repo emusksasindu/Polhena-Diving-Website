@@ -43,7 +43,7 @@
                 </li>
 
                 <li>
-                    <a href="/products">
+                    <a href="{{asset('admin/products')}}">
                         <span class="icon">
                             <ion-icon name="cube-outline"></ion-icon>
                         </span>
@@ -52,7 +52,7 @@
                 </li>
 
                 <li>
-                    <a href="/services">
+                    <a href="{{asset('admin/services')}}">
                         <span class="icon">
                             <ion-icon name="diamond-outline"></ion-icon>
                         </span>
@@ -88,7 +88,7 @@
                 </li>
 
                 <li>
-                    <a href="/users">
+                    <a href="{{asset('admin/users')}}">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>

@@ -4,16 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\product;
-use App\Models\service;
-use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $data['services'] = service::orderBy('id', 'desc')->get();
         $data['products'] = product::orderBy('id', 'desc')->get();
-        return (Auth::user()->type == "U" ) ? view('products.index', $data) : view('admin.products', $data);
+        return view('admin.products', $data);
+    }
+
+    public function user_index()
+    {
+        $data['products'] = product::orderBy('id', 'desc')->get();
+        return view('products.index', $data);
     }
     /**
      * Show the form for creating a new resource.
@@ -22,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.addproduct');
+        return view('products.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -37,24 +40,27 @@ class ProductController extends Controller
             'description' => ['required', 'string', 'max:500'],
             'qty' => ['required', 'integer', 'max:1000000'],
             'size' => ['required'],
-            'color' => ['required'],
-            'category' => ['required'],
+            'imageUrl_1' => ['required'],
+            'colors' => ['required'],
             'status' => ['required'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'buying_price' => ['required', 'numeric', 'between:0,9999999999.99'],
+            'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
         $product = new product;
         $product->name = $request->name;
         $product->description = $request->description;
         $product->qty = $request->qty;
         $product->size = $request->size;
-        $product->color = $request->color;
-        $product->category = $request->category;
+        $product->colors = $request->colors;
+        $product->imageUrl_1 = $request->imageUrl_1;
+        $product->imageUrl_2 = $request->imageUrl_2;
+        $product->imageUrl_3 = $request->imageUrl_3;
+        $product->categories_id = $request->categories_id;
         $product->status = $request->status;
-        $product->buying_price = $request->buying_price;
+        $product->cost = $request->cost;
         $product->selling_price = $request->selling_price;
         $product->save();
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products')
             ->with('success', 'Product has been created successfully.');
     }
     /**
@@ -91,24 +97,27 @@ class ProductController extends Controller
             'description' => ['required', 'string', 'max:500'],
             'qty' => ['required', 'integer', 'max:1000000'],
             'size' => ['required'],
-            'color' => ['required'],
-            'category' => ['required'],
+            'imageUrl_1' => ['required'],
+            'colors' => ['required'],
             'status' => ['required'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'buying_price' => ['required', 'numeric', 'between:0,9999999999.99'],
+            'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
         $product = product::find($id);
         $product->name = $request->name;
         $product->description = $request->description;
         $product->qty = $request->qty;
         $product->size = $request->size;
-        $product->color = $request->color;
-        $product->category = $request->category;
+        $product->colors = $request->colors;
+        $product->imageUrl_1 = $request->imageUrl_1;
+        $product->imageUrl_2 = $request->imageUrl_2;
+        $product->imageUrl_3 = $request->imageUrl_3;
+        $product->categories_id = $request->categories_id;
         $product->status = $request->status;
-        $product->buying_price = $request->buying_price;
+        $product->cost = $request->cost;
         $product->selling_price = $request->selling_price;
         $product->save();
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products')
             ->with('success', 'Product Has Been updated successfully');
     }
     /**
@@ -120,7 +129,7 @@ class ProductController extends Controller
     public function destroy(product  $product)
     {
         $product->delete();
-        return redirect()->route('products.index')
+        return redirect()->route('admin.products')
             ->with('success', 'Product has been deleted successfully');
     }
 }

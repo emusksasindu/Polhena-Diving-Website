@@ -23,7 +23,13 @@
                      <div class="gap"></div>
                      <div class="cardBox d-flex justify-content-center">
                         <div class="card ">
-                            <a class="numbers d-flex justify-content-center" >add image</a>
+                            <a class="numbers d-flex justify-content-center" >add image 1</a>
+                        </div>
+                        <div class="card ">
+                            <a class="numbers d-flex justify-content-center" >add image 2</a>
+                        </div>
+                        <div class="card ">
+                            <a class="numbers d-flex justify-content-center" >add image 3</a>
                         </div>
                      </div>
                     

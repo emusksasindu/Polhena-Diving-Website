@@ -12,6 +12,12 @@ class ServiceController extends Controller
         $data['services'] = service::orderBy('id', 'desc')->get();
         return view('admin.service', $data);
     }
+
+    public function user_index()
+    {
+        $data['services'] = service::orderBy('id', 'desc')->get();
+        return view('services.index', $data);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -19,7 +25,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('services.addservice');
+        return view('services.create');
     }
     /**
      * Store a newly created resource in storage.
@@ -32,26 +38,23 @@ class ServiceController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:500'],
-            'qty' => ['required', 'integer', 'max:1000000'],
-            'size' => ['required'],
-            'color' => ['required'],
-            'category' => ['required'],
+            'imageUrl_1' => ['required'],
             'status' => ['required'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'buying_price' => ['required', 'numeric', 'between:0,9999999999.99'],
+            'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
         $service = new service;
         $service->name = $request->name;
         $service->description = $request->description;
-        $service->qty = $request->qty;
-        $service->size = $request->size;
-        $service->color = $request->color;
-        $service->category = $request->category;
+        $service->categories_id = $request->categories_id;
         $service->status = $request->status;
-        $service->buying_price = $request->buying_price;
+        $service->imageUrl_1 = $request->imageUrl_1;
+        $service->imageUrl_2 = $request->imageUrl_2;
+        $service->imageUrl_3 = $request->imageUrl_3;
+        $service->cost = $request->cost;
         $service->selling_price = $request->selling_price;
         $service->save();
-        return redirect()->route('services.index')
+        return redirect()->route('admin.service')
             ->with('success', 'service has been created successfully.');
     }
     /**
@@ -86,26 +89,23 @@ class ServiceController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:500'],
-            'qty' => ['required', 'integer', 'max:1000000'],
-            'size' => ['required'],
-            'color' => ['required'],
-            'category' => ['required'],
+            'imageUrl_1' => ['required'],
             'status' => ['required'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'buying_price' => ['required', 'numeric', 'between:0,9999999999.99'],
+            'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
         $service = service::find($id);
         $service->name = $request->name;
         $service->description = $request->description;
-        $service->qty = $request->qty;
-        $service->size = $request->size;
-        $service->color = $request->color;
-        $service->category = $request->category;
+        $service->categories_id = $request->categories_id;
         $service->status = $request->status;
-        $service->buying_price = $request->buying_price;
+        $service->imageUrl_1 = $request->imageUrl_1;
+        $service->imageUrl_2 = $request->imageUrl_2;
+        $service->imageUrl_3 = $request->imageUrl_3;
+        $service->cost = $request->cost;
         $service->selling_price = $request->selling_price;
         $service->save();
-        return redirect()->route('services.index')
+        return redirect()->route('admin.service')
             ->with('success', 'service Has Been updated successfully');
     }
     /**
@@ -117,7 +117,7 @@ class ServiceController extends Controller
     public function destroy(service  $service)
     {
         $service->delete();
-        return redirect()->route('services.index')
+        return redirect()->route('admin.service')
             ->with('success', 'service has been deleted successfully');
     }
 }
