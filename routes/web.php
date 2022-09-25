@@ -71,25 +71,38 @@ Route::resource('admin/services',ServiceController::class );
 });
 
 
-Route::get('/products',[ProductController::class, 'user_index'] )->name('products.index');
-Route::get('/services',[ProductController::class, 'user_index'] )->name('services.index');
 
-Route::get('/show', function () {
-    return view('products.detail');
+
+// this route group use for users and guests only sections
+
+Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
+{
+    Route::get('/products',[ProductController::class, 'user_index'] )->name('products.index');
+    Route::get('/services',[ProductController::class, 'user_index'] )->name('services.index');
+
+
+    Route::get('/show', function () {
+        return view('products.detail');
+    });
+    
+    Route::get('/cart', function () {
+        return view('cart.index');
+    });
+    
+    Route::get('/blog', function () {
+        return view('blogs.index');
+    });
+    
+    Route::get('/checkout', function () {
+        return view('checkout.index');
+    });
+    
+    Route::get('/about', function () {
+        return view('about.index');
+    });
+
 });
 
-Route::get('/cart', function () {
-    return view('cart.index');
-});
 
-Route::get('/blog', function () {
-    return view('blogs.index');
-});
 
-Route::get('/checkout', function () {
-    return view('checkout.index');
-});
 
-Route::get('/about', function () {
-    return view('about.index');
-});

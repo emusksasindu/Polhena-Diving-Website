@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -31,37 +32,29 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:50'],
-            'description' => ['required', 'string', 'max:500'],
-            'qty' => ['required', 'integer', 'max:1000000'],
-            'size' => ['required'],
-            'imageUrl_1' => ['required'],
-            'colors' => ['required'],
-            'status' => ['required'],
-            'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
         ]);
-        $user = new User;
-        $user->name = $request->name;
-        $user->description = $request->description;
-        $user->qty = $request->qty;
-        $user->size = $request->size;
-        $user->colors = $request->colors;
-        $user->imageUrl_1 = $request->imageUrl_1;
-        $user->imageUrl_2 = $request->imageUrl_2;
-        $user->imageUrl_3 = $request->imageUrl_3;
-        $user->categories_id = $request->categories_id;
-        $user->status = $request->status;
-        $user->cost = $request->cost;
-        $user->selling_price = $request->selling_price;
-        $user->save();
-        return redirect()->route('admin.users')
-            ->with('success', 'user has been created successfully.');
+        return $request->type == "U" ? User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'type'=> 'U',
+            'status'=> 'active',
+        ])->with('success', 'user has been created successfully.') :
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+            'type'=> 'A',
+            'status'=> 'active',
+        ])->with('success', 'user has been created successfully.');
     }
     /**
      * Display the specified resource.
      *
-     * @param  \App\user  $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function show(User  $user)
@@ -71,7 +64,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\user  $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function edit(User  $user)
@@ -82,49 +75,35 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\user  $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:50'],
-            'description' => ['required', 'string', 'max:500'],
-            'qty' => ['required', 'integer', 'max:1000000'],
-            'size' => ['required'],
-            'imageUrl_1' => ['required'],
-            'colors' => ['required'],
-            'status' => ['required'],
-            'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
         ]);
+
         $user = User::find($id);
         $user->name = $request->name;
-        $user->description = $request->description;
-        $user->qty = $request->qty;
-        $user->size = $request->size;
-        $user->colors = $request->colors;
-        $user->imageUrl_1 = $request->imageUrl_1;
-        $user->imageUrl_2 = $request->imageUrl_2;
-        $user->imageUrl_3 = $request->imageUrl_3;
-        $user->categories_id = $request->categories_id;
-        $user->status = $request->status;
-        $user->cost = $request->cost;
-        $user->selling_price = $request->selling_price;
+        $user->email = $request->email;
+        $user->password = $request->password;
         $user->save();
         return redirect()->route('admin.users')
-            ->with('success', 'user Has Been updated successfully');
+            ->with('success', 'User Has Been updated successfully');
     }
     /**
      * Remove the specified resource from storage.
     
-     * @param  \App\user  $user
+     * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(User  $user)
     {
         $user->delete();
         return redirect()->route('admin.users')
-            ->with('success', 'user has been deleted successfully');
+            ->with('success', 'User has been deleted successfully');
     }
 }
