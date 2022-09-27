@@ -22,9 +22,9 @@ return new class extends Migration
             $table->mediumInteger('large_qty');
             $table->mediumInteger('xl_qty');
             $table->mediumInteger('xxl_qty');
-            $table->string('imageUrl_1');
-            $table->string('imageUrl_2');
-            $table->string('imageUrl_3');
+            $table->string('image_1');
+            $table->string('image_2');
+            $table->string('image_3');
             $table->string('colors');
             $table->string('status',10);
             $table->double('discount',2,2);

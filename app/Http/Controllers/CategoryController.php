@@ -46,8 +46,8 @@ class CategoryController extends Controller
         $categorie->name = $request->name;
         $categorie->type = $request->type;
         $categorie->save();
-        return redirect()->route('admin.categories')
-            ->with('success', 'categorie has been created successfully.');
+        return redirect()->route('categories.create')
+            ->with('success', 'category has been created successfully.');
     }
     /**
      * Display the specified resource.
@@ -89,7 +89,7 @@ class CategoryController extends Controller
         $categorie->type = $request->type;
         $categorie->save();
         return redirect()->route('admin.categories')
-            ->with('success', 'categorie Has Been updated successfully');
+            ->with('success', 'category has been updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -101,6 +101,6 @@ class CategoryController extends Controller
     {
         $categorie->delete();
         return redirect()->route('admin.categories')
-            ->with('success', 'categorie has been deleted successfully');
+            ->with('success', 'category has been deleted successfully');
     }
 }

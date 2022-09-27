@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,11 +65,13 @@ Route::get('/chat', function () {
 
 Route::resource('admin/users',UserController::class );
 
+Route::resource('admin/categories',CategoryController::class );
+
 Route::resource('admin/products',ProductController::class );
 
 Route::resource('admin/services',ServiceController::class );
 
-Route::post('products/add', [ProductController::class, 'store'])->name('products.store');
+//Route::post('products/add', [ProductController::class, 'store'])->name('products.store');
    
 });
 

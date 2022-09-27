@@ -7,32 +7,43 @@
          </div>
         
      </div>
-     @if(session('status'))
-     <div class="alert alert-success mb-1 mt-1">
-         {{ session('status') }}
-     </div>
-     @endif
+    
 
      <!-- ======================= Cards ================== -->
     
      <div class="cardProfile">
          <div class="card">
-             <form role="form" action="{{ url('products/add') }}" method="POST" enctype="multipart/form-data">
+             <form role="form" action="{{ route('products.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                  <div class="form-group">
                      <h2>Add New Product</h2>
                      <div class="gap"></div>
+                     @if(session('success'))
+                     <div class="alert alert-success mb-1 mt-1">
+                         {{ session('success') }}
+                     </div>
+                     @endif
                      <div class="cardBox d-flex justify-content-center">
                         <div class="card ">
-                            <a class="numbers d-flex justify-content-center" >add image 1</a>
+                            <input type="file" id="#product_image_1" name="image_1">
+                            @error('image_1')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 1 field is required." ? "Please select a image!" :$message  }}</div>
+                            @enderror
                         </div>
                         <div class="card ">
-                            <a class="numbers d-flex justify-content-center" >add image 2</a>
+                            <input type="file" id="#product_image_1" name="image_2">
+                            @error('image_2')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 2 field is required." ? "Please select a image!" :$message  }}</div>
+                            @enderror
                         </div>
                         <div class="card ">
-                            <a class="numbers d-flex justify-content-center" >add image 3</a>
+                            <input type="file" id="#product_image_1" name="image_3">
+                            @error('image_3')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 3 field is required." ? "Please select a image!" :$message  }}</div>
+                            @enderror
                         </div>
+                      
                      </div>
     <!-- ======================= Cards end ================== -->
                      <h2 class="numbers">Product Name</h2>
@@ -50,6 +61,23 @@
                             placeholder="enter product description" >
                             @error('description')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+                 </div>
+
+                 <div class="gap"></div>
+                 <div class="form-group">
+                     <h2 class="numbers">Product Category</h2>
+                    
+                     <div class="dropdown">
+                            <select  class="btn btn-secondary" name="categories_id">
+                                @foreach ($categories as $category)
+                                <option value= "{{ $category->id }}" >{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                      
+                    </div>
+                            @error('categories_id')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The categories id field is required." ? "Please select a valid category!" :$message  }}</div>
                             @enderror
                  </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use Illuminate\Http\Request;
 use App\Models\product;
 
@@ -46,7 +47,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $data['categories'] = category::orderBy('id', 'desc')->get();
+        return view('products.create',$data);
     }
     /**
      * Store a newly created resource in storage.
@@ -64,9 +66,12 @@ class ProductController extends Controller
             'large_qty' => ['required', 'integer', 'max:1000000'],
             'xl_qty' => ['required', 'integer', 'max:1000000'],
             'xxl_qty' => ['required', 'integer', 'max:1000000'],
-            'imageUrl_1' => ['required'],
+            'image_1' => ['required','image'],
+            'image_2' => ['required','image'],
+            'image_3' => ['required','image'],
             'colors' => ['required'],
             'status' => ['required'],
+            'categories_id' => ['required'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
@@ -80,9 +85,9 @@ class ProductController extends Controller
         $product->xl_qty = $request->xl_qty;
         $product->xxl_qty = $request->xxl_qty;
         $product->colors = $request->colors;
-        $product->imageUrl_1 = $request->imageUrl_1;
-        $product->imageUrl_2 = $request->imageUrl_2;
-        $product->imageUrl_3 = $request->imageUrl_3;
+        $product->image_1 = $request->image_1;
+        $product->image_2 = $request->image_2;
+        $product->image_3 = $request->image_3;
         $product->categories_id = $request->categories_id;
         $product->status = $request->status;
         $product->discount = $request->discount;
@@ -129,9 +134,12 @@ class ProductController extends Controller
             'large_qty' => ['required', 'integer', 'max:1000000'],
             'xl_qty' => ['required', 'integer', 'max:1000000'],
             'xxl_qty' => ['required', 'integer', 'max:1000000'],
-            'imageUrl_1' => ['required'],
+            'image_1' => ['required','image'],
+            'image_2' => ['required','image'],
+            'image_3' => ['required','image'],
             'colors' => ['required'],
             'status' => ['required'],
+            'categories_id' => ['required'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
@@ -145,9 +153,9 @@ class ProductController extends Controller
         $product->xl_qty = $request->xl_qty;
         $product->xxl_qty = $request->xxl_qty;
         $product->colors = $request->colors;
-        $product->imageUrl_1 = $request->imageUrl_1;
-        $product->imageUrl_2 = $request->imageUrl_2;
-        $product->imageUrl_3 = $request->imageUrl_3;
+        $product->image_1 = $request->image_1;
+        $product->image_2 = $request->image_2;
+        $product->image_3 = $request->image_3;
         $product->categories_id = $request->categories_id;
         $product->status = $request->status;
         $product->discount = $request->discount;

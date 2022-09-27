@@ -61,6 +61,15 @@
                 </li>
 
                 <li>
+                    <a href="{{asset('admin/categories')}}">
+                        <span class="icon">
+                            <ion-icon name="color-filter-outline"></ion-icon>
+                        </span>
+                        <span class="title">Categories</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="/orders">
                         <span class="icon">
                             <ion-icon name="cart-outline"></ion-icon>
