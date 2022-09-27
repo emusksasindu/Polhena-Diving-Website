@@ -18,6 +18,27 @@ class ProductController extends Controller
         $data['products'] = product::orderBy('id', 'desc')->get();
         return view('products.index', $data);
     }
+
+
+
+    public function search(Request $request)
+    {
+    $request->validate([
+        'keyword' => 'required'
+    ]);
+    $keyword = $request->get('keyword');
+    //single keyword search - start
+    $products = Product::where('name', 'like', '%'.$keyword.'%')
+    ->orWhere('description', 'like', '%'.$keyword.'%')
+    ->orWhere('size', 'like', '%'.$keyword.'%')
+    ->orWhere('status', 'like', '%'.$keyword.'%')
+    ->get();
+    $products = Product::paginate(5); 
+    // single keyword search - end
+    return view('products.index', compact('products'));      
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
