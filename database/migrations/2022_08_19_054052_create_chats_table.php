@@ -15,11 +15,8 @@ return new class extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('guests_id');
-            $table->unsignedBigInteger('user_sender_id');
-            $table->unsignedBigInteger('user_receiver_id');
-            $table->foreign('user_sender_id')->references('id')->on('users')->nullable();
-            $table->foreign('user_receiver_id')->references('id')->on('users')->nullable();
+            $table->foreignId('guests_id')->nullable();
+            $table->foreignId('users_id')->nullable();
             $table->string('sender_type');
             $table->string('receiver_type');
             $table->mediumText('message')->nullable();

@@ -64,6 +64,7 @@ class ProductController extends Controller
             'imageUrl_1' => ['required'],
             'colors' => ['required'],
             'status' => ['required'],
+            'discount' => ['required', 'numeric', 'between:0,99.99'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
@@ -78,6 +79,7 @@ class ProductController extends Controller
         $product->imageUrl_3 = $request->imageUrl_3;
         $product->categories_id = $request->categories_id;
         $product->status = $request->status;
+        $product->discount = $request->discount;
         $product->cost = $request->cost;
         $product->selling_price = $request->selling_price;
         $product->save();
@@ -121,6 +123,7 @@ class ProductController extends Controller
             'imageUrl_1' => ['required'],
             'colors' => ['required'],
             'status' => ['required'],
+            'discount' => ['required', 'numeric', 'between:0,99.99'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
@@ -135,6 +138,7 @@ class ProductController extends Controller
         $product->imageUrl_3 = $request->imageUrl_3;
         $product->categories_id = $request->categories_id;
         $product->status = $request->status;
+        $product->discount = $request->discount;
         $product->cost = $request->cost;
         $product->selling_price = $request->selling_price;
         $product->save();

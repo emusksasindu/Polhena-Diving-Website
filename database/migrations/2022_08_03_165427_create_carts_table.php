@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('users_id');
             $table->double('sub_total',10,2);
-            $table->double('discount');
+            $table->double('discount',2,2);
             $table->double('total',10,2);
             $table->timestamps();
         });
