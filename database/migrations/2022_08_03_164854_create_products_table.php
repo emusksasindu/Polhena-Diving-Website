@@ -17,8 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name',50);
             $table->mediumText('description')->nullable();
-            $table->mediumInteger('qty');
-            $table->string('size',8);
+            $table->mediumInteger('small_qty');
+            $table->mediumInteger('medium_qty');
+            $table->mediumInteger('large_qty');
+            $table->mediumInteger('xl_qty');
+            $table->mediumInteger('xxl_qty');
             $table->string('imageUrl_1');
             $table->string('imageUrl_2');
             $table->string('imageUrl_3');

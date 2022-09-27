@@ -59,8 +59,11 @@ class ProductController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:500'],
-            'qty' => ['required', 'integer', 'max:1000000'],
-            'size' => ['required'],
+            'small_qty' => ['required', 'integer', 'max:1000000'],
+            'medium_qty' => ['required', 'integer', 'max:1000000'],
+            'large_qty' => ['required', 'integer', 'max:1000000'],
+            'xl_qty' => ['required', 'integer', 'max:1000000'],
+            'xxl_qty' => ['required', 'integer', 'max:1000000'],
             'imageUrl_1' => ['required'],
             'colors' => ['required'],
             'status' => ['required'],
@@ -71,8 +74,11 @@ class ProductController extends Controller
         $product = new product;
         $product->name = $request->name;
         $product->description = $request->description;
-        $product->qty = $request->qty;
-        $product->size = $request->size;
+        $product->small_qty = $request->small_qty;
+        $product->medium_qty = $request->medium_qty;
+        $product->large_qty = $request->large_qty;
+        $product->xl_qty = $request->xl_qty;
+        $product->xxl_qty = $request->xxl_qty;
         $product->colors = $request->colors;
         $product->imageUrl_1 = $request->imageUrl_1;
         $product->imageUrl_2 = $request->imageUrl_2;
@@ -83,7 +89,7 @@ class ProductController extends Controller
         $product->cost = $request->cost;
         $product->selling_price = $request->selling_price;
         $product->save();
-        return redirect()->route('admin.products')
+        return redirect()->route('products.create')
             ->with('success', 'Product has been created successfully.');
     }
     /**
@@ -118,8 +124,11 @@ class ProductController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:500'],
-            'qty' => ['required', 'integer', 'max:1000000'],
-            'size' => ['required'],
+            'small_qty' => ['required', 'integer', 'max:1000000'],
+            'medium_qty' => ['required', 'integer', 'max:1000000'],
+            'large_qty' => ['required', 'integer', 'max:1000000'],
+            'xl_qty' => ['required', 'integer', 'max:1000000'],
+            'xxl_qty' => ['required', 'integer', 'max:1000000'],
             'imageUrl_1' => ['required'],
             'colors' => ['required'],
             'status' => ['required'],
@@ -130,8 +139,11 @@ class ProductController extends Controller
         $product = product::find($id);
         $product->name = $request->name;
         $product->description = $request->description;
-        $product->qty = $request->qty;
-        $product->size = $request->size;
+        $product->small_qty = $request->small_qty;
+        $product->medium_qty = $request->medium_qty;
+        $product->large_qty = $request->large_qty;
+        $product->xl_qty = $request->xl_qty;
+        $product->xxl_qty = $request->xxl_qty;
         $product->colors = $request->colors;
         $product->imageUrl_1 = $request->imageUrl_1;
         $product->imageUrl_2 = $request->imageUrl_2;
