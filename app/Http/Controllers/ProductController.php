@@ -6,6 +6,7 @@ use App\Models\category;
 use Illuminate\Http\Request;
 use App\Models\product;
 
+
 class ProductController extends Controller
 {
     public function index()
@@ -48,7 +49,9 @@ class ProductController extends Controller
     public function create()
     {
         $data['categories'] = category::orderBy('id', 'desc')->get();
-        return view('products.create',$data);
+        return category::count() == 0 ? 
+        redirect()->route('categories.create')->with('success', 'Please insert categories before save products or services!') :
+        view('products.create',$data);
     }
     /**
      * Store a newly created resource in storage.
@@ -69,7 +72,6 @@ class ProductController extends Controller
             'image_1' => ['required','image'],
             'image_2' => ['required','image'],
             'image_3' => ['required','image'],
-            'colors' => ['required'],
             'status' => ['required'],
             'categories_id' => ['required'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
@@ -84,10 +86,17 @@ class ProductController extends Controller
         $product->large_qty = $request->large_qty;
         $product->xl_qty = $request->xl_qty;
         $product->xxl_qty = $request->xxl_qty;
-        $product->colors = $request->colors;
-        $product->image_1 = $request->image_1;
-        $product->image_2 = $request->image_2;
-        $product->image_3 = $request->image_3;
+        
+        //product image upload////////////////
+        $image_path_1 = $request->image_1->store('uploads/products','public');
+        $image_path_2 =$request->image_2->store('uploads/products','public');
+        $image_path_3 =$request->image_3->store('uploads/products','public');
+        //////////////////////////////////////
+        //product image resize////////////////
+        //////////////////////////////////////
+        $product->image_1 = $image_path_1;
+        $product->image_2 = $image_path_2;
+        $product->image_3 = $image_path_3;
         $product->categories_id = $request->categories_id;
         $product->status = $request->status;
         $product->discount = $request->discount;
@@ -137,7 +146,6 @@ class ProductController extends Controller
             'image_1' => ['required','image'],
             'image_2' => ['required','image'],
             'image_3' => ['required','image'],
-            'colors' => ['required'],
             'status' => ['required'],
             'categories_id' => ['required'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
@@ -152,10 +160,25 @@ class ProductController extends Controller
         $product->large_qty = $request->large_qty;
         $product->xl_qty = $request->xl_qty;
         $product->xxl_qty = $request->xxl_qty;
-        $product->colors = $request->colors;
-        $product->image_1 = $request->image_1;
-        $product->image_2 = $request->image_2;
-        $product->image_3 = $request->image_3;
+        //product image upload if it is updated////////////////
+        if($product->image_1 != $request->image_1)
+        {
+            $image_path_1 = $request->image_1->store('uploads/products','public');
+            $product->image_1 = $image_path_1;
+        };
+
+        if($product->image_2 != $request->image_2)
+        {
+            $image_path_1 = $request->image_2->store('uploads/products','public');
+            $product->image_2 = $image_path_1;
+        };
+
+        if($product->image_3 != $request->image_3)
+        {
+            $image_path_1 = $request->image_3->store('uploads/products','public');
+            $product->image_3 = $image_path_1;
+        };
+        ///////////////////////////////////////////////////////
         $product->categories_id = $request->categories_id;
         $product->status = $request->status;
         $product->discount = $request->discount;

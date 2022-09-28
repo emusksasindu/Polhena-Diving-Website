@@ -61,12 +61,13 @@
     </h1>
 
     <div class="swiper product-slider">
-
+      @if($productCount != 0)
         <div class="swiper-wrapper">
+            @foreach ($products as $product)
 
             <div class="swiper-slide slide">
                 <div class="image">
-                    <img src="images/product-1.jpg" alt="">
+                    <img src="/storage/{{$product->image_1}}" alt="">
                     <div class="icons">
                         <a href="#" class="fas fa-shopping-cart"></a>
                         <a href="#" class="fas fa-eye"></a>
@@ -74,8 +75,8 @@
                     </div>
                 </div>
                 <div class="content">
-                    <h3>Scuba Masks</h3>
-                    <div class="price"> $15.00 - $85.00 </div>
+                    <h3>{{$product->name}}</h3>
+                    <div class="price">{{$product->selling_price * (100 + $product->discount)/100}} </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
@@ -86,121 +87,16 @@
                 </div>
             </div>
 
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/product-2.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Scuba Fins</h3>
-                    <div class="price"> $25.00 - $305.00 </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/product-3.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>BCDs</h3>
-                    <div class="price"> $150.00 - $825.00 </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/product-4.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Scuba Regulators</h3>
-                    <div class="price"> $250.00 - $2250.00 </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/product-5.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Scuba Accessories</h3>
-                    <div class="price"> $15.00 - $400.00 </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="images/product-6.jpg" alt="">
-                    <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
-                    </div>
-                </div>
-                <div class="content">
-                    <h3>Scuba Wetsuits</h3>
-                    <div class="price"> $50.00 - $500.00 </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
+           
         </div>
+        @else
 
+        <p class="heading">No Products</p>
+        @endif
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-
+     
     </div>
 
 </section>

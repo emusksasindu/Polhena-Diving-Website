@@ -31,6 +31,7 @@ class HomeController extends Controller
     }
         $data['products'] = product::orderBy('id', 'desc')->get();
         $data['services'] = service::orderBy('id', 'desc')->get();
+        $data['productCount'] = product::count();
         return view('index',$data);
     }
 }

@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('image_1');
             $table->string('image_2');
             $table->string('image_3');
-            $table->string('colors');
             $table->string('status',10);
             $table->double('discount',2,2);
             $table->double('selling_price',10,2);

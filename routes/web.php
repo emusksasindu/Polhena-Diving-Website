@@ -71,7 +71,6 @@ Route::resource('admin/products',ProductController::class );
 
 Route::resource('admin/services',ServiceController::class );
 
-//Route::post('products/add', [ProductController::class, 'store'])->name('products.store');
    
 });
 

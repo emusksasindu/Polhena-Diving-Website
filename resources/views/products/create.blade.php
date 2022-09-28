@@ -162,16 +162,6 @@
               </div>
 
               <div class="gap"></div>
-               <div class="form-group">
-                  <h2 class="numbers">Colour</h2>
-                  <input type="text" name="colors" class="form-control" id="Discount"
-                         placeholder="enter discount">
-                         @error('colors')
-                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                            @enderror
-              </div>
-
-              <div class="gap"></div>
               <div class="form-group">
                  <h2 class="numbers">Status</h2>
                  <input type="text" name="status" class="form-control" id="Discount"
