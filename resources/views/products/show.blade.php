@@ -83,6 +83,9 @@
                             <div class="product__details__option__size">
                                 
                                 @if($product->xxl_qty > 0)
+                                @error('xxl_qty')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                                 <form action="{{ route('cart.create') }}" method="POST">
                                 @csrf
                                 <div class="product__details__cart__option">
@@ -104,6 +107,9 @@
                                 @endif
 
                                 @if($product->xl_qty > 0)
+                                @error('xl_qty')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                                 <form action="{{ route('cart.create') }}" method="POST">
                                 @csrf
                                 <div class="product__details__cart__option">
@@ -124,6 +130,9 @@
                                 @endif
 
                                 @if($product->large_qty > 0)
+                                @error('large_qty')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                                 <form action="{{ route('cart.create') }}" method="POST">
                                 @csrf
                                 <div class="product__details__cart__option">
@@ -135,7 +144,7 @@
                                             <input name="large_qty" type="text" value="0">
                                         </div>
                                     </div>
-                                    <button href="#" class="primary-btn">add to cart</button>
+                                    <button  class="primary-btn">add to cart</button>
                                     <div class="row">
                                         <h5 class= 'font-weight-bold'>Maximum Quantity : {{$product->large_qty}}</h5>
                                     </div>
@@ -144,16 +153,21 @@
                                 @endif
 
                                 @if($product->medium_qty > 0)
+                                @error('medium_qty')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
                                 <form action="{{ route('cart.create') }}" method="POST">
                                     @csrf
                                 <div class="product__details__cart__option">
                                     <div class="quantity">
                                         <h5>MEDIUM</h5>
                                         <div class="pro-qty">
+                                            <input name="product_id" type="hidden" value="{{$product->id}}">
+                                            <input name="size" type="hidden" value="medium">
                                             <input name="medium_qty" type="text" value="0">
                                         </div>
                                     </div>
-                                    <button href="#" class="primary-btn">add to cart</button>
+                                    <button  class="primary-btn">add to cart</button>
                                     <div class="row">
                                         <h5 class= 'font-weight-bold'>Maximum Quantity : {{$product->medium_qty}}</h5>
                                     </div>
@@ -162,18 +176,26 @@
                                 @endif
 
                                 @if($product->small_qty > 0)
+                                @error('small_qty')
+                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                @enderror
+                                <form action="{{ route('cart.create') }}" method="POST">
+                                    @csrf
                                 <div class="product__details__cart__option">
                                     <div class="quantity">
                                         <h5>SMALL</h5>
                                         <div class="pro-qty">
+                                            <input name="product_id" type="hidden" value="{{$product->id}}">
+                                            <input name="size" type="hidden" value="small">
                                             <input name="small_qty" type="text" value="0">
                                         </div>
                                     </div>
-                                    <a href="#" class="primary-btn">add to cart</a>
+                                    <button  class="primary-btn">add to cart</button>
                                     <div class="row">
                                         <h5 class= 'font-weight-bold'>Maximum Quantity : {{$product->small_qty}}</h5>
                                     </div>
                                 </div>
+                              </form>
                                 @endif
 
                             </div>

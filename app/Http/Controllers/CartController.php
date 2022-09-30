@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -28,22 +29,43 @@ class CartController extends Controller
     {
         if($request->size == 'xxl')
         {
+            $request->validate([
+                'xxl_qty' => ['required', 'numeric', 'min:1','max:50'],
+            ]);
+
+            $cart = Auth::user()->cart;
+            dd($cart);
 
         }
         else if($request->size == 'xl')
         {
+            $request->validate([
+                'xl_qty' => ['required', 'numeric','min:1','max:50']
+            ]);
 
         }
-        else if($request->size == 'xl')
+        else if($request->size == 'large')
         {
+            $request->validate([
+                'large_qty' => ['required', 'numeric','min:1','max:50']
+            ]);
 
         }
-        else if()
-        $request->validate([
-            'discount' => ['required', 'numeric', 'between:0,99.99'],
-            'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'total' => ['required', 'numeric', 'between:0,9999999999.99'],
-        ]);
+        else if($request->size == 'medium')
+        {
+            $request->validate([
+                'medium_qty' => ['required', 'numeric','min:1','max:50']
+            ]);
+
+        }
+        else if($request->size == 'small')
+        {
+            $request->validate([
+                'small_qty' => ['required', 'numeric','min:1','max:50']
+            ]);
+
+        }
+       
 
         return redirect()->route('cart.user_index');
     }
