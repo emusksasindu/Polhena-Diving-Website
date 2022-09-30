@@ -107,7 +107,7 @@
                                     <input type="radio" id="sm">
                                 </label>
                             </div>
-                            <!--div class="product__details__option__color">
+                            <div class="product__details__option__color">
                                 <span>Color:</span>
                                 <label class="c-1" for="sp-1">
                                     <input type="radio" id="sp-1">
@@ -125,7 +125,7 @@
                                     <input type="radio" id="sp-9">
                                 </label>
                             </div>
-                        </div-->
+                        </div>
                         <div class="product__details__cart__option">
                             <div class="quantity">
                                 <div class="pro-qty">
