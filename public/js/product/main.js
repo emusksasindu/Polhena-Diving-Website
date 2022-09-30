@@ -165,7 +165,7 @@
     proQty.append('<span class="fa fa-angle-down inc qtybtn"></span>');
     proQty.on('click', '.qtybtn', function () {
         var $button = $(this);
-        var oldValue = $button.parent().find('input').val();
+        var oldValue = $button.parent().find('#input_qty').val();
         if ($button.hasClass('dec')) {
             var newVal = parseFloat(oldValue) + 1;
         } else {
@@ -176,7 +176,7 @@
                 newVal = 0;
             }
         }
-        $button.parent().find('input').val(newVal);
+        $button.parent().find('#input_qty').val(newVal);
     });
 
     var proQty = $('.pro-qty-2');

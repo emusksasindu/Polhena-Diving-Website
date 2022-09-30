@@ -94,7 +94,7 @@
                                         <div class="pro-qty">
                                             <input name="product_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="xxl">
-                                            <input name="xxl_qty" type="text" value="0">
+                                            <input id= 'input_qty' name="xxl_qty" type="text" value="0">
                                         </div>
                                         
                                     </div>
@@ -118,7 +118,7 @@
                                         <div class="pro-qty">
                                             <input name="product_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="xl">
-                                            <input name="xl_qty" type="text" value="0">
+                                            <input id= 'input_qty' name="xl_qty" type="text" value="0">
                                         </div>
                                     </div>
                                     <button  class="primary-btn">add to cart</button>
@@ -141,7 +141,7 @@
                                         <div class="pro-qty">
                                             <input name="product_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="large">
-                                            <input name="large_qty" type="text" value="0">
+                                            <input id= 'input_qty' name="large_qty" type="text" value="0">
                                         </div>
                                     </div>
                                     <button  class="primary-btn">add to cart</button>
@@ -164,7 +164,7 @@
                                         <div class="pro-qty">
                                             <input name="product_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="medium">
-                                            <input name="medium_qty" type="text" value="0">
+                                            <input id= 'input_qty' name="medium_qty" type="text" value="0">
                                         </div>
                                     </div>
                                     <button  class="primary-btn">add to cart</button>
@@ -187,7 +187,7 @@
                                         <div class="pro-qty">
                                             <input name="product_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="small">
-                                            <input name="small_qty" type="text" value="0">
+                                            <input id= 'input_qty' name="small_qty" type="text" value="0">
                                         </div>
                                     </div>
                                     <button  class="primary-btn">add to cart</button>
