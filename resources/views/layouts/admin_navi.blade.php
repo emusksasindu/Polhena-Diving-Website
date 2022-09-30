@@ -19,7 +19,7 @@
         <div class="navigation">
             <ul>
                 <li>
-                    <a href="#" class ="logo"> <img src="{{asset('images\PDC Logo.png')}}" alt="Image" height="60" width="251.76"> </a>
+                    <a href="/home" class ="logo"> <img src="{{asset('images\PDC Logo.png')}}" alt="Image" height="50" width="251.76"> </a>
                 </li>
 
                 <li>

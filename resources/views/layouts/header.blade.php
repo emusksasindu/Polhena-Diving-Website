@@ -21,7 +21,7 @@
 
 <header class="header">
 
-<a href="#" class ="logo"> <img src='{{ asset('images\PDC Logo.png') }}' alt="Image" height="60" width="251.76"> </a>
+<a href="/home" class ="logo"> <img src="{{ asset('images\PDC Logo.png') }}" alt="Image" height="60" width="251.76"> </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
