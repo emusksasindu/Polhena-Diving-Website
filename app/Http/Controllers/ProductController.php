@@ -17,9 +17,89 @@ class ProductController extends Controller
 
     public function user_index()
     {
-        $data['products'] = product::orderBy('id', 'desc')->get();
+        session()->put('category_id','no');
+        session()->put('max_price', 'no');
+        session()->put('min_price', 'no');
+        session()->put('size', 'no');
+
+        $data['categories'] = category::get();
+        $data['products'] = product::orderBy('selling_price', 'asc')
+        ->paginate(9);
         return view('products.index', $data);
     }
+
+    public function filter(Request $request)
+    {
+
+        $id = $request->id;
+        $max_price = $request->max_price;
+        $min_price = $request->min_price;
+        $size = $request->size;
+
+        session()->put('category_id', $id);
+        session()->put('max_price', $max_price);
+        session()->put('min_price', $min_price);
+        session()->put('size', $size);
+
+        $data['categories'] = category::get();
+
+        if($id != 'no' && $max_price != 'no' && $min_price != 'no' && $size != 'no')
+        {
+            $data['products'] = product::where('categories_id', '=', $id)
+            ->where($size, '>', 0)
+            ->whereBetween('selling_price', [$min_price, $max_price])
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+        }
+        else if($id != 'no' && $max_price != 'no' && $min_price != 'no' && $size == 'no')
+        {
+            $data['products'] = product::where('categories_id', '=', $id)
+            ->whereBetween('selling_price', [$min_price, $max_price])
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+        else if($id == 'no' && $max_price != 'no' && $min_price != 'no' && $size == 'no')
+        {
+            $data['products'] = product::whereBetween('selling_price', [$min_price, $max_price])
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+        else if($id != 'no' && $max_price == 'no' && $min_price == 'no' && $size != 'no')
+        {
+            $data['products'] = product::where('categories_id', '=', $id)
+            ->where($size, '>', 0)
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+        else if($id == 'no' && $max_price == 'no' && $min_price == 'no' && $size != 'no')
+        {
+            $data['products'] = product::where($size, '>', 0)
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+        else if($id == 'no' && $size != 'no' && $max_price != 'no' && $min_price != 'no')
+        {
+            $data['products'] = product::where($size, '>', 0)
+            ->whereBetween('selling_price', [$min_price, $max_price])
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+        else if($id != 'no'&& $max_price == 'no' && $min_price == 'no' && $size == 'no')
+        {
+            $data['products'] = product::where('categories_id', '=', $id)
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+        return view('products.index', $data);
+    }
+
+
 
 
 
@@ -28,16 +108,14 @@ class ProductController extends Controller
     $request->validate([
         'keyword' => 'required'
     ]);
-    $keyword = $request->get('keyword');
+    $keyword = $request->keyword;
+    $data['categories'] = category::get();
     //single keyword search - start
-    $products = Product::where('name', 'like', '%'.$keyword.'%')
-    ->orWhere('description', 'like', '%'.$keyword.'%')
-    ->orWhere('size', 'like', '%'.$keyword.'%')
-    ->orWhere('status', 'like', '%'.$keyword.'%')
-    ->get();
-    $products = Product::paginate(5); 
+    $data['products'] = Product::where('name', 'like', '%'.$keyword.'%')
+    ->orderBy('selling_price', 'asc')
+    ->paginate(9); 
     // single keyword search - end
-    return view('products.index', compact('products'));      
+    return view('products.index', $data);      
     }
 
 
@@ -92,8 +170,6 @@ class ProductController extends Controller
         $image_path_2 =$request->image_2->store('uploads/products','public');
         $image_path_3 =$request->image_3->store('uploads/products','public');
         //////////////////////////////////////
-        //product image resize////////////////
-        //////////////////////////////////////
         $product->image_1 = $image_path_1;
         $product->image_2 = $image_path_2;
         $product->image_3 = $image_path_3;
@@ -114,7 +190,12 @@ class ProductController extends Controller
      */
     public function show(product  $product)
     {
-        return view('products.show', compact('product'));
+        $category= category::find($product->categories_id);
+        $product->category = $category->name;
+        $data['products'] = product::where('categories_id', '=', $product->categories_id)
+        ->orderBy('selling_price', 'asc')
+        ->paginate(10);
+        return view('products.show', compact('product'),$data);
     }
     /**
      * Show the form for editing the specified resource.

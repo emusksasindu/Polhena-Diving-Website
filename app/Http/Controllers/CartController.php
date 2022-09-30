@@ -16,7 +16,7 @@ class CartController extends Controller
     public function user_index()
     {
         $data['carts'] = Cart::orderBy('id', 'desc')->get();
-        return view('carts.index', $data);
+        return view('cart.index', $data);
     }
 
     /**
@@ -24,9 +24,28 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('carts.create');
+        if($request->size == 'xxl')
+        {
+
+        }
+        else if($request->size == 'xl')
+        {
+
+        }
+        else if($request->size == 'xl')
+        {
+
+        }
+        else if()
+        $request->validate([
+            'discount' => ['required', 'numeric', 'between:0,99.99'],
+            'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
+            'total' => ['required', 'numeric', 'between:0,9999999999.99'],
+        ]);
+
+        return redirect()->route('cart.user_index');
     }
     /**
      * Store a newly created resource in storage.
@@ -36,13 +55,7 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'discount' => ['required', 'numeric', 'between:0,99.99'],
-            'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'total' => ['required', 'numeric', 'between:0,9999999999.99'],
-        ]);
-
-
+       
         $cart = new Cart;
         $cart->discount = $request->discount;
         $cart->sub_total = $request->sub_total;

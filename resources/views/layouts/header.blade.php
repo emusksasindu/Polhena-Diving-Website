@@ -21,18 +21,18 @@
 
 <header class="header">
 
-<a href="#" class ="logo"> <img src='images\PDC Logo.png' alt="Image" height="60" width="251.76"> </a>
+<a href="#" class ="logo"> <img src='{{ asset('images\PDC Logo.png') }}' alt="Image" height="60" width="251.76"> </a>
 
     <nav class="navbar">
         <div id="nav-close" class="fas fa-times"></div>
-        <a href="home">home</a>
-        <a href="/about">about</a>
-        <a href="/products">products</a>
-        <a href="/services">services</a>
-        <a href="/home#reviews">reviews</a>
-        <a href="/home#blogs">blogs</a>
+        <a href="{{ asset('home') }}">home</a>
+        <a href="{{ asset('about') }}">about</a>
+        <a href="{{ asset('/products') }}">products</a>
+        <a href="{{ asset('/services') }}">services</a>
+        <a href="{{ asset('/home#reviews') }}">reviews</a>
+        <a href="{{ asset('/home#blogs') }}">blogs</a>
         <a class="icons">    
-            <a href="/cart" class="fas fa-shopping-cart"></a>
+            <a href="{{ asset('/cart') }}" class="fas fa-shopping-cart"></a>
         </a>
         <a class="icons">    
             <a id="search-btn" class="fas fa-search"></a>
@@ -64,8 +64,8 @@
             </div>
          
           <div class="dropdown-content-login">
-            <a href="/profile">Profile</a>
-            <a href="/profile">Order History</a>
+            <a href="{{ asset('/profile') }}">Profile</a>
+            <a href="{{ asset('/order') }}">Order History</a>
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
@@ -85,8 +85,8 @@
                                 </div>
                              
                               <div  class="dropdown-content-login">
-                                <a  href="login ">login</a>
-                                <a  href="register">register</a>
+                                <a  href="{{ route('login') }} ">login</a>
+                                <a  href="{{ route('register') }}">register</a>
                               </div>
                             </li>
                           </ul>

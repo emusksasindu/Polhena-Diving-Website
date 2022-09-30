@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -81,17 +82,17 @@ Route::resource('admin/services',ServiceController::class );
 
 Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
 {
+    //product related
     Route::get('/products',[ProductController::class, 'user_index'] )->name('products.index');
+    Route::get('products/filter/{id?}/{min_price?}/{max_price?}/{size?}',[ProductController::class,'filter'])->name('products.filter');
+    Route::get('products/{product}',[ProductController::class,'show'])->name('products.show');
+    Route::post('products',[ProductController::class,'search'])->name('products.search');
+    Route::post('/cart/create',[CartController::class,'create'])->name('cart.create');
+    Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
     Route::get('/services',[ProductController::class, 'user_index'] )->name('services.index');
 
-
-    Route::get('/show', function () {
-        return view('products.detail');
-    });
     
-    Route::get('/cart', function () {
-        return view('cart.index');
-    });
+
     
     Route::get('/blog', function () {
         return view('blogs.index');
