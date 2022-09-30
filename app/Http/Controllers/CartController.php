@@ -33,8 +33,8 @@ class CartController extends Controller
                 'xxl_qty' => ['required', 'numeric', 'min:1','max:50'],
             ]);
 
-            $cart = Auth::user()->cart;
-            dd($cart);
+            $user_id = Auth::user()->id;
+            
 
         }
         else if($request->size == 'xl')
