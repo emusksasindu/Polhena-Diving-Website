@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card">
+                            <!--div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseTwo">Brands</a>
                                 </div>
@@ -60,7 +60,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             <div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
@@ -119,7 +119,7 @@
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseFive">Colors</a>
                                 </div>
-                                <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+                                <!--div id="collapseFive" class="collapse show" data-parent="#accordionExample">
                                     <div class="card-body">
                                         <div class="shop__sidebar__color">
                                             <label class="c-1" for="sp-1">
@@ -152,7 +152,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div-->
                             <!-- div class="card">
                                 <div class="card-heading">
                                     <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
