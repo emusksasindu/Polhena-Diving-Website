@@ -45,7 +45,7 @@ class ProductController extends Controller
 
         if($id != 'no' && $max_price != 'no' && $min_price != 'no' && $size != 'no')
         {
-            $data['products'] = product::where('categories_id', '=', $id)
+            $data['products'] = product::where('category_id', '=', $id)
             ->where($size, '>', 0)
             ->whereBetween('selling_price', [$min_price, $max_price])
             ->orderBy('selling_price', 'asc')
@@ -53,7 +53,7 @@ class ProductController extends Controller
         }
         else if($id != 'no' && $max_price != 'no' && $min_price != 'no' && $size == 'no')
         {
-            $data['products'] = product::where('categories_id', '=', $id)
+            $data['products'] = product::where('category_id', '=', $id)
             ->whereBetween('selling_price', [$min_price, $max_price])
             ->orderBy('selling_price', 'asc')
             ->paginate(9);
@@ -68,7 +68,7 @@ class ProductController extends Controller
         }
         else if($id != 'no' && $max_price == 'no' && $min_price == 'no' && $size != 'no')
         {
-            $data['products'] = product::where('categories_id', '=', $id)
+            $data['products'] = product::where('category_id', '=', $id)
             ->where($size, '>', 0)
             ->orderBy('selling_price', 'asc')
             ->paginate(9);
@@ -91,7 +91,7 @@ class ProductController extends Controller
         }
         else if($id != 'no'&& $max_price == 'no' && $min_price == 'no' && $size == 'no')
         {
-            $data['products'] = product::where('categories_id', '=', $id)
+            $data['products'] = product::where('category_id', '=', $id)
             ->orderBy('selling_price', 'asc')
             ->paginate(9);
 
@@ -151,7 +151,7 @@ class ProductController extends Controller
             'image_2' => ['required','image'],
             'image_3' => ['required','image'],
             'status' => ['required'],
-            'categories_id' => ['required'],
+            'category_id' => ['required'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
@@ -173,7 +173,7 @@ class ProductController extends Controller
         $product->image_1 = $image_path_1;
         $product->image_2 = $image_path_2;
         $product->image_3 = $image_path_3;
-        $product->categories_id = $request->categories_id;
+        $product->category_id = $request->category_id;
         $product->status = $request->status;
         $product->discount = $request->discount;
         $product->cost = $request->cost;
@@ -190,9 +190,9 @@ class ProductController extends Controller
      */
     public function show(product  $product)
     {
-        $category= category::find($product->categories_id);
+        $category= category::find($product->category_id);
         $product->category = $category->name;
-        $data['products'] = product::where('categories_id', '=', $product->categories_id)
+        $data['products'] = product::where('category_id', '=', $product->category_id)
         ->orderBy('selling_price', 'asc')
         ->paginate(10);
         return view('products.show', compact('product'),$data);
@@ -228,7 +228,7 @@ class ProductController extends Controller
             'image_2' => ['required','image'],
             'image_3' => ['required','image'],
             'status' => ['required'],
-            'categories_id' => ['required'],
+            'category_id' => ['required'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
@@ -260,7 +260,7 @@ class ProductController extends Controller
             $product->image_3 = $image_path_1;
         };
         ///////////////////////////////////////////////////////
-        $product->categories_id = $request->categories_id;
+        $product->category_id = $request->category_id;
         $product->status = $request->status;
         $product->discount = $request->discount;
         $product->cost = $request->cost;

@@ -46,7 +46,7 @@ class ServiceController extends Controller
         $service = new service;
         $service->name = $request->name;
         $service->description = $request->description;
-        $service->categories_id = $request->categories_id;
+        $service->category_id = $request->category_id;
         $service->status = $request->status;
         $service->imageUrl_1 = $request->imageUrl_1;
         $service->imageUrl_2 = $request->imageUrl_2;
@@ -97,7 +97,7 @@ class ServiceController extends Controller
         $service = service::find($id);
         $service->name = $request->name;
         $service->description = $request->description;
-        $service->categories_id = $request->categories_id;
+        $service->category_id = $request->category_id;
         $service->status = $request->status;
         $service->imageUrl_1 = $request->imageUrl_1;
         $service->imageUrl_2 = $request->imageUrl_2;

@@ -37,7 +37,12 @@ class product extends Model
      */
     public function carts(): BelongsToMany
     {
-        return $this->belongsToMany(cart::class);
+        return $this->belongsToMany(cart::class,'cart_items');
+    }
+
+    public function services(): BelongsToMany
+    {
+        return $this->belongsToMany(service::class,'cart_items');
     }
 
     public function category(): BelongsTo

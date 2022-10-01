@@ -28,6 +28,11 @@ class cart extends Model
      */
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(product::class);
+        return $this->belongsToMany(product::class,'cart_items');
+    }
+
+    public function services(): BelongsToMany
+    {
+        return $this->belongsToMany(service::class,'cart_items');
     }
 }

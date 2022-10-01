@@ -29,39 +29,37 @@ class CartController extends Controller
     {
         if($request->size == 'xxl')
         {
-            $request->validate([
-                'xxl_qty' => ['required', 'numeric', 'min:1','max:50'],
-            ]);
-
-            $user_id = Auth::user()->id;
             
-
+            $request->validate([
+                'xxl_qty' => ['required', 'numeric', 'min:1','max:'.$request->max_qty],
+            ]);
+            
         }
         else if($request->size == 'xl')
         {
             $request->validate([
-                'xl_qty' => ['required', 'numeric','min:1','max:50']
+                'xl_qty' => ['required', 'numeric','min:1','max:'.$request->max_qty],
             ]);
 
         }
         else if($request->size == 'large')
         {
             $request->validate([
-                'large_qty' => ['required', 'numeric','min:1','max:50']
+                'large_qty' => ['required', 'numeric','min:1','max:'.$request->max_qty],
             ]);
 
         }
         else if($request->size == 'medium')
         {
             $request->validate([
-                'medium_qty' => ['required', 'numeric','min:1','max:50']
+                'medium_qty' => ['required', 'numeric','min:1','max:'.$request->max_qty],
             ]);
 
         }
         else if($request->size == 'small')
         {
             $request->validate([
-                'small_qty' => ['required', 'numeric','min:1','max:50']
+                'small_qty' => ['required', 'numeric','min:1','max:'.$request->max_qty],
             ]);
 
         }

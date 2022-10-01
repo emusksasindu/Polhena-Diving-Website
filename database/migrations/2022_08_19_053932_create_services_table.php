@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('status',10);
             $table->double('selling_price',10,2);
             $table->double('cost',10,2);
-            $table->foreignId('categories_id');
+            $table->foreignId('category_id');
             $table->timestamps();
         });
     }

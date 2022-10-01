@@ -69,14 +69,14 @@
                      <h2 class="numbers">Product Category</h2>
                     
                      <div class="dropdown">
-                            <select  class="btn btn-secondary" name="categories_id">
+                            <select  class="btn btn-secondary" name="category_id">
                                 @foreach ($categories as $category)
                                 <option value= "{{ $category->id }}" >{{ $category->name }}</option>
                                 @endforeach
                             </select>
                       
                     </div>
-                            @error('categories_id')
+                            @error('category_id')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message == "The categories id field is required." ? "Please select a valid category!" :$message  }}</div>
                             @enderror
                  </div>
