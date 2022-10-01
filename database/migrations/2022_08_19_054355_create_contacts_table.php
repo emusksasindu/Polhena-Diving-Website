@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('number');
             $table->string('subject');
             $table->mediumText('body')->nullable();
-            $table->foreignId('guests_id');
+            $table->foreignId('guest_id')->constrained();
             $table->timestamps();
         });
     }

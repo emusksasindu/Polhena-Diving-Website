@@ -12,6 +12,6 @@ class category extends Model
 
     public function products(): HasMany
     {
-        return $this->hasMany(chat::class);
+        return $this->hasMany(product::class);
     }
 }

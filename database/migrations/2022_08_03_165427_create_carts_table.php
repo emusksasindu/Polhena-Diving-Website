@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id');
+            $table->foreignId('user_id')->constrained();
             $table->double('sub_total',10,2);
             $table->double('discount',2,2);
             $table->double('total',10,2);

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->mediumText('body')->nullable();
             $table->string('imageUrl');
-            $table->foreignId('users_id');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

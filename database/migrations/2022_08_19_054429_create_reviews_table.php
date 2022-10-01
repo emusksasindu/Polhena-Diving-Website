@@ -15,9 +15,9 @@ return new class extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users_id');
-            $table->foreignId('products_id');
-            $table->foreignId('services_id');
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('product_id')->constrained()->nullable();
+            $table->foreignId('service_id')->constrained()->nullable();
             $table->integer('star_count');
             $table->mediumText('review')->nullable();
             $table->timestamps();
