@@ -6,16 +6,16 @@
 
         <div class="box">
             <h3>quick links</h3>
-            <a href="#shop">shop</a>
-            <a href="#packages">Services</a>
+            <a href="/products">products</a>
+            <a href="/services">Services</a>
             <a href="#reviews">reviews</a>
             <a href="#blogs">blogs</a>
         </div>
 
         <div class="box">
             <h3>extra links</h3>
-            <a href="#">my account</a>
-            <a href="#">my order</a>
+            <a href="/profile">my account</a>
+            <a href="/order">my order</a>
 
             
         </div>
