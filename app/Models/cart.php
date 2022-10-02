@@ -28,11 +28,11 @@ class cart extends Model
      */
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(product::class,'cart_items');
+        return $this->belongsToMany(product::class,'cart_items')->withPivot('service_id','size','qty');
     }
 
     public function services(): BelongsToMany
     {
-        return $this->belongsToMany(service::class,'cart_items');
+        return $this->belongsToMany(service::class,'cart_items')->withPivot('product_id','size','qty');
     }
 }

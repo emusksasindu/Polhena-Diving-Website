@@ -13,11 +13,11 @@ class service extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(product::class,'cart_items');
+        return $this->belongsToMany(product::class,'cart_items')->withPivot('cart_id','size','qty');
     }
 
     public function carts(): BelongsToMany
     {
-        return $this->belongsToMany(cart::class,'cart_items');
+        return $this->belongsToMany(cart::class,'cart_items')->withPivot('product_id','size','qty');
     }
 }

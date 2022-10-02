@@ -2181,6 +2181,8 @@ ol {
 }
 
 .shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {
+	max-width: 80px;
+	max-height: 100px;
 	float: left;
 	margin-right: 30px;
 }
@@ -3597,9 +3599,13 @@ ol {
 		overflow-y: auto;
 	}
 	.shopping__cart__table table tbody tr td.product__cart__item .product__cart__item__pic {
+		max-width: 80px;
+	    max-height: 100px;
 		float: none;
 		margin-right: 0;
 	}
+
+	
 	.continue__btn {
 		text-align: center;
 	}

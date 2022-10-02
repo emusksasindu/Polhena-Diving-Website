@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="{{ asset('css/product/style.css') }}" type="text/css">
  
 <!-- Shopping Cart Section Begin -->
+<div class="gap"></div>
  <section class="shopping-cart spad">
     <div class="container">
         <div class="row">
@@ -27,86 +28,30 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            @foreach ($products as $product)
                             <tr>
                                 <td class="product__cart__item">
                                     <div class="product__cart__item__pic">
-                                        <img src="images/shopping-cart/cart-1.jpg" alt="">
+                                        <img src="/storage/{{$product->image_1}}" alt="">
                                     </div>
                                     <div class="product__cart__item__text">
-                                        <h6>scubaPro Fins Blue</h6>
-                                        <h5>$100.00</h5>
+                                        <h6>{{$product->name}}</h6>
+                                        <h5>{{$product->selling_price}}</h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
                                     <div class="quantity">
                                         <div class="pro-qty-2">
-                                            <input type="text" value="1">
+                                            <input type="text" value="{{$product->pivot->qty}}">
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">$ 100.00</td>
+                                <td class="cart__price">${{$product->selling_price * $product->pivot->qty}}</td>
                                 <td class="cart__close"><i class="fa fa-close"></i></td>
                             </tr>
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img src="images/shopping-cart/cart-2.jpg" alt="">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6>Yamathekudasai BCD</h6>
-                                        <h5>$200.00</h5>
-                                    </div>
-                                </td>
-                                <td class="quantity__item">
-                                    <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <input type="text" value="2">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="cart__price">$ 400.00</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img src="images/shopping-cart/cart-3.jpg" alt="">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6>Open Water Diver Course</h6>
-                                        <h5>$375.00</h5>
-                                    </div>
-                                </td>
-                                <td class="quantity__item">
-                                    <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="cart__price">$ 375.00</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
-                            </tr>
-                            <tr>
-                                <td class="product__cart__item">
-                                    <div class="product__cart__item__pic">
-                                        <img src="images/shopping-cart/cart-4.jpg" alt="">
-                                    </div>
-                                    <div class="product__cart__item__text">
-                                        <h6>ScubaPro Regulator</h6>
-                                        <h5>$69.69</h5>
-                                    </div>
-                                </td>
-                                <td class="quantity__item">
-                                    <div class="quantity">
-                                        <div class="pro-qty-2">
-                                            <input type="text" value="1">
-                                        </div>
-                                    </div>
-                                </td>
-                                <td class="cart__price">$ 69.69</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
-                            </tr>
+                            @endforeach
+                           
                         </tbody>
                     </table>
                 </div>
@@ -135,8 +80,9 @@
                 <div class="cart__total">
                     <h6>Cart total</h6>
                     <ul>
-                        <li>Subtotal <span>$ 6969.69</span></li>
-                        <li>Total <span>$ 6969.69</span></li>
+                        <li>Subtotal <span>${{round($cart->sub_total,2)}}</span></li>
+                        <li>Discount <span>${{round($cart->discount,2)}}</span></li>
+                        <li>Total <span>${{round($cart->total,2)}}</span></li>
                     </ul>
                     <a href="#" class="primary-btn">Proceed to checkout</a>
                 </div>

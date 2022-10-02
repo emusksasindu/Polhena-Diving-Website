@@ -87,8 +87,6 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::get('products/filter/{id?}/{min_price?}/{max_price?}/{size?}',[ProductController::class,'filter'])->name('products.filter');
     Route::get('products/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('products',[ProductController::class,'search'])->name('products.search');
-    Route::post('/cart/create',[CartController::class,'create'])->name('cart.create');
-    Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
     Route::get('/services',[ProductController::class, 'user_index'] )->name('services.index');
 
     
@@ -109,5 +107,12 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
 });
 
 
+Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], function()
+{
+    Route::post('/cart/create',[CartController::class,'create'])->name('cart.create');
+    Route::get('/cart/store/',[CartController::class,'store'])->name('cart.store');
+    Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
 
 
+
+});

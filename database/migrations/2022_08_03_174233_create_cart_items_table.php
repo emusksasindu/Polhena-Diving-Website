@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('cart_id')->constrained();
-            $table->foreignId('product_id')->constrained()->nullable();
-            $table->foreignId('service_id')->constrained()->nullable();
+            $table->foreignId('product_id')->nullable();
+            $table->foreignId('service_id')->nullable();
+            $table->string('size',20)->nullable();
             $table->integer('qty');
         });
     }

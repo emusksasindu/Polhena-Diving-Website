@@ -37,12 +37,12 @@ class product extends Model
      */
     public function carts(): BelongsToMany
     {
-        return $this->belongsToMany(cart::class,'cart_items');
+        return $this->belongsToMany(cart::class,'cart_items')->withPivot('service_id','size','qty');
     }
 
     public function services(): BelongsToMany
     {
-        return $this->belongsToMany(service::class,'cart_items');
+        return $this->belongsToMany(service::class,'cart_items')->withPivot('cart_id','size','qty');
     }
 
     public function category(): BelongsTo
