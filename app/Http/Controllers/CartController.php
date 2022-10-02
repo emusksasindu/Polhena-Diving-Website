@@ -52,24 +52,53 @@ class CartController extends Controller
         {
             $this->store( $data);
             $this->addItem($data);
-
-            $cart = cart::where('user_id','=',$data['user_id'])->first();
-            $data['products'] = $cart ->products()->get();
-            $data['services'] = $cart ->services()->get();
-            $data['cart'] = $cart;
-            return view('cart.index', $data);
             
         }
-        else{
-            //tmp
+        else
+        {
             $cart = cart::where('user_id','=',$data['user_id'])->first();
-            $data['products'] = $cart ->products()->get();
-            $data['services'] = $cart ->services()->get();
-            $data['cart'] = $cart;
-            return view('cart.index', $data);
-        }
+            $products = $cart ->products()->get();
+            $decision = true;
+            foreach($products as $product)
+            {
+                
+                if($product->id == $data['item_id'] && $product->pivot->size == $data['size'])
+                {  
+                    
+                    $differentQty  = $data['qty'] - $product->pivot->qty;
+                    $data['discount'] = $discountOfProduct * $differentQty;
+                    $data['sub_total'] = ($product->selling_price + $discountOfProduct) * $differentQty;
+                    $data['total'] = ($product->selling_price ) * $differentQty;
+                    $this->updateExistingCart($data,$cart);
+                    $this->updateExistingItem($data);
+                    $decision = false;
+                    break;
+                }
+                
+            }
 
-        return redirect()->route('cart.user_index');
+            if($decision == true)
+            {
+                
+                $this->updateExistingCart($data,$cart);
+                $this->addItem($data);
+            }
+            
+        }
+        return redirect()
+        ->route('cart.user_index');
+    }
+
+    private function updateExistingCart($data,$cart)
+    {
+        
+        
+        $cart->discount =  $cart->discount + $data['discount'];
+        $cart->sub_total = $cart->sub_total + $data['sub_total'];
+        $cart->total = $cart->total + $data['total'];
+        $cart->user_id =  $data['user_id'];
+        $cart->save();
+
     }
 
     private function addItem($data)
@@ -77,6 +106,20 @@ class CartController extends Controller
         $cart = cart::where('user_id','=',$data['user_id'])->first();
         $cart->products()->attach($data['item_id'],[
             'size' => $data['size'],
+            'qty' => $data['qty']
+        ]);
+
+
+        
+        
+    }
+
+    private function updateExistingItem($data)
+    {
+        $cart = cart::where('user_id','=',$data['user_id'])->first();
+        $cart->products()
+             ->wherePivot('size',$data['size'])
+             ->updateExistingPivot($data['item_id'],[
             'qty' => $data['qty']
         ]);
 
@@ -158,52 +201,9 @@ class CartController extends Controller
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Cart  $cart)
-    {
-        return view('carts.show', compact('cart'));
-    }
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Cart  $cart)
-    {
-        return view('carts.edit', compact('cart'));
-    }
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cart  $cart
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
-    {
-        $request->validate([
-            'discount' => ['required', 'numeric', 'between:0,99.99'],
-            'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'total' => ['required', 'numeric', 'between:0,9999999999.99'],
-        ]);
+    
 
-
-        $cart = Cart::find($request->cart_id);
-        $cart = new Cart;
-        $cart->discount = $request->discount;
-        $cart->sub_total = $request->sub_total;
-        $cart->total = $request->total;
-        $cart->users_id = $request->users_id;
-        $cart->save();
-        return redirect()->route('admin.carts')
-            ->with('success', 'cart Has Been updated successfully');
-    }
+   
     /**
      * Remove the specified resource from storage.
     
