@@ -20,11 +20,18 @@ class CartController extends Controller
     public function user_index()
     {
         $cart = cart::where('user_id','=',Auth::id())->first();
-        $data['products'] = $cart ->products()->get();
-        $data['services'] = $cart ->services()->get();
-        $data['cart'] = $cart;
+        if(!empty($cart))
+        {    
+            $data['products'] = $cart ->products()->get();
+            $data['services'] = $cart ->services()->get();
+            $data['cart'] = $cart;
+            
+            return view('cart.index', $data); 
+            
+        }
         
-        return view('cart.index', $data);
+           
+        return redirect('login');
     }
 
     /**
@@ -93,9 +100,9 @@ class CartController extends Controller
     {
         
         
-        $cart->discount =  $cart->discount + $data['discount'];
-        $cart->sub_total = $cart->sub_total + $data['sub_total'];
-        $cart->total = $cart->total + $data['total'];
+        $cart->discount =  round($cart->discount + $data['discount'],2);
+        $cart->sub_total = round($cart->sub_total + $data['sub_total'],2);
+        $cart->total = round($cart->total + $data['total'],2);
         $cart->user_id =  $data['user_id'];
         $cart->save();
 
@@ -126,6 +133,29 @@ class CartController extends Controller
 
         
         
+    }
+
+    public function deleteItem(Request $request)
+    {
+        $cart = cart::where('user_id','=',Auth::id())->first();
+        $cart->products()
+             ->wherePivot('size',$request->size)
+             ->detach($request->id);
+             
+             $item_discount = ($request->selling_price *($request->discount)/(100-$request->discount)) * $request->qty;
+             $item_sub_total = ($request->selling_price*$request->qty) + $item_discount;
+             $item_total = $request->selling_price*$request->qty;
+
+             $cart->discount =  round($cart->discount - $item_discount,2);
+             $cart->sub_total = round($cart->sub_total - $item_sub_total,2);
+             $cart->total = round($cart->total - $item_total,2);
+             $cart->user_id = Auth::id();
+             $cart->save();
+        
+
+        return redirect()->route('cart.user_index')
+        ->with('status', 'item has been removed successfully');
+
     }
     
 
@@ -192,9 +222,9 @@ class CartController extends Controller
         
        
         $cart = new Cart;
-        $cart->discount = $data['discount'];
-        $cart->sub_total = $data['sub_total'];
-        $cart->total = $data['total'];
+        $cart->discount = round($data['discount'],2);
+        $cart->sub_total = round($data['sub_total'],2);
+        $cart->total = round($data['total'],2);
         $cart->user_id = $data['user_id'];
         $cart->save();
 

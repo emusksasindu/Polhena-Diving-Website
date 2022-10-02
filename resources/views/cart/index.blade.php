@@ -13,6 +13,11 @@
  
 <!-- Shopping Cart Section Begin -->
 <div class="gap"></div>
+@if(session('status'))
+<div class="alert alert-success mb-1 mt-1">
+{{ session('status') }}
+</div>
+@endif
  <section class="shopping-cart spad">
     <div class="container">
         <div class="row">
@@ -56,7 +61,7 @@
                                     </div>
                                 </td>
                                 <td class="cart__price">${{$product->selling_price * $product->pivot->qty}}</td>
-                                <td class="cart__close"><i class="fa fa-close"></i></td>
+                                <td class="cart__close"><a href="{{route('cart.deleteItem',['id'=>$product->id,'size'=>$product->pivot->size,'qty'=>$product->pivot->qty,'discount'=>$product->discount,'selling_price'=>$product->selling_price])}}"><i class="fa fa-close"></a></i></td>
                             </tr>
                             @endforeach
                            

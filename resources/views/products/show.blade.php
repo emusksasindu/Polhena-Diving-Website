@@ -97,6 +97,7 @@
                                     <div class="quantity">
                                         <h5>XXL:</h5>
                                         <div class="pro-qty">
+                                            <input name="type" type="hidden" value="product">
                                             <input name="item_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="xxl">
                                             <input name="max_qty" type="hidden" value="{{$product->xxl_qty}}">
@@ -122,6 +123,7 @@
                                     <div class="quantity">
                                         <h5>XL</h5>
                                         <div class="pro-qty">
+                                            <input name="type" type="hidden" value="product">
                                             <input name="item_id" type="hidden" value="{{$product->id}}">
                                             <input name="max_qty" type="hidden" value="{{$product->xl_qty}}">
                                             <input name="size" type="hidden" value="xl">
@@ -146,6 +148,7 @@
                                     <div class="quantity">
                                         <h5>LARGE</h5>
                                         <div class="pro-qty">
+                                            <input name="type" type="hidden" value="product">
                                             <input name="item_id" type="hidden" value="{{$product->id}}">
                                             <input name="max_qty" type="hidden" value="{{$product->large_qty}}">
                                             <input name="size" type="hidden" value="large">
@@ -170,6 +173,7 @@
                                     <div class="quantity">
                                         <h5>MEDIUM</h5>
                                         <div class="pro-qty">
+                                            <input name="type" type="hidden" value="product">
                                             <input name="item_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="medium">
                                             <input name="max_qty" type="hidden" value="{{$product->medium_qty}}">
@@ -194,6 +198,7 @@
                                     <div class="quantity">
                                         <h5>SMALL</h5>
                                         <div class="pro-qty">
+                                            <input name="type" type="hidden" value="product">
                                             <input name="item_id" type="hidden" value="{{$product->id}}">
                                             <input name="size" type="hidden" value="small">
                                             <input name="max_qty" type="hidden" value="{{$product->small_qty}}">
