@@ -394,7 +394,7 @@
             <input type="tel" name="" placeholder="enter your number" id="" class="email">
             <input type="text" name="" placeholder="enter the subject" id="" class="email">
             <textarea cols="40" rows="5" type="text" name="" placeholder="enter your message" id="" class="subject"></textarea>
-            <input type="submit" value="subscirbe" class="btn">
+            <input type="submit" value="subscribe" class="btn">
         </form>
     </div>
     <div class="content">
