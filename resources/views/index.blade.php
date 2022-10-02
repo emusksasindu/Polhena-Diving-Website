@@ -69,14 +69,13 @@
                 <div class="image">
                     <img src="/storage/{{$product->image_1}}" alt="">
                     <div class="icons">
-                        <a href="#" class="fas fa-shopping-cart"></a>
-                        <a href="#" class="fas fa-eye"></a>
-                        <a href="#" class="fas fa-share"></a>
+                        <a href="{{ route('products.show',$product) }}" class="fas fa-shopping-cart"></a>
+                        
                     </div>
                 </div>
                 <div class="content">
                     <h3>{{$product->name}}</h3>
-                    <div class="price">{{$product->selling_price * (100 + $product->discount)/100}} </div>
+                    <div class="price">${{$product->selling_price}} </div>
                     <div class="stars">
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
