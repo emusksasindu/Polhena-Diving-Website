@@ -163,7 +163,7 @@
                                     <i class="fa fa-star-o"></i>
                                 </div>
                                 @if($product->discount > 0)
-                                <h5 class = "text-muted font-weight-light"><span>${{$product->selling_price *(100 + $product->discount)/100}}</span></h5>
+                                <h5 class = "text-muted font-weight-light"><span>${{round($product->selling_price *100 / (100 - $product->discount),2)}}</span></h5>
                                 @endif
                                 <h4 class = "text-light bg-dark font-weight-bold">${{$product->selling_price}}</h4>
                                 <!--div class="product__color__select">

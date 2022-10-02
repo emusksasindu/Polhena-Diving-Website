@@ -78,7 +78,7 @@
                         </div>
                         
                         <h4 class="mt-4">{{$product->discount}}% Discount!</h4>
-                        <h3>${{$product->selling_price}}/= <span>${{$product->selling_price * 100 /(100 - $product->discount)}}/=</span></h3>
+                        <h3>${{$product->selling_price}}/= <span>${{round($product->selling_price * 100 /(100 - $product->discount),2)}}/=</span></h3>
                         <div class="product__details__option">
                             <div class="product__details__option__size">
                                 
@@ -275,7 +275,7 @@
                             <i class="fa fa-star-o"></i>
                         </div>
                         @if($relatedProduct->discount > 0)
-                                <h5 class = "text-muted font-weight-light"><span>${{$relatedProduct->selling_price * 100 / (100 - $relatedProduct->discount)}}</span></h5>
+                                <h5 class = "text-muted font-weight-light"><span>${{round($relatedProduct->selling_price * 100 / (100 - $relatedProduct->discount),2)}}</span></h5>
                         @endif
                                 <h4 class = "text-light bg-dark font-weight-bold">${{$relatedProduct->selling_price}}</h4>
                     </div>
