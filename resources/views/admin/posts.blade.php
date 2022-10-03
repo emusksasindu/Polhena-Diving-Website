@@ -34,9 +34,13 @@
                     <table>
                         <thead>
                             <div class="input-group">
-                                <div class="form-outline">
-                                  <input type="search" id="form1" class="form-control" placeholder="Search"/>
-                                </div>
+                                <form action="{{ route('products.search') }}" method="POST">
+                                    @csrf
+                                    <div class="form-outline">
+                                        <input type="search" name="keyword" id="form1" class="form-control" placeholder="Search..."/>
+                                      </div>
+                                </form>
+                               
                                 
                             </div>
                             <tr>

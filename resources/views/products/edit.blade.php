@@ -26,19 +26,22 @@
                      @endif
                      <div class="cardBox d-flex justify-content-center">
                         <div class="card ">
-                            <input type="file" id="#product_image_1" name="image_1" value='/storage/{{$product->image_1}}'>
+                            <img id="i_1" class= "product_image" src="/storage/{{$product->image_1}}" alt="your image" />
+                            <input type="file" id="product_image_1" name="image_1"  onchange="loadFile_1(event)">
                             @error('image_1')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 1 field is required." ? "Please select a image!" :$message  }}</div>
                             @enderror
                         </div>
                         <div class="card ">
-                            <input type="file" id="#product_image_1" name="image_2" value='{{$product->image_2}}'>
+                            <img id="i_2" src='/storage/{{$product->image_2}}' class= "product_image"  alt="your image" />
+                            <input type="file" id="product_image_1" name="image_2"  onchange="loadFile_2(event)">
                             @error('image_2')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 2 field is required." ? "Please select a image!" :$message  }}</div>
                             @enderror
                         </div>
                         <div class="card ">
-                            <input type="file" id="#product_image_1" name="image_3" value='{{$product->image_3}}'>
+                            <img id="i_3" class= "product_image"  src='/storage/{{$product->image_3}}' alt="your image" />
+                            <input type="file" id="product_image_1" name="image_3" onchange="loadFile_3(event)">
                             @error('image_3')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 3 field is required." ? "Please select a image!" :$message  }}</div>
                             @enderror

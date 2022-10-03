@@ -56,10 +56,12 @@
                     <table>
                         <thead>
                             <div class="input-group">
+                                <form action="{{ route('products.adminsearch') }}" method="POST">
+                                    @csrf
                                 <div class="form-outline">
-                                  <input type="search" id="form1" class="form-control" placeholder="Search"/>
+                                  <input type="search" id="form1" name ='keyword' class="form-control" placeholder="Search"/>
                                 </div>
-                                
+                                </form>
                               </div>
                             <tr>
                                 <td>Image</td>
@@ -89,7 +91,7 @@
                                     @csrf
                                     @method('DELETE')
                                     <input type="hidden" name='id'  value="{{$product->id}}"/>
-                                <td><a class="btn btn-primary" href="{{ route('products.edit',$product) }}"><ion-icon href="#" name="pencil-outline"></ion-icon></a><button type="submit" class="btn btn-danger"><ion-icon  name="trash-outline"></ion-icon></button></td>
+                                <td><a class="btn btn-primary bg-indigo me-4" href="{{ route('products.edit',$product) }}"><ion-icon href="#" name="pencil-outline"></ion-icon></a><button type="submit" class="btn btn-danger"><ion-icon  name="trash-outline"></ion-icon></button></td>
                                 </form>
                             </tr>
                             @endforeach

@@ -26,19 +26,22 @@
                      @endif
                      <div class="cardBox d-flex justify-content-center">
                         <div class="card ">
-                            <input type="file" id="#product_image_1" name="image_1">
+                            <input type="file" accept="image/*" id="#product_image_1" name="image_1" onchange="loadFile_1(event)" >
+                            <img id="i_1" class= "product_image" src="#" alt="your image" />
                             @error('image_1')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 1 field is required." ? "Please select a image!" :$message  }}</div>
                             @enderror
                         </div>
                         <div class="card ">
-                            <input type="file" id="#product_image_1" name="image_2">
+                            <input type="file" accept="image/*" id="#product_image_1" name="image_2" onchange="loadFile_2(event)">
+                            <img id="i_2" src="#" class= "product_image"  alt="your image" />
                             @error('image_2')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 2 field is required." ? "Please select a image!" :$message  }}</div>
                             @enderror
                         </div>
                         <div class="card ">
-                            <input type="file" id="#product_image_1" name="image_3">
+                            <input type="file" accept="image/*" id="#product_image_1" name="image_3" onchange="loadFile_3(event)">
+                            <img id="i_3" class= "product_image"  src="#" alt="your image" />
                             @error('image_3')
                             <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 3 field is required." ? "Please select a image!" :$message  }}</div>
                             @enderror

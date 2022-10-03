@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use Illuminate\Http\Request;
 use App\Models\product;
-
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -115,7 +115,12 @@ class ProductController extends Controller
     ->orderBy('selling_price', 'asc')
     ->paginate(9); 
     // single keyword search - end
-    return view('products.index', $data);      
+    $user = Auth::user();
+    if(empty($user)|| $user->type == 'U')
+    {
+        return view('products.index', $data);
+    }
+        return view('admin.products', $data);  
     }
 
 
@@ -225,9 +230,9 @@ class ProductController extends Controller
             'large_qty' => ['required', 'integer', 'max:1000000'],
             'xl_qty' => ['required', 'integer', 'max:1000000'],
             'xxl_qty' => ['required', 'integer', 'max:1000000'],
-            'image_1' => ['required','image'],
-            'image_2' => ['required','image'],
-            'image_3' => ['required','image'],
+            'image_1' => ['image'],
+            'image_2' => ['image'],
+            'image_3' => ['image'],
             'status' => ['required'],
             'category_id' => ['required'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
@@ -243,20 +248,23 @@ class ProductController extends Controller
         $product->xl_qty = $request->xl_qty;
         $product->xxl_qty = $request->xxl_qty;
         //product image upload if it is updated////////////////
-        if($product->image_1 != $request->image_1)
+        if(!empty($request->image_1))
         {
+            unlink('storage/'.$product->image_1);
             $image_path_1 = $request->image_1->store('uploads/products','public');
             $product->image_1 = $image_path_1;
         };
 
-        if($product->image_2 != $request->image_2)
+        if(!empty($request->image_2))
         {
+            unlink('storage/'.$product->image_2);
             $image_path_1 = $request->image_2->store('uploads/products','public');
             $product->image_2 = $image_path_1;
         };
 
-        if($product->image_3 != $request->image_3)
+        if(!empty($request->image_3))
         {
+            unlink('storage/'.$product->image_3);
             $image_path_1 = $request->image_3->store('uploads/products','public');
             $product->image_3 = $image_path_1;
         };
@@ -279,6 +287,9 @@ class ProductController extends Controller
     public function destroy(Request $request)
     {
         $product=product::find($request->id);
+        unlink('storage/'.$product->image_1);
+        unlink('storage/'.$product->image_2);
+        unlink('storage/'.$product->image_3);
         $product->delete();
         return $this->index()
             ->with('success', 'Product has been deleted successfully');
