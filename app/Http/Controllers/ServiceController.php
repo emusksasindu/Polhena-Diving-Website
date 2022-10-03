@@ -10,13 +10,14 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $data['services'] = service::orderBy('id', 'desc')->get();
+        $data['services'] = service::orderBy('id', 'desc')->paginate(5);
         return view('admin.service', $data);
     }
 
     public function user_index()
     {
-        $data['services'] = service::orderBy('id', 'desc')->get();
+        $data['services'] = service::orderBy('id', 'desc')
+        ->paginate(9);
         return view('services.index', $data);
     }
     /**
@@ -56,9 +57,9 @@ class ServiceController extends Controller
         $service->description = $request->description;
         $service->category_id = $request->category_id;
         $service->status = $request->status;
-        $service->imageUrl_1 = $request->imageUrl_1;
-        $service->imageUrl_2 = $request->imageUrl_2;
-        $service->imageUrl_3 = $request->imageUrl_3;
+        $service->imageUrl_1 = $request->imageUrl_1->store('uploads/services','public');
+        $service->imageUrl_2 = $request->imageUrl_2->store('uploads/services','public');
+        $service->imageUrl_3 = $request->imageUrl_3->store('uploads/services','public');
         $service->cost = $request->cost;
         $service->selling_price = $request->selling_price;
         $service->save();

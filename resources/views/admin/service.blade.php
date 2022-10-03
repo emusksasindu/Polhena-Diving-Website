@@ -80,7 +80,7 @@
                         <tbody>
                             @foreach($services as $service)
                             <tr>
-                                <td><img src="/storage/{{$service->image_1}}" alt=""></td>
+                                <td><img src="/storage/{{$service->imageUrl_1}}" alt=""></td>
                                 <td>{{$service->id}}</td>
                                 <td>{{$service->description}}</td>
                                 <td>${{$service->selling_price}}</td>
