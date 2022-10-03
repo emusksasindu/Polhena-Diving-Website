@@ -67,96 +67,35 @@
                               </div>
                             <tr>
                                 
-                                <td>ID</td>
+                                <td>Image</td>
                                 <td>Name</td>
                                 <td>Description</td>
                                 <td>Price</td>
                                 <td>Cost</td>
+                                <td>Action</td>
 
                             </tr>
                         </thead>
 
                         <tbody>
-                            @foreach($products as $product)
+                            @foreach($services as $service)
                             <tr>
-                                <td>1</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td><img src="/storage/{{$service->image_1}}" alt=""></td>
+                                <td>{{$service->id}}</td>
+                                <td>{{$service->description}}</td>
+                                <td>${{$service->selling_price}}</td>
+                                <td>${{$service->cost}}</td>
+                                <td><span class="status {{$service->status == "in stock"? 'inProgress' : 'return'}}">{{$service->status == "in stock"? 'In Stock' : 'Out of stock'}}</span></td>
+                                <form action="{{ route('services.destroy') }}" method="POST" >
+                                    @csrf
+                                    @method('DELETE')
+                                <input type="hidden" name='id'  value="{{$service->id}}"/>
+                                <td><a class="btn btn-primary bg-indigo me-4" href="{{ route('services.edit',$service) }}"><ion-icon href="#" name="pencil-outline"></ion-icon></a><button type="submit" class="btn btn-danger"><ion-icon  name="trash-outline"></ion-icon></button></td>
+                                </form>
                             
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>6</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>7</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>8</td>
-                                <td>Discover Scuba Diving</td>
-                                <td>Scuba diving for beginners</td>
-                                <td>Rs.136000.00</td>
-                                <td>Rs.80000.00</td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                            @endforeach
+                            
                         </tbody>
                     </table>
                 </div>

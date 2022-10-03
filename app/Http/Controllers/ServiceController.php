@@ -83,7 +83,10 @@ class ServiceController extends Controller
      */
     public function edit(service  $service)
     {
-        return view('services.edit', compact('service'));
+        $data['categories'] = category::orderBy('id', 'desc')
+        ->where('type','service')
+        ->get();
+        return view('services.edit', compact('service'),$data);
     }
     /**
      * Update the specified resource in storage.
@@ -97,7 +100,9 @@ class ServiceController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:500'],
-            'imageUrl_1' => ['required'],
+            'imageUrl_1' => ['image'],
+            'imageUrl_2' => ['image'],
+            'imageUrl_3' => ['image'],
             'status' => ['required'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
@@ -107,14 +112,35 @@ class ServiceController extends Controller
         $service->description = $request->description;
         $service->category_id = $request->category_id;
         $service->status = $request->status;
-        $service->imageUrl_1 = $request->imageUrl_1;
-        $service->imageUrl_2 = $request->imageUrl_2;
-        $service->imageUrl_3 = $request->imageUrl_3;
+
+         //service image upload if it is updated////////////////
+         if(!empty($request->imageUrl_1))
+        {
+            unlink('storage/'.$service->imageUrl_1);
+            $image_path_1 = $request->imageUrl_1->store('uploads/products','public');
+            $service->imageUrl_1 = $image_path_1;
+        };
+
+        if(!empty($request->imageUrl_2))
+        {
+            unlink('storage/'.$service->imageUrl_2);
+            $image_path_1 = $request->imageUrl_2->store('uploads/products','public');
+            $service->imageUrl_2 = $image_path_1;
+        };
+
+        if(!empty($request->imageUrl_3))
+        {
+            unlink('storage/'.$service->imageUrl_3);
+            $image_path_1 = $request->imageUrl_3->store('uploads/products','public');
+            $service->imageUrl_3 = $image_path_1;
+        };
+        ///////////////////////////////////////////////////////
+
         $service->cost = $request->cost;
         $service->selling_price = $request->selling_price;
         $service->save();
         return redirect()->route('admin.service')
-            ->with('success', 'service Has Been updated successfully');
+            ->with('success', 'service has been updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -122,8 +148,12 @@ class ServiceController extends Controller
      * @param  \App\service  $service
      * @return \Illuminate\Http\Response
      */
-    public function destroy(service  $service)
+    public function destroy(Request $request)
     {
+        $service=service::find($request->id);
+        unlink('storage/'.$service->imageUrl_1);
+        unlink('storage/'.$service->imageUrl_2);
+        unlink('storage/'.$service->imageUrl_3);
         $service->delete();
         return redirect()->route('admin.service')
             ->with('success', 'service has been deleted successfully');

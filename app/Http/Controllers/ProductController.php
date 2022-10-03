@@ -212,7 +212,9 @@ class ProductController extends Controller
      */
     public function edit(product  $product)
     {
-        $data['categories'] = category::orderBy('id', 'desc')->get();
+        $data['categories'] = category::orderBy('id', 'desc')
+        ->where('type','product')
+        ->get();
         return view('products.edit', compact('product'),$data);
     }
     /**

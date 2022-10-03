@@ -83,7 +83,7 @@
                                 <td>{{$product->id}}</td>
                                 <td>{{$product->name}}</td>
                                 <td>{{$product->small_qty + $product->medium_qty + $product->large_qty + $product->xl_qty + $product->xxl_qty}}</td>
-                                <td>{{$product->cost}}</td>
+                                <td>${{$product->cost}}</td>
                                 <td>${{$product->selling_price}}</td>
                                 <td>{{$product->discount}}%</td>
                                 <td><span class="status {{$product->status == "in stock"? 'inProgress' : 'return'}}">{{$product->status == "in stock"? 'In Stock' : 'Out of stock'}}</span></td>
