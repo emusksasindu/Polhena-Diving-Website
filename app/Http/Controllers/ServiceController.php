@@ -118,21 +118,21 @@ class ServiceController extends Controller
          if(!empty($request->imageUrl_1))
         {
             unlink('storage/'.$service->imageUrl_1);
-            $image_path_1 = $request->imageUrl_1->store('uploads/products','public');
+            $image_path_1 = $request->imageUrl_1->store('uploads/services','public');
             $service->imageUrl_1 = $image_path_1;
         };
 
         if(!empty($request->imageUrl_2))
         {
             unlink('storage/'.$service->imageUrl_2);
-            $image_path_1 = $request->imageUrl_2->store('uploads/products','public');
+            $image_path_1 = $request->imageUrl_2->store('uploads/services','public');
             $service->imageUrl_2 = $image_path_1;
         };
 
         if(!empty($request->imageUrl_3))
         {
             unlink('storage/'.$service->imageUrl_3);
-            $image_path_1 = $request->imageUrl_3->store('uploads/products','public');
+            $image_path_1 = $request->imageUrl_3->store('uploads/services','public');
             $service->imageUrl_3 = $image_path_1;
         };
         ///////////////////////////////////////////////////////
