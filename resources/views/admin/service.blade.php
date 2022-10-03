@@ -35,17 +35,35 @@
                    
                     <div class="cardHeader">
                         <h2>Latest Services</h2>
-                        <a href="#" class="btn">View All</a>
+                        @if(count($services) != 0)
+                               
+                                    <p>Showing {{($services->currentpage()-1)*$services->perpage()+1}} to 
+                                        {{$services->currentpage()*$services->perpage() < $services->total() ? 
+                                        $services->currentpage()*$services->perpage():
+                                        $services->total();
+                                        }} of 
+                                        {{$services->total()}} results
+                                    </p>
+
+                               
+                               @else 
+                               <p>No Results
+                            </p>
+
+                           
+                           @endif
                         
                     </div>
 
                     <table>
                         <thead>
                             <div class="input-group">
+                                <form action="{{ route('services.adminsearch') }}" method="POST">
+                                    @csrf
                                 <div class="form-outline">
-                                  <input type="search" id="form1" class="form-control" placeholder="Search"/>
+                                    <input type="search" id="form1" name ='keyword' class="form-control" placeholder="Search"/>
                                 </div>
-                                
+                                </form>
                               </div>
                             <tr>
                                 
@@ -59,6 +77,7 @@
                         </thead>
 
                         <tbody>
+                            @foreach($products as $product)
                             <tr>
                                 <td>1</td>
                                 <td>Discover Scuba Diving</td>
