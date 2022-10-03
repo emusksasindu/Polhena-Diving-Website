@@ -72,6 +72,7 @@
                                 <td>Description</td>
                                 <td>Price</td>
                                 <td>Cost</td>
+                                <td>Status</td>
                                 <td>Action</td>
 
                             </tr>
@@ -81,7 +82,7 @@
                             @foreach($services as $service)
                             <tr>
                                 <td><img src="/storage/{{$service->imageUrl_1}}" alt=""></td>
-                                <td>{{$service->id}}</td>
+                                <td>{{$service->name}}</td>
                                 <td>{{$service->description}}</td>
                                 <td>${{$service->selling_price}}</td>
                                 <td>${{$service->cost}}</td>
@@ -90,7 +91,7 @@
                                     @csrf
                                     @method('DELETE')
                                 <input type="hidden" name='id'  value="{{$service->id}}"/>
-                                <td><a class="btn btn-primary bg-indigo me-4" href="{{ route('services.edit',$service) }}"><ion-icon href="#" name="pencil-outline"></ion-icon></a><button type="submit" class="btn btn-danger"><ion-icon  name="trash-outline"></ion-icon></button></td>
+                                <td><a class="btn btn-primary me-4" href="{{ route('services.edit',$service) }}"><ion-icon href="#" name="pencil-outline"></ion-icon></a><button type="submit" class="btn btn-danger"><ion-icon  name="trash-outline"></ion-icon></button></td>
                                 </form>
                             
                             </tr>

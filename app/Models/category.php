@@ -14,4 +14,9 @@ class category extends Model
     {
         return $this->hasMany(product::class);
     }
+
+    public function services(): HasMany
+    {
+        return $this->hasMany(service::class);
+    }
 }

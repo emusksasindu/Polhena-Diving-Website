@@ -1,106 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Edit Service Form - Laravel 9 CRUD Tutorial</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
-</head>
-<body>
-<div class="container mt-2">
-<div class="row">
-<div class="col-lg-12 margin-tb">
-<div class="pull-left">
-<h2>Edit Service</h2>
-</div>
-<div class="pull-right">
-<a class="btn btn-primary" href="{{ route('products.index') }}" enctype="multipart/form-data"> Back</a>
-</div>
-</div>
-</div>
-@if(session('status'))
-<div class="alert alert-success mb-1 mt-1">
-{{ session('status') }}
-</div>
-@endif
-<form action="{{ route('products.update',$product->id) }}" method="POST" enctype="multipart/form-data">
-@csrf
-@method('PUT')
-<div class="row">
+@include('layouts.admin_navi')     
+<!-- ========================= Main ==================== -->
+ <div class="main">
+     <div class="topbar">
+         <div class="toggle">
+             <ion-icon name="menu-outline"></ion-icon>
+         </div>
+        
+     </div>
+    
 
-<div class="col-xs-12 col-sm-12 col-md-12">
-<div class="form-group">
-<strong>Name:</strong>
-<input type="text" name="name" value="{{ $product->name }}" class="form-control" placeholder="product name">
-@error('name')
-<div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-@enderror
-</div>
-</div>
+     <!-- ======================= Cards ================== -->
+    
+     <div class="cardProfile">
+         <div class="card">
+             <form role="form" action="{{ route('services.update',$service->id) }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                 <div class="form-group">
+                     <h2>Edit Existing Service</h2>
+                     <div class="gap"></div>
+                     @if(session('success'))
+                     <div class="alert alert-success mb-1 mt-1">
+                         {{ session('success') }}
+                     </div>
+                     @endif
+                     <div class="cardBox d-flex justify-content-center">
+                        <div class="card ">
+                            <img id="i_1" class= "product_image mb-4" src="/storage/{{$service->imageUrl_1}}" alt="your image" />
+                            <input type="file" accept="image/*" id="#product_image_1" name="imageUrl_1" onchange="loadFile_1(event)" >
+                            @error('image_1')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 1 field is required." ? "Please select a image!" :$message  }}</div>
+                            @enderror
+                        </div>
 
-<div class="col-xs-12 col-sm-12 col-md-12">
-    <div class="form-group">
-    <strong>Description:</strong>
-    <input type="text" name="description" value="{{ $product->description }}" class="form-control" placeholder="product description">
-    @error('description')
-    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-    @enderror
-    </div>
-    </div>
+                        <div class="card ">
+                            <img id="i_2" class= "product_image mb-4" src="/storage/{{$service->imageUrl_2}}" alt="your image" />
+                            <input type="file" accept="image/*" id="#product_image_2" name="imageUrl_2" onchange="loadFile_2(event)" >
+                            
+                            @error('image_2')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 1 field is required." ? "Please select a image!" :$message  }}</div>
+                            @enderror
+                        </div>
 
+                        <div class="card ">
+                            <img id="i_3" class= "product_image mb-4" src="/storage/{{$service->imageUrl_3}}" alt="your image" />
+                            <input type="file" accept="image/*" id="#product_image_3" name="imageUrl_3" onchange="loadFile_3(event)" >
+                            
+                            @error('image_3')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The image 1 field is required." ? "Please select a image!" :$message  }}</div>
+                            @enderror
+                        </div>
+                     </div>
+    <!-- ======================= Cards end ================== -->
+                     <h2 class="numbers">Service Name</h2>
+                     <input type="text" name= "name" class="form-control" id="ProductName"
+                            placeholder="enter the service name" value='{{$service->name}}'>
+                            @error('name')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+                 </div>
 
-    <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-        <strong>Qty:</strong>
-        <input type="text" name="qty" value="{{ $product->qty }}" class="form-control" placeholder="product qty">
-        @error('qty')
-        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-        @enderror
-        </div>
-        </div>
+                 <div class="gap"></div>
+                 <div class="form-group">
+                     <h2 class="numbers">Service Description</h2>
+                     <input type="text" name="description" class="form-control" id="ProductDescription"
+                            placeholder="enter the service description" value='{{$service->description}}' >
+                            @error('description')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+                 </div>
 
-        <!--div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-            <strong>Size:</strong>
-            <input type="text" name="size" value="{{ $product->size }}" class="form-control" placeholder="product size">
-            @error('size')
-            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-            @enderror
-            </div>
-            </div>
+                 <div class="gap"></div>
+                 <div class="form-group">
+                     <h2 class="numbers">Service Category</h2>
+                    
+                     <div class="dropdown">
+                            <select  class="btn btn-secondary" name="category_id"  >
+                                @foreach ($categories as $category)
+                                <option value= "{{ $category->id }}" {{ $category->id == $service->category_id ? 'selected' : ""}} >{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                      
+                    </div>
+                            @error('category_id')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message == "The categories id field is required." ? "Please select a valid category!" :$message  }}</div>
+                            @enderror
+                 </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                <strong>Color:</strong>
-                <input type="text" name="color" value="{{ $product->color }}" class="form-control" placeholder="product color">
-                @error('color')
-                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                @enderror
+                 <div class="gap"></div>
+                 <div class="form-group">
+                    <h2 class="numbers" >Cost</h2>
+                    <input type="text" name="cost" class="form-control" id="Cost"
+                           placeholder="enter the cost" value='{{$service->cost}}'>
+                           @error('cost')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
                 </div>
-                </div-->
 
-                <div class="col-xs-12 col-sm-12 col-md-12">
-                    <div class="form-group">
-                    <strong>Status:</strong>
-                    <input type="text" name="status" value="{{ $product->status }}" class="form-control" placeholder="product status">
-                    @error('status')
-                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                    @enderror
-                    </div>
-                    </div>
+                <div class="gap"></div>
+                <div class="form-group">
+                   <h2 class="numbers">Selling Price</h2>
+                   <input type="text" name="selling_price" class="form-control" id="SellingPrice"
+                          placeholder="enter the selling price" value='{{$service->selling_price}}'>
+                          @error('selling_price')
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            @enderror
+               </div>
 
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        <div class="form-group">
-                        <strong>Price:</strong>
-                        <input type="text" name="price" value="{{ $product->price }}" class="form-control" placeholder="product price">
-                        @error('price')
+              <div class="gap"></div>
+              <div class="form-group">
+                 <h2 class="numbers">Status</h2>
+                 <input type="text" name="status" class="form-control" id="Discount"
+                        placeholder="status" value='{{$service->status}}'>
+                        @error('status')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
-                        </div>
-                        </div>
+             </div>
 
-<button type="submit" class="btn btn-primary ml-3">Submit</button>
-</div>
-</form>
-</div>
+               <div class="gap"></div>
+                 <button type="submit" class="btn">Update</button>
+
+             </form>
+
+             
+         </div>
+
+      
+     </div>
+
+
+<!-- =========== Scripts =========  -->
+<script src='{{asset("js/admin_script.js")}}'></script>
+
+<!-- ====== ionicons ======= -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
 </html>

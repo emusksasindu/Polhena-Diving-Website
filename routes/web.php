@@ -77,8 +77,8 @@ Route::post('/admin/products/search',[ProductController::class,'search'])->name(
 
 // service related routes
 Route::resource('/admin/services',ServiceController::class );  
-Route::get('/admin/services/delete',[ProductController::class,'destroy'])->name('services.destroy');
-Route::post('/admin/services/search',[ProductController::class,'search'])->name('services.adminsearch');
+Route::get('/admin/services/delete',[ServiceController::class ,'destroy'])->name('services.destroy');
+Route::post('/admin/services/search',[ServiceController::class ,'search'])->name('services.adminsearch');
 });
 
 

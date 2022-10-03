@@ -140,7 +140,7 @@ class ServiceController extends Controller
         $service->cost = $request->cost;
         $service->selling_price = $request->selling_price;
         $service->save();
-        return redirect()->route('admin.service')
+        return $this->index()
             ->with('success', 'service has been updated successfully');
     }
     /**
@@ -156,7 +156,7 @@ class ServiceController extends Controller
         unlink('storage/'.$service->imageUrl_2);
         unlink('storage/'.$service->imageUrl_3);
         $service->delete();
-        return redirect()->route('admin.service')
+        return $this->index()
             ->with('success', 'service has been deleted successfully');
     }
 }
