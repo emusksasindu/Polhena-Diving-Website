@@ -22,7 +22,8 @@ class ProductController extends Controller
         session()->put('min_price', 'no');
         session()->put('size', 'no');
 
-        $data['categories'] = category::get();
+        $data['categories'] = category::where('type','product')
+        ->get();
         $data['products'] = product::orderBy('selling_price', 'asc')
         ->paginate(9);
         return view('products.index', $data);
