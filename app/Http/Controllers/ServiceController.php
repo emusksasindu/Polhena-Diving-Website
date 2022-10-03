@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -16,10 +17,60 @@ class ServiceController extends Controller
 
     public function user_index()
     {
+        session()->put('category_id','no');
+        session()->put('max_price', 'no');
+        session()->put('min_price', 'no');
+        $data['categories'] = category::where('type','service')
+        ->get();
         $data['services'] = service::orderBy('id', 'desc')
         ->paginate(9);
         return view('services.index', $data);
     }
+
+
+
+    public function filter(Request $request)
+    {
+
+        $id = $request->id;
+        $max_price = $request->max_price;
+        $min_price = $request->min_price;
+
+
+        session()->put('category_id', $id);
+        session()->put('max_price', $max_price);
+        session()->put('min_price', $min_price);
+
+        $data['categories'] = category::where('type','service')->get();
+
+        if($id != 'no' && $max_price != 'no' && $min_price != 'no')
+        {
+            $data['services'] = service::where('category_id', '=', $id)
+            ->whereBetween('selling_price', [$min_price, $max_price])
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+        }
+        else if($id != 'no' && $max_price == 'no' && $min_price == 'no')
+        {
+            $data['services'] = service::where('category_id', '=', $id)
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+        else if($id == 'no' && $max_price != 'no' && $min_price != 'no')
+        {
+            $data['services'] = service::whereBetween('selling_price', [$min_price, $max_price])
+            ->orderBy('selling_price', 'asc')
+            ->paginate(9);
+
+        }
+      
+        return view('services.index', $data);
+    }
+
+
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -82,6 +133,30 @@ class ServiceController extends Controller
      * @param  \App\service  $service
      * @return \Illuminate\Http\Response
      */
+
+    public function search(Request $request)
+    {
+    $request->validate([
+        'keyword' => 'required'
+    ]);
+    $keyword = $request->keyword;
+    $data['categories'] = category::get();
+    //single keyword search - start
+    $data['services'] = service::where('name', 'like', '%'.$keyword.'%')
+    ->orderBy('selling_price', 'asc')
+    ->paginate(9); 
+    // single keyword search - end
+    $user = Auth::user();
+    if(empty($user)|| $user->type == 'U')
+    {
+        return view('services.index', $data);
+    }
+        return view('admin.service', $data);  
+    }
+
+
+
+
     public function edit(service  $service)
     {
         $data['categories'] = category::orderBy('id', 'desc')

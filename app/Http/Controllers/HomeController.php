@@ -29,9 +29,10 @@ class HomeController extends Controller
     { if($request->user() != null && $request->user()->type == 'A'){
        return redirect('/admin');
     }
-        $data['products'] = product::orderBy('id', 'desc')->get();
-        $data['services'] = service::orderBy('id', 'desc')->get();
+        $data['products'] = product::orderBy('id', 'desc')->limit(10)->get();
+        $data['services'] = service::orderBy('id', 'desc')->limit(10)->get();
         $data['productCount'] = product::count();
+        $data['serviceCount'] = service::count();
         return view('index',$data);
     }
 }

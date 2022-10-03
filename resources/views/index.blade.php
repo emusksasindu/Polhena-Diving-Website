@@ -110,79 +110,21 @@
     </h1>
 
     <div class="box-container">
-
+        @if($serviceCount != 0)
+        @foreach ($services as $service)
         <div class="box">
             <div class="image">
-                <img src="images/img-1.jpg" alt="">
+                <img src="storage/{{$service->imageUrl_1}}" alt="">
             </div>
             <div class="content">
-                <h3>PADI Open Water Course</h3>
-                <p>Open Water Scuba Diver Course is the most famous entry level certification course out there.</p>
-                <div class="price">$375 - $460</div>
+                <h3>{{$service->name}}</h3>
+                <p>{{$service->description}}</p>
+                <div class="price">${{$service->selling_price}}</div>
                 <a href="#" class="btn">explore now</a>
             </div>
         </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/img-2.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>PADI Advanced Open Water Course</h3>
-                <p>This course can be taken after completing the PADI Open Water Diver certification.</p>
-                <div class="price">$330 - $405</div>
-                <a href="#" class="btn">explore now</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/img-3.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>PADI Rescue Diver Course</h3>
-                <p>This is one of the most challenging yet rewarding courses in PADI recreational scuba diving certification lineup.</p>
-                <div class="price">$405 - $430</div>
-                <a href="#" class="btn">explore now</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/img-4.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>PADI Divemaster</h3>
-                <p>The PADI Divemaster course is your first level of professional training.</p>
-                <div class="price">$1395 - $2500</div>
-                <a href="#" class="btn">explore now</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/img-5.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>Day Snorkeling Package</h3>
-                <p>Snorkeling in Polhena is a famous activity because of the turtles in the bay.</p>
-                <div class="price">$18 - $25</div>
-                <a href="#" class="btn">explore now</a>
-            </div>
-        </div>
-
-        <div class="box">
-            <div class="image">
-                <img src="images/img-6.jpg" alt="">
-            </div>
-            <div class="content">
-                <h3>Night Snorkeling Package</h3>
-                <p>Night snorkeling can be a great experience as most of the marine life comes alive at night and it is full of surprises!</p>
-                <div class="price">$28 - $45</div>
-                <a href="#" class="btn">explore now</a>
-            </div>
-        </div>
-
+        @endforeach
+        @endif
     </div>
 
 </section>

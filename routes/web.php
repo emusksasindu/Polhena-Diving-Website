@@ -93,11 +93,13 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::get('products/filter/{id?}/{min_price?}/{max_price?}/{size?}',[ProductController::class,'filter'])->name('products.filter');
     Route::get('products/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('products',[ProductController::class,'search'])->name('products.search');
-    Route::get('/services',[ProductController::class, 'user_index'] )->name('services.index');
-
     
 
-    
+    //product related
+    Route::get('/services',[ServiceController::class, 'user_index'] )->name('services.index');
+    Route::get('services/filter/{id?}/{min_price?}/{max_price?}',[ServiceController::class,'filter'])->name('services.filter');
+    Route::post('services',[ServiceController::class,'search'])->name('services.search');
+
     Route::get('/blog', function () {
         return view('blogs.index');
     });
