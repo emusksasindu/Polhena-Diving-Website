@@ -34,8 +34,23 @@
                    
                     <div class="cardHeader">
                         <h2>Latest Products</h2>
-                        <a href="#" class="btn">View All</a>
-                        
+                        @if(count($products) != 0)
+                               
+                                    <p>Showing {{($products->currentpage()-1)*$products->perpage()+1}} to 
+                                        {{$products->currentpage()*$products->perpage() < $products->total() ? 
+                                        $products->currentpage()*$products->perpage():
+                                        $products->total();
+                                        }} of 
+                                        {{$products->total()}} results
+                                    </p>
+
+                               
+                               @else 
+                               <p>No Results
+                            </p>
+
+                           
+                           @endif    
                     </div>
 
                     <table>
@@ -55,115 +70,38 @@
                                 <td>Selling Price</td>
                                 <td>Discount</td>
                                 <td>Status</td>
+                                <td>Action</td>
                             </tr>
                         </thead>
 
                         <tbody>
+                            @foreach($products as $product)
                             <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
+                                <td><img src="/storage/{{$product->image_1}}" alt=""></td>
+                                <td>{{$product->id}}</td>
+                                <td>{{$product->name}}</td>
+                                <td>{{$product->small_qty + $product->medium_qty + $product->large_qty + $product->xl_qty + $product->xxl_qty}}</td>
+                                <td>{{$product->cost}}</td>
+                                <td>${{$product->selling_price}}</td>
+                                <td>{{$product->discount}}%</td>
+                                <td><span class="status {{$product->status == "in stock"? 'inProgress' : 'return'}}">{{$product->status == "in stock"? 'In Stock' : 'Out of stock'}}</span></td>
+                                <form action="{{ route('products.destroy') }}" method="POST" >
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="hidden" name='id'  value="{{$product->id}}"/>
+                                <td><a class="btn btn-primary" href="{{ route('products.edit',$product) }}"><ion-icon href="#" name="pencil-outline"></ion-icon></a><button type="submit" class="btn btn-danger"><ion-icon  name="trash-outline"></ion-icon></button></td>
+                                </form>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status pending">Pending</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status return">Return</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>6</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status pending">Pending</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>7</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status return">Return</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
-
-                            <tr>
-                                <td>8</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td>Rs:7500.00</td>
-                                <td>Rs:500.00</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-
-                            </tr>
+                            @endforeach
+                           
                         </tbody>
                     </table>
+                    
+                </div>
+                <div class="col-lg-12">
+                    <div class="d-flex justify-content-center">
+                        {!! $products->links() !!}
+                    </div>
                 </div>
 
              

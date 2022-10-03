@@ -784,6 +784,11 @@ a{
   border-radius: 20px;
 }
 
+.details .recentOrders table img{
+   max-width: 100px;
+   max-height: 200px;
+}
+
 .details .cardHeader {
   display: flex;
   justify-content: space-between;

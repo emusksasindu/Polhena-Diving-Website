@@ -68,9 +68,11 @@ Route::resource('admin/users',UserController::class );
 
 Route::resource('admin/categories',CategoryController::class );
 
-Route::resource('admin/products',ProductController::class );
 
-Route::resource('admin/services',ServiceController::class );
+
+Route::resource('/admin/products',ProductController::class );
+Route::get('/admin/products/delete',[ProductController::class,'destroy'])->name('products.destroy');
+Route::resource('/admin/services',ServiceController::class );
 
    
 });

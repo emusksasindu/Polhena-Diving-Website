@@ -11,7 +11,7 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $data['products'] = product::orderBy('id', 'desc')->get();
+        $data['products'] = product::orderBy('id', 'desc')->paginate(5);
         return view('admin.products', $data);
     }
 
@@ -205,7 +205,8 @@ class ProductController extends Controller
      */
     public function edit(product  $product)
     {
-        return view('products.edit', compact('product'));
+        $data['categories'] = category::orderBy('id', 'desc')->get();
+        return view('products.edit', compact('product'),$data);
     }
     /**
      * Update the specified resource in storage.
@@ -214,7 +215,7 @@ class ProductController extends Controller
      * @param  \App\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
@@ -266,8 +267,8 @@ class ProductController extends Controller
         $product->cost = $request->cost;
         $product->selling_price = $request->selling_price;
         $product->save();
-        return redirect()->route('admin.products')
-            ->with('success', 'Product Has Been updated successfully');
+        return $this->index()
+            ->with('success', 'Product has been updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -275,10 +276,11 @@ class ProductController extends Controller
      * @param  \App\product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy(product  $product)
+    public function destroy(Request $request)
     {
+        $product=product::find($request->id);
         $product->delete();
-        return redirect()->route('admin.products')
+        return $this->index()
             ->with('success', 'Product has been deleted successfully');
     }
 }
