@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
 use App\Models\service;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,12 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('services.create');
+        $data['categories'] = category::orderBy('id', 'desc')
+        ->where('type','service')
+        ->get();
+        return count($data['categories']) == 0 ? 
+        redirect()->route('categories.create')->with('success', 'Please insert categories before save products or services!') :
+        view('services.create',$data);
     }
     /**
      * Store a newly created resource in storage.
@@ -38,7 +44,9 @@ class ServiceController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:50'],
             'description' => ['required', 'string', 'max:500'],
-            'imageUrl_1' => ['required'],
+            'imageUrl_1' => ['required','image'],
+            'imageUrl_2' => ['required','image'],
+            'imageUrl_3' => ['required','image'],
             'status' => ['required'],
             'selling_price' => ['required', 'numeric', 'between:0,9999999999.99'],
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
@@ -54,7 +62,7 @@ class ServiceController extends Controller
         $service->cost = $request->cost;
         $service->selling_price = $request->selling_price;
         $service->save();
-        return redirect()->route('admin.service')
+        return redirect()->route('services.create')
             ->with('success', 'service has been created successfully.');
     }
     /**

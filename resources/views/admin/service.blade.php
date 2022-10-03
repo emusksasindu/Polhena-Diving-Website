@@ -9,6 +9,11 @@
                 </div>
                
             </div>
+            @if(session('success'))
+                <div class="alert alert-success mb-1 mt-1">
+                {{ session('success') }}
+                </div>
+            @endif
 
             <div class="cardBox d-flex justify-content-end">
             <div class="card_button">

@@ -131,8 +131,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $data['categories'] = category::orderBy('id', 'desc')->get();
-        return category::count() == 0 ? 
+        $data['categories'] = category::orderBy('id', 'desc')
+        ->where('type','product')
+        ->get();
+        return count($data['categories']) == 0 ? 
         redirect()->route('categories.create')->with('success', 'Please insert categories before save products or services!') :
         view('products.create',$data);
     }

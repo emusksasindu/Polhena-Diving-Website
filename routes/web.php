@@ -69,10 +69,13 @@ Route::resource('admin/users',UserController::class );
 Route::resource('admin/categories',CategoryController::class );
 
 
-
+// product related routes
 Route::resource('/admin/products',ProductController::class );
 Route::get('/admin/products/delete',[ProductController::class,'destroy'])->name('products.destroy');
 Route::post('/admin/products/search',[ProductController::class,'search'])->name('products.adminsearch');
+
+
+// service related routes
 Route::resource('/admin/services',ServiceController::class );  
 });
 
