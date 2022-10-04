@@ -22,6 +22,17 @@ class service extends Model
         return $this->belongsToMany(cart::class,'cart_items')->withPivot('product_id','size','qty');
     }
 
+
+    public function orderProducts(): BelongsToMany
+    {
+        return $this->belongsToMany(product::class,'order_item')->withPivot('order_id','size','qty');
+    }
+
+    public function orders(): BelongsToMany
+    {
+        return $this->belongsToMany(order::class,'order_item')->withPivot('product_id','size','qty');
+    }
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(category::class);

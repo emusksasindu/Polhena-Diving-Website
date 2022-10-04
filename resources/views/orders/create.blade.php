@@ -18,13 +18,13 @@
             <form action="#">
                 <div class="row pt-4">
                     <div class="col-lg-8 col-md-6">
-                       
+
                         <h6 class="checkout__title">Billing Details</h6>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Full Name<span>*</span></p>
-                                    <input name="name" placeholder="enter the name of reciver" type="text">
+                                    <input name="name" placeholder="enter the name of receiver" type="text">
                                 </div>
                         </div>
                         </div>
@@ -32,7 +32,7 @@
                             <div class="col-lg-6">
                         <div class="checkout__input">
                             <p>Country<span>*</span></p>
-                            <input name="country" placeholder="enter the country of reciver" type="text">
+                            <input name="country" placeholder="enter the country of receiver" type="text">
                         </div>
                       </div>
                       </div>
@@ -45,7 +45,7 @@
                         </div>
                       </div>
                       </div>
-                        
+
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
@@ -81,8 +81,8 @@
                                 <li>Discount <span>${{$cart->discount}}</span></li>
                                 <li>Total <span>${{$cart->total}}</span></li>
                             </ul>
-                           
-                           
+
+
                             <button type="submit" class="site-btn">PLACE ORDER</button>
                         </div>
                     </div>

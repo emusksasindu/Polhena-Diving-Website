@@ -16,8 +16,9 @@ return new class extends Migration
         Schema::create('order_item', function (Blueprint $table) {
             $table->id();
             $table->foreignId('order_id')->constrained();
-            $table->foreignId('product_id')->constrained()->nullable();
-            $table->foreignId('service_id')->constrained()->nullable();
+            $table->foreignId('product_id')->nullable();
+            $table->foreignId('service_id')->nullable();
+            $table->string('size',20)->nullable();
             $table->integer('qty');
             $table->timestamps();
         });
