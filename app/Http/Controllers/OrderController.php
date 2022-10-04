@@ -79,14 +79,14 @@ class OrderController extends Controller
     {
         $order = order::where('user_id',Auth::id())->first();
 
-            foreach($cart->services() as $service){
+            foreach($cart->services()->get() as $service){
                 $order->services()->attach($service->id,[
                     'qty' => $service->pivot->qty
                 ]);
             }
            
                
-            foreach($cart->products() as $product){
+            foreach($cart->products()->get() as $product){
                 $order->products()->attach($product->id,[
                 'size' => $product->pivot->size,
                 'qty' => $product->pivot->qty
