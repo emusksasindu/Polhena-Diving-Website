@@ -27,7 +27,7 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $data['cart'] = User::find(Auth::id())->cart()->get();
+        $data['cart'] = User::find(Auth::id())->cart()->first();
         return view('orders.create',$data);
     }
     /**

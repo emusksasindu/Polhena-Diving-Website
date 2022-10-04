@@ -69,7 +69,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="checkout__order">
                             <h4 class="order__title">Your order</h4>
-                            <div class="checkout__order__products">Product <span>Total</span></div>
+                            <div class="checkout__order__products">Item <span>Total</span></div>
                             <ul class="checkout__total__products">
                                 <li>01. ScubaPro SeaWing Fins <span>$ 300.0</span></li>
                                 <li>02. aquaLung BCD <span>$ 170.0</span></li>
@@ -77,9 +77,9 @@
                                 <li>04. scubaPro Mask <span>$ 110.0</span></li>
                             </ul>
                             <ul class="checkout__total__all">
-                                <li>Subtotal <span>$750.99</span></li>
-                                <li>Discount <span>$750.99</span></li>
-                                <li>Total <span>$750.99</span></li>
+                                <li>Subtotal <span>${{$cart->sub_total}}</span></li>
+                                <li>Discount <span>${{$cart->discount}}</span></li>
+                                <li>Total <span>${{$cart->total}}</span></li>
                             </ul>
                            
                            
