@@ -133,3 +133,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     // oreder related
     Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
 });
+
+Route::get('/test/user/chat', function() {
+    return view('users.chat_test');
+});
