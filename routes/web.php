@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -122,9 +123,13 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
 
 Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], function()
 {
+    //cart related
     Route::post('/cart/create',[CartController::class,'create'])->name('cart.create');
     Route::get('/cart/store/',[CartController::class,'store'])->name('cart.store');
     Route::get('/cart/delete/{id}/{size}/{qty}/{discount}/{selling_price}/{type}',[CartController::class,'deleteItem'])->name('cart.deleteItem');
     Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
 
+
+    // oreder related
+    Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
 });

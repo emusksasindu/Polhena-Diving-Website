@@ -116,7 +116,7 @@
                         <li>Discount <span>${{round($cart->discount,2)}}</span></li>
                         <li>Total <span>${{round($cart->total,2)}}</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Proceed to checkout</a>
+                    <a href="{{route('orders.create')}}" class="primary-btn">Proceed to checkout</a>
                 </div>
             </div>
         </div>

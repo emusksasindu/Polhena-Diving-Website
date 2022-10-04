@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -26,7 +27,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('orders.create');
+        $data['cart'] = User::find(Auth::id())->cart()->get();
+        return view('orders.create',$data);
     }
     /**
      * Store a newly created resource in storage.
@@ -112,7 +114,7 @@ class OrderController extends Controller
         $order->discount = $request->discount;
         $order->total = $request->total;
         $order->status = $request->status;
-        $order->users_id = $request->users_id;
+        $order->users_id = $order->users_id;
         $order->save();
         return redirect()->route('admin.orders')
             ->with('success', 'order Has Been updated successfully');
