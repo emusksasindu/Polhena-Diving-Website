@@ -133,7 +133,7 @@
                             <div class="product__item__text">
                                 <h6>{{$service->name}}</h6>
                                 @if ($service->status == 'in stock')
-                                <a href="{{ route('products.show',$service) }}" class="add-cart text-primary">+ Add To Cart</a>
+                                <a href="{{ route('services.show',$service) }}" class="add-cart text-primary">+ Add To Cart</a>
                                 @else
                                 <a  class="add-cart ">Out of stock</a>
                                 @endif

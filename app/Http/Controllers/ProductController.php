@@ -42,7 +42,8 @@ class ProductController extends Controller
         session()->put('min_price', $min_price);
         session()->put('size', $size);
 
-        $data['categories'] = category::get();
+        $data['categories'] = category::where('type','product')
+        ->get();
 
         if($id != 'no' && $max_price != 'no' && $min_price != 'no' && $size != 'no')
         {

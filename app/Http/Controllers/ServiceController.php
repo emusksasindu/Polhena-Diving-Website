@@ -125,7 +125,12 @@ class ServiceController extends Controller
      */
     public function show(service  $service)
     {
-        return view('services.show', compact('service'));
+        $category= category::find($service->category_id);
+        $service->category = $category->name;
+        $data['services'] = service::where('category_id', '=', $service->category_id)
+        ->orderBy('selling_price', 'asc')
+        ->paginate(10);
+        return view('services.show', compact('service'),$data);
     }
     /**
      * Show the form for editing the specified resource.
