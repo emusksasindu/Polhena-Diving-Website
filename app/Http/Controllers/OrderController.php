@@ -77,7 +77,7 @@ class OrderController extends Controller
 
     private function addItem($cart)
     {
-        $order = order::where('user_id',Auth::id())->first();
+        $order = order::where('user_id',Auth::id())->latest()->first();
 
 
             foreach($cart->services()->get() as $service){
