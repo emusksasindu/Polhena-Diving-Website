@@ -120,7 +120,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
 
 });
 
-
+// this route group use for users only
 Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], function()
 {
     //cart related
@@ -132,6 +132,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
 
     // oreder related
     Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
+    Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
 });
 
 Route::get('/test/user/chat', function() {

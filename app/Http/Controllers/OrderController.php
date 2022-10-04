@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cart;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
@@ -27,8 +28,12 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $data['cart'] = User::find(Auth::id())->cart()->first();
-        if($data['cart']->total != 0){
+        $cart = cart::where('user_id','=',Auth::id())->first();
+        
+        if($cart ->total != 0){
+            $data['products'] = $cart ->products()->get();
+            $data['services'] = $cart ->services()->get();
+            $data['cart'] = $cart;
             return view('orders.create',$data);
         }
             return redirect()->route('cart.user_index')
@@ -45,14 +50,13 @@ class OrderController extends Controller
         $request->validate([
             'shipping_address' => ['required', 'string', 'max:200'],
             'receiver_name' => ['required', 'string', 'max:20'],
-            'number' => ['required','numeric', 'min:10','max:15'],
+            'number' => ['required','numeric', 'min:10'],
             'email' => ['required','email'],
-            'country' => ['required', 'string', 'max:50'],          
-            'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'discount' => ['required', 'numeric', 'between:0,99.99'],
-            'total' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'status' => ['required' ,'string', 'max:10'],
+            'country' => ['required', 'string', 'max:50'],             
         ]);
+
+        $cart = cart::where('user_id','=',Auth::id())->first();
+
         $order = new Order;
         $order->user_id = Auth::id(); 
         $order->shipping_address = $request->shipping_address;
@@ -60,14 +64,46 @@ class OrderController extends Controller
         $order->number = $request->number;
         $order->email = $request->email;
         $order->country = $request->country;
-        $order->sub_total = $request->sub_total;
-        $order->discount = $request->discount;
-        $order->total = $request->total;
-        $order->status = $request->status;
+        $order->sub_total = $cart->sub_total;
+        $order->discount = $cart->discount;
+        $order->total = $cart->total;
+        $order->status = 'in progress';
         $order->save();
-        return redirect()->route('admin.orders')
-            ->with('success', 'order has been created successfully.');
+        $this->addItem($cart);
+
+        return redirect()->route('payment.create')
+            ->with('success', 'order has been placed successfully.');
     }
+
+    private function addItem($cart)
+    {
+        $order = order::where('user_id',Auth::id())->first();
+
+            foreach($cart->services() as $service){
+                $order->services()->attach($service->id,[
+                    'qty' => $service->pivot->qty
+                ]);
+            }
+           
+               
+            foreach($cart->products() as $product){
+                $order->products()->attach($product->id,[
+                'size' => $product->pivot->size,
+                'qty' => $product->pivot->qty
+            ]);
+
+        }
+        
+
+
+        
+        
+    }
+
+
+
+
+
     /**
      * Display the specified resource.
      *
