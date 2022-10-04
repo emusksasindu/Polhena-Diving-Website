@@ -79,32 +79,26 @@ class OrderController extends Controller
     {
         $order = order::where('user_id',Auth::id())->first();
 
-<<<<<<< Updated upstream
+
             foreach($cart->services()->get() as $service){
-=======
-            foreach($cart->services() as $service){
->>>>>>> Stashed changes
+
                 $order->services()->attach($service->id,[
                     'qty' => $service->pivot->qty
                 ]);
             }
            
                
-<<<<<<< Updated upstream
+
             foreach($cart->products()->get() as $product){
-=======
-            foreach($cart->products() as $product){
->>>>>>> Stashed changes
+
+
                 $order->products()->attach($product->id,[
                 'size' => $product->pivot->size,
                 'qty' => $product->pivot->qty
             ]);
 
         }
-        
-
-
-        
+              
         
     }
 
