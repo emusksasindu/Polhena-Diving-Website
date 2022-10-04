@@ -28,7 +28,11 @@ class OrderController extends Controller
     public function create()
     {
         $data['cart'] = User::find(Auth::id())->cart()->first();
-        return view('orders.create',$data);
+        if($data['cart']->total != 0){
+            return view('orders.create',$data);
+        }
+            return redirect()->route('cart.user_index')
+            ->with('status', 'Cart is empty!');
     }
     /**
      * Store a newly created resource in storage.
