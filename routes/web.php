@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -98,6 +99,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     //product related
     Route::get('/services',[ServiceController::class, 'user_index'] )->name('services.index');
     Route::get('services/filter/{id?}/{min_price?}/{max_price?}',[ServiceController::class,'filter'])->name('services.filter');
+    Route::get('services/{service}',[ServiceController::class,'show'])->name('services.show');
     Route::post('services',[ServiceController::class,'search'])->name('services.search');
 
     Route::get('/blog', function () {
@@ -106,6 +108,10 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     
     Route::get('/checkout', function () {
         return view('checkout.index');
+    });
+
+    Route::get('/payment', function () {
+        return view('payment.index');
     });
     
     Route::get('/about', function () {
@@ -117,9 +123,17 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
 
 Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], function()
 {
+    //cart related
     Route::post('/cart/create',[CartController::class,'create'])->name('cart.create');
     Route::get('/cart/store/',[CartController::class,'store'])->name('cart.store');
-    Route::get('/cart/delete/{id}/{size}/{qty}/{discount}/{selling_price}',[CartController::class,'deleteItem'])->name('cart.deleteItem');
+    Route::get('/cart/delete/{id}/{size}/{qty}/{discount}/{selling_price}/{type}',[CartController::class,'deleteItem'])->name('cart.deleteItem');
     Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
 
+
+    // oreder related
+    Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
+});
+
+Route::get('/test/user/chat', function() {
+    return view('users.chat_test');
 });

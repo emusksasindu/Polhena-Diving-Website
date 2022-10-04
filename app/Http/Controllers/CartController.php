@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\product;
+use App\Models\service;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\Types\This;
@@ -42,17 +43,32 @@ class CartController extends Controller
     public function create(Request $request)
     {
         
-        
-        $data['qty'] = $this->sizeValidation($request);
-        $product = product::find($request->item_id);
-        $discountOfProduct = $product->selling_price * ($product->discount)/(100 - $product->discount);
+        if($request->type == 'service')
+        {
+            $request->validate([
+                'qty' => ['required', 'numeric', 'min:1','max: 10'],
+            ]);
+
+            $service = service::find($request->item_id);
+            $data['qty'] = $request->qty;
+            
+            $data['size'] = 'NA';
+            $data['total'] = ($service->selling_price ) * $data['qty'];
+           
+        }else
+        {
+            
+            $data['qty'] = $this->sizeValidation($request);
+            $product = product::find($request->item_id);
+            $discountOfProduct = $product->selling_price * ($product->discount)/(100 - $product->discount);
+            $data['size'] = $request->size;
+            $data['discount'] = $discountOfProduct * $data['qty'];
+            $data['sub_total'] = ($product->selling_price + $discountOfProduct) * $data['qty'];
+            $data['total'] = ($product->selling_price ) * $data['qty'];
+        }
+        $data['type'] = $request->type;
         $data['user_id'] = Auth::id();
-        $data['size'] = $request->size;
-        $data['item_id'] = $request->item_id;
-        $data['discount'] = $discountOfProduct * $data['qty'];
-        $data['sub_total'] = ($product->selling_price + $discountOfProduct) * $data['qty'];
-        $data['total'] = ($product->selling_price ) * $data['qty'];
-        
+        $data['item_id'] = $request->item_id; 
         $cart = Cart::where('user_id','=',$data['user_id'])
         ->get();
         if($cart->isEmpty())
@@ -64,26 +80,53 @@ class CartController extends Controller
         else
         {
             $cart = cart::where('user_id','=',$data['user_id'])->first();
-            $products = $cart ->products()->get();
-            $decision = true;
-            foreach($products as $product)
+            if($request->type == 'service')
             {
-                
-                if($product->id == $data['item_id'] && $product->pivot->size == $data['size'])
-                {  
-                    
-                    $differentQty  = $data['qty'] - $product->pivot->qty;
-                    $data['discount'] = $discountOfProduct * $differentQty;
-                    $data['sub_total'] = ($product->selling_price + $discountOfProduct) * $differentQty;
-                    $data['total'] = ($product->selling_price ) * $differentQty;
-                    $this->updateExistingCart($data,$cart);
-                    $this->updateExistingItem($data);
-                    $decision = false;
-                    break;
-                }
-                
-            }
+                $services = $cart ->services()->get();
+                $decision = true;
 
+                foreach($services as $service)
+                {
+                    
+                    if($service->id == $data['item_id'])
+                    {  
+                        
+                        $differentQty  = $data['qty'] - $service->pivot->qty;
+                        $data['total'] = ($service->selling_price ) * $differentQty;
+                        $this->updateExistingCart($data,$cart);
+                        $this->updateExistingItem($data);
+                        $decision = false;
+                        break;
+                    }
+                    
+                }
+
+            }
+            else
+            {
+                $products = $cart ->products()->get();
+                $decision = true;
+                foreach($products as $product)
+                {
+                    
+                    if($product->id == $data['item_id'] && $product->pivot->size == $data['size'])
+                    {  
+                        
+                        $differentQty  = $data['qty'] - $product->pivot->qty;
+                        $data['discount'] = $discountOfProduct * $differentQty;
+                        $data['sub_total'] = ($product->selling_price + $discountOfProduct) * $differentQty;
+                        $data['total'] = ($product->selling_price ) * $differentQty;
+                        $this->updateExistingCart($data,$cart);
+                        $this->updateExistingItem($data);
+                        $decision = false;
+                        break;
+                    }
+                    
+                }
+    
+
+            }
+           
             if($decision == true)
             {
                 
@@ -98,23 +141,43 @@ class CartController extends Controller
 
     private function updateExistingCart($data,$cart)
     {
-        
-        
-        $cart->discount =  round($cart->discount + $data['discount'],2);
-        $cart->sub_total = round($cart->sub_total + $data['sub_total'],2);
-        $cart->total = round($cart->total + $data['total'],2);
-        $cart->user_id =  $data['user_id'];
-        $cart->save();
+        if($data['type'] == 'service')
+        {
+            $cart->total = round($cart->total + $data['total'],2);
+            $cart->sub_total = round($cart->sub_total + $data['total'],2);
+        }
+        else
+        {
+            $cart->discount =  round($cart->discount + $data['discount'],2);
+            $cart->sub_total = round($cart->sub_total + $data['sub_total'],2);
+            $cart->total = round($cart->total + $data['total'],2);
+        }
+          
+            $cart->user_id =  $data['user_id'];
+            $cart->save();
 
     }
 
     private function addItem($data)
     {
         $cart = cart::where('user_id','=',$data['user_id'])->first();
-        $cart->products()->attach($data['item_id'],[
-            'size' => $data['size'],
-            'qty' => $data['qty']
-        ]);
+
+        if($data['type'] == 'service')
+        {
+            $cart->services()->attach($data['item_id'],[
+                'size' => $data['size'],
+                'qty' => $data['qty']
+            ]);
+
+        }
+        else
+        {   $cart->products()->attach($data['item_id'],[
+                'size' => $data['size'],
+                'qty' => $data['qty']
+            ]);
+
+        }
+        
 
 
         
@@ -124,30 +187,52 @@ class CartController extends Controller
     private function updateExistingItem($data)
     {
         $cart = cart::where('user_id','=',$data['user_id'])->first();
-        $cart->products()
-             ->wherePivot('size',$data['size'])
-             ->updateExistingPivot($data['item_id'],[
-            'qty' => $data['qty']
-        ]);
+        if($data['type'] == 'service')
+        {
+            $cart->services()
+            ->updateExistingPivot($data['item_id'],[
+           'qty' => $data['qty']
+            ]);
 
+        }
+        else
+        {  
+             $cart->products()
+            ->wherePivot('size',$data['size'])
+            ->updateExistingPivot($data['item_id'],[
+           'qty' => $data['qty']
+            ]);
 
-        
+        }    
         
     }
 
     public function deleteItem(Request $request)
     {
         $cart = cart::where('user_id','=',Auth::id())->first();
-        $cart->products()
-             ->wherePivot('size',$request->size)
-             ->detach($request->id);
-             
-             $item_discount = ($request->selling_price *($request->discount)/(100-$request->discount)) * $request->qty;
-             $item_sub_total = ($request->selling_price*$request->qty) + $item_discount;
-             $item_total = $request->selling_price*$request->qty;
 
-             $cart->discount =  round($cart->discount - $item_discount,2);
-             $cart->sub_total = round($cart->sub_total - $item_sub_total,2);
+        $item_total = $request->selling_price * $request->qty;
+
+        if($request->type == 'service')
+        {
+            $cart->services()
+            ->detach($request->id);
+            $cart->sub_total = $cart->sub_total - $item_total;
+        }
+        else
+        {
+            $cart->products()
+            ->wherePivot('size',$request->size)
+            ->detach($request->id);
+            $item_discount = ($request->selling_price *($request->discount)/(100-$request->discount)) * $request->qty;
+            $item_sub_total = ($request->selling_price*$request->qty) + $item_discount;
+            $cart->discount =  round($cart->discount - $item_discount,2);
+            $cart->sub_total = round($cart->sub_total - $item_sub_total,2);
+        }
+       
+             
+            
+            
              $cart->total = round($cart->total - $item_total,2);
              $cart->user_id = Auth::id();
              $cart->save();
@@ -219,11 +304,20 @@ class CartController extends Controller
      */
     private function store($data)
     {
-        
-       
         $cart = new Cart;
+       if($data['type'] == 'service')
+       {
+        $cart->discount = 0.00;
+        $cart->sub_total = round($data['total'],2);
+       }
+       else
+       {
         $cart->discount = round($data['discount'],2);
         $cart->sub_total = round($data['sub_total'],2);
+
+       }
+       
+        
         $cart->total = round($data['total'],2);
         $cart->user_id = $data['user_id'];
         $cart->save();

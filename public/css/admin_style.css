@@ -719,6 +719,103 @@ a{
 }
 
 
+/*________________________Static chat box_________________________*/
+.StaticChat .card {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  right: 60px;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
+}
+
+.scrollbar {
+ 
+  float: left;
+  background: #fff;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+.force-overflow {
+  min-height: 450px;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4285F4;
+}
+
+.scrollbar-primary {
+  scrollbar-color: #4285F4 #F5F5F5;
+}
+
+.StaticChat .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+
+}
+
+.StaticChat .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.StaticChat .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+
+
+.StaticChatList .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+
+}
+
+.StaticChatList .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.StaticChatList .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+.StaticChatList .card {
+  position: fixed;
+  z-index: 2;
+  bottom: 0;
+  right: 500px;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
+}
 
 /* ======================= Cards of panels ====================== */
 .cardProfile {
@@ -1108,6 +1205,10 @@ a{
 
 
 /* ====================== Responsive Design ========================== */
+
+
+
+
 @media (max-width: 991px) {
   .navigation {
     left: -300px;
@@ -1140,6 +1241,8 @@ a{
     grid-template-columns: repeat(1, 1fr);
     grid-gap: 10px;
   }
+
+
 }
 
 @media (max-width: 768px) {
@@ -1152,6 +1255,8 @@ a{
   .status.inProgress {
     white-space: nowrap;
   }
+
+
 }
 
 @media (max-width: 480px) {
@@ -1166,6 +1271,8 @@ a{
   .chat {
     grid-template-columns: repeat(1, 1fr);
   }
+
+
 
   .cardFinance2 {
     grid-template-columns: repeat(1, 1fr);

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -25,7 +27,8 @@ class OrderController extends Controller
      */
     public function create()
     {
-        return view('orders.create');
+        $data['cart'] = User::find(Auth::id())->cart()->first();
+        return view('orders.create',$data);
     }
     /**
      * Store a newly created resource in storage.
@@ -39,20 +42,24 @@ class OrderController extends Controller
             'shipping_address' => ['required', 'string', 'max:200'],
             'receiver_name' => ['required', 'string', 'max:20'],
             'number' => ['required','numeric', 'min:10','max:15'],
+            'email' => ['required','email'],
+            'country' => ['required', 'string', 'max:50'],          
             'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'status' => ['required' ,'string', 'max:10'],
         ]);
         $order = new Order;
+        $order->user_id = Auth::id(); 
         $order->shipping_address = $request->shipping_address;
         $order->receiver_name = $request->receiver_name;
         $order->number = $request->number;
+        $order->email = $request->email;
+        $order->country = $request->country;
         $order->sub_total = $request->sub_total;
         $order->discount = $request->discount;
         $order->total = $request->total;
         $order->status = $request->status;
-        $order->users_id = $request->users_id;
         $order->save();
         return redirect()->route('admin.orders')
             ->with('success', 'order has been created successfully.');
@@ -90,20 +97,24 @@ class OrderController extends Controller
             'shipping_address' => ['required', 'string', 'max:200'],
             'receiver_name' => ['required', 'string', 'max:20'],
             'number' => ['required','numeric', 'min:10','max:15'],
+            'email' => ['required','email'],
+            'country' => ['required', 'string', 'max:50'],          
             'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'status' => ['required' ,'string', 'max:10'],
         ]);
-        $order = new Order;
+        $order = order::find($id);
         $order->shipping_address = $request->shipping_address;
         $order->receiver_name = $request->receiver_name;
         $order->number = $request->number;
+        $order->email = $request->email;
+        $order->country = $request->country;
         $order->sub_total = $request->sub_total;
         $order->discount = $request->discount;
         $order->total = $request->total;
         $order->status = $request->status;
-        $order->users_id = $request->users_id;
+        $order->users_id = $order->users_id;
         $order->save();
         return redirect()->route('admin.orders')
             ->with('success', 'order Has Been updated successfully');

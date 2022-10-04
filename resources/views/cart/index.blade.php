@@ -26,7 +26,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th>Product</th>
+                                <th>Item</th>
                                 <th>Size</th>
                                 <th>Quantity</th>
                                 <th>Total</th>
@@ -34,36 +34,66 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            @foreach ($products as $product)
+                           
+                            @foreach ($services as $service)
                             <tr>
                                 <td class="product__cart__item">
                                     <div class="product__cart__item__pic">
-                                        <img src="/storage/{{$product->image_1}}" alt="">
+                                        <img src="/storage/{{$service->imageUrl_1}}" alt="">
                                     </div>
                                     <div class="product__cart__item__text">
-                                        <h6>{{$product->name}}</h6>
-                                        <h5>{{$product->selling_price}}</h5>
+                                        <h6>{{$service->name}}</h6>
+                                        <h5>{{$service->selling_price}}</h5>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
                                     <div class="quantity">
                                         <div class="product__cart__item__text">
-                                            <h6>{{$product->pivot->size}}</h6>
+                                            <h6>{{$service->pivot->size}}</h6>
                                         </div>
                                     </div>
                                 </td>
                                 <td class="quantity__item">
                                     <div class="quantity">
                                         <div class="product__cart__item__text">
-                                            <h6>{{$product->pivot->qty}}</h6>
+                                            <h6>{{$service->pivot->qty}}</h6>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="cart__price">${{$product->selling_price * $product->pivot->qty}}</td>
-                                <td class="cart__close"><a href="{{route('cart.deleteItem',['id'=>$product->id,'size'=>$product->pivot->size,'qty'=>$product->pivot->qty,'discount'=>$product->discount,'selling_price'=>$product->selling_price])}}"><i class="fa fa-close"></a></i></td>
+                                <td class="cart__price">${{$service->selling_price * $service->pivot->qty}}</td>
+                                <td class="cart__close"><a href="{{route('cart.deleteItem',['id'=>$service->id,'size'=>$service->pivot->size,'qty'=>$service->pivot->qty,'discount'=>0,'selling_price'=>$service->selling_price,'type'=>'service'])}}"><i class="fa fa-close"></a></i></td>
                             </tr>
                             @endforeach
+                          
+                           @foreach ($products as $product)
+                           <tr>
+                               <td class="product__cart__item">
+                                   <div class="product__cart__item__pic">
+                                       <img src="/storage/{{$product->image_1}}" alt="">
+                                   </div>
+                                   <div class="product__cart__item__text">
+                                       <h6>{{$product->name}}</h6>
+                                       <h5>{{$product->selling_price}}</h5>
+                                   </div>
+                               </td>
+                               <td class="quantity__item">
+                                   <div class="quantity">
+                                       <div class="product__cart__item__text">
+                                           <h6>{{$product->pivot->size}}</h6>
+                                       </div>
+                                   </div>
+                               </td>
+                               <td class="quantity__item">
+                                   <div class="quantity">
+                                       <div class="product__cart__item__text">
+                                           <h6>{{$product->pivot->qty}}</h6>
+                                       </div>
+                                   </div>
+                               </td>
+                               <td class="cart__price">${{$product->selling_price * $product->pivot->qty}}</td>
+                               <td class="cart__close"><a href="{{route('cart.deleteItem',['id'=>$product->id,'size'=>$product->pivot->size,'qty'=>$product->pivot->qty,'discount'=>$product->discount,'selling_price'=>$product->selling_price,'type'=>'product'])}}"><i class="fa fa-close"></a></i></td>
+                           </tr>
+                             @endforeach
                            
                         </tbody>
                     </table>
@@ -86,7 +116,7 @@
                         <li>Discount <span>${{round($cart->discount,2)}}</span></li>
                         <li>Total <span>${{round($cart->total,2)}}</span></li>
                     </ul>
-                    <a href="#" class="primary-btn">Proceed to checkout</a>
+                    <a href="{{route('orders.create')}}" class="primary-btn">Proceed to checkout</a>
                 </div>
             </div>
         </div>

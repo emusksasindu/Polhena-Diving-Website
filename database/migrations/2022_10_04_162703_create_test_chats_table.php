@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
+        Schema::create('test_chats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
-            $table->foreignId('product_id')->nullable();
-            $table->foreignId('service_id')->nullable();
-            $table->integer('star_count');
-            $table->mediumText('review')->nullable();
+            $table->integer('user_id');
+            $table->integer('user_id');
+            $table->integer('user_id');
+            
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reviews');
+        Schema::dropIfExists('test_chats');
     }
 };

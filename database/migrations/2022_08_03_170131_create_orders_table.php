@@ -17,8 +17,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->mediumText('shipping_address');
-            $table->string('receiver_name',20);
+            $table->string('receiver_name',50);
             $table->string('number',15);
+            $table->string('country',20);
+            $table->string('email',50);
             $table->double('sub_total',10,2);
             $table->double('discount');
             $table->double('total',10,2);
