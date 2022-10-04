@@ -108,6 +108,10 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::get('/checkout', function () {
         return view('checkout.index');
     });
+
+    Route::get('/payment', function () {
+        return view('payment.index');
+    });
     
     Route::get('/about', function () {
         return view('about.index');

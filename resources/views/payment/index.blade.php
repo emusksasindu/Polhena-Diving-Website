@@ -19,51 +19,38 @@
                 <div class="row pt-4">
                     <div class="col-lg-8 col-md-6">
                        
-                        <h6 class="checkout__title">Billing Details</h6>
+                        <h6 class="checkout__title">Payment Details</h6>
                         <div class="row">
                             <div class="col-lg-6">
                                 <div class="checkout__input">
-                                    <p>Full Name<span>*</span></p>
-                                    <input name="name" placeholder="enter the name of reciver" type="text">
+                                    <p>Card Number<span>*</span></p>
+                                    <input name="card_number" placeholder="enter the card number" type="text">
                                 </div>
                         </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6">
-                        <div class="checkout__input">
-                            <p>Country<span>*</span></p>
-                            <input name="country" placeholder="enter the country of reciver" type="text">
+                                <div class="checkout__input">
+                                    <p>Expiration Month<span>*</span></p>
+                                    <input placeholder="MM" type="text">
+                                </div>
+                                <div class="checkout__input">
+                                    <p>Expiration Year<span>*</span></p>
+                                    <input placeholder="YY" type="text">
+                                </div>
+                            </div>
+                           
                         </div>
-                      </div>
-                      </div>
 
                       <div class="row">
                         <div class="col-lg-6">
                         <div class="checkout__input">
-                            <p>Address<span>*</span></p>
-                            <input type="text" name="address" placeholder="enter the Address" class="checkout__input__add">
+                            <p>CVV<span>*</span></p>
+                            <input type="text" name="address" placeholder="enter the 4 digits CVV Number" class="checkout__input__add">
                         </div>
                       </div>
                       </div>
-                        
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Phone<span>*</span></p>
-                                    <input name="number" placeholder="enter the contact number" type="text">
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="checkout__input">
-                                    <p>Email<span>*</span></p>
-                                    <input name="email" placeholder="enter the reciver email" type="email">
-                                </div>
-                            </div>
-                        </div>
+                    
                         
                     </div>
                     <div class="col-lg-4 col-md-6">
@@ -83,7 +70,7 @@
                             </ul>
                            
                            
-                            <button type="submit" class="site-btn">PLACE ORDER</button>
+                            <button type="submit" class="site-btn">Pay Now</button>
                         </div>
                     </div>
                 </div>
