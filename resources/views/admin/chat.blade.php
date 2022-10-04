@@ -17,7 +17,7 @@
                 
     
   <!-- ======================= Chat list ================== -->
-            <div class="chat">
+            <div class="StaticChatList">
                 <div class="card" style="max-height: 60%">
                     <div>
                         <div class="numbers">Chats</div>
@@ -28,10 +28,9 @@
                             
                         </div>
                         <div class="gap"></div>
-                        <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar" 
-                        style=" height: 40%;">
+                        <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar scrollbar scrollbar-primary " >
                            
-                            <table class="table table-bordered table-striped mb-0" >
+                            <table class="table table-bordered table-striped mb-0 chatTable" >
                                 <thead>
                                    
                                     <tr>
@@ -57,68 +56,7 @@
                                         <td><span class="status pending">Pending</span></td>
                                     </tr>
         
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-        
-                                    <tr>
-                                        <td>Addidas Shoes</td>
-                                        <td>$620</td>
-                                        <td>Due</td>
-                                        <td><span class="status inProgress">In Progress</span></td>
-                                    </tr>
-        
-                                    <tr>
-                                        <td>Star Refrigerator</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status delivered">Delivered</span></td>
-                                    </tr>
-        
-                                    <tr>
-                                        <td>Dell Laptop</td>
-                                        <td>$110</td>
-                                        <td>Due</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-        
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
+                                   
         
                                     <tr>
                                         <td>Addidas Shoes</td>
@@ -133,167 +71,164 @@
 
                     
                 </div>
-
+              </div>
            <!-- ======================= Chat ================== -->
+               <div class="StaticChat">
+                            <div class="card" style="max-height: 60%;">
+                              <div class="numbers">User Name</div>
+                            <div class="table-wrapper-scroll-y my-custom-scrollbar scrollbar scrollbar-primary" >
+                              
+                              <div class="message-group-received ">
+                                <div>
+                                
+                                </div>
+                                <div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
 
-                <div class="card" style="max-height: 60%;">
-                  <div class="numbers">User Name</div>
-                 <div class="table-wrapper-scroll-y my-custom-scrollbar" >
-                  
-                  <div class="message-group-received ">
-                    <div>
-                      <img src="https://api.adorable.io/avatars/100/webdeveducation.png" />
-                    </div>
-                    <div>
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
 
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
 
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
 
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
 
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
 
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
 
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="message-group-sent">
+                                <div class="message-sent">
+                                  <div class="message-sent-text">
+                                    Hey man! How's it going?
+                                  </div>
+                                  <div class="message-sent-status"></div>
+                                </div>
+                                <div class="message-sent">
+                                  <div class="message-sent-text">
+                                    Hey man! How's it going?
+                                  </div>
+                                  <div class="message-sent-status"></div>
+                                </div>
+                                <div class="message-sent">
+                                  <div class="message-sent-text">
+                                    Hey man! How's it going?
+                                  </div>
+                                  <div class="message-sent-status">
+                                  
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="message-group-received">
+                                
+                                <div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
+                                  <div class="message-received">
+                                    <div class="message-received-text">
+                                      Hey man! How's it going?
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="message-group-sent">
+                                <div class="message-sent">
+                                  <div class="message-sent-text">
+                                    Hey man! How's it going?
+                                  </div>
+                                  <div class="message-sent-status"></div>
+                                </div>
+                                <div class="message-sent">
+                                  <div class="message-sent-text">
+                                    Hey man! How's it going?
+                                  </div>
+                                  <div class="message-sent-status">
+                                    <i class="fas fa-check-circle"></i>
+                                  </div>
+                                </div>
+                                <div class="message-sent">
+                                  <div class="message-sent-text">
+                                    Hey man! How's it going?
+                                  </div>
+                                  <div class="message-sent-status">
+                                    <i class="far fa-check-circle"></i>
+                                  </div>
+                                </div>
+                              </div>
 
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="message-group-sent">
-                    <div class="message-sent">
-                      <div class="message-sent-text">
-                        Hey man! How's it going?
-                      </div>
-                      <div class="message-sent-status"></div>
-                    </div>
-                    <div class="message-sent">
-                      <div class="message-sent-text">
-                        Hey man! How's it going?
-                      </div>
-                      <div class="message-sent-status"></div>
-                    </div>
-                    <div class="message-sent">
-                      <div class="message-sent-text">
-                        Hey man! How's it going?
-                      </div>
-                      <div class="message-sent-status">
-                        <img
-                          src="https://api.adorable.io/avatars/100/webdeveducation.png"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  <div class="message-group-received">
-                    <div>
-                      <img src="https://api.adorable.io/avatars/100/webdeveducation.png" />
-                    </div>
-                    <div>
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
-                      <div class="message-received">
-                        <div class="message-received-text">
-                          Hey man! How's it going?
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="message-group-sent">
-                    <div class="message-sent">
-                      <div class="message-sent-text">
-                        Hey man! How's it going?
-                      </div>
-                      <div class="message-sent-status"></div>
-                    </div>
-                    <div class="message-sent">
-                      <div class="message-sent-text">
-                        Hey man! How's it going?
-                      </div>
-                      <div class="message-sent-status">
-                        <i class="fas fa-check-circle"></i>
-                      </div>
-                    </div>
-                    <div class="message-sent">
-                      <div class="message-sent-text">
-                        Hey man! How's it going?
-                      </div>
-                      <div class="message-sent-status">
-                        <i class="far fa-check-circle"></i>
-                      </div>
-                    </div>
-                  </div>
-
-                 
-                </div> 
-                <div class="gap"></div>
-                <div class="form-group shadow-textarea">
-                  <div class="d-flex justify-content-center">
-                    <textarea class="form-control z-depth-1 rounded-pill" style="height: 76px; resize:none; overflow: hidden; max-height: 100px" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..."></textarea>
-                   <div class="h-gap"></div>
-                    <button type="button" class="btn btn-primary rounded-pill">
-                      <ion-icon name="paper-plane-outline" style="font-size: 1.75rem;"></ion-icon>
-                    </button>
-                  </div>
-                 
-                </div>
-                </div>
+                            
+                            </div> 
+                            <div class="gap"></div>
+                            <div class="form-group shadow-textarea">
+                              <div class="d-flex justify-content-center">
+                                <textarea class="form-control z-depth-1 rounded-pill" style="height: 76px; resize:none; overflow: hidden; max-height: 100px" id="exampleFormControlTextarea6" rows="3" placeholder="Write something here..."></textarea>
+                              <div class="h-gap"></div>
+                                <button type="button" class="btn btn-primary rounded-pill">
+                                  <ion-icon name="paper-plane-outline" style="font-size: 1.75rem;"></ion-icon>
+                                </button>
+                              </div>
+                            
+                            </div>
+                            </div>
+                  <div>
             </div>
 
             </div>
 
-            <!-- ================ Graph ================= -->
+            <!-- ================ chat ================= -->
            
         </div>
     </div>
