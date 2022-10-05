@@ -166,6 +166,7 @@ class ProductController extends Controller
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
         $product = new product;
+        $product->productID = "ITEM".random_int(100000, 999999);
         $product->name = $request->name;
         $product->description = $request->description;
         $product->small_qty = $request->small_qty;

@@ -104,6 +104,7 @@ class ServiceController extends Controller
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
         $service = new service;
+        $service->serviceID = "SERVICE".random_int(100000, 999999);
         $service->name = $request->name;
         $service->description = $request->description;
         $service->category_id = $request->category_id;
