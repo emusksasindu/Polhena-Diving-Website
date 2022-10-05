@@ -73,7 +73,9 @@
                 <div class="col-lg-8">
                     <div class="product__details__text">
                         <h4>{{$service->name}}</h4>
-                        <div class="rating">
+                        <h5>Service ID : {{$service->serviceID}}</h5>
+                        <h5 class="pt-2">Category : {{$service->category}}</h5>
+                        <div class="rating pt-4">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>

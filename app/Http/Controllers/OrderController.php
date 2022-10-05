@@ -59,7 +59,7 @@ class OrderController extends Controller
 
         $order = new Order;
         $order->user_id = Auth::id(); 
-        $order->orderID = "ORDER".random_int(100000, 999999);
+        $order->orderID = "OR".random_int(10, 99). date("Ymdhi");
         $order->shipping_address = $request->shipping_address;
         $order->receiver_name = $request->receiver_name;
         $order->number = $request->number;
