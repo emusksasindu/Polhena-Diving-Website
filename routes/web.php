@@ -9,6 +9,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,9 +131,13 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
 
 
-    // oreder related
+    // order related
     Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
     Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
+
+
+    //payment related
+    Route::get('/payment/create',[PaymentController::class,'create'])->name('payment.create');
 });
 
 Route::get('/test/user/chat', function() {

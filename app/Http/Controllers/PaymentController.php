@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\cart;
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentController extends Controller
 {
@@ -25,7 +27,11 @@ class PaymentController extends Controller
      */
     public function create()
     {
-        return view('payments.create');
+        $cart = cart::where('user_id','=',Auth::id())->first();
+        $data['products'] = $cart ->products()->get();
+        $data['services'] = $cart ->services()->get();
+        $data['cart'] = $cart;
+        return view('payment.create',$data);
     }
     /**
      * Store a newly created resource in storage.
