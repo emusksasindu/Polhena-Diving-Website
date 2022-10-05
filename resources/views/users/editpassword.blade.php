@@ -4,17 +4,17 @@
 
     <div class="content">
         <div class="gap"></div>
-        <h1 class="heading">User Profile</h1>
+        <h1 class="heading">Update Password</h1>
         
         <form action="">
-            <h4>Name</h4>
+            <h4 class="SmallGap">Current Password</h4>
             <input type="text" name="name" value='{{Auth::user()->name}}' placeholder="enter your name" id="" class="field">
-            <h4>Email</h4>
+            <h4 class="SmallGap">New Password</h4>
             <input type="email" name="email" value='{{Auth::user()->email}}' placeholder="enter your email" id="" class="field">
-            
+            <h4 class="SmallGap">Confirm Password</h4>
+            <input type="email" name="email" value='{{Auth::user()->email}}' placeholder="enter your email" id="" class="field">
             <div class="flex SmallGap">
-                <input type="submit" value="Edit" class="btn"> 
-                <a href='/editpassword' class="btn">Change Password</a>
+                <a class="btn">Update Password</a>
             </div>
             
         </form>

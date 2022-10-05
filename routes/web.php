@@ -145,6 +145,11 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     Route::get('/profile', function () {
         return view('users.profile');
     });
+
+    Route::get('/editpassword', function () {
+        return view('users.editpassword');
+    });
+
 });
 
 Route::get('/test/user/chat', function() {

@@ -717,6 +717,11 @@
 /* user profile */
 
 .UserProfile {
+  background-image: url('https://images2.alphacoders.com/513/thumb-1920-513906.jpg');
+  background-size: cover;
+  height: 100vh;
+  padding:0;
+  margin:0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -763,9 +768,9 @@
 .UserProfile .content form {
   
   margin-top: 2rem;
-  background: #fff;
+  background: rgba(255, 255, 255, 0.856);
   border-radius: 2rem;
-  border: 0.2rem solid #00b7ff;
+  border: 0.2rem solid #ffffff;
   padding: 2.3rem;
   align-items: center;
 
@@ -775,7 +780,7 @@
   width: 50rem;
   background: none;
   border-radius: 0.5rem;
-  border: 0.1rem solid #00b7ff;
+  border: 0.1rem solid #025d81;
   text-transform: none;
   font-size: 1.6rem;
   color: #025d81;
