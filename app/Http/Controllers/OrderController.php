@@ -73,6 +73,7 @@ class OrderController extends Controller
         $this->addItem($cart);
         
         $order = Order::where('user_id',Auth::id())->latest()->first();
+        
         return redirect()->route('payment.create',$order)
             ->with('success', 'order has been placed successfully.');
     }

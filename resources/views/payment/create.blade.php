@@ -15,8 +15,9 @@
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <form action="{{'payment.store'}}" method="POST">
+            <form action="{{route('payment.store')}}" method="POST">
                 @csrf
+                
                 <div class="row pt-4">
                     <div class="col-lg-8 col-md-6">
 
@@ -56,7 +57,7 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>CVV<span>*</span></p>
-                                    <input type="text" name="cvv" placeholder="enter the 4 digits CVV Number"
+                                    <input type="text" name="cvv" placeholder="enter the 3 digits CVV Number"
                                         class="checkout__input__add">
                                         @error('cvv')
                                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
@@ -90,7 +91,8 @@
                                 <li>Discount <span>${{ $order->discount }}</span></li>
                                 <li>Total <span>${{ $order->total }}</span></li>
                             </ul>
-
+                            <input name="order_id"  type="hidden" value="{{$order->id}}">
+                            <input name="total"  type="hidden" value="{{$order->total}}">
                             <button type="submit" class="site-btn">Pay Now</button>
                         </div>
                     </div>
