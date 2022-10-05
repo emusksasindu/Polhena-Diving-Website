@@ -139,6 +139,12 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     //payment related
     Route::get('/payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
     Route::post('/payment/store',[PaymentController::class,'store'])->name('payment.store');
+
+
+    //profile related
+    Route::get('/profile', function () {
+        return view('users.profile');
+    });
 });
 
 Route::get('/test/user/chat', function() {
