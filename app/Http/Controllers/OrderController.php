@@ -59,6 +59,7 @@ class OrderController extends Controller
 
         $order = new Order;
         $order->user_id = Auth::id(); 
+        $order->user_id =
         $order->shipping_address = $request->shipping_address;
         $order->receiver_name = $request->receiver_name;
         $order->number = $request->number;
