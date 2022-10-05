@@ -15,7 +15,8 @@
 <section class="checkout spad">
     <div class="container">
         <div class="checkout__form">
-            <form action="#">
+            <form action="{{'payment.store'}}" method="POST">
+                @csrf
                 <div class="row pt-4">
                     <div class="col-lg-8 col-md-6">
 
@@ -25,6 +26,9 @@
                                 <div class="checkout__input">
                                     <p>Card Number<span>*</span></p>
                                     <input name="card_number" placeholder="enter the card number" type="text">
+                                    @error('card_number')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -32,11 +36,17 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>Expiration Month<span>*</span></p>
-                                    <input placeholder="MM" type="text">
+                                    <input name="mm" placeholder="MM" type="text">
+                                    @error('mm')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                                 <div class="checkout__input">
                                     <p>Expiration Year<span>*</span></p>
-                                    <input placeholder="YY" type="text">
+                                    <input name="yy" placeholder="YY" type="text">
+                                    @error('yy')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -46,8 +56,11 @@
                             <div class="col-lg-6">
                                 <div class="checkout__input">
                                     <p>CVV<span>*</span></p>
-                                    <input type="text" name="address" placeholder="enter the 4 digits CVV Number"
+                                    <input type="text" name="cvv" placeholder="enter the 4 digits CVV Number"
                                         class="checkout__input__add">
+                                        @error('cvv')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
                                 </div>
                             </div>
                         </div>
@@ -73,11 +86,10 @@
 
                             </ul>
                             <ul class="checkout__total__all">
-                                <li>Subtotal <span>${{ $cart->sub_total }}</span></li>
-                                <li>Discount <span>${{ $cart->discount }}</span></li>
-                                <li>Total <span>${{ $cart->total }}</span></li>
+                                <li>Subtotal <span>${{ $order->sub_total }}</span></li>
+                                <li>Discount <span>${{ $order->discount }}</span></li>
+                                <li>Total <span>${{ $order->total }}</span></li>
                             </ul>
-
 
                             <button type="submit" class="site-btn">Pay Now</button>
                         </div>

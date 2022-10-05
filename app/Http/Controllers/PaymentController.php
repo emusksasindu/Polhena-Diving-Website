@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\cart;
+use App\Models\order;
 use Illuminate\Http\Request;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
@@ -25,12 +26,13 @@ class PaymentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($orderId)
     {
-        $cart = cart::where('user_id','=',Auth::id())->first();
-        $data['products'] = $cart ->products()->get();
-        $data['services'] = $cart ->services()->get();
-        $data['cart'] = $cart;
+       // $cart = cart::where('user_id','=',Auth::id())->first();
+        $order = order::find($orderId);
+        $data['products'] = $order ->products()->get();
+        $data['services'] = $order->services()->get();
+        $data['order'] = $order;
         return view('payment.create',$data);
     }
     /**
@@ -43,8 +45,6 @@ class PaymentController extends Controller
     {
         $request->validate([
             'card_number' => ['required', 'integer', 'max:16'],
-            'amount' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'status' => ['required'],
         ]);
         $payment = new Payment;
         $payment->card_number = $request->card_number;
@@ -52,7 +52,7 @@ class PaymentController extends Controller
         $payment->status = $request->status;
         $payment->orders_id = $request->orders_id;
         $payment->save();
-        return redirect()->route('admin.payments')
+        return redirect()->route('payment.show')
             ->with('success', 'payment has been created successfully.');
     }
     /**

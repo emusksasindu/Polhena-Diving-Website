@@ -68,11 +68,12 @@ class OrderController extends Controller
         $order->sub_total = $cart->sub_total;
         $order->discount = $cart->discount;
         $order->total = $cart->total;
-        $order->status = 'in progress';
+        $order->status = 'process';
         $order->save();
         $this->addItem($cart);
-
-        return redirect()->route('payment.create')
+        
+        $order = Order::where('user_id',Auth::id())->latest()->first();
+        return redirect()->route('payment.create',$order)
             ->with('success', 'order has been placed successfully.');
     }
 
