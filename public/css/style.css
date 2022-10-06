@@ -706,6 +706,73 @@
   color: #00b7ff;
 }
 
+/*User Chat section */
+.UserChat {
+  z-index: 7;
+  position:fixed;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  right:0;
+  bottom: -6rem;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+
+
+.UserChat .content {
+  max-width: 40rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.UserChat .content p {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #00b7ff;
+}
+
+.UserChat .content form {
+  margin-top: 2rem;
+  background: #fff;
+  border-radius: 5rem;
+  border: 0.2rem solid #a7a6a6;
+  padding: 2.3rem;
+  align-items: center;
+}
+
+.UserChat .content form .field {
+  width: 100%;
+  background: none;
+  border-radius: 5rem;
+  border: 0.1rem solid #777777;
+  text-transform: none;
+  font-size: 1.6rem;
+  color: #00b7ff;
+  padding: 1rem 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+
+
+.UserChat .content form .btn {
+  margin-top: 0;
+  border-radius: 5rem;
+  background: #00b7ff;
+  color: #fff;
+}
+
+.UserChat .content form .btn:hover {
+  background: none;
+  color: #00b7ff;
+}
+
+
+
+/*-------------------*/
+
 .clients .silde {
   text-align: center;
 }
