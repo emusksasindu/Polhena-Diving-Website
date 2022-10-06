@@ -166,6 +166,7 @@ class OrderController extends Controller
         $payment = $order->payment()->first();
         $payment->status = 'returned';
         $order ->save();
+        $payment->save();
 
         return redirect()->back()
             ->with('status', 'order has been canceled successfully.');
