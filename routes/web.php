@@ -8,7 +8,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\OrderController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,8 +36,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 { 
     Route::get('/admin', function () {
-    return view('admin.index');
-});
+        return view('admin.index');
+    });
 
 Route::get('/profile', function () {
     return view('admin.profile');
@@ -61,9 +63,7 @@ Route::get('/finance', function () {
     return view('admin.finance');
 });
 
-Route::get('/chat', function () {
-    return view('admin.chat');
-});
+Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
 
 Route::resource('admin/users',UserController::class );
 
@@ -136,4 +136,14 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
 
 Route::get('/test/user/chat', function() {
     return view('users.chat_test');
+});
+
+Route::post('show/user/chat', [ChatController::class, 'user_chat']);
+Route::post('show/admin/chat', [ChatController::class, 'admin_chat']);
+Route::post('save/chat', [ChatController::class, 'store'])->name('chat.store');
+Route::post('set/user/session', [ChatController::class, 'set_user_session'])->name('set_user_session');
+
+Route::get('/testt', function() {
+    $last_row = DB::table('chats')->latest("id")->first();
+    dd($last_row->id);
 });

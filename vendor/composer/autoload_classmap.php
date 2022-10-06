@@ -44,7 +44,6 @@ return array(
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\UserMiddleware' => $baseDir . '/app/Http/Middleware/UserMiddleware.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
-    'App\\Models\\TestChat' => $baseDir . '/app/Models/TestChat.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\cart' => $baseDir . '/app/Models/cart.php',
     'App\\Models\\category' => $baseDir . '/app/Models/category.php',

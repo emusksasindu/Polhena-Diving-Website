@@ -1,5 +1,7 @@
 @include('layouts.header')
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <!-- HOME section starts  -->
 
@@ -358,22 +360,5 @@
 
 <!-- chat section  -->
 
-<section class="UserChat">
-
-    <div class="content">
-        <form action="">
-            <input type="text" name="" placeholder="enter your name" id="" class="field">
-            <input type="email" name="" placeholder="enter your email" id="" class="field">
-            <input type="tel" name="" placeholder="enter your number" id="" class="field">
-            <input type="text" name="" placeholder="enter the subject" id="" class="field">
-            <textarea cols="40" rows="5" type="text" name="" placeholder="enter your message"
-                id="" class="subject"></textarea>
-            <input type="submit" value="subscribe" class="btn">
-        </form>
-    </div>
-   
-
-</section>
-
-
+<x-user_chat_window/>
 @include('layouts.footer')

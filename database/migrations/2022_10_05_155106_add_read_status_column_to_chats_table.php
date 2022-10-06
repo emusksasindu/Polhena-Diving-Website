@@ -13,13 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('test_chats', function (Blueprint $table) {
-            $table->id();
-            $table->integer('user_id');
-            $table->integer('user_id');
-            $table->integer('user_id');
-            
-            $table->timestamps();
+        Schema::table('chats', function (Blueprint $table) {
+            $table->tinyInteger('read_status')->default(0); // unread 0
         });
     }
 
@@ -30,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test_chats');
+        Schema::table('chats', function (Blueprint $table) {
+            $table->dropColumn('read_status');
+        });
     }
 };
