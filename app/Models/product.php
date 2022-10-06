@@ -48,12 +48,12 @@ class product extends Model
 
     public function orders(): BelongsToMany
     {
-        return $this->belongsToMany(order::class,'order_item')->withPivot('service_id','size','qty');
+        return $this->belongsToMany(order::class,'order_item')->withPivot('service_id','size','qty','discount','total');
     }
 
     public function orderServices(): BelongsToMany
     {
-        return $this->belongsToMany(service::class,'order_item')->withPivot('order_id','size','qty');
+        return $this->belongsToMany(service::class,'order_item')->withPivot('order_id','size','qty','discount','total');
     }
 
     public function category(): BelongsTo

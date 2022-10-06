@@ -34,11 +34,11 @@ class order extends Model
 
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(product::class,'order_item')->withPivot('service_id','size','qty');
+        return $this->belongsToMany(product::class,'order_item')->withPivot('service_id','size','qty','discount','total');
     }
 
     public function services(): BelongsToMany
     {
-        return $this->belongsToMany(service::class,'order_item')->withPivot('product_id','size','qty');
+        return $this->belongsToMany(service::class,'order_item')->withPivot('product_id','size','qty','discount','total');
     }
 }

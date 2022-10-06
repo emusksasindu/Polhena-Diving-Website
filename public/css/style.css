@@ -731,12 +731,6 @@
   align-items: flex-start;
 }
 
-.UserProfile .map {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 42rem;
-          flex: 1 1 42rem;
-  width: 100%;
-}
 
 .UserProfile .content {
   max-width: 180rem;
@@ -744,7 +738,10 @@
   text-align: center;
 }
 
-
+.UserProfile img {
+  width: 100px;
+  height: 130px;
+}
 
 .UserProfile .content p {
   font-size: 1.5rem;
@@ -819,16 +816,31 @@
 }
 
 
+
+
 @media (max-width: 968px) {
   
   .OrderHistoryTable{
     font-size: small;
     width: 50px;
+    
+  }
+
+  .UserProfile{
+    height: max-content;
   }
   .UserProfile .content {
     max-width: 60rem;
     margin: 1rem auto;
     text-align: center;
+
+  }
+
+  .OrderTableValue{
+    text-align: start;
+    font-size: small;
+    font-style: normal;
+    cursor: pointer;
   }
 
 }
@@ -836,6 +848,115 @@
 
 /*user order history end*/
 
+
+/*user view order*/
+
+.OrderTable{
+  text-align: start;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.OrderTableValue{
+  text-align: start;
+  font-size: normal;
+  font-weight: 300;
+  cursor: pointer;
+  vertical-align: text-bottom;
+}
+
+
+
+
+
+
+.OrderView {
+  background-image: url('https://img.freepik.com/free-vector/copy-space-wavy-white-background-layers_23-2148845469.jpg?w=2000');
+  background-size: cover;
+  height: max-content;
+  padding:0;
+  margin:0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+
+.OrderView .content {
+  max-width: 180rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.OrderView img {
+  width: 100px;
+  height: 130px;
+}
+
+.OrderView .content p {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #00b7ff;
+}
+
+.OrderView .content h4 {
+  text-align: left;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #025d81;
+}
+
+
+.OrderView .content h5 {
+  text-align: center;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #02815b;
+}
+
+.OrderView .content form {
+  
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.856);
+  border-radius: 2rem;
+  border: 0.2rem solid #ffffff;
+  padding: 2.3rem;
+  align-items: center;
+
+}
+
+.OrderView .content form .field {
+  width: 50rem;
+  background: none;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #025d81;
+  text-transform: none;
+  font-size: 1.6rem;
+  color: #025d81;
+  padding: 1rem 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.OrderView .content form .btn {
+
+  margin-top: 0;
+  border-radius: 5rem;
+  background: #025d81;
+  color: #fff;
+}
+
+.OrderView .content form .btn:hover {
+  background: none;
+  color: #025d81;
+  border-color:  #025d81;
+}
+
+/*user view order end*/
 .clients .silde {
   text-align: center;
 }

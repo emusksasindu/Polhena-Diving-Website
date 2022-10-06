@@ -89,7 +89,11 @@ class OrderController extends Controller
             foreach($cart->services()->get() as $service){
 
                 $order->services()->attach($service->id,[
-                    'qty' => $service->pivot->qty
+                    'size' => 'NA',
+                    'qty' => $service->pivot->qty,
+                    'discount' => 0,
+                    'total' => $service->pivot->qty * $service->selling_price,
+
                 ]);
             }
            
@@ -100,7 +104,9 @@ class OrderController extends Controller
 
                 $order->products()->attach($product->id,[
                 'size' => $product->pivot->size,
-                'qty' => $product->pivot->qty
+                'qty' => $product->pivot->qty,
+                'discount' => (($product->selling_price*$product->discount)/(100 - $product->discount))*$product->pivot->qty,
+                'total' => $product->selling_price * $product->pivot->qty
             ]);
 
         }
