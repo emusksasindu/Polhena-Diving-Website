@@ -136,11 +136,16 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
     Route::get('/order/history',[OrderController::class,'user_index'])->name('orders.index');
     Route::get('/order/{order}',[OrderController::class,'show'])->name('orders.show');
+    Route::post('/order/cancel',[OrderController::class,'cancelOrder'])->name('order.cancelOrder');
+
 
     //payment related
     Route::get('/payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
     Route::post('/payment/store',[PaymentController::class,'store'])->name('payment.store');
 
+    //user related
+    Route::post('/user/updateInfo',[UserController::class,'updateInfo'])->name('user.updateInfo');
+    Route::post('/user',[UserController::class,'updatePwd'])->name('user.updatePwd');
 
     //profile related
     Route::get('/profile', function () {
