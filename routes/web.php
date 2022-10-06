@@ -134,7 +134,8 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     // order related
     Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
     Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
-
+    Route::get('/order/history',[OrderController::class,'user_index'])->name('orders.index');
+    Route::get('/order/{order}',[OrderController::class,'show'])->name('orders.show');
 
     //payment related
     Route::get('/payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');

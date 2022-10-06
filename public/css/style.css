@@ -717,7 +717,7 @@
 /* user profile */
 
 .UserProfile {
-  background-image: url('https://images2.alphacoders.com/513/thumb-1920-513906.jpg');
+  background-image: url('https://img.freepik.com/free-vector/copy-space-wavy-white-background-layers_23-2148845469.jpg?w=2000');
   background-size: cover;
   height: 100vh;
   padding:0;
@@ -739,10 +739,12 @@
 }
 
 .UserProfile .content {
-  max-width: 70rem;
+  max-width: 180rem;
   margin: 1rem auto;
   text-align: center;
 }
+
+
 
 .UserProfile .content p {
   font-size: 1.5rem;
@@ -808,6 +810,31 @@
 
 
 /* user profile end */
+
+
+/*user order history */
+.OrderHistoryTable{
+  font-size: x-large;
+  cursor: pointer;
+}
+
+
+@media (max-width: 968px) {
+  
+  .OrderHistoryTable{
+    font-size: small;
+    width: 50px;
+  }
+  .UserProfile .content {
+    max-width: 60rem;
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+}
+
+
+/*user order history end*/
 
 .clients .silde {
   text-align: center;

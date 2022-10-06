@@ -6,6 +6,7 @@ use App\Models\cart;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
+use App\Models\payment;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -18,7 +19,9 @@ class OrderController extends Controller
 
     public function user_index()
     {
-        $data['orders'] = Order::orderBy('id', 'desc')->get();
+        $data['orders'] = Order::orderBy('id', 'desc')
+        ->where('user_id',Auth::id())
+        ->get();
         return view('orders.index', $data);
     }
     /**
@@ -117,7 +120,10 @@ class OrderController extends Controller
      */
     public function show(Order  $order)
     {
-        return view('orders.show', compact('order'));
+        $data['payment'] = $order->payment()->first();
+        $data['products'] = $order->products()->get();
+        $data['services'] = $order->services()->get();
+        return view('orders.show', compact('order'),$data);
     }
     /**
      * Show the form for editing the specified resource.
