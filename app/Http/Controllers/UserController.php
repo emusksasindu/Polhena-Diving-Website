@@ -34,22 +34,22 @@ class UserController extends Controller
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
         ]);
         return $request->type == "U" ? User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'type'=> 'U',
-            'status'=> 'active',
+            'type' => 'U',
+            'status' => 'active',
         ])->with('success', 'user has been created successfully.') :
-        User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'type'=> 'A',
-            'status'=> 'active',
-        ])->with('success', 'user has been created successfully.');
+            User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'type' => 'A',
+                'status' => 'active',
+            ])->with('success', 'user has been created successfully.');
     }
     /**
      * Display the specified resource.
@@ -78,25 +78,46 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updateInfo(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+        ]);
+        $user = User::find($request->id);
+        if ($request->email != $user->email) {
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+            ]);
+            $user->email = $request->email;
+        }
+
+        $user->name = $request->name;
+        $user->save();
+        return redirect()->back()
+            ->with('status', 'User has been updated successfully');
+    }
+
+    public function updatePwd(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', 'string', 'min:8', 'max:16'],
+            'password' => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
         ]);
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('admin.users')
-            ->with('success', 'User Has Been updated successfully');
+
+        $user = User::find($request->id);
+        if (Hash::check($request->current_password, $user->password)) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect()->back()
+                ->with('status', 'Password has been updated successfully');
+        }
+        return redirect()->back()
+            ->with('status', 'current password is invalid!');
     }
     /**
      * Remove the specified resource from storage.
-    
+
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
@@ -105,5 +126,32 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.users')
             ->with('success', 'User has been deleted successfully');
+    }
+
+    public function showusers(){
+        $users=User::all();
+
+            return view('admin.users',['users'=>$users]);
+    }
+    public function deleteuser($id){
+        $user=User::find($id);
+        $user->delete();
+        return redirect()->back();
+    }
+    public function edituser($id)
+    {
+        $user= user::find($id);
+        return view('admin.edituser',['user'=>$user]);
+    }
+    public function userupdate(Request $request){
+        $user=user::find($request->id);
+
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->type=$request->type;
+        $user->status= $request->status;
+
+        $user->save();
+        return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
     }
 }

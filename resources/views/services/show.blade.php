@@ -73,14 +73,9 @@
                 <div class="col-lg-8">
                     <div class="product__details__text">
                         <h4>{{$service->name}}</h4>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            <span> - 5 Reviews</span>
-                        </div>
+                        <h5>Service ID : {{$service->serviceID}}</h5>
+                        <h5 class="pt-2">Category : {{$service->category}}</h5>
+                        
                         
                         <h3>${{$service->selling_price}}/= </h3>
                         <div class="product__details__option">
