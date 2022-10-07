@@ -13,6 +13,9 @@ use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SubscribeController;
+use App\Models\payment;
+use App\Models\product;
+use App\Models\service;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +65,56 @@ Route::get('/posts', function () {
 
 
 Route::get('/finance', function () {
-    return view('admin.finance');
+    $order_items = DB::table('order_item')->select('*')->where('service_id', '=', null)->get();
+
+    $order_products = [];
+
+    foreach ($order_items as $order_item) {
+        $order_product = [];
+
+        $product = product::find($order_item->product_id);
+        $payment = payment::find($order_item->order_id);
+
+        $order_product['id'] = $order_item->product_id;
+        $order_product['name'] = $product->name;
+        $order_product['price'] = $product->selling_price;
+        $order_product['quantity'] = $order_item->qty;
+
+        if ($payment->status == "completed") {
+            $order_product['status'] = "Paid";
+        } else {
+            $order_product['status'] = "Due";
+        }
+
+        array_push($order_products, $order_product);
+    }
+
+
+    $order_itemsS = DB::table('order_item')->select('*')->where('product_id', '=', null)->get();
+
+    $order_services = [];
+
+    foreach ($order_itemsS as $order_item) {
+        $order_service = [];
+
+        $service = service::find($order_item->service_id);
+        $payment = payment::find($order_item->order_id);
+
+        $order_service['id'] = $order_item->service_id;
+        $order_service['name'] = $service->name;
+        $order_service['price'] = $service->selling_price;
+        $order_service['quantity'] = $order_item->qty;
+
+        if ($payment->status == "completed") {
+            $order_service['status'] = "Paid";
+        } else {
+            $order_service['status'] = "Due";
+        }
+
+        array_push($order_services, $order_service);
+    }
+
+    return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services]);
 });
 
 Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
@@ -220,7 +272,12 @@ Route::post('/subscribed',[SubscribeController::class,'index']);
 
 
 
-
+Route::get('/tst', function() {
+    $product = product::find(1);
+    
+    
+    // dd($order_products);
+});
 
 
 
