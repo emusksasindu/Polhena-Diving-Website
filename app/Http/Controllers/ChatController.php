@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class ChatController extends Controller
 {
-        public function index()
+    public function index()
     {
         // $chats = Chat::all();
         $users = Chat::select('user_id')->distinct()->get();
@@ -239,7 +239,6 @@ class ChatController extends Controller
             session(['chat_guest_id' => $request->user_id]);
             session(['chat_user_name' => "Guest"]);
         }
-
         
         return back();
     }
