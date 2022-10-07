@@ -56,9 +56,22 @@
                                 <td>{{$order ['total']}}</td>
                                 <td>{{$order ['number']}}</td>
                                 <td>
-                                    <a type="button" class="status return" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
-                                    {{$order ['status']}}
-                                    </a>
+
+                                    @if ($order->status=="Processing")
+                                        <a type="button" class="status inProgress" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
+                                    {{$order ['status']}}</a>
+
+                                    @elseif($order->status=="Delivered")
+                                        <a type="button" class="status delivered" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
+                                    {{$order ['status']}}</a>
+
+                                    @elseif($order->status=="Cancelled")
+                                        <a type="button" class="status return" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
+                                    {{$order ['status']}}</a>
+                                    
+                                    @endif
+
+
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="editorderstatus{{$order ['id']}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -69,7 +82,7 @@
                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body">
-                                            
+
                                         <form method="POST" action="/statusupdated">
                                             @csrf
                                             <input type="hidden" name="id" class="form-control"  value="{{$order->id}}" >

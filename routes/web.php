@@ -82,6 +82,72 @@ Route::post('/admin/products/search',[ProductController::class,'search'])->name(
 Route::resource('/admin/services',ServiceController::class );
 Route::get('/admin/services/delete',[ServiceController::class ,'destroy'])->name('services.destroy');
 Route::post('/admin/services/search',[ServiceController::class ,'search'])->name('services.adminsearch');
+
+
+// admin panel functions
+// subscribe function routes------------------------------(user side)
+Route::post('/subscribed',[SubscribeController::class,'index']);
+
+// admin inbox routes view messages------------------------------------
+Route::get('/inbox',[SubscribeController::class,'show']);
+
+// admin inbox routes delete messages------------------------------------
+Route::get('/deletemessage/{id}',[SubscribeController::class,'delete']);
+
+
+
+// admin view category table details routes-----------------------------------
+Route::get('/categories',[CategoryController::class,'show']);
+
+// admin edit category details routes-----------------------------------
+Route::get('/editcategories/{id}',[CategoryController::class,'editcategory']);
+
+Route::get('/editcategories',function(){
+    return view('admin/editcategory');
+});
+// admin update category details routes----------------------
+Route::post('/categoryupdated',[CategoryController::class,'update']);
+
+// admin delete category details routes---------------------
+Route::get('admin/deletecategory/{id}',[CategoryController::class,'delete']);
+
+// admin create post----------------------------------------
+
+Route::post('/postcreated',[PostController::class,'createpost']);
+Route::get('/addpost',function(){
+    return view('admin/addpost');
+});
+
+// admin show all posts--------------------------------------
+Route::get('/posts',[PostController::class,'showposts']);
+// admin delete post ----------------------------------------
+Route::get('/deletepost/{id}',[PostController::class,'deletepost']);
+// editpost routes--------------------------------------------
+Route::get('/editpost/{id}',[PostController::class,'editpost']);
+
+Route::get('/editpost',function(){
+    return view('admin/editpost');
+});
+
+// update post -------------------------------------------------
+Route::post('/postupdated',[PostController::class,'updatepost']);
+
+// view users--------------------------------------------------
+Route::get('/admin/users',[UserController::class,'showusers']);
+
+// delete user ------------------------------------------------
+Route::get('/admin/deleteuser/{id}',[UserController::class,'deleteuser']);
+// edit user ---------------------------------------------------
+Route::get('/admin/edituser/{id}',[UserController::class,'edituser']);
+// user update-------------------------------------------------
+Route::post('/userupdated',[UserController::class,'userupdate']);
+
+// show order details-------------------------------------------
+Route::get('/orders',[OrderController::class,'showorders']);
+//order status update routes-----------------------------------
+Route::post('/statusupdated',[OrderController::class,'statusupdate']);
+
+
 });
 
 
@@ -141,76 +207,10 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
 
 
 
-// ++++++++++++++++++ ----------------------------------------
-
-
-
-
-// subscribe function routes------------------------------(user side)
-Route::post('/subscribed',[SubscribeController::class,'index']);
-
-// admin inbox routes view messages------------------------------------
-Route::get('/inbox',[SubscribeController::class,'show']);
-
-// admin inbox routes delete messages------------------------------------
-Route::get('/deletemessage/{id}',[SubscribeController::class,'delete']);
 
 
 
 
 
-// admin view category table details routes-----------------------------------
-Route::get('/categories',[CategoryController::class,'show']);
 
-// admin edit category details routes-----------------------------------
-Route::get('/editcategories/{id}',[CategoryController::class,'editcategory']);
-
-Route::get('/editcategories',function(){
-    return view('admin/editcategory');
-});
-// admin update category details routes-----------------------------------
-Route::post('/categoryupdated',[CategoryController::class,'update']);
-
-// admin delete category details routes-----------------------------------
-Route::get('admin/deletecategory/{id}',[CategoryController::class,'delete']);
-
-// admin create post----------------------------------------
-
-Route::post('/postcreated',[PostController::class,'createpost']);
-Route::get('/addpost',function(){
-    return view('admin/addpost');
-});
-
-// admin show all posts----------------------------------------
-Route::get('/posts',[PostController::class,'showposts']);
-// admin delete post ----------------------------------------
-Route::get('/deletepost/{id}',[PostController::class,'deletepost']);
-// editpost routes-------------------------------------------------
-Route::get('/editpost/{id}',[PostController::class,'editpost']);
-
-Route::get('/editpost',function(){
-    return view('admin/editpost');
-});
-
-// update post -------------------------------------------------
-Route::post('/postupdated',[PostController::class,'updatepost']);
-
-// view users--------------------------------------------------
-Route::get('/admin/users',[UserController::class,'showusers']);
-
-// delete user ------------------------------------------------
-Route::get('/admin/deleteuser/{id}',[UserController::class,'deleteuser']);
-// edit user ---------------------------------------------------
-Route::get('/admin/edituser/{id}',[UserController::class,'edituser']);
-// user update-------------------------------------------------
-Route::post('/userupdated',[UserController::class,'userupdate']);
-
-// show order details-------------------------------------------
-Route::get('/orders',[OrderController::class,'showorders']);
-
-Route::post('/statusupdated',[OrderController::class,'statusupdate']);
-
-// Route::get('/edituser',function(){
-//     return view('admin/editpost');
-// });
 

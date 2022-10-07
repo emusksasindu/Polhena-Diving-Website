@@ -39,9 +39,15 @@
                                 <td>{{$user ['id']}}</td>
                                 <td>{{$user ['name']}}</td>
                                 <td>{{$user ['type']}}</td>
-                                <td><span class="status delivered">{{$user ['status']}}</span></td>
                                 <td>
-                                    {{-- <a href="edituser/{{$user ['id']}}" target="popup" onclick="window.open('edituser/{{$user ['id']}}','popup','width=800,height=700')"><ion-icon name="pencil-outline"></ion-icon></a> --}}
+                                    @if ($user->status=="active")
+                                    <span class="status delivered">{{$user ['status']}}</span>
+                                    @elseif ($user->status=="blocked")
+                                    <span class="status return">{{$user ['status']}}</span>
+                                    @endif
+                                </td>
+                                <td>
+
 
                                     <a data-bs-toggle="modal" data-bs-target="#editcategoryModal{{$user ['id']}}"><ion-icon name="pencil-outline"></ion-icon></a>
                                     <a href="deleteuser/{{$user ['id']}}"><ion-icon name="trash-outline"></ion-icon></a>
@@ -95,8 +101,8 @@
                                                     <h2 class="numbers">Status</h2>
                                                     <div class="dropdown">
                                                     <select  class="btn btn-secondary" name="status">
-                                                        <option value= "Active" >Active</option>
-                                                        <option value= "Blocked" >Blocked</option>
+                                                        <option value= "active" >Active</option>
+                                                        <option value= "blocked" >Blocked</option>
                                                     </select>
                                                     </div>
                                                 </div>
