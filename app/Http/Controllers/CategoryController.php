@@ -55,10 +55,10 @@ class CategoryController extends Controller
      * @param  \App\Category  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function show(Category  $categorie)
-    {
-        return view('categories.show', compact('categorie'));
-    }
+    // public function show(Category  $categorie)
+    // {
+    //     return view('categories.show', compact('categorie'));
+    // }
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,24 +76,24 @@ class CategoryController extends Controller
      * @param  \App\Category  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => ['required', 'string', 'max:20'],
-            'type' => ['required', 'string', 'max:10'],
-        ]);
+    // public function update(Request $request, $id)
+    // {
+    //     $request->validate([
+    //         'name' => ['required', 'string', 'max:20'],
+    //         'type' => ['required', 'string', 'max:10'],
+    //     ]);
 
 
-        $categorie = new Category;
-        $categorie->name = $request->name;
-        $categorie->type = $request->type;
-        $categorie->save();
-        return redirect()->route('admin.categories')
-            ->with('success', 'category has been updated successfully');
-    }
+    //     $categorie = new Category;
+    //     $categorie->name = $request->name;
+    //     $categorie->type = $request->type;
+    //     $categorie->save();
+    //     return redirect()->route('admin.categories')
+    //         ->with('success', 'category has been updated successfully');
+    // }
     /**
      * Remove the specified resource from storage.
-    
+
      * @param  \App\Category $categorie
      * @return \Illuminate\Http\Response
      */
@@ -103,4 +103,38 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories')
             ->with('success', 'category has been deleted successfully');
     }
+
+
+    // admin view category details
+    public function show(){
+        $categories=Category::all();
+
+            return view('admin/categories',['categories'=>$categories]);
+    }
+    public function editcategory($id){
+        $data= Category::find($id);
+        return view('admin.editcategory',['data'=>$data]);
+    }
+    public function update(Request $request){
+        $this->validate($request,[
+            'name'=>'required',
+            'type'=>'required',
+
+
+        ]);
+
+        $data=Category::find($request->id);
+        $data->name=$request->name;
+        $data->type=$request->type;
+
+        $data->save();
+        return redirect()->back()->with('message', 'Category Has Been Updated Sucessfully !');
+
+    }
+    public function delete($id){
+        $category=Category::find($id);
+        $category->delete();
+        return redirect()->back();
+    }
+
 }

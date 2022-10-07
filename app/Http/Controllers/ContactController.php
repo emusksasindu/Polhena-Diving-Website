@@ -102,7 +102,7 @@ class contactController extends Controller
     }
     /**
      * Remove the specified resource from storage.
-    
+
      * @param  \App\Contact  $contact
      * @return \Illuminate\Http\Response
      */
@@ -112,4 +112,5 @@ class contactController extends Controller
         return redirect()->route('admin.contacts')
             ->with('success', 'contact has been deleted successfully');
     }
+    
 }

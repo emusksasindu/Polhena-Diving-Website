@@ -6,118 +6,130 @@
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-               
+
             </div>
 
             <!-- ======================= Cards ================== -->
-            <div class="cardBox d-flex justify-content-end">
-                <div class="card_button">
-                    <div class="iconBx">
-                        <div class="row">
-                        <span class="numbers col-sm">Add User</span>
-                      
-                        <ion-icon name="person-add-outline" role="img" class="md hydrated col-sm" aria-label="eye outline"></ion-icon>
-                        </div>
-                    </div>
-    
-                </div>
-                </div>
+
 
             <!-- ================ User Details List ================= -->
             <div class="details">
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Recent Users</h2>
-                        <a href="#" class="btn">View All</a>
+
                     </div>
 
-                    <table>
+                    <table  id="usersTable" class="display" style="width:100%">
                         <thead>
-                            <div class="input-group">
-                                <div class="form-outline">
-                                  <input type="search" id="form1" class="form-control" placeholder="Search"/>
-                                </div>
-                                
-                            </div>
+
                             <tr>
                                 <td>ID</td>
                                 <td>Name</td>
                                 <td>Type</td>
                                 <td>Status</td>
                                 <td>Edit/Delete</td>
-                                
+
                             </tr>
                         </thead>
 
                         <tbody>
+                            @foreach ($users as $user)
                             <tr>
-                                <td>1</td>
-                                <td>Sasindu</td>
-                                <td>Admin</td>
-                                <td><span class="status delivered">Active</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                <td>{{$user ['id']}}</td>
+                                <td>{{$user ['name']}}</td>
+                                <td>{{$user ['type']}}</td>
+                                <td><span class="status delivered">{{$user ['status']}}</span></td>
+                                <td>
+                                    {{-- <a href="edituser/{{$user ['id']}}" target="popup" onclick="window.open('edituser/{{$user ['id']}}','popup','width=800,height=700')"><ion-icon name="pencil-outline"></ion-icon></a> --}}
 
-                            <tr>
-                                <td>2</td>
-                                <td>Randunu</td>
-                                <td>User</td>
-                                <td><span class="status return">disabled</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                    <a data-bs-toggle="modal" data-bs-target="#editcategoryModal{{$user ['id']}}"><ion-icon name="pencil-outline"></ion-icon></a>
+                                    <a href="deleteuser/{{$user ['id']}}"><ion-icon name="trash-outline"></ion-icon></a>
 
-                            <tr>
-                            <td>3</td>
-                                <td>Randunu</td>
-                                <td>User</td>
-                                <td><span class="status return">disabled</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editcategoryModal{{$user ['id']}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1><h2>Edit user Details</h2>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form role="form" action="/userupdated" method="POST" enctype="multipart/form-data">
+                                                @csrf
 
-                            <tr>
-                            <td>4</td>
-                                <td>Sasindu</td>
-                                <td>Admin</td>
-                                <td><span class="status delivered">Active</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                                <div class="form-group">
 
-                            <tr>
-                            <td>5</td>
-                                <td>Sasindu</td>
-                                <td>Admin</td>
-                                <td><span class="status delivered">Active</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
 
-                            <tr>
-                            <td>6</td>
-                                <td>Sasindu</td>
-                                <td>Admin</td>
-                                <td><span class="status delivered">Active</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                                    <div class="gap"></div>
 
-                            <tr>
-                            <td>7</td>
-                                <td>Sasindu</td>
-                                <td>Admin</td>
-                                <td><span class="status delivered">Active</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                                    @if(count($errors) > 0 )
+                                                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            Please Fill All Required Fields.!
+                                                        </div>
+                                                    @endif
+                                                    @if(session()->has('message'))
+                                                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        {{ session()->get('message') }}
+                                                    </div>
+                                                    @endif
+                                    <!-- ======================= Fields ================== -->
+                                                    <input type="hidden" name= "id" class="form-control" value="{{$user->id}}" >
+                                                    <h2 class="numbers">Name </h2>
+                                                    <input type="text" name="name" class="form-control"  value="{{$user->name}}" >
+                                                            @error('name')
+                                                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                                            @enderror
+                                                    <h2 class="numbers">email</h2>
+                                                    <input type="text" name= "email" class="form-control" value="{{$user->email}}" >
 
-                            <tr>
-                            <td>8</td>
-                                <td>Sasindu</td>
-                                <td>Admin</td>
-                                <td><span class="status delivered">Active</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+                                                </div>
+                                                <div class="gap"></div>
+                                                <div class="form-group">
+                                                    <h2 class="numbers">Status</h2>
+                                                    <div class="dropdown">
+                                                    <select  class="btn btn-secondary" name="status">
+                                                        <option value= "Active" >Active</option>
+                                                        <option value= "Blocked" >Blocked</option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <h2 class="numbers">user Type</h2>
+                                                    <div class="dropdown">
+                                                    <select  class="btn btn-secondary" name="type">
+                                                        <option value= "A" >admin</option>
+                                                        <option value= "U" >user</option>
+                                                    </select>
+                                                    </div>
+                                                </div>
+                                                <div class="gap"></div>
+
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn ">Save Changes</button>
+                                        </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
 
-              
+
             </div>
         </div>
     </div>
@@ -131,3 +143,8 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function () {
+        $('#usersTable').DataTable();
+    });
+</script>

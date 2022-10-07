@@ -1,39 +1,34 @@
 
        @include('layouts.admin_navi')
        <!-- ========================= Main ==================== -->
-       
+
        <div class="main">
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-               
+
             </div>
 
-        
 
-           
+
+
             <!-- ================ orders Details List ================= -->
-           
+
             <div class="details">
                 <div class="recentOrders">
-                   
+
                     <div class="cardHeader">
                         <h2>Latest Orders</h2>
-                        <a href="#" class="btn">View All</a>
-                        
+
+
                     </div>
 
-                    <table>
+                    <table id="ordersTable" class="display" style="width:100%">
                         <thead>
-                            <div class="input-group">
-                                <div class="form-outline">
-                                  <input type="search" id="form1" class="form-control" placeholder="Search"/>
-                                </div>
-                                
-                            </div>
+
                             <tr>
-                                
+
                                 <td>ID</td>
                                 <td>Name</td>
                                 <td>Address</td>
@@ -48,97 +43,68 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            
-                            </tr>
+                            @foreach ($orders as $order)
+
 
                             <tr>
-                                <td>2</td>
-                                <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
+                                <td>{{$order ['id']}}</td>
+                                <td>{{$order ['receiver_name']}}</td>
+                                <td>{{$order ['country']}}</td>
+                                <td>{{$order ['created_at']}}</td>
+                                <td>{{$order ['sub_total']}}</td>
+                                <td>{{$order ['discount']}}</td>
+                                <td>{{$order ['total']}}</td>
+                                <td>{{$order ['number']}}</td>
+                                <td>
+                                    <a type="button" class="status return" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
+                                    {{$order ['status']}}
+                                    </a>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editorderstatus{{$order ['id']}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content ">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel"></h5><h2>Order Status</h2>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            
+                                        <form method="POST" action="/statusupdated">
+                                            @csrf
+                                            <input type="hidden" name="id" class="form-control"  value="{{$order->id}}" >
+                                            <div class="form-group">
+                                                <div class="dropdown">
+                                                <select  class="btn btn-secondary" name="status">
+                                                    <option value= "Processing" >Processing</option>
+                                                    <option value= "Delivered" >Delivered</option>
+                                                    <option value= "Cancelled" >Cancelled</option>
+                                                </select>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Save changes</button>
+                                        </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                    </div>
+                                </td>
                             </tr>
 
-                            <tr>
-                                <td>3</td>
-                                <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
 
-                            <tr>
-                                <td>4</td>
-                                <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
 
-                            <tr>
-                                <td>5</td>
-                                <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                            @endforeach
 
-                            <tr>
-                                <td>6</td>
-                                <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>7</td>
-                                <td>jane Doe</td>
-                                <td>Sri Lanka</td>
-                                <td>2022/09/05</td>
-                                <td>Rs.150000.00</td>
-                                <td>Rs.50000.00</td>
-                                <td>Rs.100000.00</td>
-                                <td>0112689456</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                           
                         </tbody>
                     </table>
                 </div>
 
-             
+
             </div>
         </div>
     </div>
@@ -152,3 +118,8 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function () {
+        $('#ordersTable').DataTable();
+    });
+</script>

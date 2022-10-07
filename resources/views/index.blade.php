@@ -70,7 +70,7 @@
                     <img src="/storage/{{$product->image_1}}" alt="">
                     <div class="icons">
                         <a href="{{ route('products.show',$product) }}" class="fas fa-shopping-cart"></a>
-                        
+
                     </div>
                 </div>
                 <div class="content">
@@ -87,7 +87,7 @@
             </div>
 
             @endforeach
-           
+
         </div>
         @else
 
@@ -95,7 +95,7 @@
         @endif
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-     
+
     </div>
 
 </section>
@@ -330,21 +330,38 @@
     <div class="content">
         <h1 class="heading">CONTACT US</h1>
         <p>We always reply unless someone threw our Admin team in the water.</p>
-        <form action="">
-            <input type="text" name="" placeholder="enter your name" id="" class="email">
-            <input type="email" name="" placeholder="enter your email" id="" class="email">
-            <input type="tel" name="" placeholder="enter your number" id="" class="email">
-            <input type="text" name="" placeholder="enter the subject" id="" class="email">
-            <textarea cols="40" rows="5" type="text" name="" placeholder="enter your message" id="" class="subject"></textarea>
+        @if(count($errors) > 0 )
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                Please Fill All Required Fields.!
+            </div>
+        @endif
+        @if(session()->has('message'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            {{ session()->get('message') }}
+        </div>
+        @endif
+        <form action="/subscribed" method="POST">
+            {{ csrf_field() }}
+            <input type="text" name="name" placeholder="enter your name" id="" class="email">
+            <input type="email" name="email" placeholder="enter your email" id="" class="email">
+            <input type="tel" name="number" placeholder="enter your number" id="" class="email">
+            <input type="text" name="subject" placeholder="enter the subject" id="" class="email">
+            <textarea cols="40" rows="5" type="text" name="body" placeholder="enter your message" id="" class="subject"></textarea>
             <input type="submit" value="subscribe" class="btn">
         </form>
     </div>
     <div class="content">
         <h1 class="heading">FIND US HERE</h1>
         <iframe src= "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15873.689475139015!2d80.5175042!3d5.9363725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71712a6aec5f4d6c!2sPolhena%20Diving%20Center!5e0!3m2!1sen!2slk!4v1660281737106!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    
+
     </div>
-   
+
 </section>
 
 
