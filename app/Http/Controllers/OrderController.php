@@ -6,6 +6,7 @@ use App\Models\cart;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\User;
+use App\Models\payment;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
@@ -18,7 +19,9 @@ class OrderController extends Controller
 
     public function user_index()
     {
-        $data['orders'] = Order::orderBy('id', 'desc')->get();
+        $data['orders'] = Order::orderBy('id', 'desc')
+            ->where('user_id', Auth::id())
+            ->get();
         return view('orders.index', $data);
     }
     /**
@@ -28,15 +31,15 @@ class OrderController extends Controller
      */
     public function create()
     {
-        $cart = cart::where('user_id','=',Auth::id())->first();
-        
-        if($cart ->total != 0){
-            $data['products'] = $cart ->products()->get();
-            $data['services'] = $cart ->services()->get();
+        $cart = cart::where('user_id', '=', Auth::id())->first();
+
+        if ($cart->total != 0) {
+            $data['products'] = $cart->products()->get();
+            $data['services'] = $cart->services()->get();
             $data['cart'] = $cart;
-            return view('orders.create',$data);
+            return view('orders.create', $data);
         }
-            return redirect()->route('cart.user_index')
+        return redirect()->route('cart.user_index')
             ->with('status', 'Cart is empty!');
     }
     /**
@@ -50,16 +53,16 @@ class OrderController extends Controller
         $request->validate([
             'shipping_address' => ['required', 'string', 'max:200'],
             'receiver_name' => ['required', 'string', 'max:20'],
-            'number' => ['required','numeric', 'min:10'],
-            'email' => ['required','email'],
-            'country' => ['required', 'string', 'max:50'],             
+            'number' => ['required', 'numeric', 'min:10'],
+            'email' => ['required', 'email'],
+            'country' => ['required', 'string', 'max:50'],
         ]);
 
-        $cart = cart::where('user_id','=',Auth::id())->first();
+        $cart = cart::where('user_id', '=', Auth::id())->first();
 
         $order = new Order;
-        $order->user_id = Auth::id(); 
-        $order->orderID = "OR".random_int(10, 99). date("Ymdhi");
+        $order->user_id = Auth::id();
+        $order->orderID = "OR" . random_int(10, 99) . date("Ymdhi");
         $order->shipping_address = $request->shipping_address;
         $order->receiver_name = $request->receiver_name;
         $order->number = $request->number;
@@ -71,40 +74,103 @@ class OrderController extends Controller
         $order->status = 'process';
         $order->save();
         $this->addItem($cart);
-        
-        $order = Order::where('user_id',Auth::id())->latest()->first();
-        
-        return redirect()->route('payment.create',$order)
+
+        $order = Order::where('user_id', Auth::id())->latest()->first();
+
+        return redirect()->route('payment.create', $order)
             ->with('success', 'order has been placed successfully.');
     }
 
     private function addItem($cart)
     {
-        $order = order::where('user_id',Auth::id())->latest()->first();
+        $order = order::where('user_id', Auth::id())->latest()->first();
 
 
-            foreach($cart->services()->get() as $service){
+        foreach ($cart->services()->get() as $service) {
 
-                $order->services()->attach($service->id,[
-                    'qty' => $service->pivot->qty
-                ]);
-            }
-           
-               
+            $order->services()->attach($service->id, [
+                'size' => 'NA',
+                'qty' => $service->pivot->qty,
+                'discount' => 0,
+                'total' => $service->pivot->qty * $service->selling_price,
 
-            foreach($cart->products()->get() as $product){
-
-
-                $order->products()->attach($product->id,[
-                'size' => $product->pivot->size,
-                'qty' => $product->pivot->qty
             ]);
-
         }
-              
-        
+
+
+
+        foreach ($cart->products()->get() as $product) {
+            $size = $product->pivot->size . '_qty';
+            if ($size == 'small_qty') {
+                $product->small_qty = $product->small_qty - $product->pivot->qty;
+            }
+
+            if ($size == 'medium_qty') {
+                $product->medium_qty = $product->medium_qty - $product->pivot->qty;
+            }
+
+            if ($size == 'large_qty') {
+                $product->large_qty = $product->large_qty - $product->pivot->qty;
+            }
+
+            if ($size == 'xl_qty') {
+                $product->xl_qty = $product->xl_qty - $product->pivot->qty;
+            }
+
+            if ($size == 'xxl_qty') {
+                $product->xxl_qty = $product->xxl_qty - $product->pivot->qty;
+            }
+
+
+
+            $order->products()->attach($product->id, [
+                'size' => $product->pivot->size,
+                'qty' => $product->pivot->qty,
+                'discount' => (($product->selling_price * $product->discount) / (100 - $product->discount)) * $product->pivot->qty,
+                'total' => $product->selling_price * $product->pivot->qty
+            ]);
+            $product->save();
+        }
     }
 
+
+    public function cancelOrder(Request $request)
+    {
+        $order = order::find($request->id);
+        foreach ($order->products()->get() as $product) {
+            $size = $product->pivot->size . '_qty';
+            if ($size == 'small_qty') {
+                $product->small_qty = $product->small_qty + $product->pivot->qty;
+            }
+            if ($size == 'medium_qty') {
+                $product->medium_qty = $product->medium_qty + $product->pivot->qty;
+            }
+
+            if ($size == 'large_qty') {
+                $product->large_qty = $product->large_qty + $product->pivot->qty;
+            }
+
+            if ($size == 'xl_qty') {
+                $product->xl_qty = $product->xl_qty + $product->pivot->qty;
+            }
+
+            if ($size == 'xxl_qty') {
+                $product->xxl_qty = $product->xxl_qty + $product->pivot->qty;
+            }
+
+            $product->save();
+
+
+        }
+        $order->status = 'canceled';
+        $payment = $order->payment()->first();
+        $payment->status = 'returned';
+        $order ->save();
+        $payment->save();
+
+        return redirect()->back()
+            ->with('status', 'order has been canceled successfully.');
+    }
 
 
 
@@ -117,7 +183,10 @@ class OrderController extends Controller
      */
     public function show(Order  $order)
     {
-        return view('orders.show', compact('order'));
+        $data['payment'] = $order->payment()->first();
+        $data['products'] = $order->products()->get();
+        $data['services'] = $order->services()->get();
+        return view('orders.show', compact('order'), $data);
     }
     /**
      * Show the form for editing the specified resource.
@@ -141,13 +210,13 @@ class OrderController extends Controller
         $request->validate([
             'shipping_address' => ['required', 'string', 'max:200'],
             'receiver_name' => ['required', 'string', 'max:20'],
-            'number' => ['required','numeric', 'min:10','max:15'],
-            'email' => ['required','email'],
-            'country' => ['required', 'string', 'max:50'],          
+            'number' => ['required', 'numeric', 'min:10', 'max:15'],
+            'email' => ['required', 'email'],
+            'country' => ['required', 'string', 'max:50'],
             'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'total' => ['required', 'numeric', 'between:0,9999999999.99'],
-            'status' => ['required' ,'string', 'max:10'],
+            'status' => ['required', 'string', 'max:10'],
         ]);
         $order = order::find($id);
         $order->shipping_address = $request->shipping_address;

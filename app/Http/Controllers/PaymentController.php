@@ -56,8 +56,7 @@ class PaymentController extends Controller
         $payment->order_id = $request->order_id;
         $payment->save();
 
-        $payment = Payment::where('order_id',$request->order_id)->latest()->first();
-        return redirect()->route('payment.show',$payment)
+        return redirect()->route('orders.index')
             ->with('success', 'payment has been created successfully.');
     }
     /**

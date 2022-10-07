@@ -323,7 +323,7 @@
 
 <!-- blogs section ends -->
 
-<!-- newsletter section  -->
+<!-- CONTACT US section  -->
 
 <section class="newsletter">
 

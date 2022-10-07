@@ -75,14 +75,7 @@
                         <h4>{{$product->name}}</h4>
                         <h5>Product ID : {{$product->productID}}</h5>
                         <h5 class="pt-2">Category : {{$product->category}}</h5>
-                        <div class="rating pt-4">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            <span> - 5 Reviews</span>
-                        </div>
+                        
                         
                         <h4 class="mt-4">{{$product->discount}}% Discount!</h4>
                         <h3>${{$product->selling_price}}/= <span>${{round($product->selling_price * 100 /(100 - $product->discount),2)}}/=</span></h3>
