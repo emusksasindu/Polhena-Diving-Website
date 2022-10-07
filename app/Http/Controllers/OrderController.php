@@ -137,10 +137,42 @@ class OrderController extends Controller
 
             return view('admin.orders',['orders'=>$orders]);
     }
+
     public function statusupdate(Request $request){
         $order=Order::find($request->id);
         $order->status=$request->status;
 
+        if ($request->status == "canceled") {
+            foreach ($order->products()->get() as $product) {
+                $size = $product->pivot->size . '_qty';
+                if ($size == 'small_qty') {
+                    $product->small_qty = $product->small_qty + $product->pivot->qty;
+                }
+                if ($size == 'medium_qty') {
+                    $product->medium_qty = $product->medium_qty + $product->pivot->qty;
+                }
+
+                if ($size == 'large_qty') {
+                    $product->large_qty = $product->large_qty + $product->pivot->qty;
+                }
+
+                if ($size == 'xl_qty') {
+                    $product->xl_qty = $product->xl_qty + $product->pivot->qty;
+                }
+
+                if ($size == 'xxl_qty') {
+                    $product->xxl_qty = $product->xxl_qty + $product->pivot->qty;
+                }
+
+                $product->save();
+
+
+            }
+
+            $payment = $order->payment()->first();
+            $payment->status = 'returned';
+            $payment->save();
+        }
         $order->save();
         return redirect()->back()->with('message', 'Status Has Been updated Sucessfully !');
     }

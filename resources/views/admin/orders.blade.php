@@ -57,18 +57,18 @@
                                 <td>{{$order ['number']}}</td>
                                 <td>
 
-                                    @if ($order->status=="Processing")
+                                    @if ($order->status=="processing")
                                         <a type="button" class="status inProgress" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
                                     {{$order ['status']}}</a>
 
-                                    @elseif($order->status=="Delivered")
+                                    @elseif($order->status=="delivered")
                                         <a type="button" class="status delivered" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
                                     {{$order ['status']}}</a>
 
-                                    @elseif($order->status=="Cancelled")
+                                    @elseif($order->status=="cancelled")
                                         <a type="button" class="status return" data-bs-toggle="modal" data-bs-target="#editorderstatus{{$order ['id']}}">
                                     {{$order ['status']}}</a>
-                                    
+
                                     @endif
 
 
@@ -89,9 +89,9 @@
                                             <div class="form-group">
                                                 <div class="dropdown">
                                                 <select  class="btn btn-secondary" name="status">
-                                                    <option value= "Processing" >Processing</option>
-                                                    <option value= "Delivered" >Delivered</option>
-                                                    <option value= "Cancelled" >Cancelled</option>
+                                                    <option value= "processing" >Processing</option>
+                                                    <option value= "delivered" >Delivered</option>
+                                                    <option value= "cancelled" >Cancelled</option>
                                                 </select>
                                                 </div>
                                             </div>
