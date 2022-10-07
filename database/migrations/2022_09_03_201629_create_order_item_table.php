@@ -18,9 +18,6 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained();
             $table->foreignId('product_id')->nullable();
             $table->foreignId('service_id')->nullable();
-            $table->string('size',20)->nullable();
-            $table->double('discount',2,2);
-            $table->double('total',2,2);
             $table->integer('qty');
             $table->timestamps();
         });

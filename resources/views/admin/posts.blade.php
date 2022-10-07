@@ -6,7 +6,7 @@
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-               
+
             </div>
 
             <!-- ======================= Cards ================== -->
@@ -14,12 +14,12 @@
                 <div class="card_button ">
                     <div class="iconBx">
                         <div class="row">
-                        <span class="numbers col-sm">Add Post</span>
-                      
+                        <span  class="numbers col-sm"><a href="/addpost">Add Post</a></span>
+
                         <ion-icon name="newspaper-outline" role="img" class="md hydrated col-sm" aria-label="eye outline"></ion-icon>
                         </div>
                     </div>
-    
+
                 </div>
                 </div>
 
@@ -28,21 +28,12 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Recent Posts</h2>
-                        <a href="#" class="btn">View All</a>
+
                     </div>
 
-                    <table>
+                    <table id="postsTable" class="display" style="width:100%">
                         <thead>
-                            <div class="input-group">
-                                <form action="{{ route('products.search') }}" method="POST">
-                                    @csrf
-                                    <div class="form-outline">
-                                        <input type="search" name="keyword" id="form1" class="form-control" placeholder="Search..."/>
-                                      </div>
-                                </form>
-                               
-                                
-                            </div>
+
                             <tr>
                                 <td>ID</td>
                                 <td>Post Title</td>
@@ -52,66 +43,95 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Discover Scuba Diving</td>
-                                <td><span class="status delivered">One day package</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
 
+                            @foreach ($posts as $post)
                             <tr>
-                            <td>2</td>
-                                <td>Open Water Scuba Diving</td>
-                                <td><span class="status delivered">Courses</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                <td>{{$post ['id']}}</td>
+                                <td>{{$post ['title']}}</td>
+                                <td><span class="status delivered">{{$post ['type']}}</span></td>
+                                <td>
 
-                            <tr>
-                            <td>3</td>
-                                <td>Discover Scuba Diving</td>
-                                <td><span class="status delivered">One day package</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                    <a data-bs-toggle="modal" data-bs-target="#editPostModal{{$post ['id']}}"><ion-icon name="pencil-outline"></ion-icon></a>
+                                    <a href="deletepost/{{$post->id}}"><ion-icon name="trash-outline"></ion-icon></a>
 
-                            <tr>
-                            <td>4</td>
-                                <td>Discover Scuba Diving</td>
-                                <td><span class="status delivered">One day package</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
 
-                            <tr>
-                            <td>5</td>
-                                <td>Discover Scuba Diving</td>
-                                <td><span class="status delivered">One day package</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
 
-                            <tr>
-                            <td>6</td>
-                                <td>Discover Scuba Diving</td>
-                                <td><span class="status delivered">One day package</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="editPostModal{{$post ['id']}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="editPostModal{{$post ['id']}}Label" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="editPostModal{{$post ['id']}}Label"></h1><h2>Edit Post Details</h2>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form role="form" action="/postupdated" method="POST" enctype="multipart/form-data">
+                                                    @csrf
+                                                    <input type="hidden" name="id" class="form-control"  value="{{$post->id}}" >
 
-                            <tr>
-                            <td>7</td>
-                                <td>Discover Scuba Diving</td>
-                                <td><span class="status delivered">One day package</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
+                                                    <div class="form-group">
 
-                            <tr>
-                            <td>8</td>
-                                <td>Discover Scuba Diving</td>
-                                <td><span class="status delivered">One day package</span></td>
-                                <td><ion-icon name="pencil-outline"></ion-icon><ion-icon name="trash-outline"></ion-icon></td>
+
+                                                        <div class="gap"></div>
+
+                                                        @if(count($errors) > 0 )
+                                                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                Please Fill All Required Fields.!
+                                                            </div>
+                                                        @endif
+                                                        @if(session()->has('message'))
+                                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            {{ session()->get('message') }}
+                                                        </div>
+                                                        @endif
+                                        <!-- ======================= Fields ================== -->
+                                                        <h2 >Post Title</h2>
+                                                        <input type="text" name="title" class="form-control"  value="{{$post->title}}" >
+                                                                @error('name')
+                                                                <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                                                @enderror
+                                                        <h2 class="numbers">Cover Image</h2>
+                                                        <input type="file" name= "imageUrl" class="form-control" src="/storage/{{$post->imageUrl}}" >
+                                                        <h2 class="numbers">Body</h2>
+                                                        <input type="text" name= "body" class="form-control" value="{{$post->body}}" >
+                                                    </div>
+                                                    <div class="gap"></div>
+                                                    <div class="form-group">
+                                                        <h2 class="numbers">Post Type</h2>
+                                                        <div class="dropdown">
+                                                        <select  class="btn btn-secondary" name="type">
+                                                            <option value= "Blog" >blog</option>
+                                                            <option value= "Post" >post</option>
+                                                        </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="gap"></div>
+
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn">Save changes</button>
+                                            </div>
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
                             </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
 
-            
+
             </div>
         </div>
     </div>
@@ -125,3 +145,8 @@
 </body>
 
 </html>
+<script>
+    $(document).ready(function () {
+        $('#postsTable').DataTable();
+    });
+</script>

@@ -117,7 +117,7 @@ class UserController extends Controller
     }
     /**
      * Remove the specified resource from storage.
-    
+
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
@@ -126,5 +126,32 @@ class UserController extends Controller
         $user->delete();
         return redirect()->route('admin.users')
             ->with('success', 'User has been deleted successfully');
+    }
+
+    public function showusers(){
+        $users=User::all();
+
+            return view('admin.users',['users'=>$users]);
+    }
+    public function deleteuser($id){
+        $user=User::find($id);
+        $user->delete();
+        return redirect()->back();
+    }
+    public function edituser($id)
+    {
+        $user= user::find($id);
+        return view('admin.edituser',['user'=>$user]);
+    }
+    public function userupdate(Request $request){
+        $user=user::find($request->id);
+
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->type=$request->type;
+        $user->status= $request->status;
+
+        $user->save();
+        return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
     }
 }

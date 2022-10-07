@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -94,7 +95,7 @@ class PostController extends Controller
     }
     /**
      * Remove the specified resource from storage.
-    
+
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
@@ -104,4 +105,58 @@ class PostController extends Controller
         return redirect()->route('admin.posts')
             ->with('success', 'post has been deleted successfully');
     }
+    // admin post function-----------------------------------------------
+    public function createpost(Request $request){
+        $this->validate($request,[
+            'title'=>'required|max:250|min:10',
+            'body'=>'required|max:2000|min:10',
+            'imageUrl'=> 'required',
+
+        ]);
+
+            $addpost=new post();
+            $addpost->title=$request->title;
+            $addpost->body=$request->body;
+            $addpost->type=$request->type;
+            $addpost->user_id=Auth::user()->id;
+
+            $addpost->imageUrl= $request->file('imageUrl')->store('uploads/post');
+
+            $addpost->save();
+            return redirect()->back()->with('message', 'Post Has Been Added Sucessfully !');
+
+    }
+    public function showposts(){
+        $allpost=post::all();
+
+            return view('admin/posts',['posts'=>$allpost]);
+    }
+    public function deletepost($id){
+        $post=post::find($id);
+        $post->delete();
+        return redirect()->back();
+    }
+    public function editpost($id)
+    {
+        $data= post::find($id);
+        return view('admin/editpost',['data'=>$data]);
+    }
+    public function updatepost(Request $request){
+        $data=post::find($request->id);
+
+        $data->title=$request->title;
+        $data->body=$request->body;
+        $data->type=$request->type;
+
+        if ($request->hasFile('imageUrl')) {
+            $data->imageUrl= $request->file('imageUrl')->store('uploads/post');
+        } else {
+            $data->imageUrl = $data->imageUrl;
+        }
+
+
+        $data->save();
+        return redirect()->back()->with('message', 'Post Has Been updated Sucessfully !');
+    }
+
 }
