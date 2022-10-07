@@ -6,14 +6,14 @@
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                
+
             </div>
 
-           
+
 
             <!-- ======================= Cards ================== -->
             <div class="cardFinance2">
-                   
+
                         <form method="post">
                             <div id="labels">From</div>
                             <input type="text" class="w-25 form-control">
@@ -24,14 +24,14 @@
                             <button class="btn btn-primary " name="submit" type="submit">Search</button>
                             </div>
                         </form>
-            
-                       
-
-                    
 
 
-                
-                
+
+
+
+
+
+
                 <div class="cardFinance">
                     <div class="card">
                         <div>
@@ -54,8 +54,8 @@
                             <ion-icon name="cart-outline"></ion-icon>
                         </div>
                     </div>
-                    
-                
+
+
                 </div>
   <!-- ======================= Purchased Products ================== -->
             <div class="cardFinance">
@@ -63,15 +63,13 @@
                     <div>
                         <div class="numbers">Purchased Products</div>
                         <div class="input-group">
-                            <div class="form-outline">
-                              <input type="search" id="form1" class="form-control" placeholder="Search"/>
-                            </div>
-                            
+
+
                         </div>
                         <div class="gap"></div>
                         <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar">
-        
-                            <table class="table table-bordered table-striped mb-0">
+
+                            <table id="purchasedproducts" class="table table-bordered table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <td>Name</td>
@@ -80,7 +78,7 @@
                                         <td>Status</td>
                                     </tr>
                                 </thead>
-        
+
                                 <tbody>
                                     <tr>
                                         <td>Star Refrigerator</td>
@@ -88,49 +86,49 @@
                                         <td>Paid</td>
                                         <td><span class="status delivered">Delivered</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Dell Laptop</td>
                                         <td>$110</td>
                                         <td>Due</td>
                                         <td><span class="status pending">Pending</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Apple Watch</td>
                                         <td>$1200</td>
                                         <td>Paid</td>
                                         <td><span class="status return">Return</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Addidas Shoes</td>
                                         <td>$620</td>
                                         <td>Due</td>
                                         <td><span class="status inProgress">In Progress</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Star Refrigerator</td>
                                         <td>$1200</td>
                                         <td>Paid</td>
                                         <td><span class="status delivered">Delivered</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Dell Laptop</td>
                                         <td>$110</td>
                                         <td>Due</td>
                                         <td><span class="status pending">Pending</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Apple Watch</td>
                                         <td>$1200</td>
                                         <td>Paid</td>
                                         <td><span class="status return">Return</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Addidas Shoes</td>
                                         <td>$620</td>
@@ -142,7 +140,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
 
  <!-- ======================= Purchased Services ================== -->
@@ -151,15 +149,13 @@
                     <div>
                         <div class="numbers">Purchased Services</div>
                         <div class="input-group">
-                            <div class="form-outline">
-                              <input type="search" id="form1" class="form-control" placeholder="Search"/>
-                            </div>
                             
+
                         </div>
                         <div class="gap"></div>
                         <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar">
-        
-                            <table class="table table-bordered table-striped mb-0">
+
+                            <table id="purchasedservices" class="table table-bordered table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <td>Name</td>
@@ -168,7 +164,7 @@
                                         <td>Status</td>
                                     </tr>
                                 </thead>
-        
+
                                 <tbody>
                                     <tr>
                                         <td>Star Refrigerator</td>
@@ -176,49 +172,49 @@
                                         <td>Paid</td>
                                         <td><span class="status delivered">Delivered</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Dell Laptop</td>
                                         <td>$110</td>
                                         <td>Due</td>
                                         <td><span class="status pending">Pending</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Apple Watch</td>
                                         <td>$1200</td>
                                         <td>Paid</td>
                                         <td><span class="status return">Return</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Addidas Shoes</td>
                                         <td>$620</td>
                                         <td>Due</td>
                                         <td><span class="status inProgress">In Progress</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Star Refrigerator</td>
                                         <td>$1200</td>
                                         <td>Paid</td>
                                         <td><span class="status delivered">Delivered</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Dell Laptop</td>
                                         <td>$110</td>
                                         <td>Due</td>
                                         <td><span class="status pending">Pending</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Apple Watch</td>
                                         <td>$1200</td>
                                         <td>Paid</td>
                                         <td><span class="status return">Return</span></td>
                                     </tr>
-        
+
                                     <tr>
                                         <td>Addidas Shoes</td>
                                         <td>$620</td>
@@ -230,14 +226,14 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
 
             </div>
 
             <!-- ================ Graph ================= -->
-           
+
         </div>
     </div>
 
@@ -248,5 +244,15 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+<script>
+    $(document).ready(function () {
+        $('#purchasedservices').DataTable();
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $('#purchasedproducts').DataTable();
+    });
+</script>
 
 </html>

@@ -43,14 +43,14 @@ class OrderController extends Controller
             'receiver_name' => ['required', 'string', 'max:20'],
             'number' => ['required','numeric', 'min:10','max:15'],
             'email' => ['required','email'],
-            'country' => ['required', 'string', 'max:50'],          
+            'country' => ['required', 'string', 'max:50'],
             'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'status' => ['required' ,'string', 'max:10'],
         ]);
         $order = new Order;
-        $order->user_id = Auth::id(); 
+        $order->user_id = Auth::id();
         $order->shipping_address = $request->shipping_address;
         $order->receiver_name = $request->receiver_name;
         $order->number = $request->number;
@@ -98,7 +98,7 @@ class OrderController extends Controller
             'receiver_name' => ['required', 'string', 'max:20'],
             'number' => ['required','numeric', 'min:10','max:15'],
             'email' => ['required','email'],
-            'country' => ['required', 'string', 'max:50'],          
+            'country' => ['required', 'string', 'max:50'],
             'sub_total' => ['required', 'numeric', 'between:0,9999999999.99'],
             'discount' => ['required', 'numeric', 'between:0,99.99'],
             'total' => ['required', 'numeric', 'between:0,9999999999.99'],
@@ -121,7 +121,7 @@ class OrderController extends Controller
     }
     /**
      * Remove the specified resource from storage.
-    
+
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
@@ -131,4 +131,55 @@ class OrderController extends Controller
         return redirect()->route('admin.orders')
             ->with('success', 'order has been deleted successfully');
     }
+
+    public function showorders(){
+        $orders=Order::all();
+
+            return view('admin.orders',['orders'=>$orders]);
+    }
+
+    public function statusupdate(Request $request){
+        $order=Order::find($request->id);
+        $order->status=$request->status;
+
+        if ($request->status == "canceled") {
+            foreach ($order->products()->get() as $product) {
+                $size = $product->pivot->size . '_qty';
+                if ($size == 'small_qty') {
+                    $product->small_qty = $product->small_qty + $product->pivot->qty;
+                }
+                if ($size == 'medium_qty') {
+                    $product->medium_qty = $product->medium_qty + $product->pivot->qty;
+                }
+
+                if ($size == 'large_qty') {
+                    $product->large_qty = $product->large_qty + $product->pivot->qty;
+                }
+
+                if ($size == 'xl_qty') {
+                    $product->xl_qty = $product->xl_qty + $product->pivot->qty;
+                }
+
+                if ($size == 'xxl_qty') {
+                    $product->xxl_qty = $product->xxl_qty + $product->pivot->qty;
+                }
+
+                $product->save();
+
+
+            }
+
+            $payment = $order->payment()->first();
+            $payment->status = 'returned';
+            $payment->save();
+        }
+        $order->save();
+        return redirect()->back()->with('message', 'Status Has Been updated Sucessfully !');
+    }
+    public function showproducts(){
+        $orders=Order::all();
+
+            return view('admin.orders',['orders'=>$orders]);
+    }
+
 }

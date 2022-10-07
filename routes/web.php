@@ -11,6 +11,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\SubscribeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +36,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 // this route group use for admin only sections
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
-{ 
+{
     Route::get('/admin', function () {
         return view('admin.index');
     });
@@ -77,9 +79,74 @@ Route::post('/admin/products/search',[ProductController::class,'search'])->name(
 
 
 // service related routes
-Route::resource('/admin/services',ServiceController::class );  
+Route::resource('/admin/services',ServiceController::class );
 Route::get('/admin/services/delete',[ServiceController::class ,'destroy'])->name('services.destroy');
 Route::post('/admin/services/search',[ServiceController::class ,'search'])->name('services.adminsearch');
+
+
+// admin panel functions
+
+
+// admin inbox routes view messages------------------------------------
+Route::get('/inbox',[SubscribeController::class,'show']);
+
+// admin inbox routes delete messages------------------------------------
+Route::get('/deletemessage/{id}',[SubscribeController::class,'delete']);
+
+
+
+// admin view category table details routes-----------------------------------
+Route::get('/categories',[CategoryController::class,'show']);
+
+// admin edit category details routes-----------------------------------
+Route::get('/editcategories/{id}',[CategoryController::class,'editcategory']);
+
+Route::get('/editcategories',function(){
+    return view('admin/editcategory');
+});
+// admin update category details routes----------------------
+Route::post('/categoryupdated',[CategoryController::class,'update']);
+
+// admin delete category details routes---------------------
+Route::get('admin/deletecategory/{id}',[CategoryController::class,'delete']);
+
+// admin create post----------------------------------------
+
+Route::post('/postcreated',[PostController::class,'createpost']);
+Route::get('/addpost',function(){
+    return view('admin/addpost');
+});
+
+// admin show all posts--------------------------------------
+Route::get('/posts',[PostController::class,'showposts']);
+// admin delete post ----------------------------------------
+Route::get('/deletepost/{id}',[PostController::class,'deletepost']);
+// editpost routes--------------------------------------------
+Route::get('/editpost/{id}',[PostController::class,'editpost']);
+
+Route::get('/editpost',function(){
+    return view('admin/editpost');
+});
+
+// update post -------------------------------------------------
+Route::post('/postupdated',[PostController::class,'updatepost']);
+
+// view users--------------------------------------------------
+Route::get('/admin/users',[UserController::class,'showusers']);
+
+// delete user ------------------------------------------------
+Route::get('/admin/deleteuser/{id}',[UserController::class,'deleteuser']);
+// edit user ---------------------------------------------------
+Route::get('/admin/edituser/{id}',[UserController::class,'edituser']);
+// user update-------------------------------------------------
+Route::post('/userupdated',[UserController::class,'userupdate']);
+
+// show order details-------------------------------------------
+Route::get('/orders',[OrderController::class,'showorders']);
+//order status update routes-----------------------------------
+Route::post('/statusupdated',[OrderController::class,'statusupdate']);
+
+
 });
 
 
@@ -94,7 +161,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::get('products/filter/{id?}/{min_price?}/{max_price?}/{size?}',[ProductController::class,'filter'])->name('products.filter');
     Route::get('products/{product}',[ProductController::class,'show'])->name('products.show');
     Route::post('products',[ProductController::class,'search'])->name('products.search');
-    
+
 
     //product related
     Route::get('/services',[ServiceController::class, 'user_index'] )->name('services.index');
@@ -105,7 +172,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::get('/blog', function () {
         return view('blogs.index');
     });
-    
+
     Route::get('/checkout', function () {
         return view('checkout.index');
     });
@@ -113,7 +180,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::get('/payment', function () {
         return view('payment.index');
     });
-    
+
     Route::get('/about', function () {
         return view('about.index');
     });
@@ -147,3 +214,17 @@ Route::post('set/user/session', [ChatController::class, 'set_user_session'])->na
 //     $last_row = DB::table('chats')->latest("id")->first();
 //     dd($last_row->id);
 // });
+
+// subscribe function routes------------------------------(user side)
+Route::post('/subscribed',[SubscribeController::class,'index']);
+
+
+
+
+
+
+
+
+
+
+
