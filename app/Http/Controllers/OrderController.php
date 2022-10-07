@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\payment;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -167,10 +168,15 @@ class OrderController extends Controller
                 $product->save();
 
 
-            }
+            } 
 
             $payment = $order->payment()->first();
             $payment->status = 'returned';
+            $payment->save();
+        } elseif ($request->status == "delivered") {
+            $payment = $order->payment()->first();
+            
+            $payment->status = 'completed';
             $payment->save();
         }
         $order->save();

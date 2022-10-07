@@ -75,66 +75,21 @@
                                         <td>Name</td>
                                         <td>Price</td>
                                         <td>Payment</td>
-                                        <td>Status</td>
+                                        <td>Quantity</td>
                                     </tr>
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Star Refrigerator</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status delivered">Delivered</span></td>
-                                    </tr>
+                                    @foreach ($order_products as $order_product)
+                                        <tr>
+                                            <td>{{ $order_product['name'] }}</td>
+                                            <td>${{ $order_product['price'] }}</td>
+                                            <td>{{ $order_product['status'] }}</td>
+                                            <td>{{ $order_product['quantity'] }}</td>
+                                        </tr>    
+                                    @endforeach
+                                    
 
-                                    <tr>
-                                        <td>Dell Laptop</td>
-                                        <td>$110</td>
-                                        <td>Due</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Addidas Shoes</td>
-                                        <td>$620</td>
-                                        <td>Due</td>
-                                        <td><span class="status inProgress">In Progress</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Star Refrigerator</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status delivered">Delivered</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Dell Laptop</td>
-                                        <td>$110</td>
-                                        <td>Due</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Addidas Shoes</td>
-                                        <td>$620</td>
-                                        <td>Due</td>
-                                        <td><span class="status inProgress">In Progress</span></td>
-                                    </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -166,61 +121,14 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>Star Refrigerator</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status delivered">Delivered</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Dell Laptop</td>
-                                        <td>$110</td>
-                                        <td>Due</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Addidas Shoes</td>
-                                        <td>$620</td>
-                                        <td>Due</td>
-                                        <td><span class="status inProgress">In Progress</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Star Refrigerator</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status delivered">Delivered</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Dell Laptop</td>
-                                        <td>$110</td>
-                                        <td>Due</td>
-                                        <td><span class="status pending">Pending</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Apple Watch</td>
-                                        <td>$1200</td>
-                                        <td>Paid</td>
-                                        <td><span class="status return">Return</span></td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>Addidas Shoes</td>
-                                        <td>$620</td>
-                                        <td>Due</td>
-                                        <td><span class="status inProgress">In Progress</span></td>
-                                    </tr>
+                                    @foreach ($order_services as $order_service)
+                                        <tr>
+                                            <td>{{ $order_service['name'] }}</td>
+                                            <td>${{ $order_service['price'] }}</td>
+                                            <td>{{ $order_service['status'] }}</td>
+                                            <td>{{ $order_service['quantity'] }}</td>
+                                        </tr>    
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
