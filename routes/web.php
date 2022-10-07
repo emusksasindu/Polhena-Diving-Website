@@ -145,6 +145,11 @@ Route::post('/userupdated',[UserController::class,'userupdate']);
 Route::get('/orders',[OrderController::class,'showorders']);
 //order status update routes-----------------------------------
 Route::post('/statusupdated',[OrderController::class,'statusupdate']);
+// admin details update----------------------------------------
+
+Route::post('/profileupdated',[UserController::class,'profileupdate']);
+
+Route::post('/passwordchanged',[UserController::class,'passwordchange']);
 
 
 });

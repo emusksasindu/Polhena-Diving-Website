@@ -133,4 +133,34 @@ class UserController extends Controller
         $user->save();
         return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
     }
+
+    public function profileupdate(Request $request){
+            $user=user::find($request->id);
+
+            $user->name=$request->name;
+            $user->email=$request->email;
+
+
+            $user->save();
+            return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
+    }
+    public function passwordchange(Request $request){
+            $request->validate([
+            'newpassword' => ['required', 'string', 'min:8','max:16'],
+            'oldpassword' => ['required', 'string', 'min:8','max:16' ],
+        ]);
+
+            $password=user::find($request->id);
+
+            if($password->password==Hash::make($request->oldpassword) && $request->newpassword==$request->retypepassword){
+                $password->password=$request->newpassword;
+                $password->save();
+
+            }else{
+                return redirect()->back()->with('message', 'Password error !');
+            }
+
+
+
+    }
 }

@@ -33,14 +33,12 @@
                 <div class="recentOrders">
 
                     <div class="cardHeader">
-                        <h2>Latest Products</h2>
-                        <a href="#" class="btn">View All</a>
-
+                        <h2>Categories</h2>
                     </div>
 
                     <table  id="categoriesTable" class="display" style="width:100%">
                         <thead>
-                            
+
 
                             <tr>
                                 <td>Name</td>
