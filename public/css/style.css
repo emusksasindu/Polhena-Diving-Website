@@ -40,17 +40,6 @@
   padding: 1rem 3rem;
 }
 
-.dropdown-content-login a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: center;
-  font-size: 2rem;
- 
-  border-radius: 2.5rem;
-}
-
 .btn:hover {
   background: #ffffff;
   color: rgb(3, 55, 78);
@@ -180,10 +169,7 @@
   font-size: small;
 }
 
-.valid-feedback {
-  color: #06ca20;
-  font-size: medium;
-}
+
 
 
 
@@ -674,15 +660,7 @@
   color: #00b7ff;
 }
 
-.newsletter .content h4 {
-  text-align: left;
-  font-size: 2.4rem;
-  line-height: 1.5;
-  color: #025d81;
-}
-
 .newsletter .content form {
-  
   margin-top: 2rem;
   background: #fff;
   border-radius: 5rem;
@@ -728,249 +706,73 @@
   color: #00b7ff;
 }
 
-/* user profile */
-
-.UserProfile {
-  background-image: url('https://img.freepik.com/free-vector/copy-space-wavy-white-background-layers_23-2148845469.jpg?w=2000');
-  background-size: cover;
-  height: 100vh;
-  padding:0;
-  margin:0;
+/*User Chat section */
+.UserChat {
+  z-index: 7;
+  position:fixed;
   display: -webkit-box;
   display: -ms-flexbox;
+  right:0;
+  bottom: -6rem;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  gap: 2rem;
   align-items: flex-start;
 }
 
 
-.UserProfile .content {
-  max-width: 180rem;
+
+.UserChat .content {
+  max-width: 40rem;
   margin: 1rem auto;
   text-align: center;
 }
 
-.UserProfile img {
-  width: 100px;
-  height: 130px;
-}
-
-.UserProfile .content p {
+.UserChat .content p {
   font-size: 1.5rem;
   line-height: 2;
   color: #00b7ff;
 }
 
-.UserProfile .content h4 {
-  text-align: left;
-  font-size: 2.4rem;
-  line-height: 1;
-  color: #025d81;
-}
-
-
-.UserProfile .content h5 {
-  text-align: center;
-  font-size: 2.4rem;
-  line-height: 1;
-  color: #02815b;
-}
-
-.UserProfile .content form {
-  
+.UserChat .content form {
   margin-top: 2rem;
-  background: rgba(255, 255, 255, 0.856);
-  border-radius: 2rem;
-  border: 0.2rem solid #ffffff;
+  background: #fff;
+  border-radius: 5rem;
+  border: 0.2rem solid #a7a6a6;
   padding: 2.3rem;
   align-items: center;
-
 }
 
-.UserProfile .content form .field {
-  width: 50rem;
+.UserChat .content form .field {
+  width: 100%;
   background: none;
-  border-radius: 0.5rem;
-  border: 0.1rem solid #025d81;
+  border-radius: 5rem;
+  border: 0.1rem solid #777777;
   text-transform: none;
   font-size: 1.6rem;
-  color: #025d81;
+  color: #00b7ff;
   padding: 1rem 1.3rem;
   margin-bottom: 0.5rem;
 }
 
-.SmallGap{
-  padding-top: 1.8rem;
-}
 
-.UserProfile .content form .btn {
 
+.UserChat .content form .btn {
   margin-top: 0;
   border-radius: 5rem;
-  background: #025d81;
+  background: #00b7ff;
   color: #fff;
 }
 
-.UserProfile .content form .btn:hover {
+.UserChat .content form .btn:hover {
   background: none;
-  color: #025d81;
-  border-color:  #025d81;
-}
-
-
-/* user profile end */
-
-
-/*user order history */
-.OrderHistoryTable{
-  font-size: x-large;
-  cursor: pointer;
-}
-
-
-
-
-@media (max-width: 968px) {
-  
-  .OrderHistoryTable{
-    font-size: small;
-    width: 50px;
-    
-  }
-
-  .UserProfile{
-    height: max-content;
-  }
-  .UserProfile .content {
-    max-width: 60rem;
-    margin: 1rem auto;
-    text-align: center;
-
-  }
-
-  .OrderTableValue{
-    text-align: start;
-    font-size: small;
-    font-style: normal;
-    cursor: pointer;
-  }
-
-}
-
-
-/*user order history end*/
-
-
-/*user view order*/
-
-.OrderTable{
-  text-align: start;
-  font-size: x-large;
-  cursor: pointer;
-}
-
-.OrderTableValue{
-  text-align: start;
-  font-size: normal;
-  font-weight: 300;
-  cursor: pointer;
-  vertical-align: text-bottom;
-}
-
-
-
-
-
-
-.OrderView {
-  background-image: url('https://img.freepik.com/free-vector/copy-space-wavy-white-background-layers_23-2148845469.jpg?w=2000');
-  background-size: cover;
-  height: max-content;
-  padding:0;
-  margin:0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-
-.OrderView .content {
-  max-width: 180rem;
-  margin: 1rem auto;
-  text-align: center;
-}
-
-.OrderView img {
-  width: 100px;
-  height: 130px;
-}
-
-.OrderView .content p {
-  font-size: 1.5rem;
-  line-height: 2;
   color: #00b7ff;
 }
 
-.OrderView .content h4 {
-  text-align: left;
-  font-size: 2.4rem;
-  line-height: 1;
-  color: #025d81;
-}
 
 
-.OrderView .content h5 {
-  text-align: center;
-  font-size: 2.4rem;
-  line-height: 1;
-  color: #02815b;
-}
+/*-------------------*/
 
-.OrderView .content form {
-  
-  margin-top: 2rem;
-  background: rgba(255, 255, 255, 0.856);
-  border-radius: 2rem;
-  border: 0.2rem solid #ffffff;
-  padding: 2.3rem;
-  align-items: center;
-
-}
-
-.OrderView .content form .field {
-  width: 50rem;
-  background: none;
-  border-radius: 0.5rem;
-  border: 0.1rem solid #025d81;
-  text-transform: none;
-  font-size: 1.6rem;
-  color: #025d81;
-  padding: 1rem 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-
-.OrderView .content form .btn {
-  font-size: medium;
-  margin-top: 0;
-  border-radius: 5rem;
-  background: #ff0000;
-  color: #fff;
-}
-
-.OrderView .content form .btn:hover {
-  background: none;
-  color: #ff0000;
-  border-color:  #ff0000;
-}
-
-/*user view order end*/
 .clients .silde {
   text-align: center;
 }

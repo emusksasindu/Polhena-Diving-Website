@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
-            $table->string('name',50);
-            $table->string('email');
-            $table->string('number');
-            $table->string('subject');
-            $table->mediumText('body')->nullable();
-            $table->timestamps();
+        Schema::table('chats', function (Blueprint $table) {
+            $table->tinyInteger('read_status')->default(0); // unread 0
         });
     }
 
@@ -31,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contacts');
+        Schema::table('chats', function (Blueprint $table) {
+            $table->dropColumn('read_status');
+        });
     }
 };

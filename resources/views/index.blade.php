@@ -1,5 +1,7 @@
 @include('layouts.header')
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <!-- HOME section starts  -->
 
@@ -14,7 +16,8 @@
                     <div class="content">
                         <span>never stop</span>
                         <h3>exploring</h3>
-                        <p>Sri Lanka has some of the best scuba diving spots in South Asia. Pristine beaches, warm water, going underwater is certainly a treat in here!</p>
+                        <p>Sri Lanka has some of the best scuba diving spots in South Asia. Pristine beaches, warm
+                            water, going underwater is certainly a treat in here!</p>
                         <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
@@ -25,7 +28,8 @@
                     <div class="content">
                         <span>make your dive trip</span>
                         <h3>amazing</h3>
-                        <p>The dive shop which remembers your name and know the size of your fins. A place to find friends, and a place to find your soul.</p>
+                        <p>The dive shop which remembers your name and know the size of your fins. A place to find
+                            friends, and a place to find your soul.</p>
                         <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
@@ -36,7 +40,8 @@
                     <div class="content">
                         <span>explore a</span>
                         <h3>new underwater world</h3>
-                        <p>Discover the depths of Southern Sea, From Weligama, Mirissa and all the way to Tangalle. Including the famous Moray Point minutes away from the polhena diving center.</p>
+                        <p>Discover the depths of Southern Sea, From Weligama, Mirissa and all the way to Tangalle.
+                            Including the famous Moray Point minutes away from the polhena diving center.</p>
                         <a href="#" class="btnHome">get started</a>
                     </div>
                 </div>
@@ -61,41 +66,38 @@
     </h1>
 
     <div class="swiper product-slider">
-      @if($productCount != 0)
-        <div class="swiper-wrapper">
-            @foreach ($products as $product)
+        @if ($productCount != 0)
+            <div class="swiper-wrapper">
+                @foreach ($products as $product)
+                    <div class="swiper-slide slide">
+                        <div class="image">
+                            <img src="/storage/{{ $product->image_1 }}" alt="">
+                            <div class="icons">
+                                <a href="{{ route('products.show', $product) }}" class="fas fa-shopping-cart"></a>
 
-            <div class="swiper-slide slide">
-                <div class="image">
-                    <img src="/storage/{{$product->image_1}}" alt="">
-                    <div class="icons">
-                        <a href="{{ route('products.show',$product) }}" class="fas fa-shopping-cart"></a>
-                        
+                            </div>
+                        </div>
+                        <div class="content">
+                            <h3>{{ $product->name }}</h3>
+                            <div class="price">${{ $product->selling_price }} </div>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="content">
-                    <h3>{{$product->name}}</h3>
-                    <div class="price">${{$product->selling_price}} </div>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
-
-            @endforeach
-           
-        </div>
         @else
-
-        <p class="heading">No Products</p>
+            <p class="heading">No Products</p>
         @endif
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
-     
+
     </div>
 
 </section>
@@ -110,20 +112,20 @@
     </h1>
 
     <div class="box-container">
-        @if($serviceCount != 0)
-        @foreach ($services as $service)
-        <div class="box">
-            <div class="image">
-                <img src="storage/{{$service->imageUrl_1}}" alt="">
-            </div>
-            <div class="content">
-                <h3>{{$service->name}}</h3>
-                <p>{{$service->description}}</p>
-                <div class="price">${{$service->selling_price}}</div>
-                <a href="#" class="btn">explore now</a>
-            </div>
-        </div>
-        @endforeach
+        @if ($serviceCount != 0)
+            @foreach ($services as $service)
+                <div class="box">
+                    <div class="image">
+                        <img src="storage/{{ $service->imageUrl_1 }}" alt="">
+                    </div>
+                    <div class="content">
+                        <h3>{{ $service->name }}</h3>
+                        <p>{{ $service->description }}</p>
+                        <div class="price">${{ $service->selling_price }}</div>
+                        <a href="#" class="btn">explore now</a>
+                    </div>
+                </div>
+            @endforeach
         @endif
     </div>
 
@@ -165,7 +167,8 @@
         <div class="swiper-wrapper">
 
             <div class="swiper-slide slide">
-                <p class="text">I recommend the professional Polhena Diving Center. It is a great place if you want to do some diving at the South coast!</p>
+                <p class="text">I recommend the professional Polhena Diving Center. It is a great place if you want to
+                    do some diving at the South coast!</p>
                 <div class="user">
                     <img src="images/pic-1.png" alt="">
                     <div class="info">
@@ -176,7 +179,8 @@
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Perfect first diving experience in Sri Lanka! Lovely staff, with an amazing smile all the time even though there are tough times in Sri Lanka at the moment!</p>
+                <p class="text">Perfect first diving experience in Sri Lanka! Lovely staff, with an amazing smile all
+                    the time even though there are tough times in Sri Lanka at the moment!</p>
                 <div class="user">
                     <img src="images/pic-2.png" alt="">
                     <div class="info">
@@ -187,7 +191,8 @@
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Very nice diving centre with a great team. Had a super time not only under water, but also on the surface, having fun and making jokes.</p>
+                <p class="text">Very nice diving centre with a great team. Had a super time not only under water, but
+                    also on the surface, having fun and making jokes.</p>
                 <div class="user">
                     <img src="images/pic-3.png" alt="">
                     <div class="info">
@@ -198,7 +203,8 @@
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Had some amazing fundives. Really professional and family run team. Definitely recommend!</p>
+                <p class="text">Had some amazing fundives. Really professional and family run team. Definitely
+                    recommend!</p>
                 <div class="user">
                     <img src="images/pic-4.png" alt="">
                     <div class="info">
@@ -209,7 +215,8 @@
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">Great place if you want to do some diving at the South coast. Chamli, Randu, Keshan, Nandu and everyone else will give you a great diving experience and some nice tea afterwards. </p>
+                <p class="text">Great place if you want to do some diving at the South coast. Chamli, Randu, Keshan,
+                    Nandu and everyone else will give you a great diving experience and some nice tea afterwards. </p>
                 <div class="user">
                     <img src="images/pic-5.png" alt="">
                     <div class="info">
@@ -220,7 +227,8 @@
             </div>
 
             <div class="swiper-slide slide">
-                <p class="text">The snorkelling with turtles was amazing! We found a baby turtle (we named it Toby) that kept swimming right up to us. </p>
+                <p class="text">The snorkelling with turtles was amazing! We found a baby turtle (we named it Toby)
+                    that kept swimming right up to us. </p>
                 <div class="user">
                     <img src="images/pic-6.png" alt="">
                     <div class="info">
@@ -300,8 +308,8 @@
                     <a href="#"> <i class="fas fa-user"></i> by admin </a>
                 </div>
                 <h3>Did you know about the turtles in Madiha?<h3>
-                <p>Madiha and Polhena is home to many green turtles.Curious to read more?</p>
-                <a href="#" class="btn">read more</a>
+                        <p>Madiha and Polhena is home to many green turtles.Curious to read more?</p>
+                        <a href="#" class="btn">read more</a>
             </div>
 
             <div class="swiper-slide slide">
@@ -335,17 +343,22 @@
             <input type="email" name="" placeholder="enter your email" id="" class="email">
             <input type="tel" name="" placeholder="enter your number" id="" class="email">
             <input type="text" name="" placeholder="enter the subject" id="" class="email">
-            <textarea cols="40" rows="5" type="text" name="" placeholder="enter your message" id="" class="subject"></textarea>
+            <textarea cols="40" rows="5" type="text" name="" placeholder="enter your message"
+                id="" class="subject"></textarea>
             <input type="submit" value="subscribe" class="btn">
         </form>
     </div>
     <div class="content">
         <h1 class="heading">FIND US HERE</h1>
-        <iframe src= "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15873.689475139015!2d80.5175042!3d5.9363725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71712a6aec5f4d6c!2sPolhena%20Diving%20Center!5e0!3m2!1sen!2slk!4v1660281737106!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-    
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15873.689475139015!2d80.5175042!3d5.9363725!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x71712a6aec5f4d6c!2sPolhena%20Diving%20Center!5e0!3m2!1sen!2slk!4v1660281737106!5m2!1sen!2slk"
+            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
     </div>
-   
+
 </section>
 
+<!-- chat section  -->
 
+<x-user_chat_window/>
 @include('layouts.footer')

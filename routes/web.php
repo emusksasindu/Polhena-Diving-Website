@@ -8,9 +8,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\OrderController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\ReviewController;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,8 +36,8 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 { 
     Route::get('/admin', function () {
-    return view('admin.index');
-});
+        return view('admin.index');
+    });
 
 Route::get('/profile', function () {
     return view('admin.profile');
@@ -63,9 +63,7 @@ Route::get('/finance', function () {
     return view('admin.finance');
 });
 
-Route::get('/chat', function () {
-    return view('admin.chat');
-});
+Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
 
 Route::resource('admin/users',UserController::class );
 
@@ -122,7 +120,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
 
 });
 
-// this route group use for users only
+
 Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], function()
 {
     //cart related
@@ -132,36 +130,20 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
 
 
-    // order related
+    // oreder related
     Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
-    Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
-    Route::get('/order/history',[OrderController::class,'user_index'])->name('orders.index');
-    Route::get('/order/{order}',[OrderController::class,'show'])->name('orders.show');
-    Route::post('/order/cancel',[OrderController::class,'cancelOrder'])->name('order.cancelOrder');
-
-
-    //payment related
-    Route::get('/payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
-    Route::post('/payment/store',[PaymentController::class,'store'])->name('payment.store');
-
-    //user related
-    Route::post('/user/updateInfo',[UserController::class,'updateInfo'])->name('user.updateInfo');
-    Route::post('/user',[UserController::class,'updatePwd'])->name('user.updatePwd');
-
-
-
-
-    //profile related
-    Route::get('/profile', function () {
-        return view('users.profile');
-    });
-
-    Route::get('/editpassword', function () {
-        return view('users.editpassword');
-    });
-
 });
 
 Route::get('/test/user/chat', function() {
     return view('users.chat_test');
+});
+
+Route::post('show/user/chat', [ChatController::class, 'user_chat']);
+Route::post('show/admin/chat', [ChatController::class, 'admin_chat']);
+Route::post('save/chat', [ChatController::class, 'store'])->name('chat.store');
+Route::post('set/user/session', [ChatController::class, 'set_user_session'])->name('set_user_session');
+
+Route::get('/testt', function() {
+    $last_row = DB::table('chats')->latest("id")->first();
+    dd($last_row->id);
 });

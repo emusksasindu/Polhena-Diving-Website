@@ -572,7 +572,6 @@ class ComposerStaticInit4a4f8b53c4ef6d764d7dcc0a7544a663
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\UserMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/UserMiddleware.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Models\\TestChat' => __DIR__ . '/../..' . '/app/Models/TestChat.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\cart' => __DIR__ . '/../..' . '/app/Models/cart.php',
         'App\\Models\\category' => __DIR__ . '/../..' . '/app/Models/category.php',
