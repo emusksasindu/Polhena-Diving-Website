@@ -85,8 +85,7 @@ Route::post('/admin/services/search',[ServiceController::class ,'search'])->name
 
 
 // admin panel functions
-// subscribe function routes------------------------------(user side)
-Route::post('/subscribed',[SubscribeController::class,'index']);
+
 
 // admin inbox routes view messages------------------------------------
 Route::get('/inbox',[SubscribeController::class,'show']);
@@ -203,6 +202,8 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
 });
 
 
+// subscribe function routes------------------------------(user side)
+Route::post('/subscribed',[SubscribeController::class,'index']);
 
 
 

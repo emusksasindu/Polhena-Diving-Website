@@ -176,4 +176,10 @@ class OrderController extends Controller
         $order->save();
         return redirect()->back()->with('message', 'Status Has Been updated Sucessfully !');
     }
+    public function showproducts(){
+        $orders=Order::all();
+
+            return view('admin.orders',['orders'=>$orders]);
+    }
+
 }
