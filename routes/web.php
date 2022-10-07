@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -146,6 +147,9 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     //user related
     Route::post('/user/updateInfo',[UserController::class,'updateInfo'])->name('user.updateInfo');
     Route::post('/user',[UserController::class,'updatePwd'])->name('user.updatePwd');
+
+
+
 
     //profile related
     Route::get('/profile', function () {

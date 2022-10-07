@@ -75,14 +75,7 @@
                         <h4>{{$service->name}}</h4>
                         <h5>Service ID : {{$service->serviceID}}</h5>
                         <h5 class="pt-2">Category : {{$service->category}}</h5>
-                        <div class="rating pt-4">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o"></i>
-                            <span> - 5 Reviews</span>
-                        </div>
+                        
                         
                         <h3>${{$service->selling_price}}/= </h3>
                         <div class="product__details__option">
