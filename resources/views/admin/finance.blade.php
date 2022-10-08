@@ -29,7 +29,7 @@
                 <div class="cardFinance">
                     <div class="card">
                         <div>
-                            <div class="numbers">50,000</div>
+                            <div class="numbers">{{ number_format($revenue, 0, '.', ','); }}</div>
                             <div class="cardName">Revenue</div>
                         </div>
 
@@ -40,7 +40,7 @@
 
                     <div class="card">
                         <div>
-                            <div class="numbers">20,000</div>
+                            <div class="numbers">{{ number_format($profit, 0, '.', ','); }}</div>
                             <div class="cardName">Gross profit</div>
                         </div>
 

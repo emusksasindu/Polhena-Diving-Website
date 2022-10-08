@@ -328,6 +328,8 @@ class ProductController extends Controller
 
         $order_products = [];
 
+        $product_price = 0;
+        $product_cost = 0;
         foreach ($order_items as $order_item) {
             $order_product = [];
 
@@ -338,7 +340,8 @@ class ProductController extends Controller
             $order_product['name'] = $product->name;
             $order_product['price'] = $product->selling_price;
             $order_product['quantity'] = $order_item->qty;
-
+            $product_price += $order_product['price'] * $order_product['quantity'];
+            $product_cost += $product->cost * $order_item->qty;
             if ($payment->status == "completed") {
                 $order_product['status'] = "Paid";
             } else {
@@ -371,6 +374,8 @@ class ProductController extends Controller
 
         $order_services = [];
 
+        $service_price = 0;
+        $service_cost = 0;
         foreach ($order_itemsS as $order_item) {
             $order_service = [];
 
@@ -381,7 +386,8 @@ class ProductController extends Controller
             $order_service['name'] = $service->name;
             $order_service['price'] = $service->selling_price;
             $order_service['quantity'] = $order_item->qty;
-
+            $service_price += $order_service['price'] * $order_service['quantity'];
+            $service_cost += $service->cost * $order_item->qty;
             if ($payment->status == "completed") {
                 $order_service['status'] = "Paid";
             } else {
@@ -390,7 +396,7 @@ class ProductController extends Controller
 
             array_push($order_services, $order_service);
         }
-
-        return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date]);
+        $profit = ($product_price + $service_price) - ($product_cost + $service_cost);
+        return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date, 'revenue'=>($product_price + $service_price), 'profit'=>$profit]);
     }
 }
