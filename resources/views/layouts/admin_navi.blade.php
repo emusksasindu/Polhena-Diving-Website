@@ -115,19 +115,12 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('finance') }}"
-                        onclick="event.preventDefault();
-                                        document.getElementById('finance-form').submit();">
-                        
+                    <a href="/finance">
                         <span class="icon">
                             <ion-icon name="cash-outline"></ion-icon>
                         </span>
                         <span class="title">Financial Summary</span>
                     </a>
-
-                    <form id="finance-form" action="{{ route('finance') }}" method="POST" class="d-none">
-                        @csrf
-                    </form>
                 </li>
 
                 <li>

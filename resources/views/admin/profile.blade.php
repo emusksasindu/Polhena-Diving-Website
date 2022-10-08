@@ -14,9 +14,9 @@
             <!-- ======================= Cards ================== -->
             <div class="cardProfile">
                 <div class="card">
-                    @if($errors->any())
+                    {{-- @if($errors->any())
     {!! implode('', $errors->all('<div>:message</div>')) !!}
-@endif
+@endif --}}
                     <form method="POST" action="/profileupdated">
                         @csrf
                         <input type="hidden" name= "id" class="form-control"  value="{{ Auth::user()->id }}">
