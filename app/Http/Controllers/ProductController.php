@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\payment;
 use Illuminate\Http\Request;
 use App\Models\product;
+use App\Models\service;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -299,5 +302,95 @@ class ProductController extends Controller
         $product->delete();
         return $this->index()
             ->with('success', 'Product has been deleted successfully');
+    }
+
+    public function finance(Request $request) {
+        $from_date = null;
+        $to_date = null;
+        if ($request->from_date || $request->to_date) {
+            $from_date = $request->from_date;
+            $to_date = $request->to_date;
+            if ($to_date == NULL) {
+                $order_items = DB::table('order_item')->select('*')->whereDate('created_at','=', $from_date)
+                                                                    ->whereNull('service_id')->get();
+            }elseif ($from_date == NULL) {
+                $order_items = DB::table('order_item')->select('*')->whereDate('created_at','=', $to_date)
+                                                                    ->whereNull('service_id')->get();
+            }elseif ($to_date != NULL && $from_date != NULL){
+                $order_items = DB::table('order_item')->select('*')->whereDate('created_at','>=', $from_date)
+                                                                    ->whereDate('created_at','<=', $to_date)
+                                                                    ->whereNull('service_id')
+                                                                    ->get();
+            }
+        } else {
+            $order_items = DB::table('order_item')->select('*')->whereNull('service_id')->get();
+        }
+
+        $order_products = [];
+
+        foreach ($order_items as $order_item) {
+            $order_product = [];
+
+            $product = product::find($order_item->product_id);
+            $payment = payment::find($order_item->order_id);
+
+            $order_product['id'] = $order_item->product_id;
+            $order_product['name'] = $product->name;
+            $order_product['price'] = $product->selling_price;
+            $order_product['quantity'] = $order_item->qty;
+
+            if ($payment->status == "completed") {
+                $order_product['status'] = "Paid";
+            } else {
+                $order_product['status'] = "Due";
+            }
+
+            array_push($order_products, $order_product);
+        }
+
+
+        if ($request->from_date || $request->to_date) {
+            $from_date = $request->from_date;
+            $to_date = $request->to_date;
+            if ($to_date == NULL) {
+                $order_itemsS = DB::table('order_item')->select('*')->whereDate('created_at','=', $from_date)
+                                                                    ->whereNull('product_id')->get();
+            }elseif ($from_date == NULL) {
+                $order_itemsS = DB::table('order_item')->select('*')->whereDate('created_at','=', $to_date)
+                                                                    ->whereNull('product_id')->get();
+            }elseif ($to_date != NULL && $from_date != NULL){
+                $order_itemsS = DB::table('order_item')->select('*')->whereDate('created_at','>=', $from_date)
+                                                                    ->whereDate('created_at','<=', $to_date)
+                                                                    ->whereNull('product_id')
+                                                                    ->get();
+            }
+        } else {
+            $order_itemsS = DB::table('order_item')->select('*')->whereNull('product_id')->get();
+        }
+        
+
+        $order_services = [];
+
+        foreach ($order_itemsS as $order_item) {
+            $order_service = [];
+
+            $service = service::find($order_item->service_id);
+            $payment = payment::find($order_item->order_id);
+
+            $order_service['id'] = $order_item->service_id;
+            $order_service['name'] = $service->name;
+            $order_service['price'] = $service->selling_price;
+            $order_service['quantity'] = $order_item->qty;
+
+            if ($payment->status == "completed") {
+                $order_service['status'] = "Paid";
+            } else {
+                $order_service['status'] = "Due";
+            }
+
+            array_push($order_services, $order_service);
+        }
+
+        return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date]);
     }
 }

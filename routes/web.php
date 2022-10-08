@@ -44,164 +44,113 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
         return view('admin.index');
     });
 
-Route::get('/profile', function () {
-    return view('admin.profile');
-});
+    Route::get('/profile', function () {
+        return view('admin.profile');
+    });
 
 
-Route::get('/orders', function () {
-    return view('admin.orders');
-});
+    Route::get('/orders', function () {
+        return view('admin.orders');
+    });
 
 
-Route::get('/inbox', function () {
-    return view('admin.inbox');
-});
+    Route::get('/inbox', function () {
+        return view('admin.inbox');
+    });
 
-Route::get('/posts', function () {
-    return view('admin.posts');
-});
-
-
-
-Route::get('/finance', function () {
-    $order_items = DB::table('order_item')->select('*')->where('service_id', '=', null)->get();
-
-    $order_products = [];
-
-    foreach ($order_items as $order_item) {
-        $order_product = [];
-
-        $product = product::find($order_item->product_id);
-        $payment = payment::find($order_item->order_id);
-
-        $order_product['id'] = $order_item->product_id;
-        $order_product['name'] = $product->name;
-        $order_product['price'] = $product->selling_price;
-        $order_product['quantity'] = $order_item->qty;
-
-        if ($payment->status == "completed") {
-            $order_product['status'] = "Paid";
-        } else {
-            $order_product['status'] = "Due";
-        }
-
-        array_push($order_products, $order_product);
-    }
-
-
-    $order_itemsS = DB::table('order_item')->select('*')->where('product_id', '=', null)->get();
-
-    $order_services = [];
-
-    foreach ($order_itemsS as $order_item) {
-        $order_service = [];
-
-        $service = service::find($order_item->service_id);
-        $payment = payment::find($order_item->order_id);
-
-        $order_service['id'] = $order_item->service_id;
-        $order_service['name'] = $service->name;
-        $order_service['price'] = $service->selling_price;
-        $order_service['quantity'] = $order_item->qty;
-
-        if ($payment->status == "completed") {
-            $order_service['status'] = "Paid";
-        } else {
-            $order_service['status'] = "Due";
-        }
-
-        array_push($order_services, $order_service);
-    }
-
-    return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services]);
-});
-
-Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
-
-Route::resource('admin/users',UserController::class );
-
-Route::resource('admin/categories',CategoryController::class );
-
-
-// product related routes
-Route::resource('/admin/products',ProductController::class );
-Route::get('/admin/products/delete',[ProductController::class,'destroy'])->name('products.destroy');
-Route::post('/admin/products/search',[ProductController::class,'search'])->name('products.adminsearch');
-
-
-// service related routes
-Route::resource('/admin/services',ServiceController::class );
-Route::get('/admin/services/delete',[ServiceController::class ,'destroy'])->name('services.destroy');
-Route::post('/admin/services/search',[ServiceController::class ,'search'])->name('services.adminsearch');
-
-
-// admin panel functions
-
-
-// admin inbox routes view messages------------------------------------
-Route::get('/inbox',[SubscribeController::class,'show']);
-
-// admin inbox routes delete messages------------------------------------
-Route::get('/deletemessage/{id}',[SubscribeController::class,'delete']);
+    Route::get('/posts', function () {
+        return view('admin.posts');
+    });
 
 
 
-// admin view category table details routes-----------------------------------
-Route::get('/categories',[CategoryController::class,'show']);
+    Route::match(['get','post'], '/finance', [ProductController::class, 'finance'])->name('finance');
 
-// admin edit category details routes-----------------------------------
-Route::get('/editcategories/{id}',[CategoryController::class,'editcategory']);
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
 
-Route::get('/editcategories',function(){
-    return view('admin/editcategory');
-});
-// admin update category details routes----------------------
-Route::post('/categoryupdated',[CategoryController::class,'update']);
+    Route::resource('admin/users',UserController::class );
 
-// admin delete category details routes---------------------
-Route::get('admin/deletecategory/{id}',[CategoryController::class,'delete']);
+    Route::resource('admin/categories',CategoryController::class );
 
-// admin create post----------------------------------------
 
-Route::post('/postcreated',[PostController::class,'createpost']);
-Route::get('/addpost',function(){
-    return view('admin/addpost');
-});
+    // product related routes
+    Route::resource('/admin/products',ProductController::class );
+    Route::get('/admin/products/delete',[ProductController::class,'destroy'])->name('products.destroy');
+    Route::post('/admin/products/search',[ProductController::class,'search'])->name('products.adminsearch');
 
-// admin show all posts--------------------------------------
-Route::get('/posts',[PostController::class,'showposts']);
-// admin delete post ----------------------------------------
-Route::get('/deletepost/{id}',[PostController::class,'deletepost']);
-// editpost routes--------------------------------------------
-Route::get('/editpost/{id}',[PostController::class,'editpost']);
 
-Route::get('/editpost',function(){
-    return view('admin/editpost');
-});
+    // service related routes
+    Route::resource('/admin/services',ServiceController::class );
+    Route::get('/admin/services/delete',[ServiceController::class ,'destroy'])->name('services.destroy');
+    Route::post('/admin/services/search',[ServiceController::class ,'search'])->name('services.adminsearch');
 
-// update post -------------------------------------------------
-Route::post('/postupdated',[PostController::class,'updatepost']);
 
-// view users--------------------------------------------------
-Route::get('/admin/users',[UserController::class,'showusers']);
+    // admin panel functions
 
-// delete user ------------------------------------------------
-Route::get('/admin/deleteuser/{id}',[UserController::class,'deleteuser']);
-// edit user ---------------------------------------------------
-Route::get('/admin/edituser/{id}',[UserController::class,'edituser']);
-// user update-------------------------------------------------
-Route::post('/userupdated',[UserController::class,'userupdate']);
 
-// show order details-------------------------------------------
-Route::get('/orders',[OrderController::class,'showorders']);
-//order status update routes-----------------------------------
-Route::post('/statusupdated',[OrderController::class,'statusupdate']);
-// admin details update----------------------------------------
+    // admin inbox routes view messages------------------------------------
+    Route::get('/inbox',[SubscribeController::class,'show']);
 
-Route::post('/profileupdated',[UserController::class,'profileupdate']);
+    // admin inbox routes delete messages------------------------------------
+    Route::get('/deletemessage/{id}',[SubscribeController::class,'delete']);
 
-Route::post('/passwordchanged',[UserController::class,'passwordchange']);
+
+
+    // admin view category table details routes-----------------------------------
+    Route::get('/categories',[CategoryController::class,'show']);
+
+    // admin edit category details routes-----------------------------------
+    Route::get('/editcategories/{id}',[CategoryController::class,'editcategory']);
+
+    Route::get('/editcategories',function(){
+        return view('admin/editcategory');
+    });
+    // admin update category details routes----------------------
+    Route::post('/categoryupdated',[CategoryController::class,'update']);
+
+    // admin delete category details routes---------------------
+    Route::get('admin/deletecategory/{id}',[CategoryController::class,'delete']);
+
+    // admin create post----------------------------------------
+
+    Route::post('/postcreated',[PostController::class,'createpost']);
+    Route::get('/addpost',function(){
+        return view('admin/addpost');
+    });
+
+    // admin show all posts--------------------------------------
+    Route::get('/posts',[PostController::class,'showposts']);
+    // admin delete post ----------------------------------------
+    Route::get('/deletepost/{id}',[PostController::class,'deletepost']);
+    // editpost routes--------------------------------------------
+    Route::get('/editpost/{id}',[PostController::class,'editpost']);
+
+    Route::get('/editpost',function(){
+        return view('admin/editpost');
+    });
+
+    // update post -------------------------------------------------
+    Route::post('/postupdated',[PostController::class,'updatepost']);
+
+    // view users--------------------------------------------------
+    Route::get('/admin/users',[UserController::class,'showusers']);
+
+    // delete user ------------------------------------------------
+    Route::get('/admin/deleteuser/{id}',[UserController::class,'deleteuser']);
+    // edit user ---------------------------------------------------
+    Route::get('/admin/edituser/{id}',[UserController::class,'edituser']);
+    // user update-------------------------------------------------
+    Route::post('/userupdated',[UserController::class,'userupdate']);
+
+    // show order details-------------------------------------------
+    Route::get('/orders',[OrderController::class,'showorders']);
+    //order status update routes-----------------------------------
+    Route::post('/statusupdated',[OrderController::class,'statusupdate']);
+    // admin details update----------------------------------------
+
+    Route::post('/profileupdated',[UserController::class,'profileupdate']);
+
+    Route::post('/passwordchanged',[UserController::class,'passwordchange']);
 
 
 });
@@ -274,19 +223,3 @@ Route::post('set/user/session', [ChatController::class, 'set_user_session'])->na
 
 // subscribe function routes------------------------------(user side)
 Route::post('/subscribed',[SubscribeController::class,'index']);
-
-
-
-Route::get('/tst', function() {
-    $product = product::find(1);
-    
-    
-    // dd($order_products);
-});
-
-
-
-
-
-
-

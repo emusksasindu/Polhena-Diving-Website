@@ -14,23 +14,17 @@
             <!-- ======================= Cards ================== -->
             <div class="cardFinance2">
 
-                        <form method="post">
-                            <div id="labels">From</div>
-                            <input type="text" class="w-25 form-control">
-                            <div id="labels">To</div>
-                            <input type="text" class="w-25 form-control">
-                                <div class="gap"></div>
-                            <div class="form-group"> <!-- Submit button -->
-                            <button class="btn btn-primary " name="submit" type="submit">Search</button>
-                            </div>
-                        </form>
-
-
-
-
-
-
-
+                <form method="post" action="/finance">
+                    @csrf
+                    <div id="labels">From</div>
+                    <input type="date" name="from_date" value="{{ $from_date }}" class="w-25 form-control">
+                    <div id="labels">To</div>
+                    <input type="date" name="to_date" value="{{ $to_date }}" class="w-25 form-control">
+                        <div class="gap"></div>
+                    <div class="form-group"> <!-- Submit button -->
+                        <button class="btn btn-primary " name="submit" type="submit">Search</button>
+                    </div>
+                </form>
 
                 <div class="cardFinance">
                     <div class="card">
@@ -69,7 +63,7 @@
                         <div class="gap"></div>
                         <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar">
 
-                            <table id="purchasedproducts" class="table table-bordered table-striped mb-0">
+                            <table id="purchasedproducts" width="100%">
                                 <thead>
                                     <tr>
                                         <td>Name</td>
@@ -110,7 +104,7 @@
                         <div class="gap"></div>
                         <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar">
 
-                            <table id="purchasedservices" class="table table-bordered table-striped mb-0">
+                            <table id="purchasedservices" width="100%">
                                 <thead>
                                     <tr>
                                         <td>Name</td>
@@ -152,14 +146,40 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
+
+<style>
+    .right {
+        float: right;
+        padding-bottom: 50px
+    }
+
+    .left {
+        float: left;
+    }
+    
+</style>
 <script>
     $(document).ready(function () {
-        $('#purchasedservices').DataTable();
+        $('#purchasedservices').DataTable({
+            "dom": '<"right"i><"left"f>tp',
+
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search records"
+            }
+        });
     });
 </script>
 <script>
     $(document).ready(function () {
-        $('#purchasedproducts').DataTable();
+        $('#purchasedproducts').DataTable({
+            "dom": '<"right"i><"left"f>tp',
+
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search records"
+            }
+        });
     });
 </script>
 
