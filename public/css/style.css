@@ -707,66 +707,116 @@
 }
 
 /*User Chat section */
-.UserChat {
-  z-index: 7;
-  position:fixed;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  right:0;
-  bottom: -6rem;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  align-items: flex-start;
+.StaticChat #chatMessageWindow
+{
+width: 300px;
+}
+
+.StaticChat #display_area
+{
+  
+  width: 300px;
+}
+
+.StaticChat .message-received-text{
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: fit-content;
+  line-height: 1.8em;
+}
+
+.StaticChat .message-sent-text{
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: fit-content;
+  line-height: 1.8em;
 }
 
 
 
-.UserChat .content {
-  max-width: 40rem;
-  margin: 1rem auto;
-  text-align: center;
+
+.StaticChat .card {
+  position: fixed;
+  z-index: 2;
+  
+  right: 60px;
+  background: var(--white);
+  padding: 20px;
+  border-radius: 20px;
+  display: list-item;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
 }
 
-.UserChat .content p {
-  font-size: 1.5rem;
-  line-height: 2;
-  color: #00b7ff;
-}
-
-.UserChat .content form {
-  margin-top: 2rem;
+.scrollbar {
+ 
+  float: left;
   background: #fff;
-  border-radius: 5rem;
-  border: 0.2rem solid #a7a6a6;
-  padding: 2.3rem;
-  align-items: center;
+  overflow-y: scroll;
+  margin-bottom: 25px;
+}
+.force-overflow {
+  min-height: 450px;
 }
 
-.UserChat .content form .field {
-  width: 100%;
-  background: none;
-  border-radius: 5rem;
-  border: 0.1rem solid #777777;
-  text-transform: none;
-  font-size: 1.6rem;
-  color: #00b7ff;
-  padding: 1rem 1.3rem;
-  margin-bottom: 0.5rem;
+.scrollbar-primary::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
 }
 
-
-
-.UserChat .content form .btn {
-  margin-top: 0;
-  border-radius: 5rem;
-  background: #00b7ff;
-  color: #fff;
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4285F4;
 }
 
-.UserChat .content form .btn:hover {
-  background: none;
-  color: #00b7ff;
+.scrollbar-primary {
+  scrollbar-color: #4285F4 #F5F5F5;
+}
+
+.StaticChat .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: var(--blue);
+
+}
+
+.StaticChat textarea{
+  padding: 0.5rem;
+  width: 230px;
+  resize: none;
+  overflow: hidden;
+  border :solid 0.1rem #005eca;
+  border-radius: 2rem;
+
+}
+
+.StaticChat .card .cardName {
+  color: var(--black2);
+  font-size: 1.1rem;
+  margin-top: 5px;
+}
+
+.StaticChat .card .iconBx {
+  font-size: 3.5rem;
+  color: var(--black2);
+}
+
+.StaticChat .btn{
+  width: 70px;
+  height: 30px;
+  border-radius: 5rem;
+}
+
+.StaticChat .btn:hover{
+  color: #00326b !important;
 }
 
 

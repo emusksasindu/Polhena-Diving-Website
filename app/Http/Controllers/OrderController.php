@@ -180,7 +180,7 @@ class OrderController extends Controller
             $payment->save();
         }
         $order->save();
-        return redirect()->back()->with('message', 'Status Has Been updated Sucessfully !');
+        return redirect()->back()->with('message', 'Status has been updated Sucessfully !');
     }
     public function showproducts(){
         $orders=Order::all();
