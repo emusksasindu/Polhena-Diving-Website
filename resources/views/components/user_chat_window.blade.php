@@ -1,3 +1,5 @@
+
+
 <section class="">
     <form action="" method="post" id="userChat">
         <div class="content">
@@ -47,7 +49,7 @@
             
             
                                         <button type="submit" class="btn btn-primary rounded-pill">
-                                            <ion-icon name="paper-plane-outline" style="font-size: 1.75rem;"></ion-icon>
+                                            Send
                                         </button>
                                     </div>
             
