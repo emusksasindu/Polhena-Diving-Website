@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -135,6 +136,7 @@ class UserController extends Controller
     }
 
     public function profileupdate(Request $request){
+        dd("G");
             $user=user::find($request->id);
 
             $user->name=$request->name;
@@ -144,23 +146,27 @@ class UserController extends Controller
             $user->save();
             return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
     }
+    
     public function passwordchange(Request $request){
-            $request->validate([
-            'newpassword' => ['required', 'string', 'min:8','max:16'],
-            'oldpassword' => ['required', 'string', 'min:8','max:16' ],
+        $request->validate([
+            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
         ]);
-
-            $password=user::find($request->id);
-
-            if($password->password==Hash::make($request->oldpassword) && $request->newpassword==$request->retypepassword){
-                $password->password=$request->newpassword;
-                $password->save();
-
-            }else{
+        $user = user::find(Auth::user()->id);
+        
+        if(Hash::check($request->oldpassword, $user->password)){
+            if (!Hash::check($request->password, $user->password)) {
+                $user->update([
+                    'password' => Hash::make($request->password)
+                ]);
+                
+                Auth::logout();
+            } else {
                 return redirect()->back()->with('message', 'Password error !');
             }
+        }else{
+            return redirect()->back()->with('message', 'Password error !');
+        }
 
-
-
+        return redirect()->back()->with('message', 'Password Changed');
     }
 }

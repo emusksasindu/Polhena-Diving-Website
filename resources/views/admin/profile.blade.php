@@ -14,7 +14,10 @@
             <!-- ======================= Cards ================== -->
             <div class="cardProfile">
                 <div class="card">
-                    <form role="form" method="POST" action="/profileupdated">
+                    @if($errors->any())
+    {!! implode('', $errors->all('<div>:message</div>')) !!}
+@endif
+                    <form method="POST" action="/profileupdated">
                         @csrf
                         <input type="hidden" name= "id" class="form-control"  value="{{ Auth::user()->id }}">
                         <div class="form-group">
@@ -35,43 +38,43 @@
                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#changepassword">
                         Change Password
                         </button>
+                    </form>
                         
                         <!-- Modal -->
                         <div class="modal fade" id="changepassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                        <form method="POST" action="/passwordchanged">
-                            @csrf
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel"></h5><h2>Change Password</h2>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
+                            <div class="modal-dialog">
+                                <form method="POST" action="/passwordchanged">
+                                    @csrf
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel"></h5><h2>Change Password</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
 
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <h4 class="numbers" for="Password">Old Password</h4>
-                                    <input type="password" name="oldpassword" class="form-control" id="password" placeholder="Enter Password" value="">
-                                </div>
+                                    <div class="modal-body">
+                                        <div class="form-group">
+                                            <h4 class="numbers" for="Password">Old Password</h4>
+                                            <input type="password" name="oldpassword" class="form-control" placeholder="Enter Password" value="">
+                                        </div>
 
-                                <div class="form-group">
-                                    <h4 class="numbers" for="Password">New Password</h4>
-                                    <input type="password" name="newpassword" class="form-control" id="password" placeholder="Enter Password" value="">
-                                </div>
-                                <div class="form-group">
-                                    <h4 class="numbers" for="Password">Retype New Password</h4>
-                                    <input type="password" name="retypenewpassword" class="form-control" id="password" placeholder="Enter Password" value="">
-                                </div>
+                                        <div class="form-group">
+                                            <h4 class="numbers" for="Password">New Password</h4>
+                                            <input type="password" name="password" class="form-control" placeholder="Enter Password" value="">
+                                        </div>
+                                        <div class="form-group">
+                                            <h4 class="numbers" for="Password">Retype New Password</h4>
+                                            <input type="password" name="password_confirmation" class="form-control" placeholder="Enter Password" value="">
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                    </div>
+                                </form>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="submit" class="btn btn-primary">Save changes</button>
-                            </div>
-                            </div>
-                        </form>
                         </div>
-                        </div>
 
-                    </form>
 
 
                 </div>

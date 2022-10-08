@@ -148,11 +148,11 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     Route::post('/statusupdated',[OrderController::class,'statusupdate']);
     // admin details update----------------------------------------
 
+    Route::post('/passwordchanged',[UserController::class,'passwordchange'])->name('passwordchange');
     Route::post('/profileupdated',[UserController::class,'profileupdate']);
 
-    Route::post('/passwordchanged',[UserController::class,'passwordchange']);
-
-
+    
+    
 });
 
 
