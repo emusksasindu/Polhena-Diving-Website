@@ -397,6 +397,33 @@ class ProductController extends Controller
             array_push($order_services, $order_service);
         }
         $profit = ($product_price + $service_price) - ($product_cost + $service_cost);
-        return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date, 'revenue'=>($product_price + $service_price), 'profit'=>$profit]);
+
+        // chart data
+        $chart_order_items = DB::table('order_item')
+                    ->select('*')
+                    ->groupBy('created_at')
+                    ->get();
+
+        $chart_data = [];
+        
+        foreach ($chart_order_items as $order_item) {
+            $chart_start_date = date('Y-m-d',strtotime($order_item->created_at)) . ' ' . '00:00:00';
+            $chart_end_date = date('Y-m-d',strtotime($order_item->created_at)) . ' ' . '23:59:59';
+
+            $query = "SELECT SUM(qty) AS qty, created_at FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND service_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
+            $chart_order_data = DB::select(DB::raw($query));
+
+            $query = "SELECT SUM(qty) AS qty, created_at FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND product_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
+            $chart_service_data = DB::select(DB::raw($query));
+            
+            
+            $chart_d = [];
+
+            $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_order_data[0]->qty;
+            $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_service_data[0]->qty;
+            
+            array_push($chart_data, $chart_d);
+        }
+        return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date, 'revenue'=>($product_price + $service_price), 'profit'=>$profit, 'chart_data'=>$chart_data]);
     }
 }

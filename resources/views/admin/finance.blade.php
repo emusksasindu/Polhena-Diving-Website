@@ -110,7 +110,7 @@
                                         <td>Name</td>
                                         <td>Price</td>
                                         <td>Payment</td>
-                                        <td>Status</td>
+                                        <td>Quantity</td>
                                     </tr>
                                 </thead>
 
@@ -128,14 +128,59 @@
                         </div>
                     </div>
 
-
+                    
                 </div>
             </div>
 
             </div>
 
             <!-- ================ Graph ================= -->
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['bar']});
+                google.charts.setOnLoadCallback(drawChart);
+                var chart_data = @json($chart_data)
 
+                var data1 = [['Date', 'Products', 'Services']]
+                chart_data.forEach(element => {
+                    var date = Object.keys(element)
+                    var productQty = element[date][0]
+                    var serviceQty = element[date][1]
+
+                    d = []
+                    d[0] = date[0]
+                    d[1] = productQty
+                    d[2] = serviceQty
+
+                    data1.push(d)
+                });
+
+                function drawChart() {                          
+                    var data = google.visualization.arrayToDataTable(data1);
+
+                    var options = {
+                    chart: {
+                        title: 'Company Performance',
+                        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                    }
+                    };
+
+                    var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+                    chart.draw(data, google.charts.Bar.convertOptions(options));
+                }
+            </script>
+            <div class="cardFinance" style="position: relative;
+                                            width: 100%;
+                                            padding: 20px;
+                                            display:block;
+                                            grid-template-columns:none;
+                                            grid-gap: 0;">
+                <div class="card" style="width: 100%">
+                    <div id="columnchart_material" style="width: 100%; height: 500px;"></div>
+                </div>
+            </div>
+            
         </div>
     </div>
 

@@ -143,7 +143,7 @@ class OrderController extends Controller
         $order=Order::find($request->id);
         $order->status=$request->status;
 
-        if ($request->status == "canceled") {
+        if ($request->status == "cancelled") {
             foreach ($order->products()->get() as $product) {
                 $size = $product->pivot->size . '_qty';
                 if ($size == 'small_qty') {
@@ -177,6 +177,11 @@ class OrderController extends Controller
             $payment = $order->payment()->first();
             
             $payment->status = 'completed';
+            $payment->save();
+        } else {
+            $payment = $order->payment()->first();
+            
+            $payment->status = 'processing';
             $payment->save();
         }
         $order->save();
