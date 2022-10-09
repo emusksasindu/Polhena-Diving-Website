@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('orderID',20);
             $table->foreignId('user_id')->constrained();
             $table->mediumText('shipping_address');
             $table->string('receiver_name',50);
