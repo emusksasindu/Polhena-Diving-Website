@@ -65,7 +65,7 @@
          
           <div class="dropdown-content-login">
             <a href="{{ asset('/profile') }}">Profile</a>
-            <a href="{{ asset('/order') }}">Order History</a>
+            <a href="{{ asset('/order/history') }}">Order History</a>
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
