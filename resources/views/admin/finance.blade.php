@@ -160,7 +160,7 @@
 
                     var options = {
                     chart: {
-                        title: 'Total Sales and Profit Chart',
+                        title: 'Total Sales and Total Profit Chart',
                         subtitle: 'Total Sales & Profit of Products and Services',
                     }
                     };
