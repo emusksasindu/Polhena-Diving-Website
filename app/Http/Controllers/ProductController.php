@@ -423,10 +423,12 @@ class ProductController extends Controller
             $query = "SELECT * FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND service_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
             $order_item_products = DB::select(DB::raw($query));
             $chart_product_profit = 0;
+            $chart_product_total_sales = 0;
             foreach ($order_item_products as $order_item_product) {
                 $product_order = order::find($order_item_product->order_id);
                 if ($product_order->status != "cancelled") {
                     $product = product::find($order_item_product->product_id);
+                    $chart_product_total_sales += $product->selling_price * $order_item_product->qty; 
                     $chart_product_profit += ($product->selling_price * $order_item_product->qty) - ($product->cost * $order_item_product->qty);
                 }
             }
@@ -435,10 +437,12 @@ class ProductController extends Controller
             $query = "SELECT * FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND product_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
             $order_item_services = DB::select(DB::raw($query));
             $chart_service_profit = 0;
+            $chart_service_total_sales = 0;
             foreach ($order_item_services as $order_item_service) {
                 $service_order = order::find($order_item_service->order_id);
                 if ($service_order->status != "cancelled") {
                     $service = service::find($order_item_service->service_id);
+                    $chart_service_total_sales += $service->selling_price * $order_item_service->qty;
                     $chart_service_profit += ($service->selling_price * $order_item_service->qty) - ($service->cost * $order_item_service->qty);
                 }
             }
@@ -446,8 +450,8 @@ class ProductController extends Controller
             $chart_d = [];
 
             if ($chart_product_profit != 0 || $chart_service_profit != 0) {
-                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_product_profit;
-                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_service_profit;
+                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_product_total_sales + $chart_service_total_sales;
+                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_product_profit + $chart_service_profit;
             }
             
             array_push($chart_data, $chart_d);
