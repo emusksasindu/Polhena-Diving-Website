@@ -79,22 +79,47 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+    public function updateInfo(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+        ]);
+        $user = User::find($request->id);
+        if ($request->email != $user->email) {
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+            ]);
+            $user->email = $request->email;
+        }
+
+        $user->name = $request->name;
+        $user->save();
+        return redirect()->back()
+            ->with('status', 'User has been updated successfully');
+    }
+
+    public function updatePwd(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', 'string', 'min:8', 'max:16'],
+            'password' => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
         ]);
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('admin.users')
-            ->with('success', 'User Has Been updated successfully');
+
+        $user = User::find($request->id);
+        if (Hash::check($request->current_password, $user->password)) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect()->back()
+                ->with('status', 'Password has been updated successfully');
+        }
+        return redirect()->back()
+            ->with('status', 'current password is invalid!');
     }
+
+
     /**
      * Remove the specified resource from storage.
 
