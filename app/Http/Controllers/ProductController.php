@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\category;
+use App\Models\order;
 use App\Models\payment;
 use Illuminate\Http\Request;
 use App\Models\product;
@@ -331,24 +332,29 @@ class ProductController extends Controller
         $product_price = 0;
         $product_cost = 0;
         foreach ($order_items as $order_item) {
-            $order_product = [];
+            $order = order::find($order_item->order_id);
 
-            $product = product::find($order_item->product_id);
-            $payment = payment::find($order_item->order_id);
+            if($order->status != "cancelled") {
+                $order_product = [];
 
-            $order_product['id'] = $order_item->product_id;
-            $order_product['name'] = $product->name;
-            $order_product['price'] = $product->selling_price;
-            $order_product['quantity'] = $order_item->qty;
-            $product_price += $order_product['price'] * $order_product['quantity'];
-            $product_cost += $product->cost * $order_item->qty;
-            if ($payment->status == "completed") {
-                $order_product['status'] = "Paid";
-            } else {
-                $order_product['status'] = "Due";
+                $product = product::find($order_item->product_id);
+                $payment = payment::find($order_item->order_id);
+    
+                $order_product['id'] = $order_item->product_id;
+                $order_product['name'] = $product->name;
+                $order_product['price'] = $product->selling_price;
+                $order_product['quantity'] = $order_item->qty;
+                $product_price += $order_product['price'] * $order_product['quantity'];
+                $product_cost += $product->cost * $order_item->qty;
+                if ($payment->status == "completed") {
+                    $order_product['status'] = "Paid";
+                } else {
+                    $order_product['status'] = "Due";
+                }
+    
+                array_push($order_products, $order_product);
             }
-
-            array_push($order_products, $order_product);
+            
         }
 
 
@@ -377,24 +383,28 @@ class ProductController extends Controller
         $service_price = 0;
         $service_cost = 0;
         foreach ($order_itemsS as $order_item) {
-            $order_service = [];
+            $order = order::find($order_item->order_id);
 
-            $service = service::find($order_item->service_id);
-            $payment = payment::find($order_item->order_id);
+            if($order->status != "cancelled") {
+                $order_service = [];
 
-            $order_service['id'] = $order_item->service_id;
-            $order_service['name'] = $service->name;
-            $order_service['price'] = $service->selling_price;
-            $order_service['quantity'] = $order_item->qty;
-            $service_price += $order_service['price'] * $order_service['quantity'];
-            $service_cost += $service->cost * $order_item->qty;
-            if ($payment->status == "completed") {
-                $order_service['status'] = "Paid";
-            } else {
-                $order_service['status'] = "Due";
+                $service = service::find($order_item->service_id);
+                $payment = payment::find($order_item->order_id);
+
+                $order_service['id'] = $order_item->service_id;
+                $order_service['name'] = $service->name;
+                $order_service['price'] = $service->selling_price;
+                $order_service['quantity'] = $order_item->qty;
+                $service_price += $order_service['price'] * $order_service['quantity'];
+                $service_cost += $service->cost * $order_item->qty;
+                if ($payment->status == "completed") {
+                    $order_service['status'] = "Paid";
+                } else {
+                    $order_service['status'] = "Due";
+                }
+
+                array_push($order_services, $order_service);
             }
-
-            array_push($order_services, $order_service);
         }
         $profit = ($product_price + $service_price) - ($product_cost + $service_cost);
 
@@ -410,20 +420,39 @@ class ProductController extends Controller
             $chart_start_date = date('Y-m-d',strtotime($order_item->created_at)) . ' ' . '00:00:00';
             $chart_end_date = date('Y-m-d',strtotime($order_item->created_at)) . ' ' . '23:59:59';
 
-            $query = "SELECT SUM(qty) AS qty, created_at FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND service_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
-            $chart_order_data = DB::select(DB::raw($query));
+            $query = "SELECT * FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND service_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
+            $order_item_products = DB::select(DB::raw($query));
+            $chart_product_profit = 0;
+            foreach ($order_item_products as $order_item_product) {
+                $product_order = order::find($order_item_product->order_id);
+                if ($product_order->status != "cancelled") {
+                    $product = product::find($order_item_product->product_id);
+                    $chart_product_profit += ($product->selling_price * $order_item_product->qty) - ($product->cost * $order_item_product->qty);
+                }
+            }
 
-            $query = "SELECT SUM(qty) AS qty, created_at FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND product_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
-            $chart_service_data = DB::select(DB::raw($query));
-            
+
+            $query = "SELECT * FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND product_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
+            $order_item_services = DB::select(DB::raw($query));
+            $chart_service_profit = 0;
+            foreach ($order_item_services as $order_item_service) {
+                $service_order = order::find($order_item_service->order_id);
+                if ($service_order->status != "cancelled") {
+                    $service = service::find($order_item_service->service_id);
+                    $chart_service_profit += ($service->selling_price * $order_item_service->qty) - ($service->cost * $order_item_service->qty);
+                }
+            }
             
             $chart_d = [];
 
-            $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_order_data[0]->qty;
-            $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_service_data[0]->qty;
+            if ($chart_product_profit != 0 || $chart_service_profit != 0) {
+                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_product_profit;
+                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_service_profit;
+            }
             
             array_push($chart_data, $chart_d);
         }
+
         return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date, 'revenue'=>($product_price + $service_price), 'profit'=>$profit, 'chart_data'=>$chart_data]);
     }
 }

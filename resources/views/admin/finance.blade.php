@@ -160,8 +160,8 @@
 
                     var options = {
                     chart: {
-                        title: 'Company Performance',
-                        subtitle: 'Sales, Expenses, and Profit: 2014-2017',
+                        title: 'Profit Chart',
+                        subtitle: 'Profit of Products and Services',
                     }
                     };
 
