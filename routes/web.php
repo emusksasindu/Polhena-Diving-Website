@@ -12,6 +12,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscribeController;
 use App\Models\payment;
 use App\Models\product;
@@ -169,7 +170,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::post('products',[ProductController::class,'search'])->name('products.search');
 
 
-    //product related
+    //service related
     Route::get('/services',[ServiceController::class, 'user_index'] )->name('services.index');
     Route::get('services/filter/{id?}/{min_price?}/{max_price?}',[ServiceController::class,'filter'])->name('services.filter');
     Route::get('services/{service}',[ServiceController::class,'show'])->name('services.show');
