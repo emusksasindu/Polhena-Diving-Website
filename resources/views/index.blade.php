@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <!-- HOME section starts  -->
 
@@ -340,18 +341,14 @@
         <p>We always reply unless someone threw our Admin team in the water.</p>
         @if(count($errors) > 0 )
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                
                 Please Fill All Required Fields.!
             </div>
         @endif
         @if(session()->has('message'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            {{ session()->get('message') }}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>{{ session()->get('message') }}
+                </strong>
         </div>
         @endif
         <form action="/subscribed" method="POST">
@@ -373,6 +370,7 @@
 </section>
 
 <!-- chat section  -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <x-user_chat_window/>
 @include('layouts.footer')
