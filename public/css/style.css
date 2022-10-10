@@ -943,9 +943,7 @@
 
 .newsletter .content form .btn {
   margin-top: 0;
-  font-size: 16px;
-  border-radius: 1rem;
-  padding: 15px 32px;
+  border-radius: 5rem;
   background: #00b7ff;
   color: #fff;
 }
