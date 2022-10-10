@@ -12,7 +12,7 @@ class SubscribeController extends Controller
         $this->validate($request,[
             'name'=>'required|max:250|min:2',
             'email'=>'required|max:250|min:2|email',
-            'number'=>'required|max:11',
+            'number'=>'required|max:12',
             'subject'=>'required|max:250|min:1',
             'body'=>'required|max:2500|min:1',
         ]);
