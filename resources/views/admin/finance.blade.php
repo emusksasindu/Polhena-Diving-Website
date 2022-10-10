@@ -80,9 +80,9 @@
                                             <td>${{ $order_product['price'] }}</td>
                                             <td>{{ $order_product['status'] }}</td>
                                             <td>{{ $order_product['quantity'] }}</td>
-                                        </tr>    
+                                        </tr>
                                     @endforeach
-                                    
+
 
                                 </tbody>
                             </table>
@@ -98,7 +98,7 @@
                     <div>
                         <div class="numbers">Purchased Services</div>
                         <div class="input-group">
-                            
+
 
                         </div>
                         <div class="gap"></div>
@@ -121,14 +121,14 @@
                                             <td>${{ $order_service['price'] }}</td>
                                             <td>{{ $order_service['status'] }}</td>
                                             <td>{{ $order_service['quantity'] }}</td>
-                                        </tr>    
+                                        </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
 
@@ -139,8 +139,8 @@
             <script type="text/javascript">
                 google.charts.load('current', {'packages':['bar']});
                 google.charts.setOnLoadCallback(drawChart);
-                var chart_data = @json($chart_data)
-
+                var chart_data = @json($chart_data);
+                console.log(chart_data);
                 var data1 = [['Date', 'Total Sales', 'Total Profit']]
                 chart_data.forEach(element => {
                     var date = Object.keys(element)
@@ -155,7 +155,7 @@
                     data1.push(d)
                 });
 
-                function drawChart() {                          
+                function drawChart() {
                     var data = google.visualization.arrayToDataTable(data1);
 
                     var options = {
@@ -180,7 +180,7 @@
                     <div id="columnchart_material" style="width: 100%; height: 500px;"></div>
                 </div>
             </div>
-            
+
         </div>
     </div>
 
@@ -201,7 +201,7 @@
     .left {
         float: left;
     }
-    
+
 </style>
 <script>
     $(document).ready(function () {
