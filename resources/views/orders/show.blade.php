@@ -129,7 +129,7 @@
 
                             @foreach ($services as $service)
                                 <tr>
-                                    <td><img src="/storage/{{ $service->image_1 }}" alt=""></td>
+                                    <td><img src="/storage/{{ $service->imageUrl_1 }}" alt=""></td>
                                     <th scope="row">{{ $service->serviceID }}</th>
                                     <td>{{ $service->name }}</td>
                                     <td>{{ $service->pivot->qty }}</td>
