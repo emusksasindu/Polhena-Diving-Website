@@ -141,7 +141,7 @@
                 google.charts.setOnLoadCallback(drawChart);
                 var chart_data = @json($chart_data);
                 console.log(chart_data);
-                var data1 = [['Date', 'Total Sales', 'Total Profit']]
+                var data1 = [['Date', 'Total Revenue', 'Total Profit']]
                 chart_data.forEach(element => {
                     var date = Object.keys(element)
                     var productQty = element[date][0]
@@ -160,7 +160,7 @@
 
                     var options = {
                     chart: {
-                        title: 'Total Sales and Total Profit Chart',
+                        title: 'Total Revenue and Total Profit Chart',
                         subtitle: 'Total Sales & Profit of Products and Services',
                     }
                     };
