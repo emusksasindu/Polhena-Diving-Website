@@ -161,7 +161,7 @@
                     var options = {
                     chart: {
                         title: 'Total Revenue and Total Profit Chart',
-                        subtitle: 'Total Sales & Profit of Products and Services',
+                        subtitle: 'Total Revenue & Profit of Products and Services',
                     }
                     };
 
