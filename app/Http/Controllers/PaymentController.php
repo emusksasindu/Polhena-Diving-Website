@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\order;
 use Illuminate\Http\Request;
 use App\Models\Payment;
+use App\Models\product;
+use Illuminate\Support\Facades\DB;
 
 class PaymentController extends Controller
 {
@@ -19,6 +21,66 @@ class PaymentController extends Controller
         $data['payments'] = Payment::orderBy('id', 'desc')->get();
         return view('payments.index', $data);
     }
+
+    public function viewDashboard()
+    {
+        //All orders
+        $allOrders = order::orderBy('id', 'desc')->paginate(10);
+        $data['orders'] = $allOrders;
+        $validOrders = order::where('status','!=','canceled')
+        ->get();
+
+
+        //valid order count
+        $validOrdersCount = $validOrders->count();
+        $data['OrderCount'] = $validOrdersCount;
+        
+        //stock
+        
+        $smallQty = product::sum('small_qty');
+        $medium_qty = product::sum('medium_qty');
+        $large_qty = product::sum('large_qty');
+        $xl_qty = product::sum('xl_qty');
+        $xxl_qty = product::sum('xxl_qty');
+        $data['Stock'] = $smallQty + $medium_qty + $large_qty + $xl_qty + $xxl_qty;
+       
+        $productsRevenue = 0;
+        $servicesRevenue = 0;
+        $productsProfit = 0;
+        $servicesProfit = 0;
+        foreach($validOrders as $order)
+        { 
+            $soldProducts = $order -> products() ->get();
+            $soldServices = $order -> services() -> get();
+
+            foreach($soldProducts as $product)
+            {
+                $productsRevenue = $productsRevenue + ($product->selling_price*$product->pivot->qty);
+                $productsProfit =  $productsProfit + ($product->selling_price - $product->cost)*$product->pivot->qty;
+            }
+
+            foreach($soldServices as $service)
+            {
+                $servicesRevenue = $servicesRevenue + ($service->selling_price*$service->pivot->qty);
+                $servicesProfit = $servicesProfit + ($service->selling_price - $service->cost)*$service->pivot->qty;
+            }
+          
+        }
+
+        //total Revenue
+
+        $totalRevenue = $productsRevenue + $servicesRevenue;
+        $data['Revenue'] = $totalRevenue;
+       
+       
+        //Total Profit
+
+        $totalProfit = $productsProfit + $servicesProfit;
+        $data['Profit'] = $totalProfit;
+         
+        return view('admin.index', $data);
+    }
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -50,7 +112,7 @@ class PaymentController extends Controller
         $payment = new Payment;
         $payment->card_number = $request->card_number;
         $payment->amount = $request->total;
-        $payment->status = 'process';
+        $payment->status = 'processing';
         $payment->order_id = $request->order_id;
         $payment->save();
 

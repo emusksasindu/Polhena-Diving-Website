@@ -71,7 +71,7 @@ class OrderController extends Controller
         $order->sub_total = $cart->sub_total;
         $order->discount = $cart->discount;
         $order->total = $cart->total;
-        $order->status = 'process';
+        $order->status = 'processing';
         $order->save();
         $this->addItem($cart);
 
@@ -162,14 +162,14 @@ class OrderController extends Controller
 
 
         }
-        $order->status = 'canceled';
+        $order->status = 'cancelled';
         $payment = $order->payment()->first();
         $payment->status = 'returned';
         $order ->save();
         $payment->save();
 
         return redirect()->back()
-            ->with('status', 'order has been canceled successfully.');
+            ->with('status', 'order has been cancelled successfully.');
     }
 
     /**

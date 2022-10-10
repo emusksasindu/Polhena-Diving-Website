@@ -41,9 +41,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // this route group use for admin only sections
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
-    Route::get('/admin', function () {
-        return view('admin.index');
-    });
+    Route::get('/admin', [PaymentController::class, 'viewDashboard'])->name('admin.viewDashboard');
 
     Route::get('/profile', function () {
         return view('admin.profile');

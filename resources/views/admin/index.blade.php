@@ -13,7 +13,7 @@
             <div class="cardBox">
                 <div class="card">
                     <div>
-                        <div class="numbers">1,504</div>
+                        <div class="numbers">{{$OrderCount}}</div>
                         <div class="cardName">Total Orders</div>
                     </div>
 
@@ -24,7 +24,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">80</div>
+                        <div class="numbers">${{$Revenue}}</div>
                         <div class="cardName">Revenue</div>
                     </div>
 
@@ -35,7 +35,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">284</div>
+                        <div class="numbers">{{$Stock}}</div>
                         <div class="cardName">Stock</div>
                     </div>
 
@@ -46,7 +46,7 @@
 
                 <div class="card">
                     <div>
-                        <div class="numbers">$7,842</div>
+                        <div class="numbers">${{$Profit}}</div>
                         <div class="cardName">Profit</div>
                     </div>
 
@@ -61,7 +61,23 @@
                 <div class="recentOrders">
                     <div class="cardHeader">
                         <h2>Latest Order</h2>
-                        <a href="#" class="btn">View All</a>
+                        @if(count($orders) != 0)
+                               
+                        <p>Showing {{($orders->currentpage()-1)*$orders->perpage()+1}} to 
+                            {{$orders->currentpage()*$orders->perpage() < $orders->total() ? 
+                            $orders->currentpage()*$orders->perpage():
+                            $orders->total();
+                            }} of 
+                            {{$orders->total()}} results
+                        </p>
+
+                   
+                   @else 
+                   <p>No Results
+                </p>
+
+               
+               @endif 
                     </div>
 
                     <table>
@@ -77,81 +93,24 @@
                         </thead>
 
                         <tbody>
+                            @foreach ($orders as $order)
                             <tr>
-                                <td>1</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status delivered">Delivered</span></td>
+                                <td>{{$order->orderID}}</td>
+                                <td>{{$order->receiver_name}}</td>
+                                <td>{{$order->shipping_address}}</td>
+                                <td>{{$order->number}}</td>
+                                <td>{{$order->total}}</td>
+                                <td><span class="status delivered">{{$order->status}}</span></td>
                             </tr>
-
-                            <tr>
-                                <td>2</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>3</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>4</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>5</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>6</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>7</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
-
-                            <tr>
-                                <td>8</td>
-                                <td>John Doe</td>
-                                <td>Sri lanka</td>
-                                <td>0112985675</td>
-                                <td>Rs:3500.00</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
-
+                <div class="col-lg-12">
+                    <div class="d-flex justify-content-center">
+                        {!! $orders->links() !!}
+                    </div>
+                </div>
              
             </div>
         </div>
