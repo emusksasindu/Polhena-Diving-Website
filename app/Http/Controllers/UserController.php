@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         $data['users'] = User::orderBy('id', 'desc')->get();
-        
+
         return view('admin.users', $data);
     }
 
@@ -179,6 +179,8 @@ class UserController extends Controller
     public function passwordchange(Request $request){
         $request->validate([
             'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+            'oldpassword' => ['required', 'string', 'min:8','max:16'],
+            'password_confirmation' => ['required', 'string', 'min:8','max:16']
         ]);
         $user = user::find(Auth::user()->id);
 
