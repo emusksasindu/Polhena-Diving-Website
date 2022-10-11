@@ -46,7 +46,7 @@
 }
 
 .gap{
-  padding-top: 10rem;
+  padding-top: 5rem;
 }
 
 .login-form form,
@@ -953,6 +953,106 @@
   color: #00b7ff;
 }
 
+
+
+.shadow-textarea textarea.form-control::placeholder {
+  font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+  padding-left: 0.8rem;
+}
+
+.message-group-received {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  
+}
+
+.message-group-received > div:first-child {
+  margin-top: auto;
+  margin-right: 5px;
+}
+
+.message-group-received > div:last-child {
+  flex-grow: 1;
+}
+
+.message-group-received > div:first-child > img {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
+
+.message-received {
+  max-width: 75%;
+  margin: 2px 0;
+  display: flex;
+}
+
+.message-received:first-child > .message-received-text {
+  border-top-left-radius: 20px;
+}
+
+.message-received:last-child > .message-received-text {
+  border-bottom-left-radius: 20px;
+}
+
+.message-received-text {
+  padding: 10px;
+  min-height: 20px;
+  background: #373737;
+  border-radius: 4px 20px 20px 4px;
+  color: #eee;
+}
+
+.message-group-sent {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.message-sent {
+  max-width: 75%;
+  display: flex;
+  margin: 2px 0 2px auto;
+}
+
+.message-sent-text {
+  background: #0099ff;
+  border-radius: 20px 4px 4px 20px;
+  min-height: 20px;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.message-sent:first-child > .message-sent-text {
+  border-top-right-radius: 20px;
+}
+
+.message-sent:last-child > .message-sent-text {
+  border-bottom-right-radius: 20px;
+}
+
+.message-sent-status {
+  width: 15px;
+  display: flex;
+  margin-left: 5px;
+  font-size: 15px;
+  color: rgba(134, 142, 153, 0.5);
+}
+
+.message-sent-status > img {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-top: auto;
+}
+
+.message-sent-status > i {
+  margin-top: auto;
+}
+
 /*User Chat section */
 .StaticChat #chatMessageWindow
 {
@@ -962,7 +1062,12 @@ width: 300px;
 .StaticChat #display_area
 {
   
-  width: 300px;
+  width: 290px;
+  height: 200px;
+}
+
+.StaticChat #display_area::-webkit-scrollbar {
+  display: none;
 }
 
 .StaticChat .message-received-text{
@@ -991,7 +1096,7 @@ width: 300px;
   z-index: 2;
   
   right: 60px;
-  background: var(--white);
+  background: white;
   padding: 20px;
   border-radius: 20px;
   display: list-item;
@@ -1007,6 +1112,7 @@ width: 300px;
   float: left;
   background: #fff;
   overflow-y: scroll;
+  overflow-x: hidden;
   margin-bottom: 25px;
 }
 .force-overflow {
@@ -1014,7 +1120,7 @@ width: 300px;
 }
 
 .scrollbar-primary::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
   background-color: #F5F5F5;
 }
 
@@ -1031,13 +1137,13 @@ width: 300px;
   position: relative;
   font-weight: 500;
   font-size: 2.5rem;
-  color: var(--blue);
+  color: #005eca;
 
 }
 
 .StaticChat textarea{
   padding: 0.5rem;
-  width: 230px;
+  width: 290px;
   resize: none;
   overflow: hidden;
   border :solid 0.1rem #005eca;
@@ -1045,27 +1151,29 @@ width: 300px;
 
 }
 
-.StaticChat .card .cardName {
-  color: var(--black2);
-  font-size: 1.1rem;
-  margin-top: 5px;
+.StaticChat .gap{
+ padding-top: 2rem;
+
 }
 
-.StaticChat .card .iconBx {
-  font-size: 3.5rem;
-  color: var(--black2);
-}
 
-.StaticChat .btn{
-  width: 70px;
-  height: 30px;
-  border-radius: 5rem;
+.StaticChat .btn {
+  width: 290px;
+  margin-top: 0;
+  border-radius: 2rem;
+  background: #0059ff;
+  color: #fff;
 }
 
 .StaticChat .btn:hover{
-  color: #00326b !important;
+  background: none;
+  color: #0059ff;
+  border-color:#0059ff;
 }
 
+.StaticChat .flex{
+  justify-content: space-around;
+}
 
 
 /*-------------------*/
