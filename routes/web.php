@@ -238,33 +238,12 @@ Route::post('save/chat', [ChatController::class, 'store'])->name('chat.store');
 Route::post('set/user/session', [ChatController::class, 'set_user_session'])->name('set_user_session');
 
 Route::get('/testt', function() {
-    $chart_order_items = DB::table('order_item')
-                    ->select('*')
-                    ->groupBy('created_at')
-                    ->get();
-
-    $chart_data = [];
-    
-    foreach ($chart_order_items as $order_item) {
-        $chart_start_date = date('Y-m-d',strtotime($order_item->created_at)) . ' ' . '00:00:00';
-        $chart_end_date = date('Y-m-d',strtotime($order_item->created_at)) . ' ' . '23:59:59';
-
-        $query = "SELECT SUM(qty) AS qty, created_at FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND service_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
-        $chart_order_data = DB::select(DB::raw($query));
-
-        $query = "SELECT SUM(qty) AS qty, created_at FROM order_item WHERE ((created_at >= '".$chart_start_date."') AND (created_at <= '".$chart_end_date."')) AND product_id IS NULL AND (strftime('%Y', created_at) = strftime('%Y', DATE()))";
-        $chart_service_data = DB::select(DB::raw($query));
-        
-        
-        $chart_d = [];
-
-        $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_order_data[0]->qty;
-        $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_service_data[0]->qty;
-
-        array_push($chart_data, $chart_d);
+    $last_row = DB::table('chats')->latest("id")->first();
+    if (!$last_row) {
+        echo "Hello";
+    } else {
+        echo "Hello World";
     }
-
-    dd($chart_data);
 });
 
 // subscribe function routes------------------------------(user side)
