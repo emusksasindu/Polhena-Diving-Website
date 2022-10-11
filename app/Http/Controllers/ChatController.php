@@ -118,8 +118,15 @@ class ChatController extends Controller
             }
         } else {
             $last_row = DB::table('chats')->latest("id")->first();
-            if (!session('chat_guest_id')) {
-                session(['chat_guest_id'=>$last_row->id]);
+            if (!$last_row) {
+                $last_row = 1;
+                if (!session('chat_guest_id')) {
+                    session(['chat_guest_id'=>$last_row]);
+                }
+            } else {
+                if (!session('chat_guest_id')) {
+                    session(['chat_guest_id'=>$last_row->id]);
+                }
             }
             if ($request->type == "A") {
                 $validated['guest_id'] = session('chat_guest_id');

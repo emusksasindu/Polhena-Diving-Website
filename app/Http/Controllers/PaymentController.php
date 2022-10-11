@@ -27,7 +27,7 @@ class PaymentController extends Controller
         //All orders
         $allOrders = order::orderBy('id', 'desc')->paginate(10);
         $data['orders'] = $allOrders;
-        $validOrders = order::where('status','!=','canceled')
+        $validOrders = order::where('status','!=','cancelled')
         ->get();
 
 
