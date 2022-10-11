@@ -78,6 +78,11 @@ class PaymentController extends Controller
         $totalProfit = $productsProfit + $servicesProfit;
         $data['Profit'] = $totalProfit;
          
+
+
+        //chat
+        $data['chats'] = (new ChatController)->chatMac();
+
         return view('admin.index', $data);
     }
     

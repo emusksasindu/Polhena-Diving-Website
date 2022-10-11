@@ -44,22 +44,12 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     Route::get('/admin', [PaymentController::class, 'viewDashboard'])->name('admin.viewDashboard');
 
     Route::get('/admin/profile', function () {
-        return view('admin.profile');
+        //chat
+        $chats = (new ChatController)->chatMac();
+        return view('admin.profile',compact('chats'));
     });
 
 
-    Route::get('/orders', function () {
-        return view('admin.orders');
-    });
-
-
-    Route::get('/inbox', function () {
-        return view('admin.inbox');
-    });
-
-    Route::get('/posts', function () {
-        return view('admin.posts');
-    });
 
 
 

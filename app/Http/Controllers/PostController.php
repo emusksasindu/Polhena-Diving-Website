@@ -128,8 +128,8 @@ class PostController extends Controller
     }
     public function showposts(){
         $allpost=post::all();
-
-            return view('admin/posts',['posts'=>$allpost]);
+        $data['chats'] = (new ChatController)->chatMac();
+            return view('admin/posts',['posts'=>$allpost],$data);
     }
     public function deletepost($id){
         $post=post::find($id);

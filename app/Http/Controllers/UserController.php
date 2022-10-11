@@ -12,6 +12,7 @@ class UserController extends Controller
     public function index()
     {
         $data['users'] = User::orderBy('id', 'desc')->get();
+        
         return view('admin.users', $data);
     }
 
@@ -135,8 +136,8 @@ class UserController extends Controller
 
     public function showusers(){
         $users=User::all();
-
-            return view('admin.users',['users'=>$users]);
+        $data['chats'] = (new ChatController)->chatMac();
+            return view('admin.users',['users'=>$users],$data);
     }
     // public function deleteuser($id){
     //     $user=User::find($id);

@@ -11,42 +11,49 @@ class ChatController extends Controller
 {
     public function index()
     {
-        // $chats = Chat::all();
-        $users = Chat::select('user_id')->distinct()->get();
-
-        $chatsData = [];
-        $fake = true;
-        foreach ($users as $user) {
-            $userData = [];
-            $userData1 = [];
-
-            $u = Chat::select('sender_type')->distinct()->where('user_id', '=', $user->user_id)->first();
-            $sender_type = $u->sender_type;
-            if ($sender_type == "U") {
-                $unreadChats = Chat::where('user_id', '=', $user->user_id)->where('read_status', '=', 0)->where('sender_type', '=', 'U')->get();
-                $userData["name"] = $user->user->name;
-                $userData["user_id"] = $user->user_id;
-                $userData["user_type"] = "U";
-                $userData["unreadChats"] = count($unreadChats);
-            } elseif ($sender_type == "G" && $fake == true) {
-                $fake = false;
-                $guests = Chat::select('guest_id')->distinct()->where('guest_id', '!=', NULL)->get();
-                foreach ($guests as $guest) {
-                    $unreadChats = Chat::where('guest_id', '=', $guest->guest_id)->where('read_status', '=', 0)->where('sender_type', '=', 'G')->where('guest_id', '!=', NULL)->get();
-                    
-                    $userData1["name"] = "Guest";
-                    $userData1["user_id"] = $guest->guest_id;
-                    $userData1["user_type"] = "G";
-                    $userData1["unreadChats"] = count($unreadChats);
-                    array_push($chatsData, $userData1);
-                }
-            }
-            if ($userData != []) {
-                array_push($chatsData, $userData);
-            }
-        }
-        
+       
+        $chatsData = $this->chatMac();
         return view('admin.chat', ['chats'=>$chatsData]);
+    }
+
+    public function chatMac()
+    {
+         // $chats = Chat::all();
+         $users = Chat::select('user_id')->distinct()->get();
+
+         $chatsData = [];
+         $fake = true;
+         foreach ($users as $user) {
+             $userData = [];
+             $userData1 = [];
+ 
+             $u = Chat::select('sender_type')->distinct()->where('user_id', '=', $user->user_id)->first();
+             $sender_type = $u->sender_type;
+             if ($sender_type == "U") {
+                 $unreadChats = Chat::where('user_id', '=', $user->user_id)->where('read_status', '=', 0)->where('sender_type', '=', 'U')->get();
+                 $userData["name"] = $user->user->name;
+                 $userData["user_id"] = $user->user_id;
+                 $userData["user_type"] = "U";
+                 $userData["unreadChats"] = count($unreadChats);
+             } elseif ($sender_type == "G" && $fake == true) {
+                 $fake = false;
+                 $guests = Chat::select('guest_id')->distinct()->where('guest_id', '!=', NULL)->get();
+                 foreach ($guests as $guest) {
+                     $unreadChats = Chat::where('guest_id', '=', $guest->guest_id)->where('read_status', '=', 0)->where('sender_type', '=', 'G')->where('guest_id', '!=', NULL)->get();
+                     
+                     $userData1["name"] = "Guest";
+                     $userData1["user_id"] = $guest->guest_id;
+                     $userData1["user_type"] = "G";
+                     $userData1["unreadChats"] = count($unreadChats);
+                     array_push($chatsData, $userData1);
+                 }
+             }
+             if ($userData != []) {
+                 array_push($chatsData, $userData);
+             }
+         }
+
+         return $chatsData;
     }
 
     

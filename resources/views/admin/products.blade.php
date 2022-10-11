@@ -110,7 +110,7 @@
             </div>
         </div>
     </div>
-
+    <x-admin_chat :chats="$chats"/>
     <!-- =========== Scripts =========  -->
     <script src="js/admin_script.js"></script>
 
