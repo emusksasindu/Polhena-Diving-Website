@@ -138,11 +138,12 @@ class UserController extends Controller
 
             return view('admin.users',['users'=>$users]);
     }
-    public function deleteuser($id){
-        $user=User::find($id);
-        $user->delete();
-        return redirect()->back();
-    }
+    // public function deleteuser($id){
+    //     $user=User::find($id);
+    //     $user->delete();
+
+    //     return redirect()->back();
+    // }
     public function edituser($id)
     {
         $user= user::find($id);
@@ -171,19 +172,19 @@ class UserController extends Controller
             $user->save();
             return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
     }
-    
+
     public function passwordchange(Request $request){
         $request->validate([
             'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
         ]);
         $user = user::find(Auth::user()->id);
-        
+
         if(Hash::check($request->oldpassword, $user->password)){
             if (!Hash::check($request->password, $user->password)) {
                 $user->update([
                     'password' => Hash::make($request->password)
                 ]);
-                
+
                 Auth::logout();
             } else {
                 return redirect()->back()->with('message', 'Password error !');
