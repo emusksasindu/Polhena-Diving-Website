@@ -3,7 +3,7 @@
     
     <!-- ======================= Chat list ================== -->
     <div class="StaticChatList">
-        <div class="card" style="max-height: 15%; bottom: 0" id="chatTableWindowCard">
+        <div class="card" style="max-height: 10%; bottom: 0" id="chatTableWindowCard">
             <input type="hidden" id="chatTableWindowValue" value="15" >
             <div>
                 
@@ -180,10 +180,12 @@
         const chatTableWindowValue = $("#chatTableWindowValue").val()
         if (chatTableWindowValue == 100) {
             $("#chatTableWindowValue").val(15)
-            $("#chatTableWindowCard").attr("style", "max-height: 15%; bottom: 0;");
+            $("#chatTableWindowCard").attr("style", "max-height: 10%; bottom: 0;");
+            $('#example').attr("style", "max-height: 15%; bottom: -1100;");
         } else {
             $("#chatTableWindowValue").val(100)
             $("#chatTableWindowCard").attr("style", "max-height: 100%; bottom: 0;");
+            $('#example').attr("style", "max-height: 15%; bottom: 0;");
         }
     })
 </script>

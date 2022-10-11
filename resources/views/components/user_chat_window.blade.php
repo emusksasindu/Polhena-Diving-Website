@@ -6,60 +6,60 @@
             <div class="StaticChat">
                 <input type="hidden" id="chatWindowValue" value="10">
                 <div class="card" style="max-height: 7%; bottom: 0;" id="chatWindowCard">
-                 <table>
-                    <tbody>
+                    <table>
+                        <tbody>
 
-                        <tr class='gap'>
-                            <td>
-                                <div class="numbers " id="chatWindow" style="font-size: 20px">
-                                    @if (Auth::check())
-                                        {{ Auth::user()->name }}
-                                    @else
-                                        Chat
-                                    @endif
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="table-wrapper-scroll-y my-custom-scrollbar scrollbar scrollbar-primary"
-                                id="chatMessageWindow" style="bottom: -100rem;">
-                                <div id="display_area"></div>
-                            </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><div class="gap"></div></td>
-                        </tr>
-
-                        <tr>
-                            <td>
-                                <div class="form-group shadow-textarea">
-                                    <div class="flex">
+                            <tr class='gap'>
+                                <td>
+                                    <div class="numbers " id="chatWindow" style="font-size: 20px">
                                         @if (Auth::check())
-                                            <input type="hidden" id="userType" value="U">
+                                            {{ Auth::user()->name }}
                                         @else
-                                            <input type="hidden" id="userType" value="G">
+                                            Chat
                                         @endif
-                                        <textarea class="form-control z-depth-1 rounded-pill" id="userMessage" rows="3"
-                                            placeholder="Write something here..."></textarea>
-            
-            
-            
-                                        <button type="submit" class="btn btn-primary rounded-pill">
-                                            Send
-                                        </button>
                                     </div>
-            
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
 
-                    </tbody>
-                 </table>
-    
+                            <tr>
+                                <td>
+                                    <div class="table-wrapper-scroll-y my-custom-scrollbar scrollbar scrollbar-primary"
+                                        id="chatMessageWindow" >
+                                        <div id="display_area" ></div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="gap"></div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="flex">
+                                        <div class="form-group shadow-textarea">
+
+                                            @if (Auth::check())
+                                                <input type="hidden" id="userType" value="U">
+                                            @else
+                                                <input type="hidden" id="userType" value="G">
+                                            @endif
+                                            <textarea class="form-control" id="userMessage" rows="3" placeholder="Write something here..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary rounded-pill">
+                                           send
+                                        </button>
+
+                                    </div>
+
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </div>
@@ -70,6 +70,7 @@
 <script>
     $(document).ready(function() {
         updateChat()
+        $("#display_area").hide();
 
         $("#userChat").submit(function(event) {
             event.preventDefault()
@@ -153,11 +154,11 @@
         if (chatWindowValue == 60) {
             $("#chatWindowValue").val(10)
             $("#chatWindowCard").attr("style", "max-height: 7%; bottom: 0;");
-            $("#chatMessageWindow").attr("style", " bottom: -100rem;");
+            $("#display_area").hide();
         } else {
             $("#chatWindowValue").val(60)
-            $("#chatWindowCard").attr("style", "max-height: 60%; bottom: 0;");
-            $("#chatMessageWindow").attr("style", " bottom: 0rem;");
+            $("#chatWindowCard").attr("style", "max-height: fit-content; bottom: 0;");
+            $("#display_area").show();
         }
     })
 </script>
