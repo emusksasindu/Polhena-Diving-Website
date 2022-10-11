@@ -244,9 +244,9 @@ class OrderController extends Controller
     }
 
     public function showorders(){
-        $orders=Order::all();
-
-            return view('admin.orders',['orders'=>$orders]);
+        $data['orders']=Order::all();
+        $data['chats'] = (new ChatController)->chatMac();
+            return view('admin.orders',$data);
     }
 
     public function statusupdate(Request $request){

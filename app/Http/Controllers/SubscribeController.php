@@ -34,9 +34,9 @@ class SubscribeController extends Controller
         // admin side
 
         public function show(){
-        $allmessage=contact::all();
-
-            return view('admin/inbox',['messages'=>$allmessage]);
+            $data['messages']=contact::all();
+            $data['chats'] = (new ChatController)->chatMac();
+            return view('admin/inbox',$data);
         }
 
         public function delete($id){

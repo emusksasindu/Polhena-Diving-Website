@@ -16,6 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $data['products'] = product::orderBy('id', 'desc')->paginate(5);
+        $data['chats'] = (new ChatController)->chatMac();
         return view('admin.products', $data);
     }
 
@@ -473,6 +474,8 @@ class ProductController extends Controller
         }
 
         // dd($chart_data);
-        return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date, 'revenue'=>($product_price + $service_price), 'profit'=>$profit, 'chart_data'=>$chart_data]);
+
+        $data['chats'] = (new ChatController)->chatMac();
+        return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date, 'revenue'=>($product_price + $service_price), 'profit'=>$profit, 'chart_data'=>$chart_data],$data);
     }
 }
