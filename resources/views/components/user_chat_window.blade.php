@@ -87,10 +87,13 @@
                         "type": userType
                     },
                     success: function(data) {
+                        console.log(data);
                         $("#userMessage").val("")
                         updateChat()
-                        var elem = document.getElementById('chatList');
-                        elem.scrollTop = elem.scrollHeight;
+                        if (elem) {
+                            var elem = document.getElementById('chatList');
+                            elem.scrollTop = elem.scrollHeight;
+                        }
                     }
                 })
             }
