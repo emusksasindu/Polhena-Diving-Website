@@ -43,7 +43,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
     Route::get('/admin', [PaymentController::class, 'viewDashboard'])->name('admin.viewDashboard');
 
-    Route::get('/profile', function () {
+    Route::get('/admin/profile', function () {
         return view('admin.profile');
     });
 
@@ -148,7 +148,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     // admin details update----------------------------------------
 
     Route::post('/passwordchanged',[UserController::class,'passwordchange'])->name('passwordchange');
-    Route::post('/profileupdated',[UserController::class,'profileupdate']);
+    Route::post('/admin/profileupdated',[UserController::class,'profileupdate']);
 
     
     
@@ -218,7 +218,7 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
      Route::post('/user',[UserController::class,'updatePwd'])->name('user.updatePwd');
 
 
-      //profile related
+      //admin/profile related
     Route::get('/profile', function () {
         return view('users.profile');
     });

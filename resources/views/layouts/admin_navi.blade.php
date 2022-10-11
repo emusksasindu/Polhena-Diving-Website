@@ -28,7 +28,7 @@
                 </li>
 
                 <li>
-                    <a href="/profile" >
+                    <a href="/admin/profile" >
                         <span class="icon">
                             <ion-icon name="person-circle-outline"></ion-icon>
                         </span>
