@@ -451,13 +451,28 @@ class ProductController extends Controller
             $chart_d = [];
 
             if ($chart_product_profit != 0 || $chart_service_profit != 0) {
-                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_product_total_sales + $chart_service_total_sales;
-                $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_product_profit + $chart_service_profit;
+                $flag = true;
+                if (count($chart_data) > 0) {
+                    foreach ($chart_data as $value) {
+                        if (array_key_exists(date('Y-m-d',strtotime($order_item->created_at)), $value)) {
+                            $value[date('Y-m-d',strtotime($order_item->created_at))][0] += ($chart_product_total_sales + $chart_service_total_sales);
+                            $value[date('Y-m-d',strtotime($order_item->created_at))][1] += ($chart_product_profit + $chart_service_profit);
+                            $flag = false;
+                            break;
+                        } 
+                    }
+                }
+                
+                if ($flag){
+                    $chart_d[date('Y-m-d',strtotime($order_item->created_at))][0] = $chart_product_total_sales + $chart_service_total_sales;
+                    $chart_d[date('Y-m-d',strtotime($order_item->created_at))][1] = $chart_product_profit + $chart_service_profit;
+                }
             }
             
             array_push($chart_data, $chart_d);
         }
 
+        // dd($chart_data);
         return view('admin.finance', ["order_products"=>$order_products, "order_services"=>$order_services, 'from_date'=>$from_date, 'to_date'=>$to_date, 'revenue'=>($product_price + $service_price), 'profit'=>$profit, 'chart_data'=>$chart_data]);
     }
 }
