@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
@@ -78,22 +79,47 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+
+    public function updateInfo(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+        ]);
+        $user = User::find($request->id);
+        if ($request->email != $user->email) {
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users']
+            ]);
+            $user->email = $request->email;
+        }
+
+        $user->name = $request->name;
+        $user->save();
+        return redirect()->back()
+            ->with('status', 'User has been updated successfully');
+    }
+
+    public function updatePwd(Request $request)
+    {
+        $request->validate([
+            'current_password' => ['required', 'string', 'min:8', 'max:16'],
+            'password' => ['required', 'string', 'min:8', 'max:16', 'confirmed'],
         ]);
 
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
-        return redirect()->route('admin.users')
-            ->with('success', 'User Has Been updated successfully');
+
+        $user = User::find($request->id);
+        if (Hash::check($request->current_password, $user->password)) {
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect()->back()
+                ->with('status', 'Password has been updated successfully');
+        }
+        return redirect()->back()
+            ->with('status', 'current password is invalid!');
     }
+
+
     /**
      * Remove the specified resource from storage.
 
@@ -112,11 +138,12 @@ class UserController extends Controller
 
             return view('admin.users',['users'=>$users]);
     }
-    public function deleteuser($id){
-        $user=User::find($id);
-        $user->delete();
-        return redirect()->back();
-    }
+    // public function deleteuser($id){
+    //     $user=User::find($id);
+    //     $user->delete();
+
+    //     return redirect()->back();
+    // }
     public function edituser($id)
     {
         $user= user::find($id);
@@ -132,5 +159,40 @@ class UserController extends Controller
 
         $user->save();
         return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
+    }
+
+    public function profileupdate(Request $request){
+        
+            $user=user::find($request->id);
+
+            $user->name=$request->name;
+            $user->email=$request->email;
+
+
+            $user->save();
+            return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
+    }
+
+    public function passwordchange(Request $request){
+        $request->validate([
+            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+        ]);
+        $user = user::find(Auth::user()->id);
+
+        if(Hash::check($request->oldpassword, $user->password)){
+            if (!Hash::check($request->password, $user->password)) {
+                $user->update([
+                    'password' => Hash::make($request->password)
+                ]);
+
+                Auth::logout();
+            } else {
+                return redirect()->back()->with('message', 'Password error !');
+            }
+        }else{
+            return redirect()->back()->with('message', 'Password error !');
+        }
+
+        return redirect()->back()->with('message', 'Password Changed');
     }
 }

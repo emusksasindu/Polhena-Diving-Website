@@ -28,19 +28,16 @@
 
 
             <!-- ================ Product Details List ================= -->
-
             <div class="details">
                 <div class="recentOrders">
 
                     <div class="cardHeader">
-                        <h2>Latest Products</h2>
-                        <a href="#" class="btn">View All</a>
-
+                        <h2>Categories</h2>
                     </div>
 
-                    <table  id="categoriesTable" class="display" style="width:100%">
+                    <table  id="categoriesTable" border="0" style="width:100%">
                         <thead>
-                            
+
 
                             <tr>
                                 <td>Name</td>
@@ -163,8 +160,29 @@
 </body>
 
 </html>
+<style>
+    .right {
+        float: right;
+        padding-bottom: 100px
+    }
+
+    .left {
+        float: left;
+    }
+    .bottom {
+        bottom: 0;
+        margin-right: 200px
+    }
+</style>
 <script>
     $(document).ready(function () {
-        $('#categoriesTable').DataTable();
+        $('#categoriesTable').DataTable({
+            "dom": '<"right"i><"left"f>tp',
+
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search records"
+            }
+        });
     });
 </script>

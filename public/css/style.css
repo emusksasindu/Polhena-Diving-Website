@@ -46,7 +46,7 @@
 }
 
 .gap{
-  padding-top: 10rem;
+  padding-top: 5rem;
 }
 
 .login-form form,
@@ -169,7 +169,254 @@
   font-size: small;
 }
 
+/* user profile */
 
+.UserProfile {
+  background-image: url('https://img.freepik.com/free-vector/copy-space-wavy-white-background-layers_23-2148845469.jpg?w=2000');
+  background-size: cover;
+  height: 100vh;
+  padding:0;
+  margin:0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+
+.UserProfile .content {
+  max-width: 180rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.UserProfile img {
+  width: 100px;
+  height: 130px;
+}
+
+.UserProfile .content p {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #00b7ff;
+}
+
+.UserProfile .content h4 {
+  text-align: left;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #025d81;
+}
+
+
+.UserProfile .content h5 {
+  text-align: center;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #02815b;
+}
+
+.UserProfile .content form {
+  
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.856);
+  border-radius: 2rem;
+  border: 0.2rem solid #ffffff;
+  padding: 2.3rem;
+  align-items: center;
+
+}
+
+.UserProfile .content form .field {
+  width: 50rem;
+  background: none;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #025d81;
+  text-transform: none;
+  font-size: 1.6rem;
+  color: #025d81;
+  padding: 1rem 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.SmallGap{
+  padding-top: 1.8rem;
+}
+
+.UserProfile .content form .btn {
+
+  margin-top: 0;
+  border-radius: 5rem;
+  background: #025d81;
+  color: #fff;
+}
+
+.UserProfile .content form .btn:hover {
+  background: none;
+  color: #025d81;
+  border-color:  #025d81;
+}
+
+
+/* user profile end */
+
+
+/*user order history */
+.OrderHistoryTable{
+  font-size: x-large;
+  cursor: pointer;
+
+}
+
+
+
+
+/*-------------------*/
+
+
+
+@media (max-width: 968px) {
+  
+  .OrderHistoryTable{
+    font-size: small;
+    width: 50px;
+    
+  }
+
+  .UserProfile{
+    height: max-content;
+  }
+  .UserProfile .content {
+    max-width: 60rem;
+    margin: 1rem auto;
+    text-align: center;
+
+  }
+
+  .OrderTableValue{
+    text-align: start;
+    font-size: small;
+    font-style: normal;
+    cursor: pointer;
+  }
+
+}
+
+
+/*user order history end*/
+
+
+/*user view order*/
+
+.OrderTable{
+  text-align: start;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.OrderTableValue{
+  text-align: start;
+  font-size: normal;
+  font-weight: 300;
+  cursor: pointer;
+  vertical-align: text-bottom;
+}
+
+
+
+
+
+
+.OrderView {
+  background-image: url('https://img.freepik.com/free-vector/copy-space-wavy-white-background-layers_23-2148845469.jpg?w=2000');
+  background-size: cover;
+  height: max-content;
+  padding:0;
+  margin:0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+
+.OrderView .content {
+  max-width: 180rem;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.OrderView img {
+  width: 100px;
+  height: 130px;
+}
+
+.OrderView .content p {
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #00b7ff;
+}
+
+.OrderView .content h4 {
+  text-align: left;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #025d81;
+}
+
+
+.OrderView .content h5 {
+  text-align: center;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #02815b;
+}
+
+.OrderView .content form {
+  
+  margin-top: 2rem;
+  background: rgba(255, 255, 255, 0.856);
+  border-radius: 2rem;
+  border: 0.2rem solid #ffffff;
+  padding: 2.3rem;
+  align-items: center;
+
+}
+
+.OrderView .content form .field {
+  width: 50rem;
+  background: none;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #025d81;
+  text-transform: none;
+  font-size: 1.6rem;
+  color: #025d81;
+  padding: 1rem 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+
+.OrderView .content form .btn {
+  font-size: medium;
+  margin-top: 0;
+  border-radius: 5rem;
+  background: #ff0000;
+  color: #fff;
+}
+
+.OrderView .content form .btn:hover {
+  background: none;
+  color: #ff0000;
+  border-color:  #ff0000;
+}
+
+/*user view order end*/
 
 
 
@@ -705,6 +952,231 @@
   background: none;
   color: #00b7ff;
 }
+
+
+
+.shadow-textarea textarea.form-control::placeholder {
+  font-weight: 300;
+}
+.shadow-textarea textarea.form-control {
+  padding-left: 0.8rem;
+}
+
+.message-group-received {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20px;
+  
+}
+
+.message-group-received > div:first-child {
+  margin-top: auto;
+  margin-right: 5px;
+}
+
+.message-group-received > div:last-child {
+  flex-grow: 1;
+}
+
+.message-group-received > div:first-child > img {
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+}
+
+.message-received {
+  max-width: 75%;
+  margin: 2px 0;
+  display: flex;
+}
+
+.message-received:first-child > .message-received-text {
+  border-top-left-radius: 20px;
+}
+
+.message-received:last-child > .message-received-text {
+  border-bottom-left-radius: 20px;
+}
+
+.message-received-text {
+  padding: 10px;
+  min-height: 20px;
+  background: #373737;
+  border-radius: 4px 20px 20px 4px;
+  color: #eee;
+}
+
+.message-group-sent {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+.message-sent {
+  max-width: 75%;
+  display: flex;
+  margin: 2px 0 2px auto;
+}
+
+.message-sent-text {
+  background: #0099ff;
+  border-radius: 20px 4px 4px 20px;
+  min-height: 20px;
+  padding: 10px;
+  margin-left: auto;
+}
+
+.message-sent:first-child > .message-sent-text {
+  border-top-right-radius: 20px;
+}
+
+.message-sent:last-child > .message-sent-text {
+  border-bottom-right-radius: 20px;
+}
+
+.message-sent-status {
+  width: 15px;
+  display: flex;
+  margin-left: 5px;
+  font-size: 15px;
+  color: rgba(134, 142, 153, 0.5);
+}
+
+.message-sent-status > img {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  margin-top: auto;
+}
+
+.message-sent-status > i {
+  margin-top: auto;
+}
+
+/*User Chat section */
+.StaticChat #chatMessageWindow
+{
+width: 300px;
+}
+
+.StaticChat #display_area
+{
+  
+  width: 290px;
+  height: 200px;
+}
+
+.StaticChat #display_area::-webkit-scrollbar {
+  display: none;
+}
+
+.StaticChat .message-received-text{
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: fit-content;
+  line-height: 1.8em;
+}
+
+.StaticChat .message-sent-text{
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: fit-content;
+  line-height: 1.8em;
+}
+
+
+
+
+.StaticChat .card {
+  position: fixed;
+  z-index: 2;
+  
+  right: 60px;
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  display: list-item;
+  justify-content: space-between;
+  cursor: pointer;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  
+ 
+}
+
+.scrollbar {
+ 
+  float: left;
+  background: #fff;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin-bottom: 25px;
+}
+.force-overflow {
+  min-height: 450px;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+  width: 8px;
+  background-color: #F5F5F5;
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #4285F4;
+}
+
+.scrollbar-primary {
+  scrollbar-color: #4285F4 #F5F5F5;
+}
+
+.StaticChat .card .numbers {
+  position: relative;
+  font-weight: 500;
+  font-size: 2.5rem;
+  color: #005eca;
+
+}
+
+.StaticChat textarea{
+  padding: 0.5rem;
+  width: 290px;
+  resize: none;
+  overflow: hidden;
+  border :solid 0.1rem #005eca;
+  border-radius: 2rem;
+
+}
+
+.StaticChat .gap{
+ padding-top: 2rem;
+
+}
+
+
+.StaticChat .btn {
+  width: 290px;
+  margin-top: 0;
+  border-radius: 2rem;
+  background: #0059ff;
+  color: #fff;
+}
+
+.StaticChat .btn:hover{
+  background: none;
+  color: #0059ff;
+  border-color:#0059ff;
+}
+
+.StaticChat .flex{
+  justify-content: space-around;
+}
+
+
+/*-------------------*/
 
 .clients .silde {
   text-align: center;

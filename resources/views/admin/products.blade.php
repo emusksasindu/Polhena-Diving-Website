@@ -80,7 +80,7 @@
                             @foreach($products as $product)
                             <tr>
                                 <td><img src="/storage/{{$product->image_1}}" alt=""></td>
-                                <td>{{$product->id}}</td>
+                                <td>{{$product->productID}}</td>
                                 <td>{{$product->name}}</td>
                                 <td>{{$product->small_qty + $product->medium_qty + $product->large_qty + $product->xl_qty + $product->xxl_qty}}</td>
                                 <td>${{$product->cost}}</td>

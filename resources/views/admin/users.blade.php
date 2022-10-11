@@ -50,7 +50,7 @@
 
 
                                     <a data-bs-toggle="modal" data-bs-target="#editcategoryModal{{$user ['id']}}"><ion-icon name="pencil-outline"></ion-icon></a>
-                                    <a href="deleteuser/{{$user ['id']}}"><ion-icon name="trash-outline"></ion-icon></a>
+                                    {{-- <a href="deleteuser/{{$user ['id']}}"><ion-icon name="trash-outline"></ion-icon></a> --}}
 
                                     <!-- Modal -->
                                     <div class="modal fade" id="editcategoryModal{{$user ['id']}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -149,8 +149,29 @@
 </body>
 
 </html>
+<style>
+    .right {
+        float: right;
+        padding-bottom: 100px
+    }
+
+    .left {
+        float: left;
+    }
+    .bottom {
+        bottom: 0;
+        margin-right: 200px
+    }
+</style>
 <script>
     $(document).ready(function () {
-        $('#usersTable').DataTable();
+        $('#usersTable').DataTable({
+            "dom": '<"right"i><"left"f>tp',
+
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search records"
+            }
+        });
     });
 </script>

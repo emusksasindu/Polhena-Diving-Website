@@ -8,9 +8,15 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChatController;
 use App\Http\Controllers\OrderController;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SubscribeController;
+use App\Models\payment;
+use App\Models\product;
+use App\Models\service;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,116 +41,115 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 // this route group use for admin only sections
 Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
 {
-    Route::get('/admin', function () {
-    return view('admin.index');
-});
+    Route::get('/admin', [PaymentController::class, 'viewDashboard'])->name('admin.viewDashboard');
 
-Route::get('/profile', function () {
-    return view('admin.profile');
-});
+    Route::get('/admin/profile', function () {
+        return view('admin.profile');
+    });
 
 
-Route::get('/orders', function () {
-    return view('admin.orders');
-});
+    Route::get('/orders', function () {
+        return view('admin.orders');
+    });
 
 
-Route::get('/inbox', function () {
-    return view('admin.inbox');
-});
+    Route::get('/inbox', function () {
+        return view('admin.inbox');
+    });
 
-Route::get('/posts', function () {
-    return view('admin.posts');
-});
+    Route::get('/posts', function () {
+        return view('admin.posts');
+    });
 
 
 
-Route::get('/finance', function () {
-    return view('admin.finance');
-});
+    Route::match(['get','post'], '/finance', [ProductController::class, 'finance'])->name('finance');
 
-Route::get('/chat', function () {
-    return view('admin.chat');
-});
+    Route::get('/chat', [ChatController::class, 'index'])->name('chat.index');
 
-Route::resource('admin/users',UserController::class );
+    Route::resource('admin/users',UserController::class );
 
-Route::resource('admin/categories',CategoryController::class );
+    Route::resource('admin/categories',CategoryController::class );
 
 
-// product related routes
-Route::resource('/admin/products',ProductController::class );
-Route::get('/admin/products/delete',[ProductController::class,'destroy'])->name('products.destroy');
-Route::post('/admin/products/search',[ProductController::class,'search'])->name('products.adminsearch');
+    // product related routes
+    Route::resource('/admin/products',ProductController::class );
+    Route::get('/admin/products/delete',[ProductController::class,'destroy'])->name('products.destroy');
+    Route::post('/admin/products/search',[ProductController::class,'search'])->name('products.adminsearch');
 
 
-// service related routes
-Route::resource('/admin/services',ServiceController::class );
-Route::get('/admin/services/delete',[ServiceController::class ,'destroy'])->name('services.destroy');
-Route::post('/admin/services/search',[ServiceController::class ,'search'])->name('services.adminsearch');
+    // service related routes
+    Route::resource('/admin/services',ServiceController::class );
+    Route::get('/admin/services/delete',[ServiceController::class ,'destroy'])->name('services.destroy');
+    Route::post('/admin/services/search',[ServiceController::class ,'search'])->name('services.adminsearch');
 
 
-// admin panel functions
+    // admin panel functions
 
 
-// admin inbox routes view messages------------------------------------
-Route::get('/inbox',[SubscribeController::class,'show']);
+    // admin inbox routes view messages------------------------------------
+    Route::get('/inbox',[SubscribeController::class,'show']);
 
-// admin inbox routes delete messages------------------------------------
-Route::get('/deletemessage/{id}',[SubscribeController::class,'delete']);
+    // admin inbox routes delete messages------------------------------------
+    Route::get('/deletemessage/{id}',[SubscribeController::class,'delete']);
 
 
 
-// admin view category table details routes-----------------------------------
-Route::get('/categories',[CategoryController::class,'show']);
+    // admin view category table details routes-----------------------------------
+    Route::get('/categories',[CategoryController::class,'show']);
 
-// admin edit category details routes-----------------------------------
-Route::get('/editcategories/{id}',[CategoryController::class,'editcategory']);
+    // admin edit category details routes-----------------------------------
+    Route::get('/editcategories/{id}',[CategoryController::class,'editcategory']);
 
-Route::get('/editcategories',function(){
-    return view('admin/editcategory');
-});
-// admin update category details routes----------------------
-Route::post('/categoryupdated',[CategoryController::class,'update']);
+    Route::get('/editcategories',function(){
+        return view('admin/editcategory');
+    });
+    // admin update category details routes----------------------
+    Route::post('/categoryupdated',[CategoryController::class,'update']);
 
-// admin delete category details routes---------------------
-Route::get('admin/deletecategory/{id}',[CategoryController::class,'delete']);
+    // admin delete category details routes---------------------
+    Route::get('admin/deletecategory/{id}',[CategoryController::class,'delete']);
 
-// admin create post----------------------------------------
+    // admin create post----------------------------------------
 
-Route::post('/postcreated',[PostController::class,'createpost']);
-Route::get('/addpost',function(){
-    return view('admin/addpost');
-});
+    Route::post('/postcreated',[PostController::class,'createpost']);
+    Route::get('/addpost',function(){
+        return view('admin/addpost');
+    });
 
-// admin show all posts--------------------------------------
-Route::get('/posts',[PostController::class,'showposts']);
-// admin delete post ----------------------------------------
-Route::get('/deletepost/{id}',[PostController::class,'deletepost']);
-// editpost routes--------------------------------------------
-Route::get('/editpost/{id}',[PostController::class,'editpost']);
+    // admin show all posts--------------------------------------
+    Route::get('/posts',[PostController::class,'showposts']);
+    // admin delete post ----------------------------------------
+    Route::get('/deletepost/{id}',[PostController::class,'deletepost']);
+    // editpost routes--------------------------------------------
+    Route::get('/editpost/{id}',[PostController::class,'editpost']);
 
-Route::get('/editpost',function(){
-    return view('admin/editpost');
-});
+    Route::get('/editpost',function(){
+        return view('admin/editpost');
+    });
 
-// update post -------------------------------------------------
-Route::post('/postupdated',[PostController::class,'updatepost']);
+    // update post -------------------------------------------------
+    Route::post('/postupdated',[PostController::class,'updatepost']);
 
-// view users--------------------------------------------------
-Route::get('/admin/users',[UserController::class,'showusers']);
+    // view users--------------------------------------------------
+    Route::get('/admin/users',[UserController::class,'showusers']);
 
-// delete user ------------------------------------------------
-Route::get('/admin/deleteuser/{id}',[UserController::class,'deleteuser']);
-// edit user ---------------------------------------------------
-Route::get('/admin/edituser/{id}',[UserController::class,'edituser']);
-// user update-------------------------------------------------
-Route::post('/userupdated',[UserController::class,'userupdate']);
+    // delete user ------------------------------------------------
+    // Route::get('/admin/deleteuser/{id}',[UserController::class,'deleteuser']);
+    // edit user ---------------------------------------------------
+    Route::get('/admin/edituser/{id}',[UserController::class,'edituser']);
+    // user update-------------------------------------------------
+    Route::post('/userupdated',[UserController::class,'userupdate']);
 
-// show order details-------------------------------------------
-Route::get('/orders',[OrderController::class,'showorders']);
-//order status update routes-----------------------------------
-Route::post('/statusupdated',[OrderController::class,'statusupdate']);
+    // show order details-------------------------------------------
+    Route::get('/orders',[OrderController::class,'showorders']);
+    //order status update routes-----------------------------------
+    Route::post('/statusupdated',[OrderController::class,'statusupdate']);
+    // admin details update----------------------------------------
+
+    Route::post('/passwordchanged',[UserController::class,'passwordchange'])->name('passwordchange');
+    Route::post('/profileupdated',[UserController::class,'profileupdate']);
+
 
 
 });
@@ -163,7 +168,7 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::post('products',[ProductController::class,'search'])->name('products.search');
 
 
-    //product related
+    //service related
     Route::get('/services',[ServiceController::class, 'user_index'] )->name('services.index');
     Route::get('services/filter/{id?}/{min_price?}/{max_price?}',[ServiceController::class,'filter'])->name('services.filter');
     Route::get('services/{service}',[ServiceController::class,'show'])->name('services.show');
@@ -197,21 +202,49 @@ Route::group(['middleware' => 'App\Http\Middleware\AuthUserMiddleware'], functio
     Route::get('/cart',[CartController::class,'user_index'])->name('cart.user_index');
 
 
-    // oreder related
+    // order related
     Route::get('/order/create',[OrderController::class,'create'])->name('orders.create');
+    Route::post('/order/store',[OrderController::class,'store'])->name('order.store');
+    Route::get('/order/history',[OrderController::class,'user_index'])->name('orders.index');
+    Route::get('/order/{order}',[OrderController::class,'show'])->name('orders.show');
+    Route::post('/order/cancel',[OrderController::class,'cancelOrder'])->name('order.cancelOrder');
+
+    //payment related
+    Route::get('/payment/create/{id}',[PaymentController::class,'create'])->name('payment.create');
+    Route::post('/payment/store',[PaymentController::class,'store'])->name('payment.store');
+
+     //user related
+     Route::post('/user/updateInfo',[UserController::class,'updateInfo'])->name('user.updateInfo');
+     Route::post('/user',[UserController::class,'updatePwd'])->name('user.updatePwd');
+
+
+      //admin/profile related
+    Route::get('/profile', function () {
+        return view('users.profile');
+    });
+
+    Route::get('/editpassword', function () {
+        return view('users.editpassword');
+    });
 });
 
+// Route::get('/test/user/chat', function() {
+//     return view('users.chat_test');
+// });
+
+Route::post('show/user/chat', [ChatController::class, 'user_chat']);
+Route::post('show/admin/chat', [ChatController::class, 'admin_chat']);
+Route::post('save/chat', [ChatController::class, 'store'])->name('chat.store');
+Route::post('set/user/session', [ChatController::class, 'set_user_session'])->name('set_user_session');
+
+Route::get('/testt', function() {
+    $last_row = DB::table('chats')->latest("id")->first();
+    if (!$last_row) {
+        echo "Hello";
+    } else {
+        echo "Hello World";
+    }
+});
 
 // subscribe function routes------------------------------(user side)
-Route::post('/subscribed',[SubscribeController::class,'index']);
-
-
-
-
-
-
-
-
-
-
-
+Route::post('/subscribed', [SubscribeController::class,'index']);

@@ -131,8 +131,30 @@
 </body>
 
 </html>
+<style>
+    .right {
+        float: right;
+        padding-bottom: 100px
+    }
+
+    .left {
+        float: left;
+    }
+    .bottom {
+        bottom: 0;
+        margin-right: 200px
+    }
+</style>
+
 <script>
     $(document).ready(function () {
-        $('#ordersTable').DataTable();
+        $('#ordersTable').DataTable({
+            "dom": '<"right"i><"left"f>tp',
+
+            language: {
+                search: "_INPUT_",
+                searchPlaceholder: "Search records"
+            }
+        });
     });
 </script>
