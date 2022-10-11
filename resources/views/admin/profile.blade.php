@@ -14,9 +14,24 @@
             <!-- ======================= Cards ================== -->
             <div class="cardProfile">
                 <div class="card">
-                    {{-- @if($errors->any())
-    {!! implode('', $errors->all('<div>:message</div>')) !!}
-@endif --}}
+
+                    @if(count($errors) > 0 )
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+
+                            Please Fill All Required Details Currectly ..!
+                        </div>
+                    @endif
+                    @if(session()->has('updatemsg'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+                        {{ session()->get('updatemsg') }}
+                    </div>
+                    @endif
+
+                    
+
+
+
                     <form method="POST" action="/profileupdated">
                         @csrf
                         <input type="hidden" name= "id" class="form-control"  value="{{ Auth::user()->id }}">
@@ -34,12 +49,13 @@
                         <div class="gap"></div>
 
                         <div class="gap"></div>
+
                         <button type="submit" class="btn">Edit</button>
                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#changepassword">
                         Change Password
                         </button>
                     </form>
-                        
+
                         <!-- Modal -->
                         <div class="modal fade" id="changepassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
