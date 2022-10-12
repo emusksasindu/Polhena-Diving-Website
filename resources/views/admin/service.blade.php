@@ -102,7 +102,11 @@
                         </tbody>
                     </table>
                 </div>
-
+                  <div class="col-lg-12">
+                    <div class="d-flex justify-content-center">
+                        {!! $services->links() !!}
+                    </div>
+                </div>
              
             </div>
         </div>
