@@ -824,7 +824,7 @@ a{
 .StaticChatList .card {
   position: fixed;
   z-index: 2;
-  right: 500px;
+  right: 400px;
   background: var(--white);
   padding: 20px;
   border-radius: 20px;
