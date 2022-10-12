@@ -114,7 +114,7 @@ class PaymentController extends Controller
             'yy' => ['required', 'integer', 'min:22', 'max:99'],
             'cvv' => ['required', 'integer', 'min:100', 'max:999']
         ]);
-        $payment = new Payment;
+        $payment = Payment::where('order_id',$request->order_id)->first();
         $payment->card_number = $request->card_number;
         $payment->amount = $request->total;
         $payment->status = 'processing';
@@ -124,6 +124,18 @@ class PaymentController extends Controller
         return redirect()->route('orders.index')
             ->with('success', 'payment has been created successfully.');
     }
+
+    public function corrupted($order)
+    {   $payment = new Payment;
+        $payment->card_number = 0000000000000000;
+        $payment->amount = 0;
+        $payment->status = 'corrupted';
+        $payment->order_id = $order->id;
+        $payment->save();
+
+    }
+
+
     /**
      * Display the specified resource.
      *

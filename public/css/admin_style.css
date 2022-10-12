@@ -821,6 +821,10 @@ a{
   color: var(--black2);
 }
 
+.hidescroll::-webkit-scrollbar {
+  display: none;
+}
+
 .StaticChatList .card {
   position: fixed;
   z-index: 2;

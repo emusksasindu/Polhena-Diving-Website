@@ -76,10 +76,14 @@ class OrderController extends Controller
         $this->addItem($cart);
 
         $order = Order::where('user_id', Auth::id())->latest()->first();
+        (new PaymentController)->corrupted($order);
 
         return redirect()->route('payment.create', $order)
             ->with('success', 'order has been placed successfully.');
     }
+
+
+
 
     private function addItem($cart)
     {
@@ -183,7 +187,14 @@ class OrderController extends Controller
         $data['payment'] = $order->payment()->first();
         $data['products'] = $order->products()->get();
         $data['services'] = $order->services()->get();
-        return view('orders.show', compact('order'), $data);
+        $user = Auth::user();
+        if($user->type == 'A')
+        {
+            $data['chats'] = (new ChatController)->chatMac();
+            return view('admin.showorder', compact('order'), $data);
+        }
+        
+            return view('orders.show', compact('order'), $data);
     }
     /**
      * Show the form for editing the specified resource.
@@ -228,7 +239,7 @@ class OrderController extends Controller
         $order->users_id = $order->users_id;
         $order->save();
         return redirect()->route('admin.orders')
-            ->with('success', 'order Has Been updated successfully');
+            ->with('success', 'order has been updated successfully');
     }
     /**
      * Remove the specified resource from storage.

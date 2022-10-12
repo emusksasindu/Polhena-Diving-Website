@@ -3,11 +3,11 @@
     
     <!-- ======================= Chat list ================== -->
     <div class="StaticChatList">
-        <div class="card" style="max-height: 10%; bottom: 0" id="chatTableWindowCard">
+        <div class="card" style="max-height: 7%; bottom: 0" id="chatTableWindowCard">
             <input type="hidden" id="chatTableWindowValue" value="15" >
             <div>
                 
-                <div class="numbers" id="chatTableWindow">Chats</div>
+                <div class="numbers" style="font-size: 20px" id="chatTableWindow">Chats</div>
                 
                 <div class="gap"></div>
                 <div class="recentOrders table-wrapper-scroll-y my-custom-scrollbar scrollbar scrollbar-primary " >
@@ -51,7 +51,7 @@
     @if (session('chat_user_id') || session('chat_guest_id'))
         <div class="StaticChat"  >
             <input type="hidden" id="chatWindowValue" value="10" >
-            <div class="card" style="max-height: 10%; bottom: 0;" id="chatWindowCard">
+            <div class="card" style="max-height: 7%; bottom: 0;" id="chatWindowCard">
                 <div class="numbers" id="chatWindow" style="font-size: 20px">{{ session('chat_user_name') }}</div>
                 <div class="table-wrapper-scroll-y my-custom-scrollbar scrollbar scrollbar-primary" id="chatMessageWindow">
                     <div id="display_area"></div>
@@ -169,7 +169,7 @@
         const chatWindowValue = $("#chatWindowValue").val()
         if (chatWindowValue == 60) {
             $("#chatWindowValue").val(10)
-            $("#chatWindowCard").attr("style", "max-height: 10%; bottom: 0;");
+            $("#chatWindowCard").attr("style", "max-height: 7%; bottom: 0;");
         } else {
             $("#chatWindowValue").val(60)
             $("#chatWindowCard").attr("style", "max-height: 60%; bottom: 0;");
@@ -180,7 +180,7 @@
         const chatTableWindowValue = $("#chatTableWindowValue").val()
         if (chatTableWindowValue == 100) {
             $("#chatTableWindowValue").val(15)
-            $("#chatTableWindowCard").attr("style", "max-height: 10%; bottom: 0;");
+            $("#chatTableWindowCard").attr("style", "max-height: 7%; bottom: 0;");
             $('#example').attr("style", "max-height: 15%; bottom: -1100;");
         } else {
             $("#chatTableWindowValue").val(100)

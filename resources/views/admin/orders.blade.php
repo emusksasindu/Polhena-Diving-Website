@@ -38,6 +38,7 @@
                                 <td>Total</td>
                                 <td>Contact No</td>
                                 <td>Status</td>
+                                <td>Action</td>
 
                             </tr>
                         </thead>
@@ -107,6 +108,7 @@
                                     </div>
                                     </div>
                                 </td>
+                                <td><a href="{{route('showorders.show',$order)}}">View More</a></td>
                             </tr>
 
 
