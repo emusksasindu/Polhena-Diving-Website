@@ -197,7 +197,7 @@ class UserController extends Controller
                 return back();
             }
         }else{
-            session()->flash('passwordErrorMessage', 'You old password is wrong!');
+            session()->flash('passwordErrorMessage', 'Your old password is wrong!');
             return back();
         }
 
