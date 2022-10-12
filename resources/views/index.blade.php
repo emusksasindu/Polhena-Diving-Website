@@ -256,73 +256,19 @@
     <div class="swiper blogs-slider">
 
         <div class="swiper-wrapper">
-
-            <div class="swiper-slide slide">
-                <img src="images/img-1.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>Become an open water diver</h3>
-                <p>How to become a PADI open water scuba diver? Learn more here.</p>
-                <a href="/blog" class="btn">read more</a>
+          @foreach ( $posts as $post)
+          <div class="swiper-slide slide">
+            <img src="{{$post->imageUrl}}" alt="">
+            <div class="icons">
+                <a href="#"> <i class="fas fa-calendar"></i>{{date('Y-m-d', strtotime($post->created_at))}}</a>
+                <a href="#"> <i class="fas fa-user"></i>{{$post->user->name}}</a>
             </div>
-
-            <div class="swiper-slide slide">
-                <img src="images/img-2.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>upgrade your diver skills</h3>
-                <p>Upgrade your certification with PADI advanced open water course</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="images/img-3.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>Becoming a rescue diver</h3>
-                <p>Click here to read about why it is good to have your rescue certification.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="images/img-4.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>Get a life, Go Pro</h3>
-                <p>PADI Divemaster program is the first step to become a pro. Find out how.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="images/img-5.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>Did you know about the turtles in Madiha?<h3>
-                        <p>Madiha and Polhena is home to many green turtles.Curious to read more?</p>
-                        <a href="#" class="btn">read more</a>
-            </div>
-
-            <div class="swiper-slide slide">
-                <img src="images/img-6.jpg" alt="">
-                <div class="icons">
-                    <a href="#"> <i class="fas fa-calendar"></i> 21st may, 2021 </a>
-                    <a href="#"> <i class="fas fa-user"></i> by admin </a>
-                </div>
-                <h3>Whats great about night snorkeling?</h3>
-                <p>Night snorkeling is not something that you get to do everyday.Find out more.</p>
-                <a href="#" class="btn">read more</a>
-            </div>
-
+            <h3>{{$post->title}}</h3>
+            <p>{{$post->body}}</p>
+            <a href="{{route('posts.show',$post)}}" class="btn">read more</a>
+        </div>
+          @endforeach
+           
         </div>
 
     </div>

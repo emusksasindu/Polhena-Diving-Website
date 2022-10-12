@@ -103,8 +103,10 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function()
     // admin create post----------------------------------------
 
     Route::post('/postcreated',[PostController::class,'createpost']);
+   
     Route::get('/addpost',function(){
-        return view('admin/addpost');
+        $chats = (new ChatController)->chatMac();
+        return view('admin/addpost',compact('chats'));
     });
 
     // admin show all posts--------------------------------------
@@ -163,6 +165,12 @@ Route::group(['middleware' => 'App\Http\Middleware\UserMiddleware'], function()
     Route::get('services/filter/{id?}/{min_price?}/{max_price?}',[ServiceController::class,'filter'])->name('services.filter');
     Route::get('services/{service}',[ServiceController::class,'show'])->name('services.show');
     Route::post('services',[ServiceController::class,'search'])->name('services.search');
+
+
+    //post related
+    Route::get('/post',[PostController::class,'index'])->name('posts.index');
+    Route::get('/post/{post}',[PostController::class,'show'])->name('posts.show');
+
 
     Route::get('/blog', function () {
         return view('blogs.index');

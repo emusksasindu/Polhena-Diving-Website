@@ -58,7 +58,7 @@ class PostController extends Controller
      */
     public function show(Post  $post)
     {
-        return view('posts.show', compact('post'));
+        return view('blogs.index', compact('post'));
     }
     /**
      * Show the form for editing the specified resource.
@@ -120,7 +120,7 @@ class PostController extends Controller
             $addpost->type=$request->type;
             $addpost->user_id=Auth::user()->id;
 
-            $addpost->imageUrl= $request->file('imageUrl')->store('uploads/post');
+            $addpost->imageUrl= $request->file('imageUrl')->store('uploads/products','public');
 
             $addpost->save();
             return redirect()->back()->with('message', 'Post Has Been Added Sucessfully !');
@@ -149,14 +149,14 @@ class PostController extends Controller
         $data->type=$request->type;
 
         if ($request->hasFile('imageUrl')) {
-            $data->imageUrl= $request->file('imageUrl')->store('uploads/post');
+            $data->imageUrl= $request->file('imageUrl')->store('uploads/products','public');
         } else {
             $data->imageUrl = $data->imageUrl;
         }
 
 
         $data->save();
-        return redirect()->back()->with('message', 'Post Has Been updated Sucessfully !');
+        return redirect()->back()->with('message', 'Post has been updated Sucessfully !');
     }
 
 }
