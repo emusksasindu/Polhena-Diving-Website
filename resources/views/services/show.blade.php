@@ -166,13 +166,7 @@
                                 @else
                                 <a  class="add-cart ">Out of stock</a>
                                 @endif
-                        <div class="rating">
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                            <i class="fa fa-star-o"></i>
-                        </div>
+                        
                                 <h4 class = "text-light bg-dark font-weight-bold">${{$relatedProduct->selling_price}}</h4>
                     </div>
                 </div>

@@ -137,13 +137,7 @@
                                 @else
                                 <a  class="add-cart ">Out of stock</a>
                                 @endif
-                                <div class="rating">
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                    <i class="fa fa-star-o"></i>
-                                </div>
+                            
                                 @if($service->discount > 0)
                                 <h5 class = "text-muted font-weight-light"><span>${{round($service->selling_price *100 / (100 - $service->discount),2)}}</span></h5>
                                 @endif
