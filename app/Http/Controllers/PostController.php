@@ -91,7 +91,7 @@ class PostController extends Controller
         $post->users_id = $request->users_id;
         $post->save();
         return redirect()->route('admin.posts')
-            ->with('success', 'post Has Been updated successfully');
+            ->with('success', 'post has been updated successfully');
     }
     /**
      * Remove the specified resource from storage.
@@ -110,7 +110,7 @@ class PostController extends Controller
         $this->validate($request,[
             'title'=>'required|max:250|min:10',
             'body'=>'required|max:2000|min:10',
-            'imageUrl'=> 'required',
+            'imageUrl'=> ['required','image'],
 
         ]);
 
@@ -120,10 +120,12 @@ class PostController extends Controller
             $addpost->type=$request->type;
             $addpost->user_id=Auth::user()->id;
 
-            $addpost->imageUrl= $request->file('imageUrl')->store('uploads/products','public');
+
+            $image_path= $request->file('imageUrl')->store('uploads/posts','public');
+            $addpost->imageUrl =$image_path;
 
             $addpost->save();
-            return redirect()->back()->with('message', 'Post Has Been Added Sucessfully !');
+            return redirect()->back()->with('message', 'Post has been Added Sucessfully !');
 
     }
     public function showposts(){
@@ -149,7 +151,8 @@ class PostController extends Controller
         $data->type=$request->type;
 
         if ($request->hasFile('imageUrl')) {
-            $data->imageUrl= $request->file('imageUrl')->store('uploads/products','public');
+            $image_path= $request->file('imageUrl')->store('uploads/post','public');
+            $data->imageUrl= $image_path;
         } else {
             $data->imageUrl = $data->imageUrl;
         }

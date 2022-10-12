@@ -258,7 +258,7 @@
         <div class="swiper-wrapper">
           @foreach ( $posts as $post)
           <div class="swiper-slide slide">
-            <img src="{{$post->imageUrl}}" alt="">
+            <img src="/storage/{{$post->imageUrl}}" alt="">
             <div class="icons">
                 <a href="#"> <i class="fas fa-calendar"></i>{{date('Y-m-d', strtotime($post->created_at))}}</a>
                 <a href="#"> <i class="fas fa-user"></i>{{$post->user->name}}</a>
