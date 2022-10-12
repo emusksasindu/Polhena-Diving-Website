@@ -14,9 +14,24 @@
             <!-- ======================= Cards ================== -->
             <div class="cardProfile">
                 <div class="card">
-                    {{-- @if($errors->any())
-    {!! implode('', $errors->all('<div>:message</div>')) !!}
-@endif --}}
+                    
+                    @if (session('passwordMessage'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('passwordMessage')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @elseif (session('passwordErrorMessage'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{session('passwordErrorMessage')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @endif
+                    @error('password') 
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{$message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @enderror
                     <form method="POST" action="/profileupdated">
                         @csrf
                         <input type="hidden" name= "id" class="form-control"  value="{{ Auth::user()->id }}">
@@ -39,10 +54,11 @@
                         Change Password
                         </button>
                     </form>
-                        
+                          
                         <!-- Modal -->
                         <div class="modal fade" id="changepassword" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
+                                
                                 <form method="POST" action="/passwordchanged">
                                     @csrf
                                     <div class="modal-content">
@@ -59,7 +75,7 @@
 
                                         <div class="form-group">
                                             <h4 class="numbers" for="Password">New Password</h4>
-                                            <input type="password" name="password" class="form-control" placeholder="Enter Password" value="">
+                                            <input type="password" name="password" class="form-control" placeholder="Enter Password" value="{{ old('password') }}">
                                         </div>
                                         <div class="form-group">
                                             <h4 class="numbers" for="Password">Retype New Password</h4>
@@ -84,7 +100,7 @@
 
 
     <!-- =========== Scripts =========  -->
-    <script src="js/admin_script.js"></script>
+    {{-- <script src="js/admin_script.js"></script> --}}
 
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

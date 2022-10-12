@@ -187,12 +187,14 @@ class UserController extends Controller
 
                 Auth::logout();
             } else {
-                return redirect()->back()->with('message', 'Password error !');
+                session()->flash('passwordErrorMessage', 'Failed to Change password');
+                return back();
             }
         }else{
-            return redirect()->back()->with('message', 'Password error !');
+            session()->flash('passwordErrorMessage', 'You old password is wrong!');
+            return back();
         }
 
-        return redirect()->back()->with('message', 'Password Changed');
+        return redirect()->back()->with('passwordMessage', 'Your Password Changed');
     }
 }
