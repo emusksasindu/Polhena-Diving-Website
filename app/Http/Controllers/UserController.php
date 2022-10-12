@@ -12,7 +12,7 @@ class UserController extends Controller
     public function index()
     {
         $data['users'] = User::orderBy('id', 'desc')->get();
-        
+
         return view('admin.users', $data);
     }
 
@@ -163,20 +163,24 @@ class UserController extends Controller
     }
 
     public function profileupdate(Request $request){
-        
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+        ]);
             $user=user::find($request->id);
 
             $user->name=$request->name;
             $user->email=$request->email;
 
-
             $user->save();
-            return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
+            return redirect()->back()->with('updatemsg', 'Details Has Been updated Sucessfully !');
     }
 
     public function passwordchange(Request $request){
         $request->validate([
             'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+            'oldpassword' => ['required', 'string', 'min:8','max:16'],
+            'password_confirmation' => ['required', 'string', 'min:8','max:16']
         ]);
         $user = user::find(Auth::user()->id);
 
@@ -188,12 +192,12 @@ class UserController extends Controller
 
                 Auth::logout();
             } else {
-                return redirect()->back()->with('message', 'Password error !');
+                return redirect()->back()->with('changepassword', 'Password error !');
             }
         }else{
-            return redirect()->back()->with('message', 'Password error !');
+            return redirect()->back()->with('changepassword', 'Password error !');
         }
 
-        return redirect()->back()->with('message', 'Password Changed');
+        return redirect()->back()->with('changepassword', 'Password has been Changed Successfully');
     }
 }
