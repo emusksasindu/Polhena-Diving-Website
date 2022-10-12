@@ -28,7 +28,7 @@
                                 <td>Name</td>
                                 <td>Type</td>
                                 <td>Status</td>
-                                <td>Edit/Delete</td>
+                                <td>Edit/Disable</td>
 
                             </tr>
                         </thead>
