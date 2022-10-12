@@ -49,6 +49,7 @@
                         <div class="gap"></div>
 
                         <div class="gap"></div>
+
                         <button type="submit" class="btn">Edit</button>
                         <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#changepassword">
                         Change Password
@@ -97,7 +98,7 @@
 
 
             </div>
-
+            <x-admin_chat :chats="$chats"/>
 
     <!-- =========== Scripts =========  -->
     {{-- <script src="js/admin_script.js"></script> --}}

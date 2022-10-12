@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Middleware\AdminMiddleware;
+use App\Models\post;
 use Illuminate\Http\Request;
 use App\Models\product;
 use App\Models\service;
@@ -31,6 +32,7 @@ class HomeController extends Controller
     }
         $data['products'] = product::orderBy('id', 'desc')->limit(10)->get();
         $data['services'] = service::orderBy('id', 'desc')->limit(10)->get();
+        $data['posts'] = post::orderBy('id', 'desc')->limit(10)->get();
         $data['productCount'] = product::count();
         $data['serviceCount'] = service::count();
         return view('index',$data);

@@ -10,6 +10,7 @@ class CategoryController extends Controller
     public function index()
     {
         $data['categories'] = Category::orderBy('id', 'desc')->get();
+        $data['chats'] = (new ChatController)->chatMac();
         return view('admin.categories', $data);
     }
 

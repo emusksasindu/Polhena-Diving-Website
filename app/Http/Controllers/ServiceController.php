@@ -12,6 +12,7 @@ class ServiceController extends Controller
     public function index()
     {
         $data['services'] = service::orderBy('id', 'desc')->paginate(5);
+        $data['chats'] = (new ChatController)->chatMac();
         return view('admin.service', $data);
     }
 
