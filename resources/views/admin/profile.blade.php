@@ -25,6 +25,11 @@
                             {{session('passwordErrorMessage')}}
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
+                    @elseif (session('updatemsg'))
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('updatemsg')}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
                     @endif
                     @error('password') 
                         <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -32,6 +37,21 @@
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     @enderror
+
+                    @error('name') 
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{$message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @enderror
+
+                    @error('email') 
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            {{$message}}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    @enderror
+                    
                     <form method="POST" action="/profileupdated">
                         @csrf
                         <input type="hidden" name= "id" class="form-control"  value="{{ Auth::user()->id }}">

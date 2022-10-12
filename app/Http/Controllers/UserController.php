@@ -173,7 +173,8 @@ class UserController extends Controller
             $user->email=$request->email;
 
             $user->save();
-            return redirect()->back()->with('updatemsg', 'Details Has Been updated Sucessfully !');
+            session()->flash('updatemsg', 'Profile Updated Sucessfully');
+            return back();
     }
 
     public function passwordchange(Request $request){
