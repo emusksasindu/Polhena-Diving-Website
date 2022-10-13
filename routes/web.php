@@ -239,3 +239,8 @@ Route::get('/testt', function () {
 
 // subscribe function routes------------------------------(user side)
 Route::post('/subscribed', [SubscribeController::class, 'index']);
+
+
+Route::get('/block', function () {
+    return view('block.index');
+})->middleware('App\Http\Middleware\BlockMiddleware');

@@ -34,9 +34,7 @@
         <a class="icons">    
             <a href="{{ asset('/cart') }}" class="fas fa-shopping-cart"></a>
         </a>
-        <a class="icons">    
-            <a id="search-btn" class="fas fa-search"></a>
-        </a>
+
          <a>
 
             

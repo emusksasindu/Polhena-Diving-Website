@@ -61,6 +61,14 @@
  
 }
 
+.block
+{
+  
+  object-fit: contain;
+  width: 800px;
+  height: 500px;
+}
+
 .login-form form h3,
 .register-form form h3 {
   font-size: 2.2rem;

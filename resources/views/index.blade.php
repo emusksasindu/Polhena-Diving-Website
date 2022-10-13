@@ -18,7 +18,7 @@
                         <h3>exploring</h3>
                         <p>Sri Lanka has some of the best scuba diving spots in South Asia. Pristine beaches, warm
                             water, going underwater is certainly a treat in here!</p>
-                        <a href="#" class="btnHome">get started</a>
+                        <a href="{{ asset('/services') }}" class="btnHome">get started</a>
                     </div>
                 </div>
             </div>
@@ -30,7 +30,7 @@
                         <h3>amazing</h3>
                         <p>The dive shop which remembers your name and know the size of your fins. A place to find
                             friends, and a place to find your soul.</p>
-                        <a href="#" class="btnHome">get started</a>
+                        <a href="{{ asset('/services') }}" class="btnHome">get started</a>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                         <h3>new underwater world</h3>
                         <p>Discover the depths of Southern Sea, From Weligama, Mirissa and all the way to Tangalle.
                             Including the famous Moray Point minutes away from the polhena diving center.</p>
-                        <a href="#" class="btnHome">get started</a>
+                        <a href="{{ asset('/services') }}" class="btnHome">get started</a>
                     </div>
                 </div>
             </div>

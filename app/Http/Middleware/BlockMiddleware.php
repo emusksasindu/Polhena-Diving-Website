@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-class AuthUserMiddleware
+class BlockMiddleware
 {
     /**
      * Handle an incoming request.
@@ -25,14 +25,19 @@ class AuthUserMiddleware
             return redirect('/login');
         }
 
-        if ($request->user()->status == 'blocked') {
-            return redirect('/block');
+        if ($request->user()->status != 'blocked') {
+            if ($request->user()->type == 'A') 
+            {
+
+                return redirect('/admin');
+            }
+            else
+            {
+                return redirect('/home');
+            }
         }
 
-        if ($request->user()->type == 'A') {
-
-            return redirect('/admin');
-        }
+        
         return $next($request);
     }
 }

@@ -159,7 +159,7 @@ class UserController extends Controller
         $user->status= $request->status;
 
         $user->save();
-        return redirect()->back()->with('message', 'user Has Been updated Sucessfully !');
+        return redirect()->back()->with('message', 'user has been updated Sucessfully !');
     }
 
     public function profileupdate(Request $request){
@@ -173,7 +173,7 @@ class UserController extends Controller
             $user->email=$request->email;
 
             $user->save();
-            return redirect()->back()->with('updatemsg', 'Details Has Been updated Sucessfully !');
+            return redirect()->back()->with('updatemsg', 'Details has been updated Sucessfully !');
     }
 
     public function passwordchange(Request $request){

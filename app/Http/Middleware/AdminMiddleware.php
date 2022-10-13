@@ -18,16 +18,19 @@ class AdminMiddleware
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
 
-     
+
     public function handle(Request $request, Closure $next)
     {
-        if($request->user() == null){
+        if ($request->user() == null) {
             return redirect('/home');
         }
-       
-       if($request->user()->type != 'A'){
-                return redirect('/home');
-            }   
-          return $next($request);
+        if ($request->user()->status == 'blocked') {
+            return redirect('/block');
+        }
+
+        if ($request->user()->type != 'A') {
+            return redirect('/home');
+        }
+        return $next($request);
     }
 }
