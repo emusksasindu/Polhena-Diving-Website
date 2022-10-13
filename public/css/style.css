@@ -69,6 +69,11 @@
   height: 500px;
 }
 
+.verify_text
+{
+  font-size: medium;
+}
+
 .login-form form h3,
 .register-form form h3 {
   font-size: 2.2rem;

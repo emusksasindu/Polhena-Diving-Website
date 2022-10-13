@@ -228,13 +228,8 @@ Route::post('show/admin/chat', [ChatController::class, 'admin_chat']);
 Route::post('save/chat', [ChatController::class, 'store'])->name('chat.store');
 Route::post('set/user/session', [ChatController::class, 'set_user_session'])->name('set_user_session');
 
-Route::get('/testt', function () {
-    $last_row = DB::table('chats')->latest("id")->first();
-    if (!$last_row) {
-        echo "Hello";
-    } else {
-        echo "Hello World";
-    }
+Route::get('/test', function () {
+    return view('auth.password.reset');
 });
 
 // subscribe function routes------------------------------(user side)

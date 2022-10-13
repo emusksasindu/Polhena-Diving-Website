@@ -110,8 +110,15 @@
               <div class="gap"></div>
               <div class="form-group">
                  <h2 class="numbers">Status</h2>
-                 <input type="text" name="status" class="form-control" id="Discount"
-                        placeholder="status">
+                 <div class="dropdown">
+                    <select class="btn btn-secondary" name="status">
+                        @foreach ($categories as $category)
+                            <option value="in stock">InStock</option>
+                            <option value="out of stock">Out Of Stock</option>
+                        @endforeach
+                    </select>
+
+                </div>
                         @error('status')
                         <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror

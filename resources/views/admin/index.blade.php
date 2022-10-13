@@ -100,7 +100,14 @@
                                 <td>{{$order->shipping_address}}</td>
                                 <td>{{$order->number}}</td>
                                 <td>{{$order->total}}</td>
+                                @if($order->status == 'delivered' )
                                 <td><span class="status delivered">{{$order->status}}</span></td>
+                                @elseif ($order->status == 'processing' )
+                                <td><span class="status inProgress">{{$order->status}}</span></td>
+                                @else
+                                <td><span class="status return">{{$order->status}}</span></td>
+                                @endif
+
                             </tr>
                             @endforeach
                         </tbody>
