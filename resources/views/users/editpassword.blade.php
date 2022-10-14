@@ -4,7 +4,7 @@
 
     <div class="content">
         <div class="gap"></div>
-        <h1 class="heading">Update Password</h1>
+        <h1 class="heading gap">Update Password</h1>
         @if (session('status'))
             <span class="valid-feedback" role="alert">
                 <strong>{{ session('status') }}</strong>

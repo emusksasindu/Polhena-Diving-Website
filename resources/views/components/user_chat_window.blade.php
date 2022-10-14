@@ -12,11 +12,7 @@
                             <tr class='gap'>
                                 <td>
                                     <div class="numbers " id="chatWindow" style="font-size: 20px">
-                                        @if (Auth::check())
-                                            {{ Auth::user()->name }}
-                                        @else
-                                            Chat
-                                        @endif
+                                        Chat
                                     </div>
                                 </td>
                             </tr>
