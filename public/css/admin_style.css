@@ -664,6 +664,8 @@ a{
 
 
 
+
+
 .cardFinance .card {
   position: relative;
   background: var(--white);
@@ -824,6 +826,8 @@ a{
 .hidescroll::-webkit-scrollbar {
   display: none;
 }
+
+
 
 .StaticChatList .card {
   position: fixed;

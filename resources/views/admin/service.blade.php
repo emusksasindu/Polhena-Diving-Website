@@ -70,7 +70,6 @@
                                 <td>Image</td>
                                 <td>ID</td>
                                 <td>Name</td>
-                                <td>Description</td>
                                 <td>Price</td>
                                 <td>Cost</td>
                                 <td>Status</td>
@@ -85,7 +84,6 @@
                                 <td><img src="/storage/{{$service->imageUrl_1}}" alt=""></td>
                                 <td>{{$service->serviceID}}</td>
                                 <td>{{$service->name}}</td>
-                                <td>{{$service->description}}</td>
                                 <td>${{$service->selling_price}}</td>
                                 <td>${{$service->cost}}</td>
                                 <td><span class="status {{$service->status == "in stock"? 'inProgress' : 'return'}}">{{$service->status == "in stock"? 'In Stock' : 'Out of stock'}}</span></td>
