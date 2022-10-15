@@ -116,7 +116,7 @@
                         <h3>{{ $service->name }}</h3>
                         <p>{{ $service->description }}</p>
                         <div class="price">${{ $service->selling_price }}</div>
-                        <a href="{{ route('products.show', $service) }}" class="btn">explore now</a>
+                        <a href="{{ route('services.show', $service) }}" class="btn">explore now</a>
                     </div>
                 </div>
             @endforeach
