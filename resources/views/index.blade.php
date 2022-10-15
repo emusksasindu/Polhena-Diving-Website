@@ -285,20 +285,20 @@
         <h1 class="heading">CONTACT US</h1>
         <p>We always reply unless someone threw our Admin team in the water.</p>
         @if(count($errors) > 0 )
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="invalid-feedback" role="alert">
 
                 Please Fill All Required Fields.!
             </div>
         @endif
         @if(session()->has('message'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="invalid-feedback" role="alert">
             <strong>{{ session()->get('message') }}
                 </strong>
         </div>
         @endif
         <form action="/subscribed" method="POST">
             {{ csrf_field() }}
-            <input type="text" name="name" placeholder="enter your name" id="" class="email">
+            <input type="text" name="name" placeholder="enter your name" id=""  class="email">
             <input type="email" name="email" placeholder="enter your email" id="" class="email">
             <input type="tel" name="number" placeholder="enter your number" id="" class="email">
             <input type="text" name="subject" placeholder="enter the subject" id="" class="email">
