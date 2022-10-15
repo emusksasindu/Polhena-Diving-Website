@@ -72,6 +72,9 @@ Route::group(['middleware' => 'App\Http\Middleware\AdminMiddleware'], function (
     Route::get('/admin/services/delete', [ServiceController::class, 'destroy'])->name('services.destroy');
     Route::post('/admin/services/search', [ServiceController::class, 'search'])->name('services.adminsearch');
 
+    //payment related
+    Route::get('/admin/payments', [PaymentController::class, 'index'])->name('payments.index');
+
 
     // admin panel functions
 

@@ -127,6 +127,7 @@ class ProductController extends Controller
     {
         return view('products.index', $data);
     }
+        $data['chats'] = (new ChatController)->chatMac();
         return view('admin.products', $data);  
     }
 

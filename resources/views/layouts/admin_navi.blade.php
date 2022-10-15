@@ -119,9 +119,18 @@
                 </li>
 
                 <li>
-                    <a href="/finance">
+                    <a href="{{ asset('admin/payments') }}">
                         <span class="icon">
                             <ion-icon name="cash-outline"></ion-icon>
+                        </span>
+                        <span class="title">Payment History</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="/finance">
+                        <span class="icon">
+                            <ion-icon name="bar-chart-outline"></ion-icon>
                         </span>
                         <span class="title">Financial Summary</span>
                     </a>

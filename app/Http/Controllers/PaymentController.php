@@ -12,8 +12,10 @@ class PaymentController extends Controller
 {
     public function index()
     {
+         //chat
+         $data['chats'] = (new ChatController)->chatMac();
         $data['payments'] = Payment::orderBy('id', 'desc')->get();
-        return view('admin.payments', $data);
+        return view('payment.index', $data);
     }
 
     public function user_index()

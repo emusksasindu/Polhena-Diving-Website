@@ -158,6 +158,7 @@ class ServiceController extends Controller
     {
         return view('services.index', $data);
     }
+        $data['chats'] = (new ChatController)->chatMac();
         return view('admin.service', $data);  
     }
 
