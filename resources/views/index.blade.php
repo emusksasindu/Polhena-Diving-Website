@@ -80,13 +80,7 @@
                         <div class="content">
                             <h3>{{ $product->name }}</h3>
                             <div class="price">${{ $product->selling_price }} </div>
-                            <div class="stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
-                            </div>
+                            
                         </div>
                     </div>
                 @endforeach
@@ -122,7 +116,7 @@
                         <h3>{{ $service->name }}</h3>
                         <p>{{ $service->description }}</p>
                         <div class="price">${{ $service->selling_price }}</div>
-                        <a href="#" class="btn">explore now</a>
+                        <a href="{{ route('products.show', $service) }}" class="btn">explore now</a>
                     </div>
                 </div>
             @endforeach
