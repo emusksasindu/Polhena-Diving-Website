@@ -180,10 +180,10 @@
                     <h2 class="numbers">Status</h2>
                     <div class="dropdown">
                         <select class="btn btn-secondary" name="status">
-                            @foreach ($categories as $category)
+                            
                                 <option value="in stock">InStock</option>
                                 <option value="out of stock">Out Of Stock</option>
-                            @endforeach
+                            
                         </select>
 
                     </div>
