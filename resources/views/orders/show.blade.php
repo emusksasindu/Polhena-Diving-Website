@@ -80,7 +80,7 @@
                         <th class="OrderTableValue" scope="col">: {{ $payment->status }}</th>
                     </tr>
 
-                    @if ($order->status == 'process')
+                    @if ($order->status == 'processing')
                         <tr>
                             <th scope="row">Action</th>
                             <input type="hidden" name='id' value="{{ $order->id }}">
