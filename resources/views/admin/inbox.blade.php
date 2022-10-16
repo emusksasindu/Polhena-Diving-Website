@@ -28,6 +28,7 @@
                             <div class="card">
                                 <div>
                                     <div class="numbers">{{$message ['name']}}</div>
+                                    <div class="cardName">Sender's email : {{$message ['email']}}</div>
                                     <div class="cardName">{{$message ['body']}}</div>
                                 </div>
 
