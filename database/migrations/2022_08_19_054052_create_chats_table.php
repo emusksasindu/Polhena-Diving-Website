@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('guest_id')->constrained()->nullable();
-            $table->foreignId('user_id')->constrained()->nullable();
+            $table->foreignId('guest_id')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->string('sender_type');
             $table->string('receiver_type');
             $table->mediumText('message')->nullable();

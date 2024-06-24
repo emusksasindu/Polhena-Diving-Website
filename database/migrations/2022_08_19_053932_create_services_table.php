@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('serviceID',20);
             $table->string('name',50);
             $table->mediumText('description')->nullable();
             $table->string('imageUrl_1');

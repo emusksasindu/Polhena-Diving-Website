@@ -12,6 +12,7 @@ class ServiceController extends Controller
     public function index()
     {
         $data['services'] = service::orderBy('id', 'desc')->paginate(5);
+        $data['chats'] = (new ChatController)->chatMac();
         return view('admin.service', $data);
     }
 
@@ -104,6 +105,7 @@ class ServiceController extends Controller
             'cost' => ['required', 'numeric', 'between:0,9999999999.99'],
         ]);
         $service = new service;
+        $service->serviceID = "SE".random_int(10, 99). date("Ymdhi");
         $service->name = $request->name;
         $service->description = $request->description;
         $service->category_id = $request->category_id;

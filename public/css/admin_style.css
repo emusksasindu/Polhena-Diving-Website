@@ -407,6 +407,26 @@ a{
 }
 
 
+.StaticChat .message-received-text{
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: fit-content;
+  line-height: 1.8em;
+}
+
+.StaticChat .message-sent-text{
+  display: block;/* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: fit-content;
+  line-height: 1.8em;
+}
+
+
+
 
 /* ======================= Cards for Inbox====================== */
 .inboxCard {
@@ -723,7 +743,7 @@ a{
 .StaticChat .card {
   position: fixed;
   z-index: 2;
-  bottom: 0;
+  
   right: 60px;
   background: var(--white);
   padding: 20px;
@@ -804,7 +824,6 @@ a{
 .StaticChatList .card {
   position: fixed;
   z-index: 2;
-  bottom: 0;
   right: 500px;
   background: var(--white);
   padding: 20px;

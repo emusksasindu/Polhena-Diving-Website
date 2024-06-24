@@ -10,6 +10,8 @@ class chat extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function guest(): BelongsTo
     {
         return $this->belongsTo(guest::class);

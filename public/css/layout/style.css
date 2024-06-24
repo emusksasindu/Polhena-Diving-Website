@@ -186,7 +186,10 @@ section {
     border-radius: 2.5rem;
     color: white;
     font-size: 2.6rem;
-    background-color: #042b36;}
+    background-color: #042b36;
+    text-decoration: none;
+  
+  }
   
   .dropdown-login:hover .dropdown-content-login {
     border-radius: 2.5rem;

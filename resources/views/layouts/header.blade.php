@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="{{asset('https://unpkg.com/swiper@7/swiper-bundle.min.css')}}" />
     <link rel="stylesheet" href="{{ asset('css/layout/style.css') }}" type="text/css">
-  
+    <link rel="stylesheet" href="{{ asset('http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css') }}">
 
 
 </head>
@@ -65,7 +65,7 @@
          
           <div class="dropdown-content-login">
             <a href="{{ asset('/profile') }}">Profile</a>
-            <a href="{{ asset('/order') }}">Order History</a>
+            <a href="{{ asset('/order/history') }}">Order History</a>
             <a  href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">

@@ -64,7 +64,7 @@
 
 
      </div>
-
+     <x-admin_chat :chats="$chats"/>
 
 <!-- =========== Scripts =========  -->
 <script src='{{asset("js/admin_script.js")}}'></script>

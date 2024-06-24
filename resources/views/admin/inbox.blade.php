@@ -15,13 +15,7 @@
 
                 <div class="recentOrders">
                     <h2 class="h2">Inbox</h2>
-                    <div class="input-group">
-                        <div class="form-outline">
-                          <input type="search" id="form1" class="form-control" placeholder="Search by name"/>
-
-                        </div>
-
-                    </div>
+                    
                     <div class="cardHeader">
 
 
@@ -54,7 +48,7 @@
 
         </div>
     </div>
-
+    <x-admin_chat :chats="$chats"/>
     <!-- =========== Scripts =========  -->
     <script src="js/admin_script.js"></script>
 

@@ -164,8 +164,10 @@
                                 </div>
                                 @if($product->discount > 0)
                                 <h5 class = "text-muted font-weight-light"><span>${{round($product->selling_price *100 / (100 - $product->discount),2)}}</span></h5>
+                                @else
+                                <h5 class = "text-muted font-weight-light"><span>${{round($product->selling_price,2)}}</span></h5>
                                 @endif
-                                <h4 class = "text-light bg-dark font-weight-bold">${{$product->selling_price}}</h4>
+                                <h4 class = "text-light bg-dark font-weight-bold">${{round($product->selling_price,2)}}</h4>
                                 <!--div class="product__color__select">
                                     <label for="pc-4">
                                         <input type="radio" id="pc-4">

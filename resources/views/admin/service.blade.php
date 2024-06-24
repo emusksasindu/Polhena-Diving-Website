@@ -68,6 +68,7 @@
                             <tr>
                                 
                                 <td>Image</td>
+                                <td>ID</td>
                                 <td>Name</td>
                                 <td>Description</td>
                                 <td>Price</td>
@@ -82,6 +83,7 @@
                             @foreach($services as $service)
                             <tr>
                                 <td><img src="/storage/{{$service->imageUrl_1}}" alt=""></td>
+                                <td>{{$service->serviceID}}</td>
                                 <td>{{$service->name}}</td>
                                 <td>{{$service->description}}</td>
                                 <td>${{$service->selling_price}}</td>
@@ -105,7 +107,7 @@
             </div>
         </div>
     </div>
-
+    <x-admin_chat :chats="$chats"/>
     <!-- =========== Scripts =========  -->
     <script src="js/admin_script.js"></script>
 
